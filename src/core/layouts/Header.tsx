@@ -10,6 +10,7 @@ import { useSession } from "@blitzjs/auth"
 import { Suspense } from "react"
 import Nav from "./Nav"
 import Link from "../components/atoms/Link"
+import NextLink from "next/link"
 
 const AuthButton = () => {
   const session = useSession()
@@ -33,7 +34,11 @@ const Header = () => {
             <Nav />
           </Group>
           <Group noWrap>
-            <Link href="/design-systems">Системы</Link>
+            <NextLink href="/design-systems" passHref>
+              <Button size="xs" variant="outline" component="a">
+                Системы
+              </Button>
+            </NextLink>
             <Suspense>
               <AuthButton />
             </Suspense>

@@ -19,13 +19,20 @@ const useStyles = createStyles((theme) => ({
   },
   caption: {
     "&:after": {
+      content: "''",
       position: "absolute",
       cursor: "pointer",
-      zIndex: 10,
+      zIndex: 1,
       left: 0,
       right: 0,
       top: 0,
       bottom: 0,
+    },
+  },
+  links: {
+    "> a": {
+      position: "relative",
+      zIndex: 2,
     },
   },
 }))
@@ -36,7 +43,7 @@ const Card = ({}: CardProps) => {
   const { classes } = useStyles()
   return (
     <Box className={classes.card}>
-      <Group spacing="xs" mb="xs">
+      <Group spacing="xs" mb="xs" className={classes.links}>
         <Anchor href="https://figma.com" target="_blank" rel="noreferrer">
           <IconWorld size={20} />
         </Anchor>
