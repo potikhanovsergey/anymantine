@@ -11,7 +11,7 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: theme.white,
     color: theme.black,
     border: `${rem(1)} solid ${theme.black}`,
-    padding: `${rem(8)} ${theme.spacing.md}`,
+    padding: `${rem(6)} ${theme.spacing.lg}`,
     cursor: "pointer",
     fontSize: theme.fontSizes.sm,
     display: "flex",
