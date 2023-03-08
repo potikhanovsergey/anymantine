@@ -1,9 +1,13 @@
 // @ts-check
-const {withBlitz} = require("@blitzjs/next")
+const { withBlitz } = require("@blitzjs/next")
 
 /**
  * @type {import('@blitzjs/next').BlitzConfig}
  **/
-const config = {}
+const config = {
+  images: {
+    domains: ["vercel.com"],
+  },
+}
 
 module.exports = withBlitz(config)
