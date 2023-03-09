@@ -1,4 +1,14 @@
-import { Box, Title, Text, createStyles, AspectRatio, Group, Badge, Anchor } from "@mantine/core"
+import {
+  Box,
+  Title,
+  Text,
+  createStyles,
+  AspectRatio,
+  Group,
+  Badge,
+  Anchor,
+  Tooltip,
+} from "@mantine/core"
 import { IconWorld } from "@tabler/icons-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -14,7 +24,7 @@ const useStyles = createStyles((theme) => ({
     color: theme.black,
     position: "relative",
     "&:hover": {
-      background: theme.colors.gray[0],
+      background: theme.colors.violet[0],
     },
   },
   caption: {
@@ -44,9 +54,11 @@ const Card = ({}: CardProps) => {
   return (
     <Box className={classes.card}>
       <Group spacing="xs" mb="xs" className={classes.links}>
-        <Anchor href="https://figma.com" target="_blank" rel="noreferrer">
-          <IconWorld size={20} />
-        </Anchor>
+        <Tooltip label="https://figma.com">
+          <Anchor href="https://figma.com" target="_blank" rel="noreferrer">
+            <IconWorld size={20} />
+          </Anchor>
+        </Tooltip>
       </Group>
       <Link passHref href="/design-systems/1">
         <Text className={classes.caption} component="a" weight={300} color="dimmed">
@@ -64,7 +76,7 @@ const Card = ({}: CardProps) => {
         />
       </AspectRatio>
       <Group position="right">
-        <Badge>₽299</Badge>
+        <Badge variant="outline">₽299</Badge>
       </Group>
     </Box>
   )

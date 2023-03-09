@@ -1,9 +1,9 @@
-import { MantineThemeOverride, Text } from "@mantine/core"
+import { ButtonStylesParams, MantineThemeOverride, Text } from "@mantine/core"
 
 const MantineTheme: MantineThemeOverride = {
-  primaryShade: 5,
   cursorType: "pointer",
   primaryColor: "violet",
+  defaultRadius: 0,
   components: {
     Loader: {
       defaultProps: {
@@ -15,6 +15,19 @@ const MantineTheme: MantineThemeOverride = {
       defaultProps: {
         loaderPosition: "center",
       },
+      styles: (theme, _params, { variant }) => ({
+        root:
+          variant === "filled"
+            ? {
+                background: theme.colors.violet[3],
+                color: theme.black,
+                border: `1px solid ${theme.black}`,
+                "&:hover": {
+                  color: theme.white,
+                },
+              }
+            : {},
+      }),
     },
     Avatar: {
       defaultProps: {
@@ -41,6 +54,22 @@ const MantineTheme: MantineThemeOverride = {
       styles: (theme) => ({
         dropdown: {
           border: "none",
+        },
+      }),
+    },
+    HoverCard: {
+      styles: (theme) => ({
+        dropdown: {
+          borderColor: theme.black,
+        },
+      }),
+    },
+    Paper: {
+      styles: (theme) => ({
+        root: {
+          "&[data-with-border]": {
+            borderColor: theme.black,
+          },
         },
       }),
     },

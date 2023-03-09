@@ -36,7 +36,7 @@ const Header = () => {
           <Group noWrap>
             <NextLink href="/design-systems" passHref>
               <Button size="xs" variant="outline" component="a">
-                Системы
+                Дизайн системы
               </Button>
             </NextLink>
             <Suspense>

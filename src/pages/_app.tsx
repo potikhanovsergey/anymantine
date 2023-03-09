@@ -4,6 +4,7 @@ import React from "react"
 import { withBlitz } from "src/blitz-client"
 import { MantineProvider } from "@mantine/core"
 import MantineTheme from "src/MantineTheme"
+import { ModalsProvider } from "@mantine/modals"
 
 function RootErrorFallback({ error }: ErrorFallbackProps) {
   if (error instanceof AuthenticationError) {
@@ -29,9 +30,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   const getLayout = Component.getLayout || ((page) => page)
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS theme={MantineTheme}>
+      {/* <ModalsProvider> */}
       <ErrorBoundary FallbackComponent={RootErrorFallback}>
         {getLayout(<Component {...pageProps} />)}
       </ErrorBoundary>
+      {/* </ModalsProvider> */}
     </MantineProvider>
   )
 }
