@@ -5,6 +5,7 @@ import {
   Tuple,
   MantineTheme,
   ActionIconStylesParams,
+  rem,
 } from "@mantine/core"
 
 const cardShadow = "0 4px 6px rgb(0 0 0 / 4%)"
@@ -236,12 +237,22 @@ const GeistTheme: MantineThemeOverride = {
         },
       }),
     },
+    InputWrapper: {
+      styles: (theme) => ({
+        label: {
+          marginBottom: rem(4),
+          color: theme.colors.geistAccent[5],
+        },
+      }),
+    },
     Input: {
       styles: (theme) => ({
         input: {
           transition: "border-color .15s ease",
-          "&:focus-within, &:hover": {
-            borderColor: theme.colors.geistAccent[5],
+          "&:focus-within": {
+            "&:not([data-invalid])": {
+              borderColor: theme.colors.geistAccent[5],
+            },
           },
           borderColor: theme.colors.geistAccent[2],
           "::placeholder": {
@@ -270,10 +281,6 @@ const GeistTheme: MantineThemeOverride = {
     },
     Switch: {
       styles: (theme) => ({
-        track: {
-          // backgroundColor: theme.colors.gray[6],
-          // borderColor: theme.colors.gray[6],
-        },
         input: {
           "&:checked+label": {
             backgroundColor: theme.black + "!important",

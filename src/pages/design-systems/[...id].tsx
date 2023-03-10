@@ -11,7 +11,7 @@ const DesignSystemPage: BlitzPage = () => {
       <Container pt="xl" size="xl">
         <Grid gutter="xl">
           <Grid.Col span={8}>
-            <Paper withBorder p={theme.spacing.xl}>
+            <Paper pl={theme.spacing.xl} pr={theme.spacing.xl} pb={theme.spacing.xl}>
               <ViewTabs />
             </Paper>
           </Grid.Col>

@@ -1,4 +1,4 @@
-import { Box, createStyles, rem, Loader, Accordion } from "@mantine/core"
+import { Box, createStyles, rem, Loader, Accordion, useMantineTheme } from "@mantine/core"
 import dynamic from "next/dynamic"
 import { ReactNode } from "react"
 
@@ -38,6 +38,7 @@ export interface ItemWithSnippetProps {
 
 const ItemWithSnippet = ({ children, snippet }: ItemWithSnippetProps) => {
   const { classes } = useStyles()
+  const theme = useMantineTheme()
   return (
     <Box className={classes.wrapper}>
       <Box className={classes.body}>{children}</Box>
@@ -51,6 +52,7 @@ const ItemWithSnippet = ({ children, snippet }: ItemWithSnippetProps) => {
           <Accordion.Control>Пример кода</Accordion.Control>
           <Accordion.Panel p={0}>
             <Prism
+              bg={theme.colors.gray[0]}
               withLineNumbers
               copyLabel="Скопировать код"
               copiedLabel="Скопировано"

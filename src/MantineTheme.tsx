@@ -46,10 +46,6 @@ const MantineTheme: MantineThemeOverride = {
     },
     Popover: {
       defaultProps: {
-        transitionProps: {
-          transition: "pop",
-          duration: 200,
-        },
         shadow: "md",
       },
       styles: (theme) => ({
