@@ -4,6 +4,7 @@ import {
   DefaultMantineColor,
   Tuple,
   MantineTheme,
+  ActionIconStylesParams,
 } from "@mantine/core"
 
 const cardShadow = "0 4px 6px rgb(0 0 0 / 4%)"
@@ -116,6 +117,26 @@ const GeistTheme: MantineThemeOverride = {
                 },
             },
           },
+        },
+      }),
+    },
+    ActionIcon: {
+      styles: (theme, params: ActionIconStylesParams, { variant }) => ({
+        root: {
+          transitionProperty: "border-color,background,color,transform,box-shadow",
+          transitionDuration: ".15s",
+          transitionTimingFunction: "ease",
+          "&[data-loading]": {
+            color: "transparent",
+            "&:before": {
+              display: "none",
+            },
+            ".mantine-Button-centerLoader": {
+              opacity: 1,
+            },
+          },
+          ...(variant === "filled" && getPrimaryButtonStyles(theme)),
+          ...(variant === "outline" && getSecondaryButtonStyles(theme)),
         },
       }),
     },

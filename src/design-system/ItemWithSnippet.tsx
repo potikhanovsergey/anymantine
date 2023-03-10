@@ -1,15 +1,4 @@
-import {
-  Box,
-  Group,
-  createStyles,
-  Text,
-  rem,
-  UnstyledButton,
-  Loader,
-  Accordion,
-} from "@mantine/core"
-import { useDisclosure } from "@mantine/hooks"
-import { IconChevronRight } from "@tabler/icons-react"
+import { Box, createStyles, rem, Loader, Accordion } from "@mantine/core"
 import dynamic from "next/dynamic"
 import { ReactNode } from "react"
 
@@ -44,20 +33,10 @@ const useStyles = createStyles((theme) => ({
 
 export interface ItemWithSnippetProps {
   children: ReactNode
+  snippet: string
 }
 
-const demoCode = `import { Button, Group } from '@mantine/core';
-
-function Demo() {
-  return (
-    <Group>
-      <Button variant="filled">Первая кнопка</Button>
-      <Button variant="outline">Вторая кнопка</Button>
-    </Group>
-  )
-}`
-
-const ItemWithSnippet = ({ children }: ItemWithSnippetProps) => {
+const ItemWithSnippet = ({ children, snippet }: ItemWithSnippetProps) => {
   const { classes } = useStyles()
   return (
     <Box className={classes.wrapper}>
@@ -77,7 +56,7 @@ const ItemWithSnippet = ({ children }: ItemWithSnippetProps) => {
               copiedLabel="Скопировано"
               language="tsx"
             >
-              {demoCode}
+              {snippet}
             </Prism>
           </Accordion.Panel>
         </Accordion.Item>

@@ -1,13 +1,6 @@
-import {
-  Tabs as MantineTabs,
-  Tooltip,
-  useMantineTheme,
-  MantineProvider,
-  Button,
-} from "@mantine/core"
+import { Tabs as MantineTabs, Tooltip, useMantineTheme } from "@mantine/core"
 import { IconLock } from "@tabler/icons-react"
 import Tabs from "src/core/components/molecules/Tabs"
-import GeistTheme from "src/themes/GeistTheme"
 import ViewTabsComponents from "./ViewTabsComponents"
 import ViewTabsPreview from "./ViewTabsPreview"
 
