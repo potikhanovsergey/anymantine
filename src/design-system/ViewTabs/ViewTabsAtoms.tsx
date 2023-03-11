@@ -8,16 +8,29 @@ import {
   ActionIcon,
   TextInput,
   Tooltip,
+  useMantineTheme,
 } from "@mantine/core"
 import ItemWithSnippet from "../ItemWithSnippet"
 import { IconHeart, IconInfoCircle } from "@tabler/icons-react"
 import { actionIconsSnippet, buttonsSnippet, inputsSnippet } from "src/themes/GeistTheme/snippets"
+import React from "react"
+import { Demo } from "../Demo"
+import ButtonConfigurator from "../Configurator/configurators/button"
 
 const ViewTabsAtoms = () => {
+  const theme = useMantineTheme()
   return (
     <MantineTabs.Panel value="atoms" mb="md">
       <Stack>
         <Box>
+          <Demo
+            data={ButtonConfigurator}
+            configuratorProps={{
+              previewBackground: theme.white,
+            }}
+          />
+        </Box>
+        {/* <Box>
           <Title order={2} mb="sm">
             Кнопки
           </Title>
@@ -120,7 +133,7 @@ const ViewTabsAtoms = () => {
               </Box>
             </Stack>
           </ItemWithSnippet>
-        </Box>
+        </Box> */}
       </Stack>
     </MantineTabs.Panel>
   )

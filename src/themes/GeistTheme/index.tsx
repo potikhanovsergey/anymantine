@@ -19,27 +19,48 @@ declare module "@mantine/core" {
   }
 }
 
-const getPrimaryButtonStyles = (theme: MantineTheme) => {
+const ActionIconAndButtonRoot = {
+  transitionProperty: "border-color,background,color,transform,box-shadow",
+  transitionDuration: ".15s",
+  transitionTimingFunction: "ease",
+  "&[data-loading]": {
+    color: "transparent",
+    "&:before": {
+      display: "none",
+    },
+    ".mantine-Button-centerLoader": {
+      opacity: 1,
+    },
+  },
+}
+
+const getPrimaryButtonStyles = (
+  theme: MantineTheme,
+  { color = "dark" }: ButtonStylesParams | ActionIconStylesParams
+) => {
   return {
-    borderColor: theme.black,
+    borderColor: color === "dark" ? theme.black : theme.colors[color][5],
     color: theme.white,
-    background: theme.black,
+    background: color === "dark" ? theme.black : theme.colors[color][5],
     "&:not([data-disabled])": theme.fn.hover({
       background: theme.white,
-      color: theme.black,
+      color: color === "dark" ? theme.black : theme.colors[color][5],
     }),
   }
 }
 
-const getSecondaryButtonStyles = (theme: MantineTheme) => {
+const getSecondaryButtonStyles = (
+  theme: MantineTheme,
+  { color = "dark" }: ButtonStylesParams | ActionIconStylesParams
+) => {
   return {
-    borderColor: theme.colors.geistAccent[2],
-    color: theme.colors.geistAccent[5],
+    borderColor: color === "dark" ? theme.colors.geistAccent[2] : theme.colors[color][2],
+    color: color === "dark" ? theme.colors.geistAccent[5] : theme.colors[color][3],
     backgroundColor: theme.white,
     "&:not([data-disabled])": theme.fn.hover({
-      borderColor: theme.black,
+      borderColor: color === "dark" ? theme.black : theme.colors[color][5],
       background: theme.white,
-      color: theme.black,
+      color: color === "dark" ? theme.black : theme.colors[color][5],
     }),
   }
 }
@@ -124,20 +145,9 @@ const GeistTheme: MantineThemeOverride = {
     ActionIcon: {
       styles: (theme, params: ActionIconStylesParams, { variant }) => ({
         root: {
-          transitionProperty: "border-color,background,color,transform,box-shadow",
-          transitionDuration: ".15s",
-          transitionTimingFunction: "ease",
-          "&[data-loading]": {
-            color: "transparent",
-            "&:before": {
-              display: "none",
-            },
-            ".mantine-Button-centerLoader": {
-              opacity: 1,
-            },
-          },
-          ...(variant === "filled" && getPrimaryButtonStyles(theme)),
-          ...(variant === "outline" && getSecondaryButtonStyles(theme)),
+          ...ActionIconAndButtonRoot,
+          ...(variant === "filled" && getPrimaryButtonStyles(theme, params)),
+          ...(variant === "outline" && getSecondaryButtonStyles(theme, params)),
         },
       }),
     },
@@ -147,20 +157,9 @@ const GeistTheme: MantineThemeOverride = {
       },
       styles: (theme, params: ButtonStylesParams, { variant }) => ({
         root: {
-          transitionProperty: "border-color,background,color,transform,box-shadow",
-          transitionDuration: ".15s",
-          transitionTimingFunction: "ease",
-          "&[data-loading]": {
-            color: "transparent",
-            "&:before": {
-              display: "none",
-            },
-            ".mantine-Button-centerLoader": {
-              opacity: 1,
-            },
-          },
-          ...(variant === "filled" && getPrimaryButtonStyles(theme)),
-          ...(variant === "outline" && getSecondaryButtonStyles(theme)),
+          ...ActionIconAndButtonRoot,
+          ...(variant === "filled" && getPrimaryButtonStyles(theme, params)),
+          ...(variant === "outline" && getSecondaryButtonStyles(theme, params)),
         },
       }),
     },
