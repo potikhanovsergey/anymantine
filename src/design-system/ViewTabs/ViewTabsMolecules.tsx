@@ -1,4 +1,4 @@
-import { Tabs as MantineTabs, Button, Title, Text, Box, Group, Stack } from "@mantine/core"
+import { Tabs, Button, Title, Text, Box, Group, Stack } from "@mantine/core"
 import { modals } from "@mantine/modals"
 
 const ViewTabsMolecules = () => {
@@ -11,7 +11,7 @@ const ViewTabsMolecules = () => {
       },
     })
   return (
-    <MantineTabs.Panel value="molecules" mt="md">
+    <Tabs.Panel value="molecules" mt="md">
       <Stack>
         <Box>
           <Title order={2} mb="sm">
@@ -22,7 +22,7 @@ const ViewTabsMolecules = () => {
           </Button>
         </Box>
       </Stack>
-    </MantineTabs.Panel>
+    </Tabs.Panel>
   )
 }
 

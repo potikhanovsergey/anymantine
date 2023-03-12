@@ -1,5 +1,4 @@
-import { Tabs as MantineTabs, MantineProvider } from "@mantine/core"
-import Tabs from "src/core/components/molecules/Tabs"
+import { Tabs as Tabs, MantineProvider } from "@mantine/core"
 import GeistTheme from "src/themes/GeistTheme"
 import ViewTabsTokens from "./ViewTabsTokens"
 import ViewTabsAtoms from "./ViewTabsAtoms"
@@ -9,13 +8,13 @@ import TestModal from "../TestModal"
 
 const ViewTabsComponents = () => {
   return (
-    <MantineTabs.Panel value="components" mt="md">
+    <Tabs.Panel value="components" mt="md">
       <Tabs>
-        <MantineTabs.List mb="xl">
-          <MantineTabs.Tab value="tokens">Токены</MantineTabs.Tab>
-          <MantineTabs.Tab value="atoms">Атомы</MantineTabs.Tab>
-          <MantineTabs.Tab value="molecules">Молекулы</MantineTabs.Tab>
-        </MantineTabs.List>
+        <Tabs.List mb="xl">
+          <Tabs.Tab value="tokens">Токены</Tabs.Tab>
+          <Tabs.Tab value="atoms">Атомы</Tabs.Tab>
+          <Tabs.Tab value="molecules">Молекулы</Tabs.Tab>
+        </Tabs.List>
         <MantineProvider withGlobalStyles withNormalizeCSS theme={GeistTheme}>
           <ModalsProvider modals={{ test: TestModal }}>
             <ViewTabsTokens />
@@ -24,7 +23,7 @@ const ViewTabsComponents = () => {
           </ModalsProvider>
         </MantineProvider>
       </Tabs>
-    </MantineTabs.Panel>
+    </Tabs.Panel>
   )
 }
 

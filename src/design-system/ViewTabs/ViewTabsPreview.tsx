@@ -1,10 +1,10 @@
-import { Tabs as MantineTabs } from "@mantine/core"
+import { Tabs } from "@mantine/core"
 
 const ViewTabsPreview = () => {
   return (
-    <MantineTabs.Panel value="preview" mt="md">
+    <Tabs.Panel value="preview" mt="md">
       Preview
-    </MantineTabs.Panel>
+    </Tabs.Panel>
   )
 }
 

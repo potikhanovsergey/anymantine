@@ -88,6 +88,7 @@ const GeistTheme: MantineThemeOverride = {
   cursorType: "pointer",
   other: {
     cardShadow,
+    geistCyanLight: "#79FFF0",
   },
   fontFamily,
   headings: {
@@ -406,7 +407,7 @@ const GeistTheme: MantineThemeOverride = {
       scrollBehavior: "smooth",
     },
     "::selection": {
-      background: theme.colors.violet[3],
+      background: theme.other.geistCyanLight,
       color: theme.black,
       WebkitTextFillColor: theme.black,
     },

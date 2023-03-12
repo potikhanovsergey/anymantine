@@ -1,4 +1,4 @@
-import { ButtonStylesParams, MantineThemeOverride, Text } from "@mantine/core"
+import { ButtonStylesParams, MantineThemeOverride, Text, rem } from "@mantine/core"
 
 const MantineTheme: MantineThemeOverride = {
   cursorType: "pointer",
@@ -120,6 +120,59 @@ const MantineTheme: MantineThemeOverride = {
       styles: (theme) => ({
         root: {
           background: theme.colors.dark[5],
+        },
+      }),
+    },
+    Tabs: {
+      styles: (theme) => ({
+        tab: {
+          ...theme.fn.focusStyles(),
+          backgroundColor: theme.white,
+          color: theme.black,
+          border: `${rem(1)} solid ${theme.black}`,
+          padding: `${rem(6)} ${theme.spacing.lg}`,
+          cursor: "pointer",
+          fontSize: theme.fontSizes.sm,
+          display: "flex",
+          alignItems: "center",
+
+          "&:disabled": {
+            opacity: 0.5,
+            cursor: "not-allowed",
+          },
+
+          "&:not(:disabled, &[data-active])": {
+            "&:hover": {
+              backgroundColor: theme.colors.violet[1],
+            },
+          },
+
+          "&:hover": {
+            border: `${rem(1)} solid ${theme.black}`,
+            "&:not(:first-of-type)": {
+              borderLeft: 0,
+            },
+          },
+
+          "&:not(:first-of-type)": {
+            borderLeft: 0,
+          },
+
+          "&[data-active]": {
+            backgroundColor: theme.black,
+            color: theme.white,
+          },
+        },
+
+        tabIcon: {
+          marginRight: theme.spacing.xs,
+          display: "flex",
+          alignItems: "center",
+        },
+
+        tabsList: {
+          display: "flex",
+          borderBottom: 0,
         },
       }),
     },

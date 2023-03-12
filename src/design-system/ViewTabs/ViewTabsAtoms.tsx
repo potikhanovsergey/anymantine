@@ -1,11 +1,11 @@
-import { Tabs as MantineTabs, Button, Stack, useMantineTheme, Group } from "@mantine/core"
+import { Tabs, Button, Stack, useMantineTheme, Group } from "@mantine/core"
 import React from "react"
 import ButtonConfigurator from "../Configurator/configurators/button"
 import ItemPreview from "../ItemPreview"
 
 const ViewTabsAtoms = () => {
   return (
-    <MantineTabs.Panel value="atoms" mb="md">
+    <Tabs.Panel value="atoms" mb="md">
       <Stack>
         <ItemPreview configurator={ButtonConfigurator} title="Кнопки">
           <Group>
@@ -18,7 +18,7 @@ const ViewTabsAtoms = () => {
           </Group>
         </ItemPreview>
       </Stack>
-    </MantineTabs.Panel>
+    </Tabs.Panel>
   )
 }
 

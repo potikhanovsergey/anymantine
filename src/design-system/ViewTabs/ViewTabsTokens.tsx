@@ -1,10 +1,10 @@
-import { Tabs as MantineTabs, Button, Title } from "@mantine/core"
+import { Tabs, Title } from "@mantine/core"
 
 const ViewTabsTokens = () => {
   return (
-    <MantineTabs.Panel value="tokens" mt="md">
+    <Tabs.Panel value="tokens" mt="md">
       <Title>Токены</Title>
-    </MantineTabs.Panel>
+    </Tabs.Panel>
   )
 }
 

@@ -8,7 +8,7 @@ const DesignSystemPage: BlitzPage = () => {
   const theme = useMantineTheme()
   return (
     <Layout title="Vercel">
-      <Container pt="xl" size="xl">
+      <Container pt={40} size="xl">
         <Grid gutter="xl">
           <Grid.Col span={8}>
             <Paper pl={theme.spacing.xl} pr={theme.spacing.xl} pb={theme.spacing.xl}>
