@@ -55,12 +55,30 @@ const getSecondaryButtonStyles = (
 ) => {
   return {
     borderColor: color === "dark" ? theme.colors.geistAccent[2] : theme.colors[color][2],
-    color: color === "dark" ? theme.colors.geistAccent[5] : theme.colors[color][3],
+    color: color === "dark" ? theme.colors.geistAccent[5] : theme.colors[color][5],
     backgroundColor: theme.white,
     "&:not([data-disabled])": theme.fn.hover({
       borderColor: color === "dark" ? theme.black : theme.colors[color][5],
       background: theme.white,
       color: color === "dark" ? theme.black : theme.colors[color][5],
+    }),
+  }
+}
+
+const getShadowButtonStyles = (
+  theme: MantineTheme,
+  { color = "dark" }: ButtonStylesParams | ActionIconStylesParams
+) => {
+  return {
+    borderColor: color === "dark" ? theme.black : theme.colors[color][5],
+    color: theme.white,
+    background: color === "dark" ? theme.black : theme.colors[color][5],
+    boxShadow: theme.shadows.md,
+    "&:not([data-disabled])": theme.fn.hover({
+      background: color === "dark" ? theme.black : theme.colors[color][5],
+      color: theme.white,
+      boxShadow: theme.shadows.lg,
+      transform: "translateY(-2px)",
     }),
   }
 }
@@ -160,6 +178,7 @@ const GeistTheme: MantineThemeOverride = {
           ...ActionIconAndButtonRoot,
           ...(variant === "filled" && getPrimaryButtonStyles(theme, params)),
           ...(variant === "outline" && getSecondaryButtonStyles(theme, params)),
+          ...(variant === "shadow" && getShadowButtonStyles(theme, params)),
         },
       }),
     },

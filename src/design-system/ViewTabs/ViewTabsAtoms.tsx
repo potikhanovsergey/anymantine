@@ -11,6 +11,10 @@ const ViewTabsAtoms = () => {
           <Group>
             <Button>Пример кнопки</Button>
             <Button variant="outline">Пример кнопки</Button>
+            <Button variant="shadow">Пример с тенью</Button>
+            <Button variant="shadow" color="red">
+              Пример с тенью
+            </Button>
           </Group>
         </ItemPreview>
       </Stack>

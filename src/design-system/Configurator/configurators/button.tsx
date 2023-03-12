@@ -32,10 +32,8 @@ const ButtonConfigurator: MantineDemo = {
       type: "select",
       data: [
         { label: "filled", value: "filled" },
-        // { label: "light", value: "light" },
         { label: "outline", value: "outline" },
-        // { label: "default", value: "default" },
-        // { label: "subtle", value: "subtle" },
+        { label: "shadow", value: "shadow" },
       ],
       initialValue: "filled",
       defaultValue: "filled",
