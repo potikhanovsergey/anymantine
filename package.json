@@ -29,6 +29,7 @@
     "@blitzjs/rpc": "2.0.0-beta.15",
     "@emotion/react": "11.10.6",
     "@emotion/server": "11.10.0",
+    "@legendapp/state": "^1.0.0-rc.13",
     "@mantine/core": "6.0.1",
     "@mantine/form": "6.0.1",
     "@mantine/hooks": "6.0.1",

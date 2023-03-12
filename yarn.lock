@@ -1321,6 +1321,11 @@
     "@jridgewell/resolve-uri" "3.1.0"
     "@jridgewell/sourcemap-codec" "1.4.14"
 
+"@legendapp/state@^1.0.0-rc.13":
+  version "1.0.0-rc.19"
+  resolved "https://registry.yarnpkg.com/@legendapp/state/-/state-1.0.0-rc.19.tgz#868abd14e4fa9c5ed80eb0ca77840d660eeb3f72"
+  integrity sha512-HSX7yW2znJU4GjYzSNw6OHaIL4kmNdLfQCUC6YCDaIXvm9n5SDuquMQb9VSBGfEEmLHcpH3OfgmqcOuKs3n9NA==
+
 "@mantine/core@6.0.1":
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@mantine/core/-/core-6.0.1.tgz#e9cb1edc895a803c1957071eac9fc2b5457330be"

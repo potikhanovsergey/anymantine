@@ -30,12 +30,16 @@ export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
         {...data.demoProps}
         {...demoProps}
       >
-        {data.wrapper ? (
-          <data.wrapper>
-            <data.component />
-          </data.wrapper>
-        ) : (
-          <data.component />
+        {data.component && (
+          <>
+            {data.wrapper ? (
+              <data.wrapper>
+                <data.component />
+              </data.wrapper>
+            ) : (
+              <data.component />
+            )}
+          </>
         )}
       </CodeDemo>
     )
@@ -45,16 +49,20 @@ export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
     return (
       <Configurator
         component={(props: any) =>
-          data.wrapper ? (
-            <data.wrapper>
-              <data.component {...props} />
-            </data.wrapper>
-          ) : (
-            <data.component {...props} />
+          data.component && (
+            <>
+              {data.wrapper ? (
+                <data.wrapper>
+                  <data.component {...props} />
+                </data.wrapper>
+              ) : (
+                <data.component {...props} />
+              )}
+            </>
           )
         }
         codeTemplate={data.codeTemplate}
-        props={data.configurator}
+        props={data.configurator || []}
         previewBackground={background}
         {...data.configuratorProps}
         {...configuratorProps}

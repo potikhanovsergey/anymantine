@@ -46,7 +46,7 @@ const ButtonConfigurator: MantineDemo = {
     { name: "disabled", type: "boolean", initialValue: false, defaultValue: false },
     { name: "compact", type: "boolean", initialValue: false, defaultValue: false },
     { name: "uppercase", type: "boolean", initialValue: false, defaultValue: false },
-    { name: "children", type: "string", initialValue: "Settings" },
+    { name: "children", type: "string", initialValue: "Пример кнопки" },
   ],
 }
 

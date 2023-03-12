@@ -12,3 +12,5 @@ declare module "@blitzjs/auth" {
     }
   }
 }
+
+/// <reference types="@legendapp/state/types" />

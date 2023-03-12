@@ -4,7 +4,9 @@ import React from "react"
 import { withBlitz } from "src/blitz-client"
 import { MantineProvider } from "@mantine/core"
 import MantineTheme from "src/MantineTheme"
-import { ModalsProvider } from "@mantine/modals"
+import { enableLegendStateReact } from "@legendapp/state/react"
+
+enableLegendStateReact()
 
 function RootErrorFallback({ error }: ErrorFallbackProps) {
   if (error instanceof AuthenticationError) {
