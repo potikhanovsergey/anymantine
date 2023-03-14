@@ -39,6 +39,7 @@ const getPrimaryButtonStyles = (
   { color = "dark" }: ButtonStylesParams | ActionIconStylesParams
 ) => {
   return {
+    border: "1px solid",
     borderColor: color === "dark" ? theme.black : theme.colors[color][5],
     color: theme.white,
     background: color === "dark" ? theme.black : theme.colors[color][5],
@@ -54,6 +55,7 @@ const getSecondaryButtonStyles = (
   { color = "dark" }: ButtonStylesParams | ActionIconStylesParams
 ) => {
   return {
+    border: "1px solid",
     borderColor: color === "dark" ? theme.colors.accent[2] : theme.colors[color][2],
     color: color === "dark" ? theme.colors.accent[5] : theme.colors[color][5],
     backgroundColor: theme.white,
@@ -70,6 +72,7 @@ const getShadowButtonStyles = (
   { color = "dark" }: ButtonStylesParams | ActionIconStylesParams
 ) => {
   return {
+    border: "1px solid",
     borderColor: color === "dark" ? theme.black : theme.colors[color][5],
     color: theme.white,
     background: color === "dark" ? theme.black : theme.colors[color][5],
@@ -162,25 +165,38 @@ const GeistTheme: MantineThemeOverride = {
       }),
     },
     ActionIcon: {
-      styles: (theme, params: ActionIconStylesParams, { variant }) => ({
-        root: {
-          ...ActionIconAndButtonRoot,
-          ...(variant === "filled" && getPrimaryButtonStyles(theme, params)),
-          ...(variant === "outline" && getSecondaryButtonStyles(theme, params)),
-        },
+      variants: {
+        primary: (theme, params: ActionIconStylesParams) => ({
+          root: getPrimaryButtonStyles(theme, params),
+        }),
+        secondary: (theme, params: ActionIconStylesParams) => ({
+          root: getSecondaryButtonStyles(theme, params),
+        }),
+        // shadow: (theme, params: ButtonStylesParams) => ({
+        //   root: getShadowButtonStyles(theme, params)
+        // }),
+      },
+      styles: () => ({
+        root: ActionIconAndButtonRoot,
       }),
     },
     Button: {
       defaultProps: {
         loaderPosition: "center",
       },
-      styles: (theme, params: ButtonStylesParams, { variant }) => ({
-        root: {
-          ...ActionIconAndButtonRoot,
-          ...(variant === "filled" && getPrimaryButtonStyles(theme, params)),
-          ...(variant === "outline" && getSecondaryButtonStyles(theme, params)),
-          ...(variant === "shadow" && getShadowButtonStyles(theme, params)),
-        },
+      variants: {
+        primary: (theme, params: ButtonStylesParams) => ({
+          root: getPrimaryButtonStyles(theme, params),
+        }),
+        secondary: (theme, params: ButtonStylesParams) => ({
+          root: getSecondaryButtonStyles(theme, params),
+        }),
+        shadow: (theme, params: ButtonStylesParams) => ({
+          root: getShadowButtonStyles(theme, params),
+        }),
+      },
+      styles: () => ({
+        root: ActionIconAndButtonRoot,
       }),
     },
     Menu: {

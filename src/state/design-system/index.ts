@@ -1,3 +1,3 @@
-import { observable } from "@legendapp/state"
+// import { observable } from "@legendapp/state"
 
-export const configurableAtom = observable(null as string | null)
+// export const configurableAtom = observable(null as string | null)

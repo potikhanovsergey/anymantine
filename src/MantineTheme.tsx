@@ -15,20 +15,19 @@ const MantineTheme: MantineThemeOverride = {
       defaultProps: {
         loaderPosition: "center",
       },
-      styles: (theme, _params, { variant }) => ({
-        root:
-          variant === "filled"
-            ? {
-                background: theme.colors.violet[2],
-                color: theme.black,
-                border: `1px solid ${theme.black}`,
-                "&:not([data-disabled])": theme.fn.hover({
-                  background: theme.colors.violet[3],
-                  color: theme.black,
-                }),
-              }
-            : {},
-      }),
+      variants: {
+        filled: (theme) => ({
+          root: {
+            background: theme.colors.violet[2],
+            color: theme.black,
+            border: `1px solid ${theme.black}`,
+            "&:not([data-disabled])": theme.fn.hover({
+              background: theme.colors.violet[3],
+              color: theme.black,
+            }),
+          },
+        }),
+      },
     },
     Avatar: {
       defaultProps: {

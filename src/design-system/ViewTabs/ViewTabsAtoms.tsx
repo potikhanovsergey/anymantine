@@ -24,8 +24,8 @@ const ViewTabsAtoms = () => {
           title="Кнопки"
         >
           <Group>
-            <Button>Пример кнопки</Button>
-            <Button variant="outline">Пример кнопки</Button>
+            <Button variant="primary">Пример кнопки</Button>
+            <Button variant="secondary">Пример кнопки</Button>
             <Button variant="shadow">Пример с тенью</Button>
             <Button variant="shadow" color="red">
               Пример с тенью
