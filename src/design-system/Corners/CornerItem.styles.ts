@@ -4,7 +4,7 @@ interface CornerItemStylesParams {
   radius: MantineNumberSize
 }
 
-const size = 64
+const size = 96
 
 export default createStyles((theme: MantineTheme, { radius }: CornerItemStylesParams) => ({
   box: {

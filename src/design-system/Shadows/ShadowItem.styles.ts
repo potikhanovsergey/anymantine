@@ -4,7 +4,7 @@ interface ShadowItemStylesParams {
   shadow: MantineShadow
 }
 
-const size = 64
+const size = 96
 
 export default createStyles((theme: MantineTheme, { shadow }: ShadowItemStylesParams) => ({
   box: {

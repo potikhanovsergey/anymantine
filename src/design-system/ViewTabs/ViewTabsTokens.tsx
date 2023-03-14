@@ -43,13 +43,13 @@ const ViewTabsTokens = () => {
               useCases={["Формы", "Кнопки", "Чекбоксы", "Тултипы"]}
             />
             <CornerItem
-              radius="ld"
+              radius="lg"
               title="lg"
               useCases={["Формы", "Кнопки", "Чекбоксы", "Тултипы"]}
             />
             <CornerItem
               radius="xl"
-              title="lg"
+              title="xl"
               useCases={["Формы", "Кнопки", "Чекбоксы", "Тултипы"]}
             />
             <CornerItem

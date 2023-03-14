@@ -1,10 +1,33 @@
 import React from "react"
-import { SimpleGrid, useMantineTheme, Tooltip, Text } from "@mantine/core"
+import { SimpleGrid, useMantineTheme, Tooltip, Text, MantineProvider } from "@mantine/core"
 import { ColorsGroup } from "./ColorsGroup"
 import { observer, useComputed, useObservable } from "@legendapp/state/react"
+import { DesignTheme } from "src/state/design-system"
+
+const ThemeSwatches = ({
+  onMouseLeave,
+  setTooltip,
+}: {
+  onMouseLeave: () => void
+  setTooltip: (color: string) => void
+}) => {
+  const theme = useMantineTheme()
+
+  return (
+    <>
+      {Object.keys(theme.colors).map((group) => (
+        <ColorsGroup
+          onMouseLeave={onMouseLeave}
+          setTooltip={setTooltip}
+          group={group}
+          key={group}
+        />
+      ))}
+    </>
+  )
+}
 
 const ThemeColors = () => {
-  const theme = useMantineTheme()
   const hoveredColor = useObservable(null as string | null)
   const handleSetTooltip = (color: string) => {
     hoveredColor.set(color)
@@ -12,15 +35,6 @@ const ThemeColors = () => {
   const handleMouseLeave = () => {
     hoveredColor.set(null)
   }
-
-  const swatches = Object.keys(theme.colors).map((group) => (
-    <ColorsGroup
-      onMouseLeave={handleMouseLeave}
-      setTooltip={handleSetTooltip}
-      group={group}
-      key={group}
-    />
-  ))
 
   const tooltipHidden = useComputed(() => hoveredColor.get() === null)
 
@@ -39,7 +53,9 @@ const ThemeColors = () => {
           </Text>
         ))}
         <span></span>
-        {swatches}
+        <MantineProvider theme={DesignTheme.peek()}>
+          <ThemeSwatches onMouseLeave={handleMouseLeave} setTooltip={handleSetTooltip} />
+        </MantineProvider>
       </SimpleGrid>
     </Tooltip.Floating>
   )

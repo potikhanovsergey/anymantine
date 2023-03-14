@@ -23,7 +23,7 @@ const CornerBox = ({ radius }: CornerBoxProps) => {
   const { classes } = createStyles({ radius })
   return (
     <Center className={classes.box} mb="md">
-      <Text size="xs">{radius}</Text>
+      <Text size="md">{radius}</Text>
     </Center>
   )
 }
