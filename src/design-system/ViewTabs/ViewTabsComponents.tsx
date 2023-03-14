@@ -9,7 +9,7 @@ import TestModal from "../TestModal"
 const ViewTabsComponents = () => {
   return (
     <Tabs.Panel value="components" mt="md">
-      <Tabs>
+      <Tabs keepMounted={false}>
         <Tabs.List mb="xl">
           <Tabs.Tab value="tokens">Токены</Tabs.Tab>
           <Tabs.Tab value="atoms">Атомы</Tabs.Tab>

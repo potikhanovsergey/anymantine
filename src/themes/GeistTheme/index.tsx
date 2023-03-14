@@ -11,7 +11,7 @@ import {
 const cardShadow = "0 4px 6px rgb(0 0 0 / 4%)"
 const fontFamily = `"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif`
 
-type ExtendedCustomColors = "geistAccent" | DefaultMantineColor
+type ExtendedCustomColors = "accent" | DefaultMantineColor
 
 declare module "@mantine/core" {
   export interface MantineThemeColorsOverride {
@@ -54,8 +54,8 @@ const getSecondaryButtonStyles = (
   { color = "dark" }: ButtonStylesParams | ActionIconStylesParams
 ) => {
   return {
-    borderColor: color === "dark" ? theme.colors.geistAccent[2] : theme.colors[color][2],
-    color: color === "dark" ? theme.colors.geistAccent[5] : theme.colors[color][5],
+    borderColor: color === "dark" ? theme.colors.accent[2] : theme.colors[color][2],
+    color: color === "dark" ? theme.colors.accent[5] : theme.colors[color][5],
     backgroundColor: theme.white,
     "&:not([data-disabled])": theme.fn.hover({
       borderColor: color === "dark" ? theme.black : theme.colors[color][5],
@@ -102,7 +102,7 @@ const GeistTheme: MantineThemeOverride = {
     xl: "0 30px 60px rgba(0,0,0,.12)",
   },
   colors: {
-    geistAccent: [
+    accent: [
       "#ffffff",
       "#fafafa",
       "#eaeaea",
@@ -129,7 +129,7 @@ const GeistTheme: MantineThemeOverride = {
       },
       styles: (theme, params) => ({
         root: {
-          borderColor: theme.colors.geistAccent[2],
+          borderColor: theme.colors.accent[2],
         },
       }),
     },
@@ -142,12 +142,12 @@ const GeistTheme: MantineThemeOverride = {
       styles: (theme) => ({
         dropdown: {
           border: "none",
-          color: theme.colors.geistAccent[5],
+          color: theme.colors.accent[5],
         },
         calendar: {
           button: {
             ":hover": {
-              backgroundColor: theme.colors.geistAccent[2],
+              backgroundColor: theme.colors.accent[2],
             },
           },
           ".mantine-DateInput-cell, .mantine-DateInput-month, .mantine-DateInput-year": {
@@ -195,10 +195,10 @@ const GeistTheme: MantineThemeOverride = {
         },
         item: {
           transition: "color.1s ease, background-color.1s ease",
-          color: theme.colors.geistAccent[5],
+          color: theme.colors.accent[5],
           padding: "8px 20px",
           "&:hover": {
-            backgroundColor: theme.colors.geistAccent[1],
+            backgroundColor: theme.colors.accent[1],
             color: theme.black,
           },
         },
@@ -260,7 +260,7 @@ const GeistTheme: MantineThemeOverride = {
       styles: (theme) => ({
         label: {
           marginBottom: rem(4),
-          color: theme.colors.geistAccent[5],
+          color: theme.colors.accent[5],
         },
       }),
     },
@@ -270,16 +270,16 @@ const GeistTheme: MantineThemeOverride = {
           transition: "border-color .15s ease",
           "&:focus-within": {
             "&:not([data-invalid])": {
-              borderColor: theme.colors.geistAccent[5],
+              borderColor: theme.colors.accent[5],
             },
           },
-          borderColor: theme.colors.geistAccent[2],
+          borderColor: theme.colors.accent[2],
           "::placeholder": {
-            color: theme.colors.geistAccent[3],
+            color: theme.colors.accent[3],
           },
           "&:disabled": {
             "&:hover": {
-              borderColor: theme.colors.geistAccent[2],
+              borderColor: theme.colors.accent[2],
             },
           },
         },
@@ -340,8 +340,10 @@ const GeistTheme: MantineThemeOverride = {
     Select: {
       defaultProps: {
         shadow: "lg",
-        transition: "pop",
-        transitionDuration: 200,
+        transitionProps: {
+          transition: "pop",
+          duration: 200,
+        },
       },
       styles: (theme) => ({
         itemsWrapper: {},
@@ -365,13 +367,13 @@ const GeistTheme: MantineThemeOverride = {
     ScrollArea: {
       styles: (theme) => ({
         thumb: {
-          background: theme.fn.rgba(theme.colors.geistAccent[5], 0.3),
+          background: theme.fn.rgba(theme.colors.accent[5], 0.3),
         },
         scrollbar: {
           ":hover": {
             background: "transparent",
             ".__mantine-ref-thumb": {
-              background: theme.colors.geistAccent[5],
+              background: theme.colors.accent[5],
             },
           },
         },
@@ -382,14 +384,18 @@ const GeistTheme: MantineThemeOverride = {
     },
     Popover: {
       defaultProps: {
-        transition: "pop",
-        transitionDuration: 200,
+        transitionProps: {
+          transition: "pop",
+          duration: 200,
+        },
       },
     },
     Tooltip: {
       defaultProps: {
-        transition: "pop",
-        transitionDuration: 200,
+        transitionProps: {
+          transition: "pop",
+          duration: 200,
+        },
       },
       styles: (theme) => ({
         tooltip: {
@@ -400,25 +406,10 @@ const GeistTheme: MantineThemeOverride = {
     },
   },
   globalStyles: (theme) => ({
-    "*, *::before, *::after": {
-      boxSizing: "border-box",
-    },
-    html: {
-      scrollBehavior: "smooth",
-    },
     "::selection": {
       background: theme.other.geistCyanLight,
       color: theme.black,
       WebkitTextFillColor: theme.black,
-    },
-    body: {
-      lineHeight: theme.lineHeight,
-      minHeight: "100vh",
-      wordBreak: "break-word",
-      overflowY: "auto",
-      overflowX: "hidden",
-      letterSpacing: "-.01em",
-      WebkitFontSmoothing: "antialiased",
     },
   }),
 }

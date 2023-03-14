@@ -7,7 +7,7 @@ import React from "react"
 const ViewTabs = () => {
   const theme = useMantineTheme()
   return (
-    <Tabs pos="sticky" top={0} pb={theme.spacing.md} bg={theme.white}>
+    <Tabs keepMounted={false} pos="sticky" top={0} pb={theme.spacing.md} bg={theme.white}>
       <Tabs.List defaultValue="components" mb="md">
         <Tabs.Tab value="components">Компоненты</Tabs.Tab>
         <Tabs.Tab value="examples">Примеры</Tabs.Tab>

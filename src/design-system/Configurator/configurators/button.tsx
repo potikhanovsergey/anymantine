@@ -36,7 +36,6 @@ const ButtonConfigurator: MantineDemo = {
         { label: "shadow", value: "shadow" },
       ],
       initialValue: "filled",
-      defaultValue: "filled",
     },
     { name: "color", type: "color", initialValue: "dark", defaultValue: "dark" },
     { name: "radius", type: "size", initialValue: "sm", defaultValue: "sm" },

@@ -1,4 +1,4 @@
-import { ButtonStylesParams, MantineThemeOverride, Text, rem } from "@mantine/core"
+import { MantineThemeOverride, Text, rem } from "@mantine/core"
 
 const MantineTheme: MantineThemeOverride = {
   cursorType: "pointer",

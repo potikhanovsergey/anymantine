@@ -17,7 +17,6 @@ export function SegmentedControl({ value, label, onChange, data, ...others }: Si
         value={value}
         onChange={onChange}
         fullWidth
-        transitionDuration={150}
         transitionTimingFunction="ease"
       />
     </Input.Wrapper>
