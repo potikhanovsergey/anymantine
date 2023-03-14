@@ -51,13 +51,7 @@ const ItemWithSnippet = ({ children, snippet }: ItemWithSnippetProps) => {
         <Accordion.Item value="code">
           <Accordion.Control>Пример кода</Accordion.Control>
           <Accordion.Panel p={0}>
-            <Prism
-              bg={theme.colors.gray[0]}
-              withLineNumbers
-              copyLabel="Скопировать код"
-              copiedLabel="Скопировано"
-              language="tsx"
-            >
+            <Prism bg={theme.colors.gray[0]} withLineNumbers language="tsx">
               {snippet}
             </Prism>
           </Accordion.Panel>

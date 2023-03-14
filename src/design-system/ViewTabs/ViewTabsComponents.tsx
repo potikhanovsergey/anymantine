@@ -15,13 +15,11 @@ const ViewTabsComponents = () => {
           <Tabs.Tab value="atoms">Атомы</Tabs.Tab>
           <Tabs.Tab value="molecules">Молекулы</Tabs.Tab>
         </Tabs.List>
-        <MantineProvider withGlobalStyles withNormalizeCSS theme={GeistTheme}>
-          <ModalsProvider modals={{ test: TestModal }}>
-            <ViewTabsTokens />
-            <ViewTabsAtoms />
-            <ViewTabsMolecules />
-          </ModalsProvider>
-        </MantineProvider>
+        <ModalsProvider modals={{ test: TestModal }}>
+          <ViewTabsTokens />
+          <ViewTabsAtoms />
+          <ViewTabsMolecules />
+        </ModalsProvider>
       </Tabs>
     </Tabs.Panel>
   )

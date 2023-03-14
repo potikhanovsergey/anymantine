@@ -1,5 +1,5 @@
 import React from "react"
-import { useMantineTheme } from "@mantine/core"
+import { MantineProvider, MantineTheme, MantineThemeOverride, useMantineTheme } from "@mantine/core"
 import { MantineDemo } from "./types"
 import CodeDemo from "../CodeDemo/CodeDemo"
 import Configurator from "../Configurator/Configurator"
@@ -14,9 +14,10 @@ interface DemoProps {
   demoProps?: CodeDemoProps
   configuratorProps?: Omit<ConfiguratorProps, "props" | "codeTemplate" | "component">
   data: MantineDemo
+  designTheme: MantineThemeOverride
 }
 
-export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
+export function Demo({ data, demoProps, configuratorProps, designTheme }: DemoProps) {
   const theme = useMantineTheme()
   const background =
     typeof data.background === "function" ? data.background(theme.colorScheme) : undefined
@@ -31,7 +32,7 @@ export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
         {...demoProps}
       >
         {data.component && (
-          <>
+          <MantineProvider withGlobalStyles withNormalizeCSS theme={designTheme}>
             {data.wrapper ? (
               <data.wrapper>
                 <data.component />
@@ -39,7 +40,7 @@ export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
             ) : (
               <data.component />
             )}
-          </>
+          </MantineProvider>
         )}
       </CodeDemo>
     )
@@ -50,7 +51,7 @@ export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
       <Configurator
         component={(props: any) =>
           data.component && (
-            <>
+            <MantineProvider withGlobalStyles withNormalizeCSS theme={designTheme}>
               {data.wrapper ? (
                 <data.wrapper>
                   <data.component {...props} />
@@ -58,7 +59,7 @@ export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
               ) : (
                 <data.component {...props} />
               )}
-            </>
+            </MantineProvider>
           )
         }
         codeTemplate={data.codeTemplate}

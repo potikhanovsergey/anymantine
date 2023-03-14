@@ -3,6 +3,7 @@ import React from "react"
 import ButtonConfigurator from "../Configurator/configurators/button"
 import ItemPreview from "../ItemPreview"
 import { useComputed, useObservable, useObserve } from "@legendapp/state/react"
+import PanelStack from "../PanelStack"
 
 const ViewTabsAtoms = () => {
   const configurableAtom = useObservable(null as string | null)
@@ -15,7 +16,7 @@ const ViewTabsAtoms = () => {
 
   return (
     <Tabs.Panel value="atoms" mb="md">
-      <Stack>
+      <PanelStack>
         <ItemPreview
           opened={buttonsOpened}
           onToggleConfigurator={() => toggleConfigurable("Кнопки")}
@@ -31,7 +32,7 @@ const ViewTabsAtoms = () => {
             </Button>
           </Group>
         </ItemPreview>
-      </Stack>
+      </PanelStack>
     </Tabs.Panel>
   )
 }

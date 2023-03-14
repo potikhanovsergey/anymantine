@@ -176,6 +176,12 @@ const MantineTheme: MantineThemeOverride = {
         },
       }),
     },
+    Prism: {
+      defaultProps: {
+        copyLabel: "Скопировать код",
+        copiedLabel: "Скопировано",
+      },
+    },
     Tooltip: {
       defaultProps: {
         events: {

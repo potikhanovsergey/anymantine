@@ -1,5 +1,6 @@
 import { Tabs, Button, Title, Text, Box, Group, Stack } from "@mantine/core"
 import { modals } from "@mantine/modals"
+import PanelStack from "../PanelStack"
 
 const ViewTabsMolecules = () => {
   const openModal = () =>
@@ -12,7 +13,7 @@ const ViewTabsMolecules = () => {
     })
   return (
     <Tabs.Panel value="molecules" mt="md">
-      <Stack>
+      <PanelStack>
         <Box>
           <Title order={2} mb="sm">
             Модальное окно
@@ -21,7 +22,7 @@ const ViewTabsMolecules = () => {
             Вызвать
           </Button>
         </Box>
-      </Stack>
+      </PanelStack>
     </Tabs.Panel>
   )
 }

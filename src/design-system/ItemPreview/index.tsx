@@ -1,9 +1,19 @@
 import { Show } from "@legendapp/state/react"
-import { ActionIcon, Box, Group, Stack, Tooltip, Title, useMantineTheme } from "@mantine/core"
+import {
+  ActionIcon,
+  Box,
+  Group,
+  Stack,
+  Tooltip,
+  Title,
+  useMantineTheme,
+  MantineProvider,
+} from "@mantine/core"
 import { IconSettings } from "@tabler/icons-react"
 import { ReactNode } from "react"
 import { MantineDemo } from "../Demo/types"
 import { Demo } from "../Demo"
+import GeistTheme from "src/themes/GeistTheme"
 
 export interface ItemPreviewProps {
   children: ReactNode
@@ -36,11 +46,16 @@ const ItemPreview = ({
         if={opened}
         else={
           <Group noWrap position="apart">
-            <Box>{children}</Box>
+            <Box>
+              <MantineProvider withGlobalStyles withNormalizeCSS theme={GeistTheme}>
+                {children}
+              </MantineProvider>
+            </Box>
           </Group>
         }
       >
         <Demo
+          designTheme={GeistTheme}
           data={configurator}
           configuratorProps={{
             previewBackground: theme.white,
