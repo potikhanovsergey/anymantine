@@ -212,7 +212,6 @@ const MantineTheme: MantineThemeOverride = {
     },
     "::selection": {
       background: theme.colors.violet[5],
-      color: theme.white,
     },
     body: {
       lineHeight: theme.lineHeight,

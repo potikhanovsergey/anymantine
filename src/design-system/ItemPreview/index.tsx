@@ -13,7 +13,7 @@ import { IconSettings } from "@tabler/icons-react"
 import { ReactNode } from "react"
 import { MantineDemo } from "../Demo/types"
 import { Demo } from "../Demo"
-import GeistTheme from "src/themes/GeistTheme"
+import { DesignTheme } from "src/state/design-system"
 
 export interface ItemPreviewProps {
   children: ReactNode
@@ -36,7 +36,13 @@ const ItemPreview = ({
     <Stack spacing="xs">
       <Group noWrap spacing="xs">
         <Title order={2}>{title}</Title>
-        <Tooltip label={opened ? "Скрыть конфигуратор" : "Открыть конфигуратор"}>
+        <Tooltip
+          label={
+            <Show if={opened} else="Открыть конфигуратор">
+              Скрыть конфигуратор
+            </Show>
+          }
+        >
           <ActionIcon variant="transparent" onClick={onToggleConfigurator}>
             <IconSettings stroke={1} color={theme.black} />
           </ActionIcon>
@@ -47,15 +53,12 @@ const ItemPreview = ({
         else={
           <Group noWrap position="apart">
             <Box>
-              <MantineProvider withGlobalStyles withNormalizeCSS theme={GeistTheme}>
-                {children}
-              </MantineProvider>
+              <MantineProvider theme={DesignTheme.peek()}>{children}</MantineProvider>
             </Box>
           </Group>
         }
       >
         <Demo
-          designTheme={GeistTheme}
           data={configurator}
           configuratorProps={{
             previewBackground: theme.white,

@@ -1,7 +1,20 @@
-import { Anchor, Box, Paper, Stack, Tabs, Text, Title } from "@mantine/core"
+import {
+  Anchor,
+  Box,
+  Group,
+  MantineProvider,
+  Paper,
+  SimpleGrid,
+  Stack,
+  Tabs,
+  Text,
+  Title,
+} from "@mantine/core"
 import ThemeColors from "../ThemeColors/ThemeColors"
 import PanelStack from "../PanelStack"
 import { Prism } from "@mantine/prism"
+import CornerItem from "../Corners/CornerItem"
+import ShadowItem from "../Shadows/ShadowItem"
 
 const ViewTabsTokens = () => {
   return (
@@ -12,8 +25,65 @@ const ViewTabsTokens = () => {
           <ThemeColors />
         </Stack>
         <Stack spacing="xs">
-          <Title order={2}>Границы и тени</Title>
-          <Paper withBorder>Йоо</Paper>
+          <Title order={2}>Радиусы границ</Title>
+          <SimpleGrid cols={5}>
+            <CornerItem
+              radius="xs"
+              title="xs"
+              useCases={["Формы", "Кнопки", "Чекбоксы", "Тултипы"]}
+            />
+            <CornerItem
+              radius="sm"
+              title="sm"
+              useCases={["Формы", "Кнопки", "Чекбоксы", "Тултипы"]}
+            />
+            <CornerItem
+              radius="md"
+              title="md"
+              useCases={["Формы", "Кнопки", "Чекбоксы", "Тултипы"]}
+            />
+            <CornerItem
+              radius="ld"
+              title="lg"
+              useCases={["Формы", "Кнопки", "Чекбоксы", "Тултипы"]}
+            />
+            <CornerItem
+              radius="xl"
+              title="lg"
+              useCases={["Формы", "Кнопки", "Чекбоксы", "Тултипы"]}
+            />
+            <CornerItem
+              radius={1000}
+              title="rounded"
+              useCases={["Иконки", "Кнопки-иконки", "Аватары"]}
+            />
+          </SimpleGrid>
+        </Stack>
+        <Stack spacing="xs">
+          <Title order={2}>Тени</Title>
+          <SimpleGrid cols={5}>
+            <ShadowItem
+              shadow="xs"
+              title="xs"
+              useCases={["Формы", "Кнопки", "Чекбоксы", "Тултипы"]}
+            />
+            <ShadowItem
+              shadow="sm"
+              title="sm"
+              useCases={["Формы", "Кнопки", "Чекбоксы", "Тултипы"]}
+            />
+            <ShadowItem
+              shadow="md"
+              title="md"
+              useCases={["Формы", "Кнопки", "Чекбоксы", "Тултипы"]}
+            />
+            <ShadowItem
+              shadow="lg"
+              title="lg"
+              useCases={["Формы", "Кнопки", "Чекбоксы", "Тултипы"]}
+            />
+            <ShadowItem shadow="xl" title="xl" useCases={["Иконки", "Кнопки-иконки", "Аватары"]} />
+          </SimpleGrid>
         </Stack>
         <Stack spacing="xs">
           <Title order={2}>Типографика</Title>

@@ -1,8 +1,9 @@
 import React from "react"
-import { MantineProvider, MantineTheme, MantineThemeOverride, useMantineTheme } from "@mantine/core"
+import { MantineProvider, useMantineTheme } from "@mantine/core"
 import { MantineDemo } from "./types"
 import CodeDemo from "../CodeDemo/CodeDemo"
 import Configurator from "../Configurator/Configurator"
+import { DesignTheme } from "src/state/design-system"
 
 export { CodeDemo, Configurator }
 
@@ -14,10 +15,9 @@ interface DemoProps {
   demoProps?: CodeDemoProps
   configuratorProps?: Omit<ConfiguratorProps, "props" | "codeTemplate" | "component">
   data: MantineDemo
-  designTheme: MantineThemeOverride
 }
 
-export function Demo({ data, demoProps, configuratorProps, designTheme }: DemoProps) {
+export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
   const theme = useMantineTheme()
   const background =
     typeof data.background === "function" ? data.background(theme.colorScheme) : undefined
@@ -32,7 +32,7 @@ export function Demo({ data, demoProps, configuratorProps, designTheme }: DemoPr
         {...demoProps}
       >
         {data.component && (
-          <MantineProvider withGlobalStyles withNormalizeCSS theme={designTheme}>
+          <MantineProvider theme={DesignTheme.get()}>
             {data.wrapper ? (
               <data.wrapper>
                 <data.component />
@@ -51,7 +51,7 @@ export function Demo({ data, demoProps, configuratorProps, designTheme }: DemoPr
       <Configurator
         component={(props: any) =>
           data.component && (
-            <MantineProvider withGlobalStyles withNormalizeCSS theme={designTheme}>
+            <MantineProvider theme={DesignTheme.peek()}>
               {data.wrapper ? (
                 <data.wrapper>
                   <data.component {...props} />

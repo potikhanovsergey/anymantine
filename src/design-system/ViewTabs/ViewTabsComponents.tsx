@@ -1,5 +1,4 @@
-import { Tabs as Tabs, MantineProvider } from "@mantine/core"
-import GeistTheme from "src/themes/GeistTheme"
+import { Tabs } from "@mantine/core"
 import ViewTabsTokens from "./ViewTabsTokens"
 import ViewTabsAtoms from "./ViewTabsAtoms"
 import ViewTabsMolecules from "./ViewTabsMolecules"
