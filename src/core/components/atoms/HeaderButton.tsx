@@ -6,23 +6,43 @@ import {
   UnstyledButtonProps,
 } from "@mantine/core"
 
-const useStyles = createStyles((theme) => ({
-  button: {
-    borderRight: `1px solid ${theme.black}`,
-    height: "100%",
-    display: "flex",
-    alignItems: "center",
-    paddingLeft: theme.spacing.lg,
-    paddingRight: theme.spacing.lg,
-    ":hover": {
-      backgroundColor: theme.colors.violet[1],
-    },
-  },
-}))
+interface IHeaderButton extends UnstyledButtonProps {
+  variant?: "outline" | "filled"
+  withLeftBorder?: boolean
+}
 
-const _Button = forwardRef<HTMLButtonElement, UnstyledButtonProps>(
-  ({ children, className, ...others }, ref) => {
-    const { classes, cx } = useStyles()
+const useStyles = createStyles(
+  (
+    theme,
+    { variant, withLeftBorder = false }: { variant: "outline" | "filled"; withLeftBorder?: boolean }
+  ) => ({
+    button: {
+      borderRight: `1px solid ${theme.black}`,
+      borderLeft: withLeftBorder ? `1px solid ${theme.black}` : undefined,
+      height: "100%",
+      display: "flex",
+      alignItems: "center",
+      paddingLeft: theme.spacing.lg,
+      paddingRight: theme.spacing.lg,
+      ...(variant === "filled" && {
+        background: theme.black,
+        color: theme.white,
+        "&:hover": {
+          background: theme.colors.dark[4],
+        },
+      }),
+      ...(variant === "outline" && {
+        "&:hover": {
+          backgroundColor: theme.colors.violet[1],
+        },
+      }),
+    },
+  })
+)
+
+const _Button = forwardRef<HTMLButtonElement, IHeaderButton>(
+  ({ children, className, variant = "outline", withLeftBorder = false, ...others }, ref) => {
+    const { classes, cx } = useStyles({ variant, withLeftBorder })
     return (
       <UnstyledButton
         className={cx(classes.button, className)}
@@ -36,6 +56,6 @@ const _Button = forwardRef<HTMLButtonElement, UnstyledButtonProps>(
   }
 )
 
-const HeaderButton = createPolymorphicComponent<"button", UnstyledButtonProps>(_Button)
+const HeaderButton = createPolymorphicComponent<"button", IHeaderButton>(_Button)
 
 export default HeaderButton

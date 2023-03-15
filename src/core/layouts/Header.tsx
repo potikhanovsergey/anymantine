@@ -16,17 +16,7 @@ import HeaderButton from "../components/atoms/HeaderButton"
 const AuthButton = () => {
   const session = useSession()
   const theme = useMantineTheme()
-  return !session.userId ? (
-    <HeaderButton
-      sx={{
-        background: theme.black,
-        color: theme.white,
-        "&:hover": { backgroundColor: theme.colors.dark[4] },
-      }}
-    >
-      Войти в аккаунт
-    </HeaderButton>
-  ) : null
+  return !session.userId ? <HeaderButton variant="filled">Войти в аккаунт</HeaderButton> : null
 }
 
 const Header = () => {
@@ -59,7 +49,7 @@ const Header = () => {
           </Group>
           <Group noWrap h="100%" spacing={0}>
             <NextLink href="/design-systems" passHref>
-              <HeaderButton component="a" sx={{ borderLeft: `1px solid ${theme.black}` }}>
+              <HeaderButton component="a" withLeftBorder>
                 Дизайн системы
               </HeaderButton>
             </NextLink>
