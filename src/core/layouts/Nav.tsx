@@ -1,13 +1,22 @@
-import { Group } from "@mantine/core"
-import Link from "../components/atoms/Link"
+import { Group, UnstyledButton, useMantineTheme } from "@mantine/core"
+import HeaderButton from "../components/atoms/HeaderButton"
+import Link from "next/link"
 
 const Nav = () => {
+  const theme = useMantineTheme()
+
   return (
-    <nav>
-      <Group noWrap spacing="sm">
-        <Link href="/teams">Командам</Link>
-        <Link href="/developers">Разработчикам</Link>
-        <Link href="/designers">Дизайнерам</Link>
+    <nav style={{ height: "100%" }}>
+      <Group noWrap spacing={0} h="100%">
+        <Link passHref href="/teams">
+          <HeaderButton component="a">Командам</HeaderButton>
+        </Link>
+        <Link passHref href="/developers">
+          <HeaderButton component="a">Разработчикам</HeaderButton>
+        </Link>
+        <Link passHref href="/designers">
+          <HeaderButton component="a">Дизайнерам</HeaderButton>
+        </Link>
       </Group>
     </nav>
   )

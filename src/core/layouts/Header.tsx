@@ -2,7 +2,7 @@ import {
   Container,
   Group,
   Header as MantineHeader,
-  Title,
+  Text,
   Button,
   useMantineTheme,
 } from "@mantine/core"
@@ -11,33 +11,47 @@ import { Suspense } from "react"
 import Nav from "./Nav"
 import Link from "../components/atoms/Link"
 import NextLink from "next/link"
+import HeaderButton from "../components/atoms/HeaderButton"
 
 const AuthButton = () => {
   const session = useSession()
-
-  return !session.userId ? <Button size="xs">Войти в аккаунт</Button> : null
+  const theme = useMantineTheme()
+  return !session.userId ? <HeaderButton variant="filled">Войти в аккаунт</HeaderButton> : null
 }
 
 const Header = () => {
   const theme = useMantineTheme()
   return (
     <MantineHeader
-      height={80}
+      height={64}
       sx={{
-        background: theme.colorScheme === "dark" ? "#161920" : theme.white,
+        background: theme.white,
+        borderBottom: `1px solid ${theme.black}`,
       }}
     >
-      <Container size="xl" h="100%">
+      <Container size="xl" h="100%" pr={0}>
         <Group h="100%" position="apart" noWrap>
-          <Group noWrap spacing="xl">
-            <Title size={24}>Marshadow</Title>
+          <Group noWrap h="100%" spacing={0}>
+            <Text
+              size={24}
+              weight="bold"
+              sx={{
+                borderRight: `1px solid ${theme.black}`,
+                height: "100%",
+                display: "flex",
+                alignItems: "center",
+                paddingRight: theme.spacing.lg,
+              }}
+            >
+              Marshadow
+            </Text>
             <Nav />
           </Group>
-          <Group noWrap>
+          <Group noWrap h="100%" spacing={0}>
             <NextLink href="/design-systems" passHref>
-              <Button size="xs" variant="white" component="a">
+              <HeaderButton component="a" withLeftBorder>
                 Дизайн системы
-              </Button>
+              </HeaderButton>
             </NextLink>
             <Suspense>
               <AuthButton />

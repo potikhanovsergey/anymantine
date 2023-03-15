@@ -3,7 +3,7 @@ import { MantineThemeOverride, Text, rem } from "@mantine/core"
 const MantineTheme: MantineThemeOverride = {
   cursorType: "pointer",
   primaryColor: "violet",
-  defaultRadius: "lg",
+  defaultRadius: 0,
   components: {
     Loader: {
       defaultProps: {
@@ -18,10 +18,23 @@ const MantineTheme: MantineThemeOverride = {
       variants: {
         filled: (theme) => ({
           root: {
-            background: theme.colors[theme.primaryColor][5],
+            background: theme.black,
             color: theme.white,
+            transition: "all 200ms ease",
             "&:not([data-disabled])": theme.fn.hover({
-              background: theme.colors[theme.primaryColor][6],
+              background: theme.colors.dark[4],
+            }),
+          },
+        }),
+        outline: (theme) => ({
+          root: {
+            backgroundColor: theme.white,
+            border: "1px solid",
+            borderColor: theme.black,
+            transition: "all 200ms ease",
+            color: theme.black,
+            "&:not([data-disabled])": theme.fn.hover({
+              background: theme.colors.violet[1],
             }),
           },
         }),
