@@ -2,12 +2,26 @@ import { MantineThemeOverride, Text, rem } from "@mantine/core"
 
 const MantineTheme: MantineThemeOverride = {
   cursorType: "pointer",
-  primaryColor: "violet",
-  defaultRadius: 0,
+  primaryColor: "green",
+  defaultRadius: "lg",
+  colors: {
+    green: [
+      "#b9fed3",
+      "#97fdbc",
+      "#85fdb1",
+      "#74fda6",
+      "#62fc9b",
+      "#51fc90", // 5
+      "#49e382",
+      "#41ca73",
+      "#319756",
+      "#20653a",
+    ],
+  },
   components: {
     Loader: {
       defaultProps: {
-        color: "orange",
+        color: "green",
         size: "xs",
       },
     },
@@ -18,11 +32,11 @@ const MantineTheme: MantineThemeOverride = {
       variants: {
         filled: (theme) => ({
           root: {
-            background: theme.colors.violet[2],
+            background: theme.colors.green[5],
             color: theme.black,
             border: `1px solid ${theme.black}`,
             "&:not([data-disabled])": theme.fn.hover({
-              background: theme.colors.violet[3],
+              background: theme.white,
               color: theme.black,
             }),
           },
@@ -134,6 +148,7 @@ const MantineTheme: MantineThemeOverride = {
           fontSize: theme.fontSizes.sm,
           display: "flex",
           alignItems: "center",
+          borderRadius: 0,
 
           "&:disabled": {
             opacity: 0.5,
@@ -142,12 +157,13 @@ const MantineTheme: MantineThemeOverride = {
 
           "&:not(:disabled, &[data-active])": {
             "&:hover": {
-              backgroundColor: theme.colors.violet[1],
+              backgroundColor: theme.colors.green[3],
             },
           },
 
           "&:hover": {
-            border: `${rem(1)} solid ${theme.black}`,
+            border: `${rem(1)} solid`,
+            borderColor: theme.black,
             "&:not(:first-of-type)": {
               borderLeft: 0,
             },
@@ -160,6 +176,10 @@ const MantineTheme: MantineThemeOverride = {
           "&[data-active]": {
             backgroundColor: theme.black,
             color: theme.white,
+            borderColor: theme.black,
+            "&:hover": {
+              borderColor: theme.black,
+            },
           },
         },
 
