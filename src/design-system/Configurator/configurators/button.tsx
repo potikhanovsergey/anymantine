@@ -1,4 +1,5 @@
 import { ButtonProps, Group, Button } from "@mantine/core"
+import { IconHeading } from "@tabler/icons-react"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
 
@@ -41,6 +42,7 @@ const ButtonConfigurator: MantineDemo = {
     { name: "radius", type: "size", initialValue: "sm", defaultValue: "sm" },
     { name: "size", type: "size", initialValue: "sm", defaultValue: "sm" },
     { name: "disabled", type: "boolean", initialValue: false, defaultValue: false },
+    { name: "loading", type: "boolean", initialValue: false, defaultValue: false },
     { name: "compact", type: "boolean", initialValue: false, defaultValue: false },
     { name: "uppercase", type: "boolean", initialValue: false, defaultValue: false },
     { name: "children", type: "string", initialValue: "Пример кнопки" },

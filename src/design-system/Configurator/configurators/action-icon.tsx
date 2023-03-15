@@ -38,6 +38,7 @@ const ActionIconConfigurator: MantineDemo = {
         { label: "primary", value: "primary" },
         { label: "secondary", value: "secondary" },
         { label: "shadow", value: "shadow" },
+        { label: "transparent", value: "transparent" },
       ],
       initialValue: "primary",
     },
@@ -45,7 +46,7 @@ const ActionIconConfigurator: MantineDemo = {
     { name: "radius", type: "size", initialValue: "md", defaultValue: "md" },
     { name: "size", type: "size", initialValue: "lg", defaultValue: "lg" },
     { name: "disabled", type: "boolean", initialValue: false, defaultValue: false },
-    // { name: "children", type: "string", initialValue: <IconFaceId /> },
+    { name: "loading", type: "boolean", initialValue: false, defaultValue: false },
   ],
 }
 

@@ -6,6 +6,7 @@ import {
   MantineTheme,
   ActionIconStylesParams,
   rem,
+  getStylesRef,
 } from "@mantine/core"
 
 const cardShadow = "0 4px 6px rgb(0 0 0 / 4%)"
@@ -17,21 +18,6 @@ declare module "@mantine/core" {
   export interface MantineThemeColorsOverride {
     colors: Record<ExtendedCustomColors, Tuple<string, 10>>
   }
-}
-
-const ActionIconAndButtonRoot = {
-  transitionProperty: "border-color,background,color,transform,box-shadow",
-  transitionDuration: ".15s",
-  transitionTimingFunction: "ease",
-  "&[data-loading]": {
-    color: "transparent",
-    "&:before": {
-      display: "none",
-    },
-    ".mantine-Button-centerLoader": {
-      opacity: 1,
-    },
-  },
 }
 
 const getPrimaryButtonStyles = (
@@ -136,34 +122,6 @@ const GeistTheme: MantineThemeOverride = {
         },
       }),
     },
-    DateInput: {
-      defaultProps: {
-        popoverProps: {
-          withinPortal: true,
-        },
-      },
-      styles: (theme) => ({
-        dropdown: {
-          border: "none",
-          color: theme.colors.accent[5],
-        },
-        calendar: {
-          button: {
-            ":hover": {
-              backgroundColor: theme.colors.accent[2],
-            },
-          },
-          ".mantine-DateInput-cell, .mantine-DateInput-month, .mantine-DateInput-year": {
-            button: {
-              "&[data-selected], &.mantine-DatePicker-monthPickerControlActive, &.mantine-DatePicker-yearPickerControlActive":
-                {
-                  backgroundColor: theme.black,
-                },
-            },
-          },
-        },
-      }),
-    },
     ActionIcon: {
       defaultProps: {
         color: "dark",
@@ -179,8 +137,27 @@ const GeistTheme: MantineThemeOverride = {
           root: getShadowButtonStyles(theme, params),
         }),
       },
-      styles: () => ({
-        root: ActionIconAndButtonRoot,
+      styles: (theme, params: ActionIconStylesParams, { variant }) => ({
+        root: {
+          transitionProperty: "border-color,background,color,transform,box-shadow",
+          transitionDuration: ".15s",
+          transitionTimingFunction: "ease",
+          "&[data-loading]": {
+            color: "transparent",
+            svg: {
+              stroke:
+                variant === "transparent" || variant === "secondary"
+                  ? theme.colors[params.color || theme.primaryColor][5]
+                  : theme.white,
+            },
+            "&:before": {
+              display: "none",
+            },
+            ".mantine-Button-centerLoader": {
+              opacity: 1,
+            },
+          },
+        },
       }),
     },
     Button: {
@@ -198,8 +175,37 @@ const GeistTheme: MantineThemeOverride = {
           root: getShadowButtonStyles(theme, params),
         }),
       },
-      styles: () => ({
-        root: ActionIconAndButtonRoot,
+      styles: (theme, params: ButtonStylesParams, { variant }) => ({
+        root: {
+          ref: getStylesRef("root"),
+          transitionProperty: "border-color,background,color,transform,box-shadow",
+          transitionDuration: ".15s",
+          transitionTimingFunction: "ease",
+          "&[data-loading]": {
+            color: "transparent",
+            svg: {
+              stroke:
+                variant === "transparent" || variant === "secondary"
+                  ? theme.colors[params.color || theme.primaryColor][5]
+                  : theme.white,
+            },
+            "&:before": {
+              display: "none",
+            },
+            ".mantine-Button-centerLoader": {
+              opacity: 1,
+            },
+            [`& .${getStylesRef("rightIcon")}, .${getStylesRef("leftIcon")}`]: {
+              opacity: 0,
+            },
+          },
+        },
+        rightIcon: {
+          ref: getStylesRef("rightIcon"),
+        },
+        leftIcon: {
+          ref: getStylesRef("leftIcon"),
+        },
       }),
     },
     Menu: {
