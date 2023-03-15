@@ -76,7 +76,7 @@ const Card = ({}: CardProps) => {
         />
       </AspectRatio>
       <Group position="right">
-        <Badge variant="outline">₽299</Badge>
+        <Badge variant="outline">₽2999</Badge>
       </Group>
     </Box>
   )

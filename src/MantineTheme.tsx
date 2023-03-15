@@ -32,7 +32,7 @@ const MantineTheme: MantineThemeOverride = {
       variants: {
         filled: (theme) => ({
           root: {
-            background: theme.colors.green[5],
+            background: theme.colors[theme.primaryColor][5],
             color: theme.black,
             border: `1px solid ${theme.black}`,
             "&:not([data-disabled])": theme.fn.hover({
@@ -121,6 +121,9 @@ const MantineTheme: MantineThemeOverride = {
       }),
     },
     TooltipFloating: {
+      defaultProps: {
+        radius: "sm",
+      },
       styles: (theme) => ({
         tooltip: {
           background: theme.black,
@@ -203,6 +206,7 @@ const MantineTheme: MantineThemeOverride = {
     },
     Tooltip: {
       defaultProps: {
+        radius: "sm",
         events: {
           touch: true,
           hover: true,
