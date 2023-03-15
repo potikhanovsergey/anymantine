@@ -18,10 +18,26 @@ const MantineTheme: MantineThemeOverride = {
       variants: {
         filled: (theme) => ({
           root: {
-            background: theme.colors[theme.primaryColor][5],
+            // background: theme.colors[theme.primaryColor][2],
+            background: theme.black,
             color: theme.white,
+            borderRadius: 0,
+            transition: "all 200ms ease",
             "&:not([data-disabled])": theme.fn.hover({
-              background: theme.colors[theme.primaryColor][6],
+              background: theme.colors.dark[4],
+            }),
+          },
+        }),
+        white: (theme) => ({
+          root: {
+            backgroundColor: theme.white,
+            border: "1px solid",
+            borderColor: theme.black,
+            transition: "all 200ms ease",
+            borderRadius: 0,
+            color: theme.black,
+            "&:not([data-disabled])": theme.fn.hover({
+              background: theme.colors.violet[1],
             }),
           },
         }),
