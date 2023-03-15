@@ -165,6 +165,9 @@ const GeistTheme: MantineThemeOverride = {
       }),
     },
     ActionIcon: {
+      defaultProps: {
+        color: "dark",
+      },
       variants: {
         primary: (theme, params: ActionIconStylesParams) => ({
           root: getPrimaryButtonStyles(theme, params),
@@ -172,9 +175,9 @@ const GeistTheme: MantineThemeOverride = {
         secondary: (theme, params: ActionIconStylesParams) => ({
           root: getSecondaryButtonStyles(theme, params),
         }),
-        // shadow: (theme, params: ButtonStylesParams) => ({
-        //   root: getShadowButtonStyles(theme, params)
-        // }),
+        shadow: (theme, params: ActionIconStylesParams) => ({
+          root: getShadowButtonStyles(theme, params),
+        }),
       },
       styles: () => ({
         root: ActionIconAndButtonRoot,
@@ -216,15 +219,6 @@ const GeistTheme: MantineThemeOverride = {
           "&:hover": {
             backgroundColor: theme.colors.accent[1],
             color: theme.black,
-          },
-        },
-      }),
-    },
-    Drawer: {
-      styles: (theme) => ({
-        content: {
-          [`@media (max-width: ${theme.breakpoints.md})`]: {
-            flex: 1,
           },
         },
       }),
@@ -327,32 +321,6 @@ const GeistTheme: MantineThemeOverride = {
         },
       }),
     },
-    Pagination: {
-      defaultProps: {
-        color: "dark",
-        getItemAriaLabel: (page) => {
-          switch (page) {
-            case "dots":
-              return "Pagination dots"
-            case "prev":
-              return "Previous page"
-            case "next":
-              return "Next page"
-            case "first":
-              return "The first page"
-            case "last":
-              return "The last page"
-            default:
-              return `Page ${page}`
-          }
-        },
-      },
-    },
-    Notifications: {
-      defaultProps: {
-        autoClose: 10000,
-      },
-    },
     Select: {
       defaultProps: {
         shadow: "lg",
@@ -371,30 +339,6 @@ const GeistTheme: MantineThemeOverride = {
               backgroundColor: theme.colors.gray[2],
             },
           },
-        },
-      }),
-    },
-    Avatar: {
-      defaultProps: {
-        children: "?!",
-        color: "violet",
-      },
-    },
-    ScrollArea: {
-      styles: (theme) => ({
-        thumb: {
-          background: theme.fn.rgba(theme.colors.accent[5], 0.3),
-        },
-        scrollbar: {
-          ":hover": {
-            background: "transparent",
-            ".__mantine-ref-thumb": {
-              background: theme.colors.accent[5],
-            },
-          },
-        },
-        corner: {
-          opacity: "0 !important",
         },
       }),
     },

@@ -13,4 +13,13 @@ declare module "@blitzjs/auth" {
   }
 }
 
-/// <reference types="@legendapp/state/types" />
+// / <reference types="@legendapp/state/types" />
+
+declare module "@legendapp/state/react" {
+  export declare const Computed: (props: {
+    children: React.ReactNode | (() => React.ReactNode)
+  }) => React.ReactElement
+  export declare const Memo: (props: {
+    children: React.ReactNode | (() => React.ReactNode)
+  }) => React.ReactElement
+}
