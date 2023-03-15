@@ -9,6 +9,8 @@ import {
   Tabs,
   Text,
   Title,
+  TitleOrder,
+  useMantineTheme,
 } from "@mantine/core"
 import ThemeColors from "../ThemeColors/ThemeColors"
 import PanelStack from "../PanelStack"
@@ -17,6 +19,7 @@ import CornerItem from "../Corners/CornerItem"
 import ShadowItem from "../Shadows/ShadowItem"
 
 const ViewTabsTokens = () => {
+  const theme = useMantineTheme()
   return (
     <Tabs.Panel value="tokens" mt="md">
       <PanelStack>
@@ -87,11 +90,54 @@ const ViewTabsTokens = () => {
         </Stack>
         <Stack spacing="xs">
           <Title order={2}>Типографика</Title>
-          <Paper withBorder>Йоо</Paper>
-        </Stack>
-        <Stack spacing="xs">
-          <Title order={2}>Структура и сетка</Title>
-          <Paper withBorder>Йоо</Paper>
+          <Stack>
+            <Box>
+              <Title order={3} mb={4}>
+                Шрифты
+              </Title>
+              <Text mb="xs">
+                В продуктах Vercel используется шрифт{" "}
+                <Anchor href="https://fonts.google.com/specimen/Inter" target="_blank">
+                  Inter
+                </Anchor>{" "}
+                для всех текстов, включая заголовки и кнопки.
+              </Text>
+              <Text>
+                Для отображения кода используется{" "}
+                <Anchor
+                  href="https://fonts.google.com/specimen/Roboto+Mono?query=Roboto+mono"
+                  target="_blank"
+                >
+                  Roboto Mono
+                </Anchor>
+                .
+              </Text>
+            </Box>
+            <Box>
+              <Title order={3} mb={4}>
+                Размеры заголовков
+              </Title>
+              <Stack>
+                {Object.keys(theme.headings.sizes).map((heading, i) => (
+                  <Title key={heading} order={(i + 1) as TitleOrder} color="dimmed">
+                    Lorem ipsum dolor sit amet.
+                  </Title>
+                ))}
+              </Stack>
+            </Box>
+            <Box>
+              <Title order={3} mb={4}>
+                Размеры текста
+              </Title>
+              <Stack sx={{ flexDirection: "column-reverse" }}>
+                {Object.keys(theme.fontSizes).map((size, i) => (
+                  <Text key={size} size={size} color="dimmed">
+                    Далеко-далеко за словесными горами в стране.
+                  </Text>
+                ))}
+              </Stack>
+            </Box>
+          </Stack>
         </Stack>
         <Stack spacing="xs">
           <Title order={2}>Иконки</Title>

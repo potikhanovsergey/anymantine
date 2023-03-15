@@ -2,26 +2,12 @@ import { MantineThemeOverride, Text, rem } from "@mantine/core"
 
 const MantineTheme: MantineThemeOverride = {
   cursorType: "pointer",
-  primaryColor: "green",
+  primaryColor: "violet",
   defaultRadius: "lg",
-  colors: {
-    green: [
-      "#b9fed3",
-      "#97fdbc",
-      "#85fdb1",
-      "#74fda6",
-      "#62fc9b",
-      "#51fc90", // 5
-      "#49e382",
-      "#41ca73",
-      "#319756",
-      "#20653a",
-    ],
-  },
   components: {
     Loader: {
       defaultProps: {
-        color: "green",
+        color: "violet",
         size: "xs",
       },
     },
@@ -33,11 +19,9 @@ const MantineTheme: MantineThemeOverride = {
         filled: (theme) => ({
           root: {
             background: theme.colors[theme.primaryColor][5],
-            color: theme.black,
-            border: `1px solid ${theme.black}`,
+            color: theme.white,
             "&:not([data-disabled])": theme.fn.hover({
-              background: theme.white,
-              color: theme.black,
+              background: theme.colors[theme.primaryColor][6],
             }),
           },
         }),
@@ -160,7 +144,7 @@ const MantineTheme: MantineThemeOverride = {
 
           "&:not(:disabled, &[data-active])": {
             "&:hover": {
-              backgroundColor: theme.colors.green[3],
+              backgroundColor: theme.colors.violet[1],
             },
           },
 
