@@ -76,6 +76,7 @@ const MantineTheme: MantineThemeOverride = {
         root: {
           "&[data-with-border]": {
             borderColor: theme.black,
+            borderWidth: "2px",
           },
         },
       }),

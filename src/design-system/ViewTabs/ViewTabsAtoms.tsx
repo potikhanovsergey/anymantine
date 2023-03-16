@@ -4,6 +4,7 @@ import { Computed, observer, useObservable } from "@legendapp/state/react"
 import PanelStack from "../PanelStack"
 import AtomButtons from "../Atoms/AtomButtons"
 import AtomActionIcons from "../Atoms/AtomActionIcons"
+import AtomTextInputs from "../Atoms/AtomTextInputs"
 
 const ViewTabsAtoms = () => {
   const configurableAtom = useObservable(null as string | null)
@@ -20,11 +21,13 @@ const ViewTabsAtoms = () => {
             opened={configurableAtom.get() === "buttons"}
             onToggleConfigurator={() => toggleConfigurable("buttons")}
           />
-        </Computed>
-        <Computed>
           <AtomActionIcons
             opened={configurableAtom.get() === "action-icons"}
             onToggleConfigurator={() => toggleConfigurable("action-icons")}
+          />
+          <AtomTextInputs
+            opened={configurableAtom.get() === "text-inputs"}
+            onToggleConfigurator={() => toggleConfigurable("text-inputs")}
           />
         </Computed>
       </PanelStack>
