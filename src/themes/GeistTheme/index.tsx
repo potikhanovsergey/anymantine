@@ -116,7 +116,7 @@ const GeistTheme: MantineThemeOverride = {
         withBorder: true,
         shadow: cardShadow,
       },
-      styles: (theme, params) => ({
+      styles: (theme) => ({
         root: {
           borderColor: theme.colors.accent[2],
         },

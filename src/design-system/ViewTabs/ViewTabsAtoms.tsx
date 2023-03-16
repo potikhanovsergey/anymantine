@@ -6,6 +6,7 @@ import AtomButtons from "../Atoms/AtomButtons"
 import AtomActionIcons from "../Atoms/AtomActionIcons"
 import AtomTextInputs from "../Atoms/AtomTextInputs"
 import AtomSelects from "../Atoms/AtomSelects"
+import AttomSwitches from "../Atoms/AtomSwitches"
 
 const ViewTabsAtoms = () => {
   const configurableAtom = useObservable(null as string | null)
@@ -33,6 +34,10 @@ const ViewTabsAtoms = () => {
           <AtomSelects
             opened={configurableAtom.get() === "selects"}
             onToggleConfigurator={() => toggleConfigurable("selects")}
+          />
+          <AttomSwitches
+            opened={configurableAtom.get() === "switches"}
+            onToggleConfigurator={() => toggleConfigurable("switches")}
           />
         </Computed>
       </PanelStack>
