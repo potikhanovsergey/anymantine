@@ -12,6 +12,6 @@ export default createStyles((theme: MantineTheme, { radius }: CornerItemStylesPa
     width: "100%",
     maxWidth: rem(size),
     aspectRatio: "1/1",
-    border: `2px solid ${theme.colors.violet[5]}`,
+    backgroundColor: theme.colors.gray[2],
   },
 }))

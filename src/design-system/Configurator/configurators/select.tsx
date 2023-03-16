@@ -8,9 +8,8 @@ import { Select } from '@mantine/core';
 
 function Demo() {
   return (
-    <Select
-      data={${selectDataMock}}
-      ${props}
+    <Select${props}
+      data={${JSON.stringify(selectDataMock)}}
     />
   );
 }

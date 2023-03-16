@@ -10,7 +10,7 @@ import { IconHeart } from "@tabler/icons-react"
 function Demo() {
   return (
     <ActionIcon${props}>
-      <IconHeart size="75%" />
+      <IconHeart size="75%" stroke={1} />
     </ActionIcon>
   );
 }
