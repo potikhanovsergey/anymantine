@@ -1,4 +1,4 @@
-import { MantineThemeOverride, Text, rem } from "@mantine/core"
+import { MantineThemeOverride, Text, rem, getStylesRef } from "@mantine/core"
 
 const MantineTheme: MantineThemeOverride = {
   cursorType: "pointer",
@@ -52,15 +52,16 @@ const MantineTheme: MantineThemeOverride = {
         track: {
           height: "4px",
           "::before": {
-            backgroundColor: theme.black,
+            backgroundColor: theme.white,
+            border: `1px solid ${theme.black}`,
           },
         },
         markWrapper: {
           transform: "translateY(-25%)",
         },
         mark: {
-          borderColor: theme.black,
-          backgroundColor: theme.black,
+          border: `1px solid ${theme.black}`,
+          backgroundColor: theme.white,
         },
         markFilled: {
           border: `1px solid ${theme.black}`,
@@ -74,9 +75,32 @@ const MantineTheme: MantineThemeOverride = {
           backgroundColor: theme.colors.violet[1],
           color: theme.colors.violet[1],
           border: `1px solid ${theme.black}`,
-          // ":focus": {
-          //   borderColor: theme.colors.violet[1],
-          // },
+        },
+      }),
+    },
+    Switch: {
+      styles: (theme) => ({
+        track: {
+          backgroundColor: theme.white,
+          borderColor: theme.black,
+          ref: getStylesRef("track"),
+        },
+        input: {
+          "&:checked+": {
+            [`& .${getStylesRef("track")}`]: {
+              backgroundColor: theme.colors.violet[1],
+              borderColor: theme.black,
+            },
+            [`*> .${getStylesRef("thumb")}`]: {
+              borderColor: theme.black,
+              backgroundColor: theme.white,
+            },
+          },
+        },
+        thumb: {
+          borderColor: theme.black,
+          backgroundColor: theme.colors.violet[1],
+          ref: getStylesRef("thumb"),
         },
       }),
     },
