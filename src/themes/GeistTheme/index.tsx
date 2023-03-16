@@ -367,7 +367,6 @@ const GeistTheme: MantineThemeOverride = {
       },
       styles: (theme) => ({
         tooltip: {
-          // background: theme.black,
           boxShadow: theme.shadows.md,
         },
       }),

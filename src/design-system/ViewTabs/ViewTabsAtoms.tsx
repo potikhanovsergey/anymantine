@@ -9,6 +9,7 @@ import AtomSelects from "../Atoms/AtomSelects"
 import AtomSwitches from "../Atoms/AtomSwitches"
 import AtomRadios from "../Atoms/AtomRadios"
 import AtomTooltips from "../Atoms/AtomTooltips"
+import AtomCheckboxes from "../Atoms/AtomCheckboxes"
 
 const ViewTabsAtoms = () => {
   const configurableAtom = useObservable(null as string | null)
@@ -40,6 +41,10 @@ const ViewTabsAtoms = () => {
           <AtomSwitches
             opened={configurableAtom.get() === "switches"}
             onToggleConfigurator={() => toggleConfigurable("switches")}
+          />
+          <AtomCheckboxes
+            opened={configurableAtom.get() === "checkboxes"}
+            onToggleConfigurator={() => toggleConfigurable("checkboxes")}
           />
           <AtomRadios
             opened={configurableAtom.get() === "radios"}

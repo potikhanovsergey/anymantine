@@ -47,9 +47,15 @@ const useStyles = createStyles((theme) => ({
   },
 }))
 
-interface CardProps {}
+interface CardProps {
+  caption: string
+  title: string
+  imageUrl: string
+  price: number
+  id: number
+}
 
-const Card = ({}: CardProps) => {
+const Card = ({ caption, title, imageUrl, price, id }: CardProps) => {
   const { classes } = useStyles()
   return (
     <Box className={classes.card}>
@@ -60,23 +66,19 @@ const Card = ({}: CardProps) => {
           </Anchor>
         </Tooltip>
       </Group>
-      <Link passHref href="/design-systems/1">
+      <Link passHref href={`/design-systems/${id}`}>
         <Text className={classes.caption} component="a" weight={300} color="dimmed">
-          Vercel
+          {caption}
         </Text>
       </Link>
       <Text size={28} mb="xl" weight="bold">
-        Geist
+        {title}
       </Text>
       <AspectRatio pos="relative" ratio={16 / 9} mb="md">
-        <Image
-          alt="Vercel Geist"
-          layout="fill"
-          src="https://vercel.com/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1671111035%2Fgeist%2Fgeist-illustration-light.png&w=1920&q=100"
-        />
+        <Image alt="Vercel Geist" layout="fill" src={imageUrl} />
       </AspectRatio>
       <Group position="right">
-        <Badge variant="outline">₽2999</Badge>
+        <Badge variant="outline">₽{price}</Badge>
       </Group>
     </Box>
   )
