@@ -2,18 +2,18 @@ import { Group, Stack, Switch } from "@mantine/core"
 import SwitchConfigurator from "src/design-system/Configurator/configurators/switch"
 import ItemPreview from "src/design-system/ItemPreview"
 
-interface AttomSwitchesProps {
+interface AtomSwitchesProps {
   opened: boolean
   onToggleConfigurator: () => void
 }
 
-const AttomSwitches = ({ opened, onToggleConfigurator }: AttomSwitchesProps) => {
+const AtomSwitches = ({ opened, onToggleConfigurator }: AtomSwitchesProps) => {
   return (
     <ItemPreview
       opened={opened}
       onToggleConfigurator={onToggleConfigurator}
       configurator={SwitchConfigurator}
-      title="Радио кнопки"
+      title="Переключатели"
     >
       <Group>
         <Stack>
@@ -40,4 +40,4 @@ const AttomSwitches = ({ opened, onToggleConfigurator }: AttomSwitchesProps) => 
   )
 }
 
-export default AttomSwitches
+export default AtomSwitches
