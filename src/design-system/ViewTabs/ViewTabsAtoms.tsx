@@ -10,6 +10,7 @@ import AtomSwitches from "../Atoms/AtomSwitches"
 import AtomRadios from "../Atoms/AtomRadios"
 import AtomTooltips from "../Atoms/AtomTooltips"
 import AtomCheckboxes from "../Atoms/AtomCheckboxes"
+import AtomBadges from "../Atoms/AtomBadges"
 
 const ViewTabsAtoms = () => {
   const configurableAtom = useObservable(null as string | null)
@@ -49,6 +50,10 @@ const ViewTabsAtoms = () => {
           <AtomRadios
             opened={configurableAtom.get() === "radios"}
             onToggleConfigurator={() => toggleConfigurable("radios")}
+          />
+          <AtomBadges
+            opened={configurableAtom.get() === "badges"}
+            onToggleConfigurator={() => toggleConfigurable("badges")}
           />
           <AtomTooltips
             opened={configurableAtom.get() === "tooltips"}
