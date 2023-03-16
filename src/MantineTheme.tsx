@@ -47,6 +47,39 @@ const MantineTheme: MantineThemeOverride = {
         color: "violet",
       },
     },
+    Slider: {
+      styles: (theme) => ({
+        track: {
+          height: "4px",
+          "::before": {
+            backgroundColor: theme.black,
+          },
+        },
+        markWrapper: {
+          transform: "translateY(-25%)",
+        },
+        mark: {
+          borderColor: theme.black,
+          backgroundColor: theme.black,
+        },
+        markFilled: {
+          border: `1px solid ${theme.black}`,
+          backgroundColor: theme.colors.violet[1],
+        },
+        bar: {
+          backgroundColor: theme.colors.violet[1],
+          border: `1px solid ${theme.black}`,
+        },
+        thumb: {
+          backgroundColor: theme.colors.violet[1],
+          color: theme.colors.violet[1],
+          border: `1px solid ${theme.black}`,
+          // ":focus": {
+          //   borderColor: theme.colors.violet[1],
+          // },
+        },
+      }),
+    },
     Menu: {
       styles: (theme) => ({
         dropdown: {
