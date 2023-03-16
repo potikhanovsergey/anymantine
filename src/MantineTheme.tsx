@@ -1,4 +1,4 @@
-import { MantineThemeOverride, Text, rem } from "@mantine/core"
+import { MantineThemeOverride, Text, rem, getStylesRef } from "@mantine/core"
 
 const MantineTheme: MantineThemeOverride = {
   cursorType: "pointer",
@@ -46,6 +46,96 @@ const MantineTheme: MantineThemeOverride = {
         children: <Text size="lg">🐶</Text>,
         color: "violet",
       },
+    },
+    Slider: {
+      styles: (theme) => ({
+        track: {
+          height: "4px",
+          "::before": {
+            backgroundColor: theme.white,
+            border: `1px solid ${theme.black}`,
+          },
+        },
+        markWrapper: {
+          transform: "translateY(-25%)",
+        },
+        mark: {
+          border: `1px solid ${theme.black}`,
+          backgroundColor: theme.white,
+        },
+        markFilled: {
+          border: `1px solid ${theme.black}`,
+          backgroundColor: theme.colors.violet[1],
+        },
+        bar: {
+          backgroundColor: theme.colors.violet[1],
+          border: `1px solid ${theme.black}`,
+        },
+        thumb: {
+          backgroundColor: theme.colors.violet[1],
+          color: theme.colors.violet[1],
+          border: `1px solid ${theme.black}`,
+        },
+      }),
+    },
+    Input: {
+      defaultProps: {
+        variant: "filled",
+      },
+      styles: (theme) => ({
+        input: {
+          backgroundColor: theme.colors.violet[0],
+        },
+      }),
+    },
+    Select: {
+      styles: (theme) => ({
+        input: {
+          "&:active, &:focus": {
+            borderColor: theme.black,
+          },
+        },
+        rightSection: {
+          svg: {
+            color: theme.black + "!important",
+          },
+        },
+      }),
+    },
+    Switch: {
+      styles: (theme) => ({
+        track: {
+          backgroundColor: theme.white,
+          borderColor: theme.black,
+          ref: getStylesRef("track"),
+        },
+        input: {
+          "&:checked+": {
+            [`& .${getStylesRef("track")}`]: {
+              backgroundColor: theme.colors.violet[1],
+              borderColor: theme.black,
+            },
+            [`*> .${getStylesRef("thumb")}`]: {
+              borderColor: theme.black,
+              backgroundColor: theme.white,
+            },
+          },
+        },
+        thumb: {
+          borderColor: theme.black,
+          backgroundColor: theme.colors.violet[1],
+          ref: getStylesRef("thumb"),
+        },
+      }),
+    },
+    TextInput: {
+      styles: (theme) => ({
+        input: {
+          "&:active, &:focus": {
+            borderColor: theme.black,
+          },
+        },
+      }),
     },
     Menu: {
       styles: (theme) => ({

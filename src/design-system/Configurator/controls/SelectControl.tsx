@@ -1,5 +1,5 @@
 import React from "react"
-import { NativeSelect } from "@mantine/core"
+import { NativeSelect, Select } from "@mantine/core"
 import { upperFirst } from "@mantine/hooks"
 
 interface SelectControlProps {
@@ -19,14 +19,14 @@ export function SelectControl({
   ...others
 }: SelectControlProps) {
   return (
-    <NativeSelect
+    <Select
       data={data.map((item) => ({
         value: item.value,
         label: capitalizeItems ? upperFirst(item.label) : item.label,
       }))}
       value={value}
       label={upperFirst(label)}
-      onChange={(event) => onChange(event.currentTarget.value)}
+      onChange={onChange}
       {...others}
     />
   )
