@@ -1,26 +1,30 @@
-import { TextInputProps, Group, TextInput } from "@mantine/core"
+import { SelectProps, Group, Select } from "@mantine/core"
 import React from "react"
+import { selectDataMock } from "src/design-system/Atoms/AtomSelects"
 import { MantineDemo } from "src/design-system/Demo/types"
 
 const codeTemplate = (props: string) => `
-import { TextInput } from '@mantine/core';
+import { Select } from '@mantine/core';
 
 function Demo() {
   return (
-    <TextInput${props} />
+    <Select
+      data={${selectDataMock}}
+      ${props}
+    />
   );
 }
 `
 
-function Wrapper(props: TextInputProps) {
+function Wrapper(props: SelectProps) {
   return (
     <Group position="center">
-      <TextInput {...props} />
+      <Select {...props} data={selectDataMock} />
     </Group>
   )
 }
 
-const TextInputConfigurator: MantineDemo = {
+const SelectConfigurator: MantineDemo = {
   type: "configurator",
   component: Wrapper,
   codeTemplate,
@@ -31,7 +35,9 @@ const TextInputConfigurator: MantineDemo = {
     { name: "radius", type: "size", initialValue: "sm", defaultValue: "sm" },
     { name: "size", type: "size", initialValue: "sm", defaultValue: "sm" },
     { name: "disabled", type: "boolean", initialValue: false, defaultValue: false },
+    { name: "clearable", type: "boolean", initialValue: false, defaultValue: false },
+    { name: "searchable", type: "boolean", initialValue: false, defaultValue: false },
   ],
 }
 
-export default TextInputConfigurator
+export default SelectConfigurator
