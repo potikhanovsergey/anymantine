@@ -125,6 +125,7 @@ const GeistTheme: MantineThemeOverride = {
     ActionIcon: {
       defaultProps: {
         color: "dark",
+        variant: "primary",
       },
       variants: {
         primary: (theme, params: ActionIconStylesParams) => ({
@@ -358,6 +359,7 @@ const GeistTheme: MantineThemeOverride = {
     },
     Tooltip: {
       defaultProps: {
+        withArrow: true,
         transitionProps: {
           transition: "pop",
           duration: 200,
@@ -365,7 +367,7 @@ const GeistTheme: MantineThemeOverride = {
       },
       styles: (theme) => ({
         tooltip: {
-          background: theme.black,
+          // background: theme.black,
           boxShadow: theme.shadows.md,
         },
       }),
