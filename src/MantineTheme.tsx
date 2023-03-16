@@ -78,6 +78,30 @@ const MantineTheme: MantineThemeOverride = {
         },
       }),
     },
+    Input: {
+      defaultProps: {
+        variant: "filled",
+      },
+      styles: (theme) => ({
+        input: {
+          backgroundColor: theme.colors.violet[0],
+        },
+      }),
+    },
+    Select: {
+      styles: (theme) => ({
+        input: {
+          "&:active, &:focus": {
+            borderColor: theme.black,
+          },
+        },
+        rightSection: {
+          svg: {
+            color: theme.black + "!important",
+          },
+        },
+      }),
+    },
     Switch: {
       styles: (theme) => ({
         track: {
@@ -101,6 +125,15 @@ const MantineTheme: MantineThemeOverride = {
           borderColor: theme.black,
           backgroundColor: theme.colors.violet[1],
           ref: getStylesRef("thumb"),
+        },
+      }),
+    },
+    TextInput: {
+      styles: (theme) => ({
+        input: {
+          "&:active, &:focus": {
+            borderColor: theme.black,
+          },
         },
       }),
     },
