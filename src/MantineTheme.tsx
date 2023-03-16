@@ -100,6 +100,23 @@ const MantineTheme: MantineThemeOverride = {
             color: theme.black + "!important",
           },
         },
+        dropdown: {
+          borderColor: theme.black,
+        },
+        item: {
+          "&[data-selected]": {
+            "&, &:hover": {
+              backgroundColor: theme.colors.violet[1],
+              border: `1px solid ${theme.black}`,
+              color: theme.black,
+            },
+          },
+          "&:not(&[data-selected])": {
+            "&[data-hovered]": {
+              backgroundColor: theme.colors.violet[0],
+            },
+          },
+        },
       }),
     },
     Switch: {
