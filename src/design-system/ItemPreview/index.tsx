@@ -52,7 +52,7 @@ const ItemPreview = ({
         if={opened}
         else={
           <Group noWrap position="apart">
-            <Box>
+            <Box w="100%">
               <MantineProvider theme={DesignTheme.peek()}>{children}</MantineProvider>
             </Box>
           </Group>

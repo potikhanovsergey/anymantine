@@ -13,6 +13,7 @@ export function SegmentedControl({ value, label, onChange, data, ...others }: Si
   return (
     <Input.Wrapper labelElement="div" label={upperFirst(label)} {...others}>
       <MantineSegmentedControl
+        size="xs"
         data={data.map((item) => ({ value: item.value, label: upperFirst(item.label) }))}
         value={value}
         onChange={onChange}

@@ -36,6 +36,7 @@ const SelectConfigurator: MantineDemo = {
     { name: "disabled", type: "boolean", initialValue: false, defaultValue: false },
     { name: "clearable", type: "boolean", initialValue: false, defaultValue: false },
     { name: "searchable", type: "boolean", initialValue: false, defaultValue: false },
+    { name: "required", type: "boolean", initialValue: false, defaultValue: false },
   ],
 }
 

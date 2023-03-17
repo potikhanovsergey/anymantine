@@ -35,7 +35,7 @@ const SwitchConfigurator: MantineDemo = {
       ],
       initialValue: "right",
     },
-    { name: "label", type: "string", initialValue: "" },
+    { name: "label", type: "string", initialValue: "Label" },
     { name: "description", type: "string", initialValue: "" },
     { name: "error", type: "string", initialValue: "" },
     { name: "color", type: "color", initialValue: "dark", defaultValue: "dark" },

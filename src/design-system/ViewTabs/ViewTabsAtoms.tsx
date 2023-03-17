@@ -11,6 +11,8 @@ import AtomRadios from "../Atoms/AtomRadios"
 import AtomTooltips from "../Atoms/AtomTooltips"
 import AtomCheckboxes from "../Atoms/AtomCheckboxes"
 import AtomBadges from "../Atoms/AtomBadges"
+import AtomSkeletons from "../Atoms/AtomSkeletons"
+import AtomTextareas from "../Atoms/AtomTextareas"
 
 const ViewTabsAtoms = () => {
   const configurableAtom = useObservable(null as string | null)
@@ -35,6 +37,10 @@ const ViewTabsAtoms = () => {
             opened={configurableAtom.get() === "text-inputs"}
             onToggleConfigurator={() => toggleConfigurable("text-inputs")}
           />
+          <AtomTextareas
+            opened={configurableAtom.get() === "textareas"}
+            onToggleConfigurator={() => toggleConfigurable("textareas")}
+          />
           <AtomSelects
             opened={configurableAtom.get() === "selects"}
             onToggleConfigurator={() => toggleConfigurable("selects")}
@@ -58,6 +64,10 @@ const ViewTabsAtoms = () => {
           <AtomTooltips
             opened={configurableAtom.get() === "tooltips"}
             onToggleConfigurator={() => toggleConfigurable("tooltips")}
+          />
+          <AtomSkeletons
+            opened={configurableAtom.get() === "skeletons"}
+            onToggleConfigurator={() => toggleConfigurable("skeletons")}
           />
         </Computed>
       </PanelStack>

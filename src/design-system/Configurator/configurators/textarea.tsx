@@ -1,26 +1,26 @@
-import { TextInputProps, Group, TextInput } from "@mantine/core"
+import { TextareaProps, Group, Textarea } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
 
 const codeTemplate = (props: string) => `
-import { TextInput } from '@mantine/core';
+import { Textarea } from '@mantine/core';
 
 function Demo() {
   return (
-    <TextInput${props} />
+    <Textarea${props} />
   );
 }
 `
 
-function Wrapper(props: TextInputProps) {
+function Wrapper(props: TextareaProps) {
   return (
     <Group position="center">
-      <TextInput {...props} />
+      <Textarea {...props} />
     </Group>
   )
 }
 
-const TextInputConfigurator: MantineDemo = {
+const TextareaConfigurator: MantineDemo = {
   type: "configurator",
   component: Wrapper,
   codeTemplate,
@@ -35,4 +35,4 @@ const TextInputConfigurator: MantineDemo = {
   ],
 }
 
-export default TextInputConfigurator
+export default TextareaConfigurator
