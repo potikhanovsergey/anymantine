@@ -27,7 +27,7 @@ const DesignSystemsPage: BlitzPage = () => {
         </Title>
         <MantineGrid gutter="xl">
           <MantineGrid.Col span={3}>
-            <Paper withBorder p="xs" pos="sticky" top={theme.spacing.md}>
+            <Paper pos="sticky" top={theme.spacing.md}>
               <Title size={24} mb="xs" order={2}>
                 Фильтры
               </Title>

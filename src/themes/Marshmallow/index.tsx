@@ -1,9 +1,9 @@
-import { MantineThemeOverride, Text, rem, getStylesRef } from "@mantine/core"
+import { MantineThemeOverride, Text, rem, getStylesRef, ButtonStylesParams } from "@mantine/core"
 
 const CartoonTheme: MantineThemeOverride = {
   cursorType: "pointer",
   primaryColor: "violet",
-  defaultRadius: 0,
+  defaultRadius: "sm",
   components: {
     Loader: {
       defaultProps: {
@@ -16,12 +16,11 @@ const CartoonTheme: MantineThemeOverride = {
         loaderPosition: "center",
       },
       variants: {
-        filled: (theme) => ({
+        filled: (theme, params: ButtonStylesParams) => ({
           root: {
-            background: theme.colors[theme.primaryColor][1],
+            background: params.color || theme.colors[theme.primaryColor][1],
             border: `1px solid ${theme.black}`,
             color: theme.black,
-            transition: "all 200ms ease",
             "&:not([data-disabled])": theme.fn.hover({
               background: theme.colors[theme.primaryColor][2],
             }),
@@ -32,7 +31,6 @@ const CartoonTheme: MantineThemeOverride = {
             backgroundColor: theme.white,
             border: "1px solid",
             borderColor: theme.black,
-            transition: "all 200ms ease",
             color: theme.black,
             "&:not([data-disabled])": theme.fn.hover({
               background: theme.colors[theme.primaryColor][1],
@@ -47,6 +45,13 @@ const CartoonTheme: MantineThemeOverride = {
         children: <Text size="lg">🐶</Text>,
         color: "violet",
       },
+    },
+    UnstyledButton: {
+      styles: (theme) => ({
+        root: {
+          transition: "all 200ms ease",
+        },
+      }),
     },
     Slider: {
       styles: (theme) => ({
@@ -180,6 +185,10 @@ const CartoonTheme: MantineThemeOverride = {
       }),
     },
     Paper: {
+      defaultProps: {
+        p: "lg",
+        withBorder: true,
+      },
       styles: (theme) => ({
         root: {
           "&[data-with-border]": {

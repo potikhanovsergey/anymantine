@@ -20,12 +20,10 @@ const DesignSystemPage: BlitzPage = ({ slug }: { slug: string }) => {
       <Container pt={40} size="xl">
         <Grid gutter="xl">
           <Grid.Col span={8}>
-            <Paper pl={theme.spacing.xl} pr={theme.spacing.xl} pb={theme.spacing.xl}>
-              <ViewTabs />
-            </Paper>
+            <ViewTabs />
           </Grid.Col>
           <Grid.Col span={4}>
-            <Paper p={theme.spacing.xl} withBorder pos="sticky" top={theme.spacing.md}>
+            <Paper p={theme.spacing.xl} pos="sticky" top={theme.spacing.md}>
               <DetailsCard />
             </Paper>
           </Grid.Col>
