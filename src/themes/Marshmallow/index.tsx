@@ -18,12 +18,12 @@ const CartoonTheme: MantineThemeOverride = {
       variants: {
         filled: (theme) => ({
           root: {
-            background: theme.colors.violet[1],
+            background: theme.colors[theme.primaryColor][1],
             border: `1px solid ${theme.black}`,
             color: theme.black,
             transition: "all 200ms ease",
             "&:not([data-disabled])": theme.fn.hover({
-              background: theme.colors.violet[2],
+              background: theme.colors[theme.primaryColor][2],
             }),
           },
         }),
@@ -35,7 +35,7 @@ const CartoonTheme: MantineThemeOverride = {
             transition: "all 200ms ease",
             color: theme.black,
             "&:not([data-disabled])": theme.fn.hover({
-              background: theme.colors.violet[1],
+              background: theme.colors[theme.primaryColor][1],
             }),
           },
         }),
@@ -66,15 +66,15 @@ const CartoonTheme: MantineThemeOverride = {
         },
         markFilled: {
           border: `1px solid ${theme.black}`,
-          backgroundColor: theme.colors.violet[1],
+          backgroundColor: theme.colors[theme.primaryColor][1],
         },
         bar: {
-          backgroundColor: theme.colors.violet[1],
+          backgroundColor: theme.colors[theme.primaryColor][1],
           border: `1px solid ${theme.black}`,
         },
         thumb: {
-          backgroundColor: theme.colors.violet[1],
-          color: theme.colors.violet[1],
+          backgroundColor: theme.colors[theme.primaryColor][1],
+          color: theme.colors[theme.primaryColor][1],
           border: `1px solid ${theme.black}`,
         },
       }),
@@ -85,7 +85,7 @@ const CartoonTheme: MantineThemeOverride = {
       },
       styles: (theme) => ({
         input: {
-          backgroundColor: theme.colors.violet[0],
+          backgroundColor: theme.colors[theme.primaryColor][0],
         },
       }),
     },
@@ -107,14 +107,14 @@ const CartoonTheme: MantineThemeOverride = {
         item: {
           "&[data-selected]": {
             "&, &:hover": {
-              backgroundColor: theme.colors.violet[1],
+              backgroundColor: theme.colors[theme.primaryColor][1],
               border: `1px solid ${theme.black}`,
               color: theme.black,
             },
           },
           "&:not(&[data-selected])": {
             "&[data-hovered]": {
-              backgroundColor: theme.colors.violet[0],
+              backgroundColor: theme.colors[theme.primaryColor][0],
             },
           },
         },
@@ -130,7 +130,7 @@ const CartoonTheme: MantineThemeOverride = {
         input: {
           "&:checked+": {
             [`& .${getStylesRef("track")}`]: {
-              backgroundColor: theme.colors.violet[1],
+              backgroundColor: theme.colors[theme.primaryColor][1],
               borderColor: theme.black,
             },
             [`*> .${getStylesRef("thumb")}`]: {
@@ -141,7 +141,7 @@ const CartoonTheme: MantineThemeOverride = {
         },
         thumb: {
           borderColor: theme.black,
-          backgroundColor: theme.colors.violet[1],
+          backgroundColor: theme.colors[theme.primaryColor][1],
           ref: getStylesRef("thumb"),
         },
       }),
@@ -228,7 +228,7 @@ const CartoonTheme: MantineThemeOverride = {
     TooltipFloating: {
       styles: (theme) => ({
         tooltip: {
-          background: theme.colors.violet[1],
+          background: theme.colors[theme.primaryColor][1],
           color: theme.black,
           border: `1px solid ${theme.black}`,
           fontWeight: 500,
@@ -266,7 +266,7 @@ const CartoonTheme: MantineThemeOverride = {
 
           "&:not(:disabled, &[data-active])": {
             "&:hover": {
-              backgroundColor: theme.colors.violet[1],
+              backgroundColor: theme.colors[theme.primaryColor][1],
             },
           },
 
@@ -320,7 +320,7 @@ const CartoonTheme: MantineThemeOverride = {
       },
       styles: (theme) => ({
         tooltip: {
-          background: theme.colors.violet[1],
+          background: theme.colors[theme.primaryColor][1],
           color: theme.black,
           border: `1px solid ${theme.black}`,
           fontWeight: 500,
@@ -340,7 +340,7 @@ const CartoonTheme: MantineThemeOverride = {
       scrollMarginTop: "-36px",
     },
     "::selection": {
-      background: theme.colors.violet[5],
+      background: theme.colors[theme.primaryColor][1],
     },
     body: {
       lineHeight: theme.lineHeight,

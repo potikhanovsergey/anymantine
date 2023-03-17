@@ -15,6 +15,7 @@ import {
 import Layout from "src/core/layouts/Layout"
 import Card from "src/design-systems/Card"
 import Grid from "src/design-systems/Grid"
+import { themeCards } from "src/themes"
 
 const DesignSystemsPage: BlitzPage = () => {
   const theme = useMantineTheme()
@@ -63,20 +64,16 @@ const DesignSystemsPage: BlitzPage = () => {
           </MantineGrid.Col>
           <MantineGrid.Col span={9}>
             <Grid spacing="xs" cols={3}>
-              <Card
-                caption="Vercel"
-                title="Geist"
-                price={2999}
-                slug="geist"
-                imageUrl="https://vercel.com/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1671111035%2Fgeist%2Fgeist-illustration-light.png&w=1920&q=100"
-              />
-              <Card
-                caption="Marshadow"
-                title="Marshmallow"
-                price={0}
-                slug="marshmallow"
-                imageUrl="https://img.freepik.com/free-vector/cute-monster-kid-cartoon-vector-icon-illustration-monster-holiday-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3995.jpg?w=2000"
-              />
+              {themeCards.map((card) => (
+                <Card
+                  key={card.slug}
+                  caption={card.caption}
+                  title={card.title}
+                  price={2999}
+                  slug={card.slug}
+                  imageUrl="https://vercel.com/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1671111035%2Fgeist%2Fgeist-illustration-light.png&w=1920&q=100"
+                />
+              ))}
             </Grid>
           </MantineGrid.Col>
         </MantineGrid>

@@ -33,7 +33,7 @@ const useStyles = createStyles(
       }),
       ...(variant === "outline" && {
         "&:hover": {
-          backgroundColor: theme.colors.violet[1],
+          backgroundColor: theme.colors[theme.primaryColor][1],
         },
       }),
     },

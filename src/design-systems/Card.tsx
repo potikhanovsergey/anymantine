@@ -24,7 +24,7 @@ const useStyles = createStyles((theme) => ({
     color: theme.black,
     position: "relative",
     "&:hover": {
-      background: theme.colors.violet[0],
+      background: theme.colors[theme.primaryColor][0],
     },
   },
   caption: {
