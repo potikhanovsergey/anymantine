@@ -52,10 +52,10 @@ interface CardProps {
   title: string
   imageUrl: string
   price: number
-  id: number
+  slug: number | string
 }
 
-const Card = ({ caption, title, imageUrl, price, id }: CardProps) => {
+const Card = ({ caption, title, imageUrl, price, slug }: CardProps) => {
   const { classes } = useStyles()
   return (
     <Box className={classes.card}>
@@ -66,7 +66,7 @@ const Card = ({ caption, title, imageUrl, price, id }: CardProps) => {
           </Anchor>
         </Tooltip>
       </Group>
-      <Link passHref href={`/design-systems/${id}`}>
+      <Link passHref href={`/design-systems/${slug}`}>
         <Text className={classes.caption} component="a" weight={300} color="dimmed">
           {caption}
         </Text>

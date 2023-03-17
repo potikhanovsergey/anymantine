@@ -56,7 +56,6 @@ export default function CodeDemo({
             <Tooltip
               label={`${visible ? "Hide" : "Show"} code`}
               position="left"
-              withArrow
               arrowSize={6}
               offset={6}
               positionDependencies={[visible]}

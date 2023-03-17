@@ -1,6 +1,6 @@
 import { MantineThemeOverride, Text, rem, getStylesRef } from "@mantine/core"
 
-const MantineTheme: MantineThemeOverride = {
+const CartoonTheme: MantineThemeOverride = {
   cursorType: "pointer",
   primaryColor: "violet",
   defaultRadius: 0,
@@ -226,14 +226,15 @@ const MantineTheme: MantineThemeOverride = {
       }),
     },
     TooltipFloating: {
-      defaultProps: {
-        radius: "sm",
-      },
       styles: (theme) => ({
         tooltip: {
-          background: theme.black,
-          color: theme.white,
-          boxShadow: theme.shadows.md,
+          background: theme.colors.violet[1],
+          color: theme.black,
+          border: `1px solid ${theme.black}`,
+          fontWeight: 500,
+        },
+        arrow: {
+          border: `1px solid ${theme.black}`,
         },
       }),
     },
@@ -311,12 +312,7 @@ const MantineTheme: MantineThemeOverride = {
     },
     Tooltip: {
       defaultProps: {
-        radius: "sm",
-        events: {
-          touch: true,
-          hover: true,
-          focus: true,
-        },
+        withArrow: true,
         transitionProps: {
           transition: "pop",
           duration: 200,
@@ -324,9 +320,13 @@ const MantineTheme: MantineThemeOverride = {
       },
       styles: (theme) => ({
         tooltip: {
-          background: theme.black,
-          color: theme.white,
-          boxShadow: theme.shadows.md,
+          background: theme.colors.violet[1],
+          color: theme.black,
+          border: `1px solid ${theme.black}`,
+          fontWeight: 500,
+        },
+        arrow: {
+          border: `1px solid ${theme.black}`,
         },
       }),
     },
@@ -355,4 +355,4 @@ const MantineTheme: MantineThemeOverride = {
   }),
 }
 
-export default MantineTheme
+export default CartoonTheme

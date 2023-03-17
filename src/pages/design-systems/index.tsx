@@ -67,14 +67,14 @@ const DesignSystemsPage: BlitzPage = () => {
                 caption="Vercel"
                 title="Geist"
                 price={2999}
-                id={1}
+                slug="geist"
                 imageUrl="https://vercel.com/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1671111035%2Fgeist%2Fgeist-illustration-light.png&w=1920&q=100"
               />
               <Card
                 caption="Marshadow"
-                title="Cartoon"
+                title="Marshmallow"
                 price={0}
-                id={2}
+                slug="marshmallow"
                 imageUrl="https://img.freepik.com/free-vector/cute-monster-kid-cartoon-vector-icon-illustration-monster-holiday-icon-concept-isolated-premium-vector-flat-cartoon-style_138676-3995.jpg?w=2000"
               />
             </Grid>
