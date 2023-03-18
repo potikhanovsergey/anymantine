@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { SimpleGrid, useMantineTheme, Tooltip, Text, MantineProvider } from "@mantine/core"
 import { ColorsGroup } from "./ColorsGroup"
 import { observer, useComputed, useObservable } from "@legendapp/state/react"
