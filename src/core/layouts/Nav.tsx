@@ -8,15 +8,15 @@ const Nav = () => {
   return (
     <nav style={{ height: "100%" }}>
       <Group noWrap spacing={0} h="100%">
-        <Link passHref href="/teams">
-          <HeaderButton component="a">Командам</HeaderButton>
-        </Link>
-        <Link passHref href="/developers">
-          <HeaderButton component="a">Разработчикам</HeaderButton>
-        </Link>
-        <Link passHref href="/designers">
-          <HeaderButton component="a">Дизайнерам</HeaderButton>
-        </Link>
+        <HeaderButton component={Link} href="/teams">
+          Командам
+        </HeaderButton>
+        <HeaderButton component={Link} href="/developers">
+          Разработчикам
+        </HeaderButton>
+        <HeaderButton component={Link} href="/designers">
+          Дизайнерам
+        </HeaderButton>
       </Group>
     </nav>
   )

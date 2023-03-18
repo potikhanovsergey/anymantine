@@ -1,17 +1,14 @@
 import { Container, Group, Header as MantineHeader, Text, useMantineTheme } from "@mantine/core"
-import { useSession } from "@blitzjs/auth"
-import { Suspense } from "react"
-import Nav from "./Nav"
 import NextLink from "next/link"
 import HeaderButton from "../components/atoms/HeaderButton"
-
-const AuthButton = () => {
-  const session = useSession()
-  return !session.userId ? <HeaderButton>Войти в аккаунт</HeaderButton> : null
-}
+import AuthButton from "./AuthButton"
+import { useSession } from "@blitzjs/auth"
+import { Show } from "@legendapp/state/react"
+import ProfileMenu from "./ProfileMenu"
 
 const Header = () => {
   const theme = useMantineTheme()
+  const session = useSession({ suspense: false })
   return (
     <MantineHeader
       height={64}
@@ -37,14 +34,12 @@ const Header = () => {
             {/* <Nav /> */}
           </Group>
           <Group noWrap h="100%" spacing="xs">
-            <NextLink href="/design-systems" passHref>
-              <HeaderButton color="white" component="a">
-                Дизайн системы
-              </HeaderButton>
-            </NextLink>
-            <Suspense>
-              <AuthButton />
-            </Suspense>
+            <HeaderButton color="white" href="/design-systems" component={NextLink}>
+              Дизайн системы
+            </HeaderButton>
+            <Show if={session.userId} else={<AuthButton />}>
+              <ProfileMenu />
+            </Show>
           </Group>
         </Group>
       </Container>

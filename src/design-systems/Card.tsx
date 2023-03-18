@@ -66,16 +66,20 @@ const Card = ({ caption, title, imageUrl, price, slug }: CardProps) => {
           </Anchor>
         </Tooltip>
       </Group>
-      <Link passHref href={`/design-systems/${slug}`}>
-        <Text className={classes.caption} component="a" weight={300} color="dimmed">
-          {caption}
-        </Text>
-      </Link>
+      <Text
+        className={classes.caption}
+        href={`/design-systems/${slug}`}
+        component={Link}
+        weight={300}
+        color="dimmed"
+      >
+        {caption}
+      </Text>
       <Text size={28} mb="xl" weight="bold">
         {title}
       </Text>
       <AspectRatio pos="relative" ratio={16 / 9} mb="md">
-        <Image alt="Vercel Geist" layout="fill" src={imageUrl} />
+        <Image alt="Vercel Geist" fill src={imageUrl} />
       </AspectRatio>
       <Group position="right">
         <Badge variant="outline">₽{price}</Badge>

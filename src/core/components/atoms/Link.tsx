@@ -2,12 +2,8 @@ import { PropsOf } from "@emotion/react"
 import { Anchor, AnchorProps } from "@mantine/core"
 import NextLink from "next/link"
 
-const Link = ({ href, ...props }: AnchorProps & { href: PropsOf<typeof NextLink>["href"] }) => {
-  return (
-    <NextLink href={href} passHref>
-      <Anchor {...props} />
-    </NextLink>
-  )
+const Link = (props: AnchorProps & { href: PropsOf<typeof NextLink>["href"] }) => {
+  return <Anchor component={NextLink} {...props} />
 }
 
 export default Link

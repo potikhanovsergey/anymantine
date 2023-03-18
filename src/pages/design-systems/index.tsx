@@ -71,7 +71,7 @@ const DesignSystemsPage: BlitzPage = () => {
                   title={card.title}
                   price={2999}
                   slug={card.slug}
-                  imageUrl="https://vercel.com/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1671111035%2Fgeist%2Fgeist-illustration-light.png&w=1920&q=100"
+                  imageUrl={card.imageUrl}
                 />
               ))}
             </Grid>
