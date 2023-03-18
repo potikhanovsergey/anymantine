@@ -38,7 +38,6 @@ const DesignSystemSubpage: BlitzPage = ({
         <Title order={1} mb="xl">
           {title}
         </Title>
-        {page === "colors" && <ThemeColors colors={designSystem.colors} />}
 
         <Switch value={page}>
           {{
