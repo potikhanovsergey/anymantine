@@ -23,7 +23,7 @@ const Header = () => {
         borderBottomColor: theme.colors.violet[1],
       }}
     >
-      <Container size="xl" h="100%" pr={0}>
+      <Container size="xl" h="100%">
         <Group h="100%" position="apart" noWrap>
           <Group noWrap h="100%" spacing={0}>
             <Text

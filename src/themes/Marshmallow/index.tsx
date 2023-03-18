@@ -6,6 +6,7 @@ import {
   ButtonStylesParams,
   TabsStylesParams,
 } from "@mantine/core"
+import { Source_Sans_Pro } from "next/font/google"
 import { Nunito_Sans } from "next/font/google"
 
 export const font = Nunito_Sans({
@@ -55,6 +56,17 @@ const CartoonTheme: MantineThemeOverride = {
             "&:not([data-disabled])": theme.fn.hover({
               background: theme.colors[theme.primaryColor][1],
             }),
+          },
+        }),
+      },
+    },
+    Badge: {
+      variants: {
+        outline: (theme) => ({
+          root: {
+            borderColor: theme.black,
+            color: theme.black,
+            backgroundColor: theme.white,
           },
         }),
       },
