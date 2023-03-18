@@ -53,6 +53,17 @@ const CartoonTheme: MantineThemeOverride = {
         }),
       },
     },
+    Badge: {
+      variants: {
+        outline: (theme) => ({
+          root: {
+            borderColor: theme.black,
+            color: theme.black,
+            backgroundColor: theme.white,
+          },
+        }),
+      },
+    },
     Avatar: {
       defaultProps: {
         radius: 1000,
