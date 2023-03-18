@@ -9,6 +9,8 @@ import dynamic from "next/dynamic"
 import { Switch } from "@legendapp/state/react"
 
 const ThemeColors = dynamic(() => import("src/design-system/ThemeColors/ThemeColors"))
+const States = dynamic(() => import("src/design-system/States"))
+
 const AtomButtons = dynamic(() => import("src/design-system/Atoms/AtomButtons"))
 const AtomBadges = dynamic(() => import("src/design-system/Atoms/AtomBadges"))
 const AtomActionIcons = dynamic(() => import("src/design-system/Atoms/AtomActionIcons"))
@@ -42,6 +44,7 @@ const DesignSystemSubpage: BlitzPage = ({
         <Switch value={page}>
           {{
             colors: () => <ThemeColors colors={designSystem.colors} />,
+            states: () => <States />,
             button: () => <AtomButtons />,
             badge: () => <AtomBadges />,
             "action-icon": () => <AtomActionIcons />,

@@ -53,7 +53,7 @@ const CartoonTheme: MantineThemeOverride = {
             border: `1px solid ${theme.black}`,
             color: theme.black,
             "&:not([data-disabled])": theme.fn.hover({
-              background: theme.colors[theme.primaryColor][1],
+              background: theme.colors[theme.primaryColor][2],
             }),
           },
         }),

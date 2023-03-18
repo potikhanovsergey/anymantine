@@ -6,7 +6,7 @@ import Header from "./Header"
 import { font } from "src/themes/Marshmallow"
 import Navbar from "src/design-system/Navbar"
 import { DesignTheme } from "src/state/design-system"
-import themes from "src/themes"
+import { themes } from "src/themes"
 
 const DesignSystemLayout: BlitzLayout<{
   title?: string
@@ -15,7 +15,6 @@ const DesignSystemLayout: BlitzLayout<{
 }> = ({ title, children, slug }) => {
   useEffect(() => {
     const pageTheme = themes[slug]
-    console.log("PAGE THEME", pageTheme)
     pageTheme && DesignTheme.set(pageTheme)
   }, [slug])
   return (

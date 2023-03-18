@@ -21,7 +21,7 @@ const NavbarLinks = ({ links }: NavbarLinksProps) => {
           data-active={router.query.page === link.slug}
           key={link.slug}
           component={Link}
-          href={`/marshmallow/${link.slug}`}
+          href={`/${router.query.slug}/${link.slug}`}
         >
           {link.label}
         </UnstyledButton>
