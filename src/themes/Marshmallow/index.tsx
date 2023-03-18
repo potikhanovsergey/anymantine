@@ -1,8 +1,8 @@
 import { MantineThemeOverride, Text, rem, getStylesRef, ButtonStylesParams } from "@mantine/core"
-import { Source_Sans_Pro } from "@next/font/google"
+import { Nunito_Sans } from "next/font/google"
 
-export const font = Source_Sans_Pro({
-  variable: "--source-sans-pro-font",
+export const font = Nunito_Sans({
+  variable: "--primary-font",
   weight: ["400", "600", "700"],
   subsets: ["cyrillic", "latin"],
 })
@@ -13,9 +13,9 @@ const CartoonTheme: MantineThemeOverride = {
   cursorType: "pointer",
   primaryColor: "violet",
   defaultRadius: "sm",
-  fontFamily: `var(--source-sans-pro-font), ${defaultFonts}`,
+  fontFamily: `var(--primary-font), ${defaultFonts}`,
   headings: {
-    fontFamily: `var(--source-sans-pro-font), ${defaultFonts}`,
+    fontFamily: `var(--primary-font), ${defaultFonts}`,
   },
   components: {
     Loader: {
