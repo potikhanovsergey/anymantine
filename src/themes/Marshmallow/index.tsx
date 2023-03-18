@@ -59,6 +59,24 @@ const CartoonTheme: MantineThemeOverride = {
         }),
       },
     },
+    Checkbox: {
+      styles: (theme) => ({
+        input: {
+          backgroundColor: theme.colors[theme.primaryColor][0],
+          border: "none",
+          ref: getStylesRef("icon"),
+          "&:checked": {
+            backgroundColor: theme.colors[theme.primaryColor][0],
+            border: "none",
+          },
+          "&:checked+": {
+            [`& .${getStylesRef("icon")}`]: {
+              color: theme.black,
+            },
+          },
+        },
+      }),
+    },
     Badge: {
       variants: {
         outline: (theme) => ({
