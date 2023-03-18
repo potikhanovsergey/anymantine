@@ -1,6 +1,12 @@
-import { Container, Group, Header as MantineHeader, Text, useMantineTheme } from "@mantine/core"
+import {
+  Button,
+  Container,
+  Group,
+  Header as MantineHeader,
+  Text,
+  useMantineTheme,
+} from "@mantine/core"
 import NextLink from "next/link"
-import HeaderButton from "../components/atoms/HeaderButton"
 import AuthButton from "./AuthButton"
 import { useSession } from "@blitzjs/auth"
 import { Show } from "@legendapp/state/react"
@@ -32,12 +38,11 @@ const Header = () => {
             >
               Marshadow
             </Text>
-            {/* <Nav /> */}
           </Group>
           <Group noWrap h="100%" spacing="xs">
-            <HeaderButton color="white" href="/design-systems" component={NextLink}>
+            <Button size="xs" color="white" href="/design-systems" component={NextLink}>
               Дизайн системы
-            </HeaderButton>
+            </Button>
             <Show if={session.userId} else={<AuthButton />}>
               <ProfileMenu />
             </Show>

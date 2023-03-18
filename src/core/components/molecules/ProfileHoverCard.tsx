@@ -8,7 +8,7 @@ export interface ProfileHoverCardProps {
 
 const ProfileHoverCard = ({ avatar, name, caption }: ProfileHoverCardProps) => {
   return (
-    <HoverCard width={200} openDelay={300} position="top">
+    <HoverCard withinPortal width={200} openDelay={300} position="top">
       <HoverCard.Target>
         <Avatar src={avatar} />
       </HoverCard.Target>

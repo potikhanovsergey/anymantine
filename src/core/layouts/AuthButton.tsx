@@ -1,11 +1,11 @@
-import HeaderButton from "../components/atoms/HeaderButton"
+import { Button } from "@mantine/core"
 import Link from "next/link"
 
 const AuthButton = () => {
   return (
-    <HeaderButton component={Link} href="/login">
+    <Button size="xs" component={Link} href="/login">
       Войти в аккаунт
-    </HeaderButton>
+    </Button>
   )
 }
 
