@@ -31,7 +31,7 @@ const ViewTabs = () => {
         <Accordion.Panel>{/** FILES */}</Accordion.Panel>
       </Accordion.Item>
       <Accordion.Item value="tokens">
-        <Accordion.Control>Токены</Accordion.Control>
+        <Accordion.Control mb={4}>Токены</Accordion.Control>
         <Accordion.Panel>
           <NavbarLinks links={tokens} />
         </Accordion.Panel>

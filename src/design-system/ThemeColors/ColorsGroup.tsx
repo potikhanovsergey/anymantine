@@ -13,15 +13,15 @@ export function ColorsGroup({ group, setTooltip, onMouseLeave }: ColorsGroupProp
 
   return (
     <>
-      {theme.colors[group].map((color) => (
-        <CopyButton key={color} value={color} timeout={2000}>
+      {theme.colors[group].map((color, i) => (
+        <CopyButton key={color} value={`${color} / theme.colors[${group}][${i}]`} timeout={2000}>
           {({ copied, copy }) => (
             <UnstyledButton
               onClick={() => {
                 copy()
                 setTooltip?.("Copied")
               }}
-              onMouseEnter={() => setTooltip?.(color)}
+              onMouseEnter={() => setTooltip?.(`${color} / theme.colors[${group}][${i}]`)}
               onMouseLeave={onMouseLeave}
               w="100%"
               bg={`${color} content-box`}
