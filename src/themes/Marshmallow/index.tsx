@@ -1,5 +1,5 @@
 import { MantineThemeOverride, Text, rem, getStylesRef, ButtonStylesParams } from "@mantine/core"
-import { Source_Sans_Pro } from "@next/font/google"
+import { Source_Sans_Pro } from "next/font/google"
 
 export const font = Source_Sans_Pro({
   variable: "--source-sans-pro-font",

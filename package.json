@@ -8,8 +8,7 @@
     "studio": "blitz prisma studio",
     "lint": "eslint --ignore-path .gitignore --ext .js,.ts,.tsx .",
     "test": "vitest run --passWithNoTests",
-    "test:watch": "vitest",
-    "prepare": "husky install"
+    "test:watch": "vitest"
   },
   "prisma": {
     "schema": "db/schema.prisma"
@@ -36,7 +35,6 @@
     "@mantine/modals": "6.0.1",
     "@mantine/next": "6.0.1",
     "@mantine/prism": "6.0.1",
-    "@next/font": "13.2.4",
     "@prisma/client": "4.6.0",
     "@tabler/icons-react": "2.8.0",
     "blitz": "2.0.0-beta.15",
@@ -64,7 +62,6 @@
     "eslint": "8.27.0",
     "eslint-config-next": "12.3.1",
     "eslint-config-prettier": "8.5.0",
-    "husky": "8.0.2",
     "jsdom": "20.0.3",
     "lint-staged": "13.0.3",
     "prettier": "^2.7.1",
