@@ -2,18 +2,12 @@ import { Group, Stack, Radio } from "@mantine/core"
 import RadioConfigurator from "src/design-system/Configurator/configurators/radio"
 import ItemPreview from "src/design-system/ItemPreview"
 
-interface AtomRadiosProps {
-  opened: boolean
-  onToggleConfigurator: () => void
-}
-
-const AtomRadios = ({ opened, onToggleConfigurator }: AtomRadiosProps) => {
+const AtomRadios = () => {
   return (
     <ItemPreview
-      opened={opened}
-      onToggleConfigurator={onToggleConfigurator}
       configurator={RadioConfigurator}
       title="Радио кнопки"
+      mantineLink="https://mantine.dev/core/radio"
     >
       <Radio.Group
         name="favoriteFruit"

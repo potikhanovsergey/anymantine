@@ -3,18 +3,12 @@ import { IconHeart } from "@tabler/icons-react"
 import TooltipConfigurator from "src/design-system/Configurator/configurators/tooltip"
 import ItemPreview from "src/design-system/ItemPreview"
 
-interface AtomTooltipsProps {
-  opened: boolean
-  onToggleConfigurator: () => void
-}
-
-const AtomTooltips = ({ opened, onToggleConfigurator }: AtomTooltipsProps) => {
+const AtomTooltips = () => {
   return (
     <ItemPreview
-      opened={opened}
-      onToggleConfigurator={onToggleConfigurator}
       configurator={TooltipConfigurator}
       title="Подсказки"
+      mantineLink="https://mantine.dev/core/tooltip"
     >
       <Group>
         <Tooltip label="Make love">

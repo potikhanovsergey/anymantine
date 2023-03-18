@@ -3,18 +3,12 @@ import { IconHeart } from "@tabler/icons-react"
 import BadgeConfigurator from "src/design-system/Configurator/configurators/badge"
 import ItemPreview from "src/design-system/ItemPreview"
 
-interface AtomBadgesProps {
-  opened: boolean
-  onToggleConfigurator: () => void
-}
-
-const AtomBadges = ({ opened, onToggleConfigurator }: AtomBadgesProps) => {
+const AtomBadges = () => {
   return (
     <ItemPreview
-      opened={opened}
-      onToggleConfigurator={onToggleConfigurator}
       configurator={BadgeConfigurator}
       title="Теги"
+      mantineLink="https://mantine.dev/core/badge"
     >
       <Group>
         <Badge>Тег</Badge>

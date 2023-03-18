@@ -1,4 +1,4 @@
-import { Show } from "@legendapp/state/react"
+import { Show, observer } from "@legendapp/state/react"
 import {
   ActionIcon,
   Box,
@@ -13,43 +13,48 @@ import { IconSettings } from "@tabler/icons-react"
 import { ReactNode } from "react"
 import { MantineDemo } from "../Demo/types"
 import { Demo } from "../Demo"
-import { DesignTheme } from "src/state/design-system"
+import { DesignTheme, configurableAtom } from "src/state/design-system"
+import Mantine from "src/core/components/icons/Mantine"
+import Link from "next/link"
 
 export interface ItemPreviewProps {
   children: ReactNode
   title: string
   configurator: MantineDemo
-  opened: boolean
-  onToggleConfigurator?: () => void
+  mantineLink?: string
 }
 
-const ItemPreview = ({
-  children,
-  title,
-  configurator,
-  opened,
-  onToggleConfigurator,
-}: ItemPreviewProps) => {
+const ItemPreview = ({ children, title, configurator, mantineLink }: ItemPreviewProps) => {
   const theme = useMantineTheme()
 
   return (
     <Stack spacing="xs">
       <Group noWrap spacing="xs">
         <Title order={2}>{title}</Title>
+        {mantineLink && (
+          <Tooltip label={mantineLink}>
+            <Box component={Link} lh={0} href={mantineLink} target="_blank">
+              <Mantine />
+            </Box>
+          </Tooltip>
+        )}
         <Tooltip
           label={
-            <Show if={opened} else="Открыть конфигуратор">
+            <Show if={configurableAtom.get() === title} else="Открыть конфигуратор">
               Скрыть конфигуратор
             </Show>
           }
         >
-          <ActionIcon variant="transparent" onClick={onToggleConfigurator}>
+          <ActionIcon
+            variant="transparent"
+            onClick={() => configurableAtom.set((prev) => (prev === title ? null : title))}
+          >
             <IconSettings stroke={1} color={theme.black} />
           </ActionIcon>
         </Tooltip>
       </Group>
       <Show
-        if={opened}
+        if={configurableAtom.get() === title}
         else={
           <Group noWrap position="apart">
             <Box w="100%">
@@ -69,4 +74,4 @@ const ItemPreview = ({
   )
 }
 
-export default ItemPreview
+export default observer(ItemPreview)

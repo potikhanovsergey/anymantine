@@ -2,18 +2,12 @@ import { SimpleGrid, Textarea } from "@mantine/core"
 import TextareaConfigurator from "src/design-system/Configurator/configurators/textarea"
 import ItemPreview from "src/design-system/ItemPreview"
 
-interface AtomTextareasProps {
-  opened: boolean
-  onToggleConfigurator: () => void
-}
-
-const AtomTextareas = ({ opened, onToggleConfigurator }: AtomTextareasProps) => {
+const AtomTextareas = () => {
   return (
     <ItemPreview
-      opened={opened}
-      onToggleConfigurator={onToggleConfigurator}
       configurator={TextareaConfigurator}
       title="Textareas"
+      mantineLink="https://mantine.dev/core/textarea"
     >
       <SimpleGrid cols={2}>
         <Textarea label="Label" placeholder="Placeholder..." />

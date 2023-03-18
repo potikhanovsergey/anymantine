@@ -3,18 +3,12 @@ import { IconHeart } from "@tabler/icons-react"
 import ActionIconConfigurator from "src/design-system/Configurator/configurators/action-icon"
 import ItemPreview from "src/design-system/ItemPreview"
 
-interface AtomActionIconsProps {
-  opened: boolean
-  onToggleConfigurator: () => void
-}
-
-const AtomActionIcons = ({ opened, onToggleConfigurator }: AtomActionIconsProps) => {
+const AtomActionIcons = () => {
   return (
     <ItemPreview
-      opened={opened}
-      onToggleConfigurator={onToggleConfigurator}
       configurator={ActionIconConfigurator}
       title="Action Icons"
+      mantineLink="https://mantine.dev/core/action-icon"
     >
       <Group>
         <ActionIcon variant="primary">

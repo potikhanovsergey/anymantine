@@ -9,7 +9,7 @@ const ViewTabsComponents = () => {
   return (
     <Tabs.Panel value="components" mt="md">
       <Tabs defaultValue="tokens">
-        <Tabs.List mb="xl">
+        <Tabs.List mb={40}>
           <Tabs.Tab value="tokens">Токены</Tabs.Tab>
           <Tabs.Tab value="atoms">Атомы</Tabs.Tab>
           <Tabs.Tab value="molecules">Молекулы</Tabs.Tab>

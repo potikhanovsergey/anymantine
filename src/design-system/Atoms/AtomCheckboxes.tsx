@@ -2,18 +2,12 @@ import { Group, Checkbox, Stack } from "@mantine/core"
 import CheckboxConfigurator from "src/design-system/Configurator/configurators/checkbox"
 import ItemPreview from "src/design-system/ItemPreview"
 
-interface AtomCheckboxesProps {
-  opened: boolean
-  onToggleConfigurator: () => void
-}
-
-const AtomCheckboxes = ({ opened, onToggleConfigurator }: AtomCheckboxesProps) => {
+const AtomCheckboxes = () => {
   return (
     <ItemPreview
-      opened={opened}
-      onToggleConfigurator={onToggleConfigurator}
       configurator={CheckboxConfigurator}
       title="Чекбоксы"
+      mantineLink="https://mantine.dev/core/checkbox"
     >
       <Stack mb="xs">
         <Checkbox label="Default checkbox" />

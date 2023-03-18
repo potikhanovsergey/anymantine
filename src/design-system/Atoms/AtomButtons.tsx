@@ -2,18 +2,12 @@ import { Group, Button } from "@mantine/core"
 import ButtonConfigurator from "src/design-system/Configurator/configurators/button"
 import ItemPreview from "src/design-system/ItemPreview"
 
-interface AtomButtonsProps {
-  opened: boolean
-  onToggleConfigurator: () => void
-}
-
-const AtomButtons = ({ opened, onToggleConfigurator }: AtomButtonsProps) => {
+const AtomButtons = () => {
   return (
     <ItemPreview
-      opened={opened}
-      onToggleConfigurator={onToggleConfigurator}
       configurator={ButtonConfigurator}
       title="Кнопки"
+      mantineLink="https://mantine.dev/core/button"
     >
       <Group>
         <Button variant="primary">Пример кнопки</Button>

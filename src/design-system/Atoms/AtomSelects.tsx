@@ -5,18 +5,12 @@ import ItemPreview from "src/design-system/ItemPreview"
 
 export const selectDataMock = ["Orange", "Banana", "Mango", "Apple", "Lemon", "Kiwi"]
 
-interface AtomSelectsProps {
-  opened: boolean
-  onToggleConfigurator: () => void
-}
-
-const AtomSelects = ({ opened, onToggleConfigurator }: AtomSelectsProps) => {
+const AtomSelects = () => {
   return (
     <ItemPreview
-      opened={opened}
-      onToggleConfigurator={onToggleConfigurator}
       configurator={SelectConfigurator}
       title="Выпадающие списки"
+      mantineLink="https://mantine.dev/core/select"
     >
       <SimpleGrid cols={2}>
         <Select data={selectDataMock} label="Label" placeholder="Placeholder..." />

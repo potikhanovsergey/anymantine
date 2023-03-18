@@ -2,18 +2,12 @@ import { Group, Skeleton } from "@mantine/core"
 import SkeletonConfigurator from "src/design-system/Configurator/configurators/skeleton"
 import ItemPreview from "src/design-system/ItemPreview"
 
-interface AtomSkeletonsProps {
-  opened: boolean
-  onToggleConfigurator: () => void
-}
-
-const AtomSkeletons = ({ opened, onToggleConfigurator }: AtomSkeletonsProps) => {
+const AtomSkeletons = () => {
   return (
     <ItemPreview
-      opened={opened}
-      onToggleConfigurator={onToggleConfigurator}
       configurator={SkeletonConfigurator}
       title="Скелетоны"
+      mantineLink="https://mantine.dev/core/skeleton"
     >
       <Group w="100%">
         <Skeleton height={50} circle mb="xl" />

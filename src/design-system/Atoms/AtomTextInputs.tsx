@@ -3,18 +3,12 @@ import { IconInfoCircle, IconPassword } from "@tabler/icons-react"
 import TextInputConfigurator from "src/design-system/Configurator/configurators/text-input"
 import ItemPreview from "src/design-system/ItemPreview"
 
-interface AtomTextInputsProps {
-  opened: boolean
-  onToggleConfigurator: () => void
-}
-
-const AtomTextInputs = ({ opened, onToggleConfigurator }: AtomTextInputsProps) => {
+const AtomTextInputs = () => {
   return (
     <ItemPreview
-      opened={opened}
-      onToggleConfigurator={onToggleConfigurator}
       configurator={TextInputConfigurator}
       title="Текстовые поля"
+      mantineLink="https://mantine.dev/core/text-input"
     >
       <SimpleGrid cols={2}>
         <TextInput label="Label" placeholder="Placeholder..." />

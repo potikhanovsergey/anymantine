@@ -2,18 +2,12 @@ import { Group, Stack, Switch } from "@mantine/core"
 import SwitchConfigurator from "src/design-system/Configurator/configurators/switch"
 import ItemPreview from "src/design-system/ItemPreview"
 
-interface AtomSwitchesProps {
-  opened: boolean
-  onToggleConfigurator: () => void
-}
-
-const AtomSwitches = ({ opened, onToggleConfigurator }: AtomSwitchesProps) => {
+const AtomSwitches = () => {
   return (
     <ItemPreview
-      opened={opened}
-      onToggleConfigurator={onToggleConfigurator}
       configurator={SwitchConfigurator}
       title="Переключатели"
+      mantineLink="https://mantine.dev/core/switch"
     >
       <Group>
         <Stack>
