@@ -1,5 +1,5 @@
 import { BlitzPage } from "@blitzjs/next"
-import { Container, Grid, Paper, useMantineTheme } from "@mantine/core"
+import { Box, Container, Grid, Paper, useMantineTheme } from "@mantine/core"
 import { GetStaticPropsContext } from "next"
 import { useEffect } from "react"
 import Layout from "src/core/layouts/Layout"
@@ -23,9 +23,11 @@ const DesignSystemPage: BlitzPage = ({ slug }: { slug: string }) => {
             <ViewTabs />
           </Grid.Col>
           <Grid.Col span={4}>
-            <Paper p={theme.spacing.xl} pos="sticky" top={theme.spacing.md}>
-              <DetailsCard />
-            </Paper>
+            <Box pos="sticky" top={0} pt="md">
+              <Paper p={theme.spacing.xl}>
+                <DetailsCard />
+              </Paper>
+            </Box>
           </Grid.Col>
         </Grid>
       </Container>

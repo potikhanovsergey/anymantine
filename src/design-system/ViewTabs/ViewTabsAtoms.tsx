@@ -1,6 +1,5 @@
-import { Tabs } from "@mantine/core"
+import { Tabs, rem, useMantineTheme } from "@mantine/core"
 import React from "react"
-import { Computed, observer, useObservable } from "@legendapp/state/react"
 import PanelStack from "../PanelStack"
 import AtomActionIcons from "../Atoms/AtomActionIcons"
 import AtomBadges from "../Atoms/AtomBadges"
@@ -15,6 +14,7 @@ import AtomTextareas from "../Atoms/AtomTextareas"
 import AtomTooltips from "../Atoms/AtomTooltips"
 
 const ViewTabsAtoms = () => {
+  const theme = useMantineTheme()
   return (
     <Tabs.Panel value="atoms">
       <PanelStack>
