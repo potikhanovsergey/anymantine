@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { ColorSwatch, Text, Box, rem, Center, UnstyledButton, CopyButton } from "@mantine/core"
 import useStyles from "./ColorsGroup.styles"
 

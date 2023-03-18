@@ -75,13 +75,7 @@ const Card = ({ caption, title, imageUrl, price, slug }: CardProps) => {
         <Image alt="Vercel Geist" fill src={imageUrl} className={classes.image} />
       </AspectRatio>
       <Stack className={classes.description}>
-        <Text
-          size={28}
-          weight="bold"
-          href={`/design-systems/${slug}`}
-          component={Link}
-          className={classes.title}
-        >
+        <Text size={28} weight="bold" href={`/${slug}`} component={Link} className={classes.title}>
           {title}
         </Text>
         <Group spacing="xs" mb="xs">
