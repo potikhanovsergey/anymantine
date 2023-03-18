@@ -7,15 +7,15 @@ import { DesignTheme } from "src/state/design-system"
 const ThemeSwatches = ({
   onMouseLeave,
   setTooltip,
+  colors,
 }: {
   onMouseLeave: () => void
   setTooltip: (color: string) => void
+  colors: string[]
 }) => {
-  const theme = useMantineTheme()
-
   return (
     <>
-      {Object.keys(theme.colors).map((group) => (
+      {colors.map((group) => (
         <ColorsGroup
           onMouseLeave={onMouseLeave}
           setTooltip={setTooltip}
@@ -27,7 +27,7 @@ const ThemeSwatches = ({
   )
 }
 
-const ThemeColors = () => {
+const ThemeColors = ({ colors }: { colors: string[] }) => {
   const hoveredColor = useObservable(null as string | null)
   const handleSetTooltip = (color: string) => {
     hoveredColor.set(color)
@@ -54,7 +54,11 @@ const ThemeColors = () => {
         ))}
         <span></span>
         <MantineProvider theme={DesignTheme.peek()}>
-          <ThemeSwatches onMouseLeave={handleMouseLeave} setTooltip={handleSetTooltip} />
+          <ThemeSwatches
+            colors={colors}
+            onMouseLeave={handleMouseLeave}
+            setTooltip={handleSetTooltip}
+          />
         </MantineProvider>
       </SimpleGrid>
     </Tooltip.Floating>

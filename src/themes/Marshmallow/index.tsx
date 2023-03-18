@@ -1,4 +1,11 @@
-import { MantineThemeOverride, Text, rem, getStylesRef, ButtonStylesParams } from "@mantine/core"
+import {
+  MantineThemeOverride,
+  Text,
+  rem,
+  getStylesRef,
+  ButtonStylesParams,
+  TabsStylesParams,
+} from "@mantine/core"
 import { Nunito_Sans } from "next/font/google"
 
 export const font = Nunito_Sans({
@@ -59,13 +66,13 @@ const CartoonTheme: MantineThemeOverride = {
         color: "violet",
       },
     },
-    UnstyledButton: {
-      styles: (theme) => ({
-        root: {
-          transition: "all 200ms ease",
-        },
-      }),
-    },
+    // UnstyledButton: {
+    //   styles: (theme) => ({
+    //     root: {
+    //       transition: "all 200ms ease",
+    //     },
+    //   }),
+    // },
     Slider: {
       styles: (theme) => ({
         track: {
@@ -273,18 +280,18 @@ const CartoonTheme: MantineThemeOverride = {
       }),
     },
     Tabs: {
-      styles: (theme) => ({
+      styles: (theme, params: TabsStylesParams) => ({
         tab: {
           ...theme.fn.focusStyles(),
           backgroundColor: theme.white,
           color: theme.black,
-          border: `${rem(1)} solid ${theme.black}`,
           padding: `${rem(6)} ${theme.spacing.lg}`,
           cursor: "pointer",
           fontSize: theme.fontSizes.sm,
           display: "flex",
           alignItems: "center",
           borderRadius: 0,
+          border: 0,
 
           "&:disabled": {
             opacity: 0.5,
@@ -293,15 +300,7 @@ const CartoonTheme: MantineThemeOverride = {
 
           "&:not(:disabled, &[data-active])": {
             "&:hover": {
-              backgroundColor: theme.colors[theme.primaryColor][1],
-            },
-          },
-
-          "&:hover": {
-            border: `${rem(1)} solid`,
-            borderColor: theme.black,
-            "&:not(:first-of-type)": {
-              borderLeft: 0,
+              backgroundColor: theme.colors[theme.primaryColor][0],
             },
           },
 
@@ -310,8 +309,8 @@ const CartoonTheme: MantineThemeOverride = {
           },
 
           "&[data-active]": {
-            backgroundColor: theme.black,
-            color: theme.white,
+            backgroundColor: params.color ? theme.colors[params.color][1] : theme.black,
+            color: params.color ? theme.black : theme.white,
             borderColor: theme.black,
             "&:hover": {
               borderColor: theme.black,
@@ -328,6 +327,8 @@ const CartoonTheme: MantineThemeOverride = {
         tabsList: {
           display: "flex",
           borderBottom: 0,
+          borderRight: 0,
+          width: "100%",
         },
       }),
     },
@@ -336,6 +337,16 @@ const CartoonTheme: MantineThemeOverride = {
         copyLabel: "Скопировать код",
         copiedLabel: "Скопировано",
       },
+    },
+    Accordion: {
+      styles: (theme) => ({
+        content: {
+          paddingTop: 0,
+        },
+        item: {
+          borderBottom: 0,
+        },
+      }),
     },
     Tooltip: {
       defaultProps: {
