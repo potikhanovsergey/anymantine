@@ -3,7 +3,6 @@ import React, { FC } from "react"
 import { BlitzLayout } from "@blitzjs/next"
 import { AppShell } from "@mantine/core"
 import Header from "./Header"
-import Slogan from "../components/molecules/Slogan"
 
 const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
   title,
@@ -18,7 +17,7 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
       <AppShell
         header={
           <>
-            <Slogan />
+            {/* <Slogan /> */}
             <Header />
           </>
         }

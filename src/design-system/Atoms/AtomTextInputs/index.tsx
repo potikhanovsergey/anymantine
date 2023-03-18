@@ -18,7 +18,7 @@ const AtomTextInputs = ({ opened, onToggleConfigurator }: AtomTextInputsProps) =
     >
       <SimpleGrid cols={2}>
         <TextInput label="Label" placeholder="Placeholder..." />
-        <TextInput label="Label" value="Wrong value..." error="Error..." />
+        <TextInput label="Label" defaultValue="Wrong value..." error="Error..." />
         <TextInput icon={<IconPassword />} label="Label" placeholder="Иконка слева" />
         <TextInput
           rightSection={<IconInfoCircle stroke={1} />}

@@ -16,12 +16,12 @@ const AtomCheckboxes = ({ opened, onToggleConfigurator }: AtomCheckboxesProps) =
       title="Чекбоксы"
     >
       <Stack mb="xs">
-        <Checkbox checked={false} label="Default checkbox" />
-        <Checkbox checked={false} indeterminate label="Indeterminate checkbox" />
-        <Checkbox checked indeterminate label="Indeterminate checked checkbox" />
-        <Checkbox checked label="Checked checkbox" />
+        <Checkbox label="Default checkbox" />
+        <Checkbox indeterminate label="Indeterminate checkbox" />
+        <Checkbox defaultChecked indeterminate label="Indeterminate checked checkbox" />
+        <Checkbox defaultChecked label="Checked checkbox" />
         <Checkbox disabled label="Disabled checkbox" />
-        <Checkbox disabled checked label="Disabled checked checkbox" />
+        <Checkbox disabled defaultChecked label="Disabled checked checkbox" />
         <Checkbox disabled indeterminate label="Disabled indeterminate checkbox" />
       </Stack>
       <Checkbox.Group

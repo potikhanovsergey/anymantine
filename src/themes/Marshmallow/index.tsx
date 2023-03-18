@@ -82,6 +82,11 @@ const CartoonTheme: MantineThemeOverride = {
           color: theme.colors[theme.primaryColor][1],
           border: `1px solid ${theme.black}`,
         },
+        label: {
+          backgroundColor: theme.colors[theme.primaryColor][1],
+          color: theme.black,
+          border: `1px solid ${theme.black}`,
+        },
       }),
     },
     Input: {

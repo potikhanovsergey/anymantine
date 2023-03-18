@@ -17,7 +17,7 @@ const AtomTextareas = ({ opened, onToggleConfigurator }: AtomTextareasProps) => 
     >
       <SimpleGrid cols={2}>
         <Textarea label="Label" placeholder="Placeholder..." />
-        <Textarea label="Label" value="Wrong value..." error="Error..." />
+        <Textarea label="Label" defaultValue="Wrong value..." error="Error..." />
         <Textarea label="Label" description="Description..." placeholder="Placeholder..." />
       </SimpleGrid>
     </ItemPreview>

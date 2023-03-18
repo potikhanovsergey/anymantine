@@ -1,6 +1,6 @@
 import { Box, createStyles, keyframes, Text, getStylesRef, Anchor } from "@mantine/core"
 
-export const bounce = keyframes({
+export const motion = keyframes({
   "0%": { transform: "translate(0%, 0px)" },
   "100%": { transform: "translate(-50%, 0px);" },
 })
@@ -10,7 +10,7 @@ const useStyles = createStyles((theme) => ({
     ref: getStylesRef("row"),
     display: "flex",
     whiteSpace: "nowrap",
-    animation: `${bounce} 120s infinite linear`,
+    animation: `${motion} 120s infinite linear`,
   },
   wrapper: {
     position: "relative",
