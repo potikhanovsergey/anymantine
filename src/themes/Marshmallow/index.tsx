@@ -1,9 +1,22 @@
 import { MantineThemeOverride, Text, rem, getStylesRef, ButtonStylesParams } from "@mantine/core"
+import { Source_Sans_Pro } from "@next/font/google"
+
+export const font = Source_Sans_Pro({
+  variable: "--source-sans-pro-font",
+  weight: ["400", "600", "700"],
+  subsets: ["cyrillic", "latin"],
+})
+
+const defaultFonts = `-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji`
 
 const CartoonTheme: MantineThemeOverride = {
   cursorType: "pointer",
   primaryColor: "violet",
   defaultRadius: "sm",
+  fontFamily: `var(--source-sans-pro-font), ${defaultFonts}`,
+  headings: {
+    fontFamily: `var(--source-sans-pro-font), ${defaultFonts}`,
+  },
   components: {
     Loader: {
       defaultProps: {

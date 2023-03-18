@@ -8,12 +8,11 @@ const ViewTabs = () => {
   const theme = useMantineTheme()
   return (
     <Tabs defaultValue="components" pb={theme.spacing.md}>
-      <Tabs.List py="md" sx={{ zIndex: 100 }} pos="sticky" top={0} bg={theme.white}>
+      <Tabs.List py="md" sx={{ zIndex: 5 }} pos="sticky" top={0} bg={theme.white}>
         <Tabs.Tab value="components">Компоненты</Tabs.Tab>
-        <Tabs.Tab value="examples">Примеры</Tabs.Tab>
-        <Tooltip label="Необходимо приобрести дизайн-систему">
+        <Tooltip withinPortal label="Необходимо приобрести дизайн-систему">
           <Tabs.Tab disabled value="usage" icon={<IconLock size={20} stroke={1} />}>
-            Файл темы
+            Файлы темы
           </Tabs.Tab>
         </Tooltip>
       </Tabs.List>

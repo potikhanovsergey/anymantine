@@ -1,6 +1,14 @@
+import { invalidateQuery, useMutation } from "@blitzjs/rpc"
 import { Avatar, Menu, UnstyledButton } from "@mantine/core"
+import logout from "src/login/mutations/logout"
+import getCurrentUser from "src/users/queries/getCurrentUser"
 
 const ProfileMenu = () => {
+  const [logoutMutation] = useMutation(logout)
+  const handleLogout = async () => {
+    await logoutMutation()
+    await invalidateQuery(getCurrentUser)
+  }
   return (
     <Menu width={160} position="bottom-end">
       <Menu.Target>
@@ -24,6 +32,10 @@ const ProfileMenu = () => {
         <Menu.Item>Item 2</Menu.Item>
         <Menu.Item>Item 3</Menu.Item>
         <Menu.Item>Item 4</Menu.Item>
+        <Menu.Divider />
+        <Menu.Item color="red" onClick={handleLogout}>
+          Sign out
+        </Menu.Item>
       </Menu.Dropdown>
     </Menu>
   )

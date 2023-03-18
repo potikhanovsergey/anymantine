@@ -13,7 +13,7 @@ const ViewTabsComponents = () => {
         <Tabs.List
           mb={40}
           pos="sticky"
-          sx={{ zIndex: 100 }}
+          sx={{ zIndex: 5 }}
           pb="md"
           top={`calc(${rem(32)} + 2 * ${theme.spacing.md})`}
           bg={theme.white}

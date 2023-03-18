@@ -14,6 +14,7 @@ const Header = () => {
       height={64}
       sx={{
         background: theme.colors.violet[0],
+        borderBottomColor: theme.colors.violet[1],
       }}
     >
       <Container size="xl" h="100%" pr={0}>
