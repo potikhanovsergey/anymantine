@@ -9,10 +9,10 @@ export default createStyles((theme: MantineTheme) => ({
     paddingTop: rem(4),
     paddingBottom: rem(4),
     "&[data-active=true]": {
-      background: theme.colors.violet[1],
+      background: theme.colors[theme.primaryColor][1],
     },
     "&:not([data-active=true])": {
-      "&:hover": { background: theme.colors.violet[0] },
+      "&:hover": { background: theme.colors[theme.primaryColor][0] },
     },
   },
 }))

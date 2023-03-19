@@ -17,13 +17,13 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     overflow: "hidden",
     borderBottom: `1px solid ${theme.black}`,
-    backgroundColor: theme.colors.violet[1],
+    backgroundColor: theme.colors[theme.primaryColor][1],
     paddingTop: theme.spacing.xs,
     paddingBottom: theme.spacing.xs,
     textDecoration: "none",
     color: theme.black,
     "&:hover": {
-      backgroundColor: theme.colors.violet[2],
+      backgroundColor: theme.colors[theme.primaryColor][2],
       [`& .${getStylesRef("row")}`]: {
         animationPlayState: "paused",
       },

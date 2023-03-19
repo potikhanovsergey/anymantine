@@ -13,7 +13,7 @@ const AtomActionIcons = () => {
       mantineLink="https://mantine.dev/core/action-icon"
     >
       <Group>
-        <ActionIcon variant="primary" color="violet">
+        <ActionIcon variant="primary">
           <IconHeart stroke={1} size="75%" />
         </ActionIcon>
         <ActionIcon variant="secondary">

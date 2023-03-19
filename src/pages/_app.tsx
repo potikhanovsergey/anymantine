@@ -1,13 +1,10 @@
 import { ErrorFallbackProps, ErrorComponent, ErrorBoundary, AppProps } from "@blitzjs/next"
 import { AuthenticationError, AuthorizationError } from "blitz"
-import React, { useEffect } from "react"
+import React from "react"
 import { withBlitz } from "src/blitz-client"
-import { MantineProvider, useMantineTheme } from "@mantine/core"
+import { MantineProvider } from "@mantine/core"
 import { enableLegendStateReact } from "@legendapp/state/react"
-import GeistTheme from "src/themes/Geist"
-import JSONfn from "json-fn"
-import CartoonTheme from "src/themes/Marshmallow"
-import { DesignTheme } from "src/state/design-system"
+import MarshmallowTheme from "src/themes/Marshmallow"
 
 enableLegendStateReact()
 
@@ -35,7 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const getLayout = Component.getLayout || ((page) => page)
 
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS theme={CartoonTheme}>
+    <MantineProvider withGlobalStyles withNormalizeCSS theme={MarshmallowTheme}>
       <ErrorBoundary FallbackComponent={RootErrorFallback}>
         {getLayout(<Component {...pageProps} />)}
       </ErrorBoundary>

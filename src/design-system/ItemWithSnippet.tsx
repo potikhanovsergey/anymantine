@@ -4,7 +4,7 @@ import { ReactNode } from "react"
 
 const Prism = dynamic(() => import("@mantine/prism").then((m) => m.Prism), {
   ssr: false,
-  loading: () => <Loader size="sm" p={24} color="violet" />,
+  loading: () => <Loader size="sm" p={24} />,
 })
 
 const useStyles = createStyles((theme) => ({

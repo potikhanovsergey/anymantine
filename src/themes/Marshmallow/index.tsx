@@ -17,7 +17,7 @@ export const font = Nunito_Sans({
 
 const defaultFonts = `-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji`
 
-const CartoonTheme: MantineThemeOverride = {
+const MarshmallowTheme: MantineThemeOverride = {
   cursorType: "pointer",
   primaryColor: "violet",
   defaultRadius: "sm",
@@ -448,4 +448,4 @@ const CartoonTheme: MantineThemeOverride = {
   }),
 }
 
-export default CartoonTheme
+export default MarshmallowTheme
