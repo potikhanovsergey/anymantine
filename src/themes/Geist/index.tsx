@@ -164,6 +164,7 @@ const GeistTheme: MantineThemeOverride = {
     Button: {
       defaultProps: {
         loaderPosition: "center",
+        variant: "primary",
       },
       variants: {
         primary: (theme, params: ButtonStylesParams) => ({

@@ -69,7 +69,7 @@ const DesignSystemsPage: BlitzPage = () => {
                   key={card.slug}
                   caption={card.caption}
                   title={card.title}
-                  price={2999}
+                  price={1450}
                   slug={card.slug}
                   imageUrl={card.imageUrl}
                 />

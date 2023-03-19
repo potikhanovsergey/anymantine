@@ -2,6 +2,7 @@ import {
   Button,
   Container,
   Group,
+  HeaderProps,
   Header as MantineHeader,
   Text,
   useMantineTheme,
@@ -12,17 +13,11 @@ import { useSession } from "@blitzjs/auth"
 import { Show } from "@legendapp/state/react"
 import ProfileMenu from "./ProfileMenu"
 
-const Header = () => {
+const Header = (props: Omit<HeaderProps, "children" | "height">) => {
   const theme = useMantineTheme()
   const session = useSession({ suspense: false })
   return (
-    <MantineHeader
-      height={64}
-      sx={{
-        background: theme.colors.violet[0],
-        borderBottomColor: theme.colors.violet[1],
-      }}
-    >
+    <MantineHeader height={64} {...props}>
       <Container size="xl" h="100%">
         <Group h="100%" position="apart" noWrap>
           <Group noWrap h="100%" spacing={0}>

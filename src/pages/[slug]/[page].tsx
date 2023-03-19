@@ -1,15 +1,17 @@
 import { BlitzPage } from "@blitzjs/next"
-import { Container, Title } from "@mantine/core"
+import { Container, Title, Grid, Paper, useMantineTheme } from "@mantine/core"
 import { GetStaticPropsContext } from "next"
-import { useEffect } from "react"
 import DesignSystemLayout from "src/core/layouts/DesignSystemLayout"
 import themes, { DesignSystem, atoms, dsSubPages, tokens } from "src/themes"
 
 import dynamic from "next/dynamic"
 import { Switch } from "@legendapp/state/react"
+import DetailsCard from "src/design-system/DetailsCard"
+import RadiusesAndShadows from "src/design-system/Tokens/RadiusesAndShadows"
+import Typography from "src/design-system/Tokens/Typography"
 
-const ThemeColors = dynamic(() => import("src/design-system/ThemeColors/ThemeColors"))
-const States = dynamic(() => import("src/design-system/States"))
+const ThemeColors = dynamic(() => import("src/design-system/Tokens/Colors/ThemeColors"))
+const States = dynamic(() => import("src/design-system/Tokens/States"))
 
 const AtomButtons = dynamic(() => import("src/design-system/Atoms/AtomButtons"))
 const AtomBadges = dynamic(() => import("src/design-system/Atoms/AtomBadges"))
@@ -34,6 +36,7 @@ const DesignSystemSubpage: BlitzPage = ({
   designSystem: DesignSystem
   title: string
 }) => {
+  const theme = useMantineTheme()
   return (
     <DesignSystemLayout slug={slug} title="Vercel">
       <Container pt="sm" size="xl">
@@ -41,9 +44,13 @@ const DesignSystemSubpage: BlitzPage = ({
           {title}
         </Title>
 
+        {/* <Grid gutter={40}>
+          <Grid.Col span={8}> */}
         <Switch value={page}>
           {{
             colors: () => <ThemeColors colors={designSystem.colors} />,
+            typography: () => <Typography />,
+            "radiuses-and-shadows": () => <RadiusesAndShadows />,
             states: () => <States />,
             button: () => <AtomButtons />,
             badge: () => <AtomBadges />,
@@ -59,6 +66,13 @@ const DesignSystemSubpage: BlitzPage = ({
             default: () => <></>,
           }}
         </Switch>
+        {/* </Grid.Col>
+          <Grid.Col span={4}>
+            <Paper withBorder pos="sticky" top={theme.spacing.md}>
+              <DetailsCard />
+            </Paper>
+          </Grid.Col>
+        </Grid> */}
       </Container>
     </DesignSystemLayout>
   )

@@ -27,7 +27,7 @@ const DetailsCard = () => {
         Geist. В пакет входят дополнительные файлы и готовые секции.
       </Text>
       <Button fullWidth mt="lg">
-        ₽2999 Приобрести
+        ₽1450 Приобрести
       </Button>
     </Box>
   )

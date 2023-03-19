@@ -12,7 +12,7 @@ export const tokens = [
   },
   {
     slug: "radiuses-and-shadows",
-    label: "Границы и тени",
+    label: "Радиусы и тени",
   },
   {
     slug: "states",
@@ -91,7 +91,7 @@ const designSystems = [
     slug: "geist",
     title: "Geist",
     caption: "Vercel",
-    colors: ["dark", "gray", "red", "accent"],
+    colors: ["red", "accent"],
     imageUrl:
       "https://vercel.com/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1671111035%2Fgeist%2Fgeist-illustration-light.png&w=1920&q=100",
   },

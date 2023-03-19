@@ -15,10 +15,10 @@ const ProfileMenu = () => {
         <UnstyledButton>
           <Avatar
             src="https://archives.bulbagarden.net/media/upload/thumb/c/c6/Marshadow_M20.png/250px-Marshadow_M20.png"
-            size={36}
+            size={30}
             radius="sm"
             styles={{
-              root: { border: "1px solid black" },
+              // root: { border: "1px solid black" },
               placeholder: { background: "white", border: "1px solid black" },
             }}
           >

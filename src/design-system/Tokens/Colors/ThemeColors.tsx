@@ -53,7 +53,7 @@ const ThemeColors = ({ colors }: { colors: string[] }) => {
           </Text>
         ))}
         <span></span>
-        <MantineProvider theme={DesignTheme.peek()}>
+        <MantineProvider theme={DesignTheme.get()}>
           <ThemeSwatches
             colors={colors}
             onMouseLeave={handleMouseLeave}

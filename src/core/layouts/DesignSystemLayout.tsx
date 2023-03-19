@@ -25,13 +25,15 @@ const DesignSystemLayout: BlitzLayout<{
       </Head>
       <AppShell
         className={font.variable}
-        header={
-          <>
-            <Header />
-          </>
-        }
-        navbar={<Navbar />}
-        styles={{ main: { paddingLeft: 0, paddingRight: 0, paddingTop: 0 } }}
+        header={<Header fixed />}
+        navbar={<Navbar fixed />}
+        styles={{
+          main: {
+            paddingRight: 0,
+            paddingLeft: "var(--mantine-navbar-width)",
+            paddingTop: "var(--mantine-header-height)",
+          },
+        }}
         fixed={false}
       >
         {children}
