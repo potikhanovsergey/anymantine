@@ -17,33 +17,31 @@ const Header = (props: Omit<HeaderProps, "children" | "height">) => {
   const theme = useMantineTheme()
   const session = useSession({ suspense: false })
   return (
-    <MantineHeader height={64} {...props}>
-      <Container size="xl" h="100%">
-        <Group h="100%" position="apart" noWrap>
-          <Group noWrap h="100%" spacing={0}>
-            <Text
-              size={24}
-              weight="bold"
-              sx={{
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                paddingRight: theme.spacing.lg,
-              }}
-            >
-              Marshadow
-            </Text>
-          </Group>
-          <Group noWrap h="100%" spacing="xs">
-            <Button size="xs" color="white" href="/design-systems" component={NextLink}>
-              Дизайн системы
-            </Button>
-            <Show if={session.userId} else={<AuthButton />}>
-              <ProfileMenu />
-            </Show>
-          </Group>
+    <MantineHeader height={64} px={theme.spacing.md} {...props}>
+      <Group h="100%" position="apart" noWrap>
+        <Group noWrap h="100%" spacing={0}>
+          <Text
+            size={24}
+            weight="bold"
+            sx={{
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+              paddingRight: theme.spacing.lg,
+            }}
+          >
+            Themeo
+          </Text>
         </Group>
-      </Container>
+        <Group noWrap h="100%" spacing="xs">
+          <Button size="xs" color="white" href="/design-systems" component={NextLink}>
+            Дизайн системы
+          </Button>
+          <Show if={session.userId} else={<AuthButton />}>
+            <ProfileMenu />
+          </Show>
+        </Group>
+      </Group>
     </MantineHeader>
   )
 }

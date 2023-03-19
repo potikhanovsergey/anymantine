@@ -1,12 +1,13 @@
 import Head from "next/head"
 import React, { FC, useEffect } from "react"
 import { BlitzLayout } from "@blitzjs/next"
-import { AppShell } from "@mantine/core"
+import { AppShell, Center, Loader } from "@mantine/core"
 import Header from "./Header"
 import { font } from "src/themes/Marshmallow"
 import Navbar from "src/design-system/Navbar"
 import { DesignTheme } from "src/state/design-system"
 import { themes } from "src/themes"
+import { Show } from "@legendapp/state/react"
 
 const DesignSystemLayout: BlitzLayout<{
   title?: string
@@ -36,7 +37,16 @@ const DesignSystemLayout: BlitzLayout<{
         }}
         fixed={false}
       >
-        {children}
+        <Show
+          if={DesignTheme}
+          else={
+            <Center h="calc(100vh - var(--mantine-header-height))">
+              <Loader variant="bars" size="md" />
+            </Center>
+          }
+        >
+          {children}
+        </Show>
       </AppShell>
     </>
   )

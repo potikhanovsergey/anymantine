@@ -1,16 +1,4 @@
-import {
-  Box,
-  Title,
-  Text,
-  createStyles,
-  AspectRatio,
-  Group,
-  Badge,
-  Anchor,
-  Tooltip,
-  Stack,
-} from "@mantine/core"
-import { IconWorld } from "@tabler/icons-react"
+import { Box, Text, createStyles, AspectRatio, Group, Badge, Stack } from "@mantine/core"
 import Image from "next/image"
 import Link from "next/link"
 

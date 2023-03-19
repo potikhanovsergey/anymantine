@@ -58,7 +58,9 @@ const ItemPreview = ({ children, title, configurator, mantineLink }: ItemPreview
         else={
           <Group noWrap position="apart">
             <Box w="100%">
-              <MantineProvider theme={DesignTheme.peek()}>{children}</MantineProvider>
+              <MantineProvider inherit theme={DesignTheme.peek()}>
+                {children}
+              </MantineProvider>
             </Box>
           </Group>
         }

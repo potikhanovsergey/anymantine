@@ -32,7 +32,7 @@ export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
         {...demoProps}
       >
         {data.component && (
-          <MantineProvider theme={DesignTheme.get()}>
+          <MantineProvider inherit theme={DesignTheme.peek()}>
             {data.wrapper ? (
               <data.wrapper>
                 <data.component />
@@ -51,7 +51,7 @@ export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
       <Configurator
         component={(props: any) =>
           data.component && (
-            <MantineProvider theme={DesignTheme.peek()}>
+            <MantineProvider inherit theme={DesignTheme.peek()}>
               {data.wrapper ? (
                 <data.wrapper>
                   <data.component {...props} />

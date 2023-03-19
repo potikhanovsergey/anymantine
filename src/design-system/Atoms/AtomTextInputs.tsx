@@ -1,12 +1,14 @@
-import { Group, SimpleGrid, Stack, TextInput } from "@mantine/core"
+import { SimpleGrid, TextInput } from "@mantine/core"
 import { IconInfoCircle, IconPassword } from "@tabler/icons-react"
-import TextInputConfigurator from "src/design-system/Configurator/configurators/text-input"
+import getTextInputConfigurator from "src/design-system/Configurator/configurators/text-input"
 import ItemPreview from "src/design-system/ItemPreview"
+import { DesignTheme } from "src/state/design-system"
 
 const AtomTextInputs = () => {
+  const textInputConfigurator = getTextInputConfigurator(DesignTheme.peek())
   return (
     <ItemPreview
-      configurator={TextInputConfigurator}
+      configurator={textInputConfigurator}
       title="Текстовые поля"
       mantineLink="https://mantine.dev/core/text-input"
     >

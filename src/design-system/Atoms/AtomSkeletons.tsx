@@ -1,11 +1,13 @@
 import { Group, Skeleton } from "@mantine/core"
-import SkeletonConfigurator from "src/design-system/Configurator/configurators/skeleton"
+import getSkeletonConfigurator from "src/design-system/Configurator/configurators/skeleton"
 import ItemPreview from "src/design-system/ItemPreview"
+import { DesignTheme } from "src/state/design-system"
 
 const AtomSkeletons = () => {
+  const skeletonConfigurator = getSkeletonConfigurator(DesignTheme.peek())
   return (
     <ItemPreview
-      configurator={SkeletonConfigurator}
+      configurator={skeletonConfigurator}
       title="Скелетоны"
       mantineLink="https://mantine.dev/core/skeleton"
     >

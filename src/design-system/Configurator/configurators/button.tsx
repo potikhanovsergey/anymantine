@@ -1,5 +1,4 @@
-import { ButtonProps, Group, Button } from "@mantine/core"
-import { IconHeading } from "@tabler/icons-react"
+import { ButtonProps, Group, Button, MantineThemeOverride } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
 
@@ -23,30 +22,43 @@ function Wrapper(props: ButtonProps) {
   )
 }
 
-const ButtonConfigurator: MantineDemo = {
-  type: "configurator",
-  component: Wrapper,
-  codeTemplate,
-  configurator: [
-    {
-      name: "variant",
-      type: "select",
-      data: [
-        { label: "primary", value: "primary" },
-        { label: "secondary", value: "secondary" },
-        { label: "shadow", value: "shadow" },
-      ],
-      initialValue: "primary",
-    },
-    { name: "color", type: "color", initialValue: "dark", defaultValue: "dark" },
-    { name: "radius", type: "size", initialValue: "sm", defaultValue: "sm" },
-    { name: "size", type: "size", initialValue: "sm", defaultValue: "sm" },
-    { name: "disabled", type: "boolean", initialValue: false, defaultValue: false },
-    { name: "loading", type: "boolean", initialValue: false, defaultValue: false },
-    { name: "compact", type: "boolean", initialValue: false, defaultValue: false },
-    { name: "uppercase", type: "boolean", initialValue: false, defaultValue: false },
-    { name: "children", type: "string", initialValue: "Пример кнопки" },
-  ],
+const getButtonConfigurator = (theme: MantineThemeOverride) => {
+  return {
+    type: "configurator",
+    component: Wrapper,
+    codeTemplate,
+    configurator: [
+      {
+        name: "variant",
+        type: "select",
+        data: [
+          { label: "primary", value: "primary" },
+          { label: "secondary", value: "secondary" },
+        ],
+        initialValue: theme.components?.Button?.defaultProps?.["variant"] || "primary",
+      },
+      {
+        name: "color",
+        type: "color",
+        initialValue: theme.components?.Button?.defaultProps?.["color"] || theme.primaryColor,
+      },
+      {
+        name: "radius",
+        type: "size",
+        initialValue: theme.components?.Button?.defaultProps?.["radius"] || theme.defaultRadius,
+      },
+      {
+        name: "size",
+        type: "size",
+        initialValue: theme.components?.Button?.defaultProps?.["size"] || "md",
+      },
+      { name: "disabled", type: "boolean", initialValue: false },
+      { name: "loading", type: "boolean", initialValue: false },
+      { name: "compact", type: "boolean", initialValue: false },
+      { name: "uppercase", type: "boolean", initialValue: false },
+      { name: "children", type: "string", initialValue: "Пример кнопки" },
+    ],
+  } as MantineDemo
 }
 
-export default ButtonConfigurator
+export default getButtonConfigurator

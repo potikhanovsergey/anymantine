@@ -1,4 +1,4 @@
-import { SwitchProps, Group, Switch } from "@mantine/core"
+import { SwitchProps, Group, Switch, MantineThemeOverride } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
 
@@ -20,29 +20,42 @@ function Wrapper(props: SwitchProps) {
   )
 }
 
-const SwitchConfigurator: MantineDemo = {
-  type: "configurator",
-  component: Wrapper,
-  codeTemplate,
-  configurator: [
-    {
-      name: "labelPosition",
-      label: "Label Position",
-      type: "segmented",
-      data: [
-        { label: "Right", value: "right" },
-        { label: "Left", value: "left" },
-      ],
-      initialValue: "right",
-    },
-    { name: "label", type: "string", initialValue: "Label" },
-    { name: "description", type: "string", initialValue: "" },
-    { name: "error", type: "string", initialValue: "" },
-    { name: "color", type: "color", initialValue: "dark", defaultValue: "dark" },
-    { name: "radius", type: "size", initialValue: "sm", defaultValue: "sm" },
-    { name: "size", type: "size", initialValue: "sm", defaultValue: "sm" },
-    { name: "disabled", type: "boolean", initialValue: false, defaultValue: false },
-  ],
-}
+const getSwitchConfigurator = (theme: MantineThemeOverride) =>
+  ({
+    type: "configurator",
+    component: Wrapper,
+    codeTemplate,
+    configurator: [
+      {
+        name: "labelPosition",
+        label: "Label Position",
+        type: "segmented",
+        data: [
+          { label: "Right", value: "right" },
+          { label: "Left", value: "left" },
+        ],
+        initialValue: "right",
+      },
+      { name: "label", type: "string", initialValue: "Label" },
+      { name: "description", type: "string", initialValue: "" },
+      { name: "error", type: "string", initialValue: "" },
+      {
+        name: "color",
+        type: "color",
+        initialValue: theme.components?.Switch?.defaultProps?.["color"] || theme.primaryColor,
+      },
+      {
+        name: "radius",
+        type: "size",
+        initialValue: theme.components?.Switch?.defaultProps?.["radius"] || theme.defaultRadius,
+      },
+      {
+        name: "size",
+        type: "size",
+        initialValue: theme.components?.Switch?.defaultProps?.["size"] || "md",
+      },
+      { name: "disabled", type: "boolean", initialValue: false },
+    ],
+  } as MantineDemo)
 
-export default SwitchConfigurator
+export default getSwitchConfigurator

@@ -5,8 +5,8 @@ import {
   getStylesRef,
   ButtonStylesParams,
   TabsStylesParams,
+  ActionIconStylesParams,
 } from "@mantine/core"
-import { Source_Sans_Pro } from "next/font/google"
 import { Nunito_Sans } from "next/font/google"
 
 export const font = Nunito_Sans({
@@ -29,17 +29,44 @@ const CartoonTheme: MantineThemeOverride = {
     Loader: {
       defaultProps: {
         color: "violet",
-        size: "xs",
       },
     },
     Button: {
       defaultProps: {
         loaderPosition: "center",
+        variant: "primary",
       },
       variants: {
-        filled: (theme, params: ButtonStylesParams) => ({
+        primary: (theme, params: ButtonStylesParams) => ({
           root: {
-            background: params.color || theme.colors[theme.primaryColor][1],
+            background: theme.colors[params.color]?.[1] || theme.colors[theme.primaryColor][1],
+            border: `1px solid ${theme.black}`,
+            color: theme.black,
+            "&:not([data-disabled])": theme.fn.hover({
+              background: theme.colors[params.color]?.[2] || theme.colors[theme.primaryColor][2],
+            }),
+          },
+        }),
+        secondary: (theme, params: ButtonStylesParams) => ({
+          root: {
+            backgroundColor: theme.white,
+            border: `1px solid ${theme.black}`,
+            color: theme.black,
+            "&:not([data-disabled])": theme.fn.hover({
+              background: theme.colors[params.color]?.[2] || theme.colors[theme.primaryColor][2],
+            }),
+          },
+        }),
+      },
+    },
+    ActionIcon: {
+      defaultProps: {
+        variant: "primary",
+      },
+      variants: {
+        primary: (theme, params: ActionIconStylesParams) => ({
+          root: {
+            background: theme.colors[params.color]?.[1] || theme.colors[theme.primaryColor][1],
             border: `1px solid ${theme.black}`,
             color: theme.black,
             "&:not([data-disabled])": theme.fn.hover({
@@ -47,7 +74,7 @@ const CartoonTheme: MantineThemeOverride = {
             }),
           },
         }),
-        outline: (theme) => ({
+        secondary: (theme) => ({
           root: {
             backgroundColor: theme.white,
             border: `1px solid ${theme.black}`,
@@ -95,13 +122,6 @@ const CartoonTheme: MantineThemeOverride = {
         color: "violet",
       },
     },
-    // UnstyledButton: {
-    //   styles: (theme) => ({
-    //     root: {
-    //       transition: "all 200ms ease",
-    //     },
-    //   }),
-    // },
     Slider: {
       styles: (theme) => ({
         track: {
@@ -180,6 +200,9 @@ const CartoonTheme: MantineThemeOverride = {
       }),
     },
     Switch: {
+      defaultProps: {
+        radius: "xl",
+      },
       styles: (theme) => ({
         track: {
           backgroundColor: theme.white,
@@ -374,6 +397,9 @@ const CartoonTheme: MantineThemeOverride = {
         },
         item: {
           borderBottom: 0,
+        },
+        control: {
+          marginBottom: rem(4),
         },
       }),
     },

@@ -1,4 +1,11 @@
-import { Group, Checkbox, CheckboxGroupProps } from "@mantine/core"
+import {
+  Group,
+  Checkbox,
+  CheckboxGroupProps,
+  MantineThemeOverride,
+  MantineSize,
+  CheckboxProps,
+} from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
 
@@ -7,49 +14,44 @@ import { Checkbox } from '@mantine/core';
 
 function Demo() {
   return (
-    <Checkbox.Group${props}
-    >
-      <Group my="xs">
-        <Checkbox value="kiwi" label="Kiwi" />
-        <Checkbox value="mango" label="Mango" />
-        <Checkbox value="apple" label="Apple" />
-        <Checkbox value="banana" label="Banana" />
-      </Group>
-    </Checkbox.Group>
+    <Checkbox value="Banana" ${props} />
   );
 }
 `
 
-function Wrapper(props: CheckboxGroupProps) {
+function Wrapper(props: CheckboxProps) {
   return (
     <Group position="center">
-      <Checkbox.Group {...props}>
-        <Group my="xs">
-          <Checkbox value="kiwi" label="Kiwi" />
-          <Checkbox value="mango" label="Mango" />
-          <Checkbox value="apple" label="Apple" />
-          <Checkbox value="banana" label="Banana" />
-        </Group>
-      </Checkbox.Group>
+      <Checkbox value="Banana" {...props} />
     </Group>
   )
 }
 
-const CheckboxConfigurator: MantineDemo = {
-  type: "configurator",
-  component: Wrapper,
-  codeTemplate,
-  configurator: [
-    { name: "label", type: "string", initialValue: "Select your favorite fruits" },
-    { name: "description", type: "string", initialValue: "This is anonymous" },
-    { name: "error", type: "string", initialValue: "" },
-    {
-      name: "withAsterisk",
-      label: "With asterisk",
-      type: "boolean",
-      initialValue: false,
-    },
-  ],
-}
+const getCheckboxConfigurator = (theme: MantineThemeOverride) =>
+  ({
+    type: "configurator",
+    component: Wrapper,
+    codeTemplate,
+    configurator: [
+      { name: "label", type: "string", initialValue: "Banana" },
+      { name: "description", type: "string", initialValue: "" },
+      { name: "error", type: "string", initialValue: "" },
+      {
+        name: "color",
+        type: "color",
+        initialValue: theme.components?.Checkbox?.defaultProps?.["color"] || theme.primaryColor,
+      },
+      {
+        name: "radius",
+        type: "size",
+        initialValue: theme.components?.Checkbox?.defaultProps?.["radius"] || theme.defaultRadius,
+      },
+      {
+        name: "size",
+        type: "size",
+        initialValue: theme.components?.Checkbox?.defaultProps?.["size"] || "md",
+      },
+    ],
+  } as MantineDemo)
 
-export default CheckboxConfigurator
+export default getCheckboxConfigurator

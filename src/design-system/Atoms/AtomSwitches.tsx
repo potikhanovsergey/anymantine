@@ -1,11 +1,13 @@
 import { Group, Stack, Switch } from "@mantine/core"
-import SwitchConfigurator from "src/design-system/Configurator/configurators/switch"
+import getSwitchConfigurator from "src/design-system/Configurator/configurators/switch"
 import ItemPreview from "src/design-system/ItemPreview"
+import { DesignTheme } from "src/state/design-system"
 
 const AtomSwitches = () => {
+  const switchConfigurator = getSwitchConfigurator(DesignTheme.peek())
   return (
     <ItemPreview
-      configurator={SwitchConfigurator}
+      configurator={switchConfigurator}
       title="Переключатели"
       mantineLink="https://mantine.dev/core/switch"
     >

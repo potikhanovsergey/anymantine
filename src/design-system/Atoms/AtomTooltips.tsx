@@ -1,12 +1,14 @@
 import { ActionIcon, Box, Group, Tooltip, Text, Mark } from "@mantine/core"
 import { IconHeart } from "@tabler/icons-react"
-import TooltipConfigurator from "src/design-system/Configurator/configurators/tooltip"
+import getTooltipConfigurator from "src/design-system/Configurator/configurators/tooltip"
 import ItemPreview from "src/design-system/ItemPreview"
+import { DesignTheme } from "src/state/design-system"
 
 const AtomTooltips = () => {
+  const tooltipConfigurator = getTooltipConfigurator(DesignTheme.peek())
   return (
     <ItemPreview
-      configurator={TooltipConfigurator}
+      configurator={tooltipConfigurator}
       title="Подсказки"
       mantineLink="https://mantine.dev/core/tooltip"
     >

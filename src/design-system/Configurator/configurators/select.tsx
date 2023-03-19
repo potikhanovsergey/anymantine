@@ -1,4 +1,4 @@
-import { SelectProps, Group, Select } from "@mantine/core"
+import { SelectProps, Group, Select, MantineThemeOverride } from "@mantine/core"
 import React from "react"
 import { selectDataMock } from "src/design-system/Atoms/AtomSelects"
 import { MantineDemo } from "src/design-system/Demo/types"
@@ -23,21 +23,30 @@ function Wrapper(props: SelectProps) {
   )
 }
 
-const SelectConfigurator: MantineDemo = {
-  type: "configurator",
-  component: Wrapper,
-  codeTemplate,
-  configurator: [
-    { name: "placeholder", type: "string", initialValue: "Пример поля" },
-    { name: "label", type: "string", initialValue: "Label" },
-    { name: "description", type: "string", initialValue: "" },
-    { name: "radius", type: "size", initialValue: "sm", defaultValue: "sm" },
-    { name: "size", type: "size", initialValue: "sm", defaultValue: "sm" },
-    { name: "disabled", type: "boolean", initialValue: false, defaultValue: false },
-    { name: "clearable", type: "boolean", initialValue: false, defaultValue: false },
-    { name: "searchable", type: "boolean", initialValue: false, defaultValue: false },
-    { name: "required", type: "boolean", initialValue: false, defaultValue: false },
-  ],
-}
+const getSelectConfigurator = (theme: MantineThemeOverride) =>
+  ({
+    type: "configurator",
+    component: Wrapper,
+    codeTemplate,
+    configurator: [
+      { name: "placeholder", type: "string", initialValue: "Пример поля" },
+      { name: "label", type: "string", initialValue: "Label" },
+      { name: "description", type: "string", initialValue: "" },
+      {
+        name: "radius",
+        type: "size",
+        initialValue: theme.components?.Select?.defaultProps?.["radius"] || theme.defaultRadius,
+      },
+      {
+        name: "size",
+        type: "size",
+        initialValue: theme.components?.Select?.defaultProps?.["size"] || "md",
+      },
+      { name: "disabled", type: "boolean", initialValue: false },
+      { name: "clearable", type: "boolean", initialValue: false },
+      { name: "searchable", type: "boolean", initialValue: false },
+      { name: "required", type: "boolean", initialValue: false },
+    ],
+  } as MantineDemo)
 
-export default SelectConfigurator
+export default getSelectConfigurator

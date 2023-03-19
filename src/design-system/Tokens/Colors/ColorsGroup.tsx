@@ -17,6 +17,8 @@ interface ColorsGroupProps {
   onMouseLeave?: () => void
 }
 
+const getColor = (color, group, i) => `${color} / theme.colors.${group}[${i}]`
+
 export function ColorsGroup({ group, setTooltip, onMouseLeave }: ColorsGroupProps) {
   const { classes } = useStyles()
   const theme = useMantineTheme()
@@ -24,14 +26,14 @@ export function ColorsGroup({ group, setTooltip, onMouseLeave }: ColorsGroupProp
   return theme.colors[group] ? (
     <>
       {theme.colors[group]?.map((color, i) => (
-        <CopyButton key={color} value={`${color} / theme.colors.${group}[${i}]`} timeout={2000}>
+        <CopyButton key={color} value={getColor(color, group, i)} timeout={2000}>
           {({ copied, copy }) => (
             <UnstyledButton
               onClick={() => {
                 copy()
                 setTooltip?.("Copied")
               }}
-              onMouseEnter={() => setTooltip?.(`${color} / theme.colors.${group}[${i}]`)}
+              onMouseEnter={() => setTooltip?.(getColor(color, group, i))}
               onMouseLeave={onMouseLeave}
               w="100%"
               bg={`${color} content-box`}

@@ -1,4 +1,4 @@
-import { TextInputProps, Group, TextInput } from "@mantine/core"
+import { TextInputProps, Group, TextInput, MantineThemeOverride } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
 
@@ -20,19 +20,28 @@ function Wrapper(props: TextInputProps) {
   )
 }
 
-const TextInputConfigurator: MantineDemo = {
-  type: "configurator",
-  component: Wrapper,
-  codeTemplate,
-  configurator: [
-    { name: "placeholder", type: "string", initialValue: "Пример поля" },
-    { name: "label", type: "string", initialValue: "Label" },
-    { name: "description", type: "string", initialValue: "" },
-    { name: "radius", type: "size", initialValue: "sm", defaultValue: "sm" },
-    { name: "size", type: "size", initialValue: "sm", defaultValue: "sm" },
-    { name: "disabled", type: "boolean", initialValue: false, defaultValue: false },
-    { name: "required", type: "boolean", initialValue: false, defaultValue: false },
-  ],
-}
+const getTextInputConfigurator = (theme: MantineThemeOverride) =>
+  ({
+    type: "configurator",
+    component: Wrapper,
+    codeTemplate,
+    configurator: [
+      { name: "placeholder", type: "string", initialValue: "Пример поля" },
+      { name: "label", type: "string", initialValue: "Label" },
+      { name: "description", type: "string", initialValue: "" },
+      {
+        name: "radius",
+        type: "size",
+        initialValue: theme.components?.TextInput?.defaultProps?.["radius"] || theme.defaultRadius,
+      },
+      {
+        name: "size",
+        type: "size",
+        initialValue: theme.components?.TextInput?.defaultProps?.["size"] || "md",
+      },
+      { name: "disabled", type: "boolean", initialValue: false },
+      { name: "required", type: "boolean", initialValue: false },
+    ],
+  } as MantineDemo)
 
-export default TextInputConfigurator
+export default getTextInputConfigurator

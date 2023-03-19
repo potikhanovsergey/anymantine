@@ -57,7 +57,7 @@ const DesignSystemsPage: BlitzPage = () => {
                 />
               </Stack>
               <Group grow noWrap mt="xl">
-                <Button variant="outline">Сбросить</Button>
+                <Button variant="secondary">Сбросить</Button>
                 <Button>Применить</Button>
               </Group>
             </Paper>

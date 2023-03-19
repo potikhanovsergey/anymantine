@@ -1,11 +1,13 @@
 import { SimpleGrid, Textarea } from "@mantine/core"
-import TextareaConfigurator from "src/design-system/Configurator/configurators/textarea"
+import getTextareaConfigurator from "src/design-system/Configurator/configurators/textarea"
 import ItemPreview from "src/design-system/ItemPreview"
+import { DesignTheme } from "src/state/design-system"
 
 const AtomTextareas = () => {
+  const textareaConfigurator = getTextareaConfigurator(DesignTheme.peek())
   return (
     <ItemPreview
-      configurator={TextareaConfigurator}
+      configurator={textareaConfigurator}
       title="Textareas"
       mantineLink="https://mantine.dev/core/textarea"
     >

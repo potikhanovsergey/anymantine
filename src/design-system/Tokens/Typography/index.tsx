@@ -55,7 +55,7 @@ const Typography = () => {
           Размеры заголовков
         </Title>
         <Stack>
-          <MantineProvider theme={DesignTheme.peek()}>
+          <MantineProvider inherit theme={DesignTheme.peek()}>
             <Headings />
           </MantineProvider>
         </Stack>
@@ -65,7 +65,7 @@ const Typography = () => {
           Размеры текста
         </Title>
         <Stack>
-          <MantineProvider theme={DesignTheme.peek()}>
+          <MantineProvider inherit theme={DesignTheme.peek()}>
             <Paragraphs />
           </MantineProvider>
         </Stack>
@@ -81,7 +81,7 @@ const Typography = () => {
           text as a heavier font weight. This is for semantic formatting, when it’s intended
           to add a tone that conveys importance."
           >
-            <MantineProvider theme={DesignTheme.peek()}>
+            <MantineProvider inherit theme={DesignTheme.peek()}>
               <Stack>
                 <Text>
                   Lorem ipsum dolor sit amet <b>consectetur adipisicing</b> elit. Delectus,
@@ -94,7 +94,7 @@ const Typography = () => {
             title="Italic"
             description="Most commonly, italics are used for emphasis or contrast — that is, to draw attention to some particular part of a text."
           >
-            <MantineProvider theme={DesignTheme.peek()}>
+            <MantineProvider inherit theme={DesignTheme.peek()}>
               <Stack>
                 <Text>
                   Lorem ipsum dolor sit amet <i>consectetur adipisicing</i> elit. Delectus,
@@ -107,7 +107,7 @@ const Typography = () => {
             title="Underline"
             description="Underline is used for text links (either hover state or default state, depending on the style of the link) and is never used as a mechanism for adding emphasis."
           >
-            <MantineProvider theme={DesignTheme.peek()}>
+            <MantineProvider inherit theme={DesignTheme.peek()}>
               <Stack>
                 <Text>
                   Lorem ipsum dolor sit amet <Anchor underline>consectetur adipisicing </Anchor>
