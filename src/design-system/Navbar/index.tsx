@@ -8,20 +8,23 @@ import {
   Navbar as MantineNavbar,
   ScrollArea,
   NavbarProps,
+  Divider,
 } from "@mantine/core"
 import { IconLock } from "@tabler/icons-react"
 import React, { useEffect } from "react"
 import NavbarLinks from "./NavbarLinks"
 import { DesignSystemSubPage, atoms, tokens } from "src/themes"
+import { useSelector } from "@legendapp/state/react"
+import { DesignSystem } from "src/state/design-system"
 
 const Navbar = ({
   subPage,
   ...navbarProps
-}: Omit<NavbarProps, "children"> & { subPage: DesignSystemSubPage }) => {
+}: Omit<NavbarProps, "children"> & { subPage?: DesignSystemSubPage }) => {
   return (
     <MantineNavbar {...navbarProps} width={{ base: 256 }}>
       <MantineNavbar.Section grow component={ScrollArea}>
-        <Accordion multiple defaultValue={[subPage.type]}>
+        <Accordion multiple defaultValue={subPage ? [subPage.type] : undefined}>
           <Accordion.Item value="files">
             <Tooltip
               multiline
@@ -60,6 +63,12 @@ const Navbar = ({
             <Accordion.Panel>{/** MOLECULES  */}</Accordion.Panel>
           </Accordion.Item>
         </Accordion>
+      </MantineNavbar.Section>
+      <Divider />
+      <MantineNavbar.Section pl="md" py="xs">
+        <Text span weight="bold" tt="capitalize" size="xl">
+          {DesignSystem.label}
+        </Text>
       </MantineNavbar.Section>
     </MantineNavbar>
   )

@@ -5,7 +5,7 @@ import { AppShell, Center, Loader } from "@mantine/core"
 import Header from "./Header"
 import { font } from "src/themes/Marshmallow"
 import Navbar from "src/design-system/Navbar"
-import { DesignTheme } from "src/state/design-system"
+import { DesignSystem, DesignTheme } from "src/state/design-system"
 import { DesignSystemSubPage, themes } from "src/themes"
 import { Show } from "@legendapp/state/react"
 
@@ -17,8 +17,9 @@ const DesignSystemLayout: BlitzLayout<{
 }> = ({ title, children, slug, subPage }) => {
   useEffect(() => {
     const pageTheme = themes[slug]
-    pageTheme && DesignTheme.set(pageTheme)
+    pageTheme && DesignSystem.set({ label: slug, theme: pageTheme })
   }, [slug])
+
   return (
     <>
       <Head>
