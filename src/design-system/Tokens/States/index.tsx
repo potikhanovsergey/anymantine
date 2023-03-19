@@ -58,11 +58,8 @@ const FocusedState = ({ variant }: { variant: string }) => {
 const States = () => {
   const buttonStyles = DesignTheme.get?.()?.components?.Button
 
-  useEffect(() => {
-    console.log(buttonStyles)
-  }, [])
-  return buttonStyles ? (
-    <Box>
+  return (
+    <div>
       <Text mb="md">
         Состояние сообщает пользователю статус компонента или интерактивного элемента.
       </Text>
@@ -144,9 +141,7 @@ const States = () => {
           </MantineProvider>
         </Example>
       </Stack>
-    </Box>
-  ) : (
-    <></>
+    </div>
   )
 }
 

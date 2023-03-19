@@ -7,6 +7,8 @@ interface CodeDemoStylesParams {
 export default createStyles((theme: MantineTheme, { radius }: CodeDemoStylesParams) => ({
   root: {
     borderRadius: theme.fn.radius(radius),
+    marginBottom: theme.spacing.xl,
+    marginTop: theme.spacing.md,
   },
 
   demo: {

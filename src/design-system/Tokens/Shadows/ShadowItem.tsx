@@ -15,7 +15,7 @@ interface ShadowBoxProps {
 
 const ShadowBox = ({ shadow }: ShadowBoxProps) => {
   const { classes } = createStyles({ shadow })
-  return <Box className={classes.box} mb="md" />
+  return <div className={classes.box} />
 }
 
 const ShadowItem = ({ shadow, title, useCases }: ShadowItemProps) => {

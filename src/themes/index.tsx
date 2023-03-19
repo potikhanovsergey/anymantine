@@ -71,7 +71,12 @@ export const atoms = [
   },
 ]
 
-export const dsSubPages = [...atoms, ...tokens]
+export const dsSubPages = [
+  ...atoms.map((item) => ({ ...item, type: "atoms" })),
+  ...tokens.map((item) => ({ ...item, type: "tokens" })),
+]
+
+export type DesignSystemSubPage = (typeof dsSubPages)[number]
 
 export const themes = {
   marshmallow: Marshmallow,

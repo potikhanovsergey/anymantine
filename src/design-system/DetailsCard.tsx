@@ -1,9 +1,9 @@
-import { Avatar, Box, Button, Group, HoverCard, Stack, Text, Title } from "@mantine/core"
+import { Avatar, Button, Group, HoverCard, Stack, Text, Title } from "@mantine/core"
 import ProfileHoverCard from "src/core/components/molecules/ProfileHoverCard"
 
 const DetailsCard = () => {
   return (
-    <Box>
+    <div>
       <Avatar.Group>
         <ProfileHoverCard
           caption="Разработчик"
@@ -29,7 +29,7 @@ const DetailsCard = () => {
       <Button fullWidth mt="lg">
         ₽1450 Приобрести
       </Button>
-    </Box>
+    </div>
   )
 }
 

@@ -53,25 +53,6 @@ const getSecondaryButtonStyles = (
   }
 }
 
-const getShadowButtonStyles = (
-  theme: MantineTheme,
-  { color = "dark" }: ButtonStylesParams | ActionIconStylesParams
-) => {
-  return {
-    border: "1px solid",
-    borderColor: color === "dark" ? theme.black : theme.colors[color][5],
-    color: theme.white,
-    background: color === "dark" ? theme.black : theme.colors[color][5],
-    boxShadow: theme.shadows.md,
-    "&:not([data-disabled])": theme.fn.hover({
-      background: color === "dark" ? theme.black : theme.colors[color][5],
-      color: theme.white,
-      boxShadow: theme.shadows.lg,
-      transform: "translateY(-2px)",
-    }),
-  }
-}
-
 const GeistTheme: MantineThemeOverride = {
   primaryShade: 5,
   cursorType: "pointer",
@@ -134,9 +115,6 @@ const GeistTheme: MantineThemeOverride = {
         secondary: (theme, params: ActionIconStylesParams) => ({
           root: getSecondaryButtonStyles(theme, params),
         }),
-        shadow: (theme, params: ActionIconStylesParams) => ({
-          root: getShadowButtonStyles(theme, params),
-        }),
       },
       styles: (theme, params: ActionIconStylesParams, { variant }) => ({
         root: {
@@ -172,9 +150,6 @@ const GeistTheme: MantineThemeOverride = {
         }),
         secondary: (theme, params: ButtonStylesParams) => ({
           root: getSecondaryButtonStyles(theme, params),
-        }),
-        shadow: (theme, params: ButtonStylesParams) => ({
-          root: getShadowButtonStyles(theme, params),
         }),
       },
       styles: (theme, params: ButtonStylesParams, { variant }) => ({

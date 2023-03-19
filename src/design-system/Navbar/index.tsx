@@ -5,20 +5,26 @@ import {
   useMantineTheme,
   Text,
   Accordion,
-  Navbar,
+  Navbar as MantineNavbar,
   ScrollArea,
   NavbarProps,
 } from "@mantine/core"
 import { IconLock } from "@tabler/icons-react"
-import React from "react"
+import React, { useEffect } from "react"
 import NavbarLinks from "./NavbarLinks"
-import { atoms, tokens } from "src/themes"
+import { DesignSystemSubPage, atoms, tokens } from "src/themes"
 
-const ViewTabs = (props: Omit<NavbarProps, "children">) => {
+const Navbar = ({
+  subPage,
+  ...navbarProps
+}: Omit<NavbarProps, "children"> & { subPage: DesignSystemSubPage }) => {
+  useEffect(() => {
+    console.log(subPage)
+  }, [subPage])
   return (
-    <Navbar {...props} width={{ base: 256 }}>
-      <Navbar.Section grow component={ScrollArea}>
-        <Accordion multiple defaultValue={["tokens"]}>
+    <MantineNavbar {...navbarProps} width={{ base: 256 }}>
+      <MantineNavbar.Section grow component={ScrollArea}>
+        <Accordion multiple defaultValue={[subPage.type]}>
           <Accordion.Item value="files">
             <Tooltip
               multiline
@@ -57,9 +63,9 @@ const ViewTabs = (props: Omit<NavbarProps, "children">) => {
             <Accordion.Panel>{/** MOLECULES  */}</Accordion.Panel>
           </Accordion.Item>
         </Accordion>
-      </Navbar.Section>
-    </Navbar>
+      </MantineNavbar.Section>
+    </MantineNavbar>
   )
 }
 
-export default ViewTabs
+export default Navbar

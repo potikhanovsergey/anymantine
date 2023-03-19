@@ -11,10 +11,10 @@ const Example = ({ title, description, children }: ExampleProps) => {
   return (
     <Group noWrap grow>
       <Group position="center">{children}</Group>
-      <Box>
+      <div>
         <Title order={3}>{title}</Title>
         {description && <Text>{description}</Text>}
-      </Box>
+      </div>
     </Group>
   )
 }

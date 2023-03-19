@@ -30,7 +30,7 @@ const CornerBox = ({ radius }: CornerBoxProps) => {
 
 const CornerItem = ({ radius, title, useCases }: CornerItemProps) => {
   return (
-    <Box>
+    <div>
       <MantineProvider theme={DesignTheme.peek()}>
         <CornerBox radius={radius} />
       </MantineProvider>
@@ -40,7 +40,7 @@ const CornerItem = ({ radius, title, useCases }: CornerItemProps) => {
           {useCase}
         </Text>
       ))}
-    </Box>
+    </div>
   )
 }
 

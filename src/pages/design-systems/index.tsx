@@ -67,7 +67,6 @@ const DesignSystemsPage: BlitzPage = () => {
               {themeCards.map((card) => (
                 <Card
                   key={card.slug}
-                  caption={card.caption}
                   title={card.title}
                   price={1450}
                   slug={card.slug}

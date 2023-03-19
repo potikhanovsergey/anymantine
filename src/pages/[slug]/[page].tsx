@@ -2,11 +2,10 @@ import { BlitzPage } from "@blitzjs/next"
 import { Container, Title, Grid, Paper, useMantineTheme } from "@mantine/core"
 import { GetStaticPropsContext } from "next"
 import DesignSystemLayout from "src/core/layouts/DesignSystemLayout"
-import themes, { DesignSystem, atoms, dsSubPages, tokens } from "src/themes"
+import themes, { DesignSystem, DesignSystemSubPage, atoms, dsSubPages, tokens } from "src/themes"
 
 import dynamic from "next/dynamic"
 import { Switch } from "@legendapp/state/react"
-import DetailsCard from "src/design-system/DetailsCard"
 import RadiusesAndShadows from "src/design-system/Tokens/RadiusesAndShadows"
 import Typography from "src/design-system/Tokens/Typography"
 
@@ -29,16 +28,15 @@ const DesignSystemSubpage: BlitzPage = ({
   slug,
   page,
   designSystem,
-  title,
+  subPage,
 }: {
   slug: string
   page: string
   designSystem: DesignSystem
-  title: string
+  subPage: DesignSystemSubPage
 }) => {
-  const theme = useMantineTheme()
   return (
-    <DesignSystemLayout slug={slug} title="Vercel">
+    <DesignSystemLayout subPage={subPage} slug={slug} title="Vercel">
       <Container pt="sm" size="xl">
         <Switch value={page}>
           {{
@@ -60,13 +58,6 @@ const DesignSystemSubpage: BlitzPage = ({
             default: () => <></>,
           }}
         </Switch>
-        {/* </Grid.Col>
-          <Grid.Col span={4}>
-            <Paper withBorder pos="sticky" top={theme.spacing.md}>
-              <DetailsCard />
-            </Paper>
-          </Grid.Col>
-        </Grid> */}
       </Container>
     </DesignSystemLayout>
   )
@@ -95,13 +86,13 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(context: GetStaticPropsContext) {
   const designSystem = themes.find((ds) => ds.slug === context.params?.slug)
-  const title = dsSubPages.find((subPage) => subPage.slug === context.params?.page)?.label
+  const subPage = dsSubPages.find((subPage) => subPage.slug === context.params?.page)
   return {
     props: {
       slug: context.params?.slug,
       page: context.params?.page,
       designSystem,
-      title,
+      subPage,
     },
   }
 }

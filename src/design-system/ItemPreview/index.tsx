@@ -56,13 +56,9 @@ const ItemPreview = ({ children, title, configurator, mantineLink }: ItemPreview
       <Show
         if={configurableAtom.get() === title}
         else={
-          <Group noWrap position="apart">
-            <Box w="100%">
-              <MantineProvider inherit theme={DesignTheme.peek()}>
-                {children}
-              </MantineProvider>
-            </Box>
-          </Group>
+          <MantineProvider inherit theme={DesignTheme.peek()}>
+            {children}
+          </MantineProvider>
         }
       >
         <Demo

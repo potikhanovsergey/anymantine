@@ -1,4 +1,4 @@
-import { Box, Text, createStyles, AspectRatio, Group, Badge, Stack } from "@mantine/core"
+import { Text, createStyles, AspectRatio, Group, Badge, Stack } from "@mantine/core"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -48,17 +48,16 @@ const useStyles = createStyles((theme) => ({
 }))
 
 interface CardProps {
-  caption: string
   title: string
   imageUrl: string
   price: number
   slug: number | string
 }
 
-const Card = ({ caption, title, imageUrl, price, slug }: CardProps) => {
+const Card = ({ title, imageUrl, price, slug }: CardProps) => {
   const { classes } = useStyles()
   return (
-    <Box className={classes.card}>
+    <div className={classes.card}>
       <AspectRatio pos="relative" ratio={16 / 9}>
         <Image alt="Vercel Geist" fill src={imageUrl} className={classes.image} />
       </AspectRatio>
@@ -81,7 +80,7 @@ const Card = ({ caption, title, imageUrl, price, slug }: CardProps) => {
           ₽{price}
         </Text>
       </Stack>
-    </Box>
+    </div>
   )
 }
 

@@ -39,7 +39,7 @@ const Shadows = () => {
 
 const RadiusesAndShadows = () => {
   return (
-    <Box>
+    <div>
       <Title order={2} mb="xl">
         Радиусы
       </Title>
@@ -52,7 +52,7 @@ const RadiusesAndShadows = () => {
       <MantineProvider>
         <Shadows />
       </MantineProvider>
-    </Box>
+    </div>
   )
 }
 

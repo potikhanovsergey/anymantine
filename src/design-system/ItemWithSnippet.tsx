@@ -40,8 +40,8 @@ const ItemWithSnippet = ({ children, snippet }: ItemWithSnippetProps) => {
   const { classes } = useStyles()
   const theme = useMantineTheme()
   return (
-    <Box className={classes.wrapper}>
-      <Box className={classes.body}>{children}</Box>
+    <div className={classes.wrapper}>
+      <div className={classes.body}>{children}</div>
       <Accordion
         classNames={{
           content: classes.accordionContent,
@@ -57,7 +57,7 @@ const ItemWithSnippet = ({ children, snippet }: ItemWithSnippetProps) => {
           </Accordion.Panel>
         </Accordion.Item>
       </Accordion>
-    </Box>
+    </div>
   )
 }
 

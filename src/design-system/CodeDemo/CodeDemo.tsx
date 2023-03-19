@@ -38,7 +38,7 @@ export default function CodeDemo({
   }
 
   return (
-    <Box className={classes.root} mb="xl" mt="md">
+    <div className={classes.root}>
       <Paper
         p={spacing ? "md" : 0}
         className={cx(classes.demo, { [classes.withToggle]: toggle })}
@@ -78,6 +78,6 @@ export default function CodeDemo({
           {code}
         </Prism>
       )}
-    </Box>
+    </div>
   )
 }

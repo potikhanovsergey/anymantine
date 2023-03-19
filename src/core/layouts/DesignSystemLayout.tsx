@@ -6,14 +6,15 @@ import Header from "./Header"
 import { font } from "src/themes/Marshmallow"
 import Navbar from "src/design-system/Navbar"
 import { DesignTheme } from "src/state/design-system"
-import { themes } from "src/themes"
+import { DesignSystemSubPage, themes } from "src/themes"
 import { Show } from "@legendapp/state/react"
 
 const DesignSystemLayout: BlitzLayout<{
   title?: string
   children?: React.ReactNode
   slug: string
-}> = ({ title, children, slug }) => {
+  subPage: DesignSystemSubPage
+}> = ({ title, children, slug, subPage }) => {
   useEffect(() => {
     const pageTheme = themes[slug]
     pageTheme && DesignTheme.set(pageTheme)
@@ -27,7 +28,7 @@ const DesignSystemLayout: BlitzLayout<{
       <AppShell
         className={font.variable}
         header={<Header fixed />}
-        navbar={<Navbar fixed />}
+        navbar={<Navbar subPage={subPage} fixed />}
         styles={{
           main: {
             paddingRight: 0,
@@ -40,7 +41,7 @@ const DesignSystemLayout: BlitzLayout<{
         <Show
           if={DesignTheme}
           else={
-            <Center h="calc(100vh - var(--mantine-header-height))">
+            <Center h="calc(90vh - var(--mantine-header-height))">
               <Loader variant="bars" size="md" />
             </Center>
           }
