@@ -5,7 +5,6 @@ import { DesignTheme } from "src/state/design-system"
 
 const AtomButtons = () => {
   const buttonConfigurator = getButtonConfigurator(DesignTheme.peek())
-  console.log(DesignTheme.peek())
   return (
     <ItemPreview
       configurator={buttonConfigurator}

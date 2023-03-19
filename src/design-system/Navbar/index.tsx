@@ -18,9 +18,6 @@ const Navbar = ({
   subPage,
   ...navbarProps
 }: Omit<NavbarProps, "children"> & { subPage: DesignSystemSubPage }) => {
-  useEffect(() => {
-    console.log(subPage)
-  }, [subPage])
   return (
     <MantineNavbar {...navbarProps} width={{ base: 256 }}>
       <MantineNavbar.Section grow component={ScrollArea}>

@@ -331,59 +331,6 @@ const MarshmallowTheme: MantineThemeOverride = {
         },
       }),
     },
-    Tabs: {
-      styles: (theme, params: TabsStylesParams) => ({
-        tab: {
-          ...theme.fn.focusStyles(),
-          backgroundColor: theme.white,
-          color: theme.black,
-          padding: `${rem(6)} ${theme.spacing.lg}`,
-          cursor: "pointer",
-          fontSize: theme.fontSizes.sm,
-          display: "flex",
-          alignItems: "center",
-          borderRadius: 0,
-          border: 0,
-
-          "&:disabled": {
-            opacity: 0.5,
-            cursor: "not-allowed",
-          },
-
-          "&:not(:disabled, &[data-active])": {
-            "&:hover": {
-              backgroundColor: theme.colors[theme.primaryColor][0],
-            },
-          },
-
-          "&:not(:first-of-type)": {
-            borderLeft: 0,
-          },
-
-          "&[data-active]": {
-            backgroundColor: params.color ? theme.colors[params.color][1] : theme.black,
-            color: params.color ? theme.black : theme.white,
-            borderColor: theme.black,
-            "&:hover": {
-              borderColor: theme.black,
-            },
-          },
-        },
-
-        tabIcon: {
-          marginRight: theme.spacing.xs,
-          display: "flex",
-          alignItems: "center",
-        },
-
-        tabsList: {
-          display: "flex",
-          borderBottom: 0,
-          borderRight: 0,
-          width: "100%",
-        },
-      }),
-    },
     Prism: {
       defaultProps: {
         copyLabel: "Скопировать код",

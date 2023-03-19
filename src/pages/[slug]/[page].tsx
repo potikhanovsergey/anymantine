@@ -11,6 +11,7 @@ import Typography from "src/design-system/Tokens/Typography"
 
 const ThemeColors = dynamic(() => import("src/design-system/Tokens/Colors/ThemeColors"))
 const States = dynamic(() => import("src/design-system/Tokens/States"))
+const Icons = dynamic(() => import("src/design-system/Tokens/Icons"))
 
 const AtomButtons = dynamic(() => import("src/design-system/Atoms/AtomButtons"))
 const AtomBadges = dynamic(() => import("src/design-system/Atoms/AtomBadges"))
@@ -44,6 +45,7 @@ const DesignSystemSubpage: BlitzPage = ({
             typography: () => <Typography />,
             "radiuses-and-shadows": () => <RadiusesAndShadows />,
             states: () => <States />,
+            icons: () => <Icons />,
             button: () => <AtomButtons />,
             badge: () => <AtomBadges />,
             "action-icon": () => <AtomActionIcons />,
