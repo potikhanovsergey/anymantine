@@ -40,12 +40,6 @@ const DesignSystemSubpage: BlitzPage = ({
   return (
     <DesignSystemLayout slug={slug} title="Vercel">
       <Container pt="sm" size="xl">
-        <Title order={1} mb="xl">
-          {title}
-        </Title>
-
-        {/* <Grid gutter={40}>
-          <Grid.Col span={8}> */}
         <Switch value={page}>
           {{
             colors: () => <ThemeColors colors={designSystem.colors} />,
