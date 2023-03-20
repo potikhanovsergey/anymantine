@@ -1,4 +1,4 @@
-import { BadgeProps, Group, Badge } from "@mantine/core"
+import { BadgeProps, Group, Badge, MantineThemeOverride } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
 
@@ -22,26 +22,39 @@ function Wrapper(props: BadgeProps) {
   )
 }
 
-const BadgeConfigurator: MantineDemo = {
-  type: "configurator",
-  component: Wrapper,
-  codeTemplate,
-  configurator: [
-    {
-      name: "variant",
-      type: "select",
-      data: [
-        { label: "filled", value: "filled" },
-        { label: "light", value: "light" },
-        { label: "outline", value: "outline" },
-      ],
-      initialValue: "filled",
-    },
-    { name: "color", type: "color", initialValue: "dark", defaultValue: "dark" },
-    { name: "radius", type: "size", initialValue: "sm", defaultValue: "sm" },
-    { name: "size", type: "size", initialValue: "sm", defaultValue: "sm" },
-    { name: "children", type: "string", initialValue: "Пример тега" },
-  ],
-}
+const getBadgeConfigurator = (theme: MantineThemeOverride) =>
+  ({
+    type: "configurator",
+    component: Wrapper,
+    codeTemplate,
+    configurator: [
+      {
+        name: "variant",
+        type: "select",
+        data: [
+          { label: "filled", value: "filled" },
+          { label: "light", value: "light" },
+          { label: "outline", value: "outline" },
+        ],
+        initialValue: theme.components?.Badge?.defaultProps?.["variant"] || "filled",
+      },
+      {
+        name: "color",
+        type: "color",
+        initialValue: theme.components?.Badge?.defaultProps?.["color"] || theme.primaryColor,
+      },
+      {
+        name: "radius",
+        type: "size",
+        initialValue: theme.components?.Badge?.defaultProps?.["raidus"] || theme.defaultRadius,
+      },
+      {
+        name: "size",
+        type: "size",
+        initialValue: theme.components?.Badge?.defaultProps?.["size"] || "md",
+      },
+      { name: "children", type: "string", initialValue: "Пример тега" },
+    ],
+  } as MantineDemo)
 
-export default BadgeConfigurator
+export default getBadgeConfigurator

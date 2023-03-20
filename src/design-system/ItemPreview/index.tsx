@@ -1,21 +1,13 @@
 import { Show, observer } from "@legendapp/state/react"
-import {
-  ActionIcon,
-  Box,
-  Group,
-  Stack,
-  Tooltip,
-  Title,
-  useMantineTheme,
-  MantineProvider,
-} from "@mantine/core"
+import { ActionIcon, Box, Group, Stack, Tooltip, Title, useMantineTheme } from "@mantine/core"
 import { IconSettings } from "@tabler/icons-react"
 import { ReactNode } from "react"
 import { MantineDemo } from "../Demo/types"
 import { Demo } from "../Demo"
-import { DesignTheme, configurableAtom } from "src/state/design-system"
+import { configurableAtom } from "src/state/design-system"
 import Mantine from "src/core/components/icons/Mantine"
 import Link from "next/link"
+import DesignSystemProvider from "../DesignSystemProvider"
 
 export interface ItemPreviewProps {
   children: ReactNode
@@ -55,13 +47,7 @@ const ItemPreview = ({ children, title, configurator, mantineLink }: ItemPreview
       </Group>
       <Show
         if={configurableAtom.get() === title}
-        else={
-          <Group noWrap position="apart">
-            <Box w="100%">
-              <MantineProvider theme={DesignTheme.peek()}>{children}</MantineProvider>
-            </Box>
-          </Group>
-        }
+        else={<DesignSystemProvider>{children}</DesignSystemProvider>}
       >
         <Demo
           data={configurator}

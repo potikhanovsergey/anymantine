@@ -8,9 +8,18 @@ import {
   rem,
   getStylesRef,
 } from "@mantine/core"
+import { Inter } from "next/font/google"
 
 const cardShadow = "0 4px 6px rgb(0 0 0 / 4%)"
-const fontFamily = `"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif`
+
+export const geistFont = Inter({
+  variable: "--geist-font",
+  weight: ["400", "600", "700"],
+  subsets: ["cyrillic", "latin"],
+  preload: false,
+})
+
+const defaultFonts = `-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji`
 
 type ExtendedCustomColors = "accent" | DefaultMantineColor
 
@@ -53,25 +62,6 @@ const getSecondaryButtonStyles = (
   }
 }
 
-const getShadowButtonStyles = (
-  theme: MantineTheme,
-  { color = "dark" }: ButtonStylesParams | ActionIconStylesParams
-) => {
-  return {
-    border: "1px solid",
-    borderColor: color === "dark" ? theme.black : theme.colors[color][5],
-    color: theme.white,
-    background: color === "dark" ? theme.black : theme.colors[color][5],
-    boxShadow: theme.shadows.md,
-    "&:not([data-disabled])": theme.fn.hover({
-      background: color === "dark" ? theme.black : theme.colors[color][5],
-      color: theme.white,
-      boxShadow: theme.shadows.lg,
-      transform: "translateY(-2px)",
-    }),
-  }
-}
-
 const GeistTheme: MantineThemeOverride = {
   primaryShade: 5,
   cursorType: "pointer",
@@ -79,9 +69,9 @@ const GeistTheme: MantineThemeOverride = {
     cardShadow,
     geistCyanLight: "#79FFF0",
   },
-  fontFamily,
+  fontFamily: `var(--geist-font), ${defaultFonts}`,
   headings: {
-    fontFamily,
+    fontFamily: `var(--geist-font), ${defaultFonts}`,
   },
   shadows: {
     xs: "0px 2px 4px rgba(0,0,0,.1)",
@@ -134,9 +124,6 @@ const GeistTheme: MantineThemeOverride = {
         secondary: (theme, params: ActionIconStylesParams) => ({
           root: getSecondaryButtonStyles(theme, params),
         }),
-        shadow: (theme, params: ActionIconStylesParams) => ({
-          root: getShadowButtonStyles(theme, params),
-        }),
       },
       styles: (theme, params: ActionIconStylesParams, { variant }) => ({
         root: {
@@ -164,6 +151,7 @@ const GeistTheme: MantineThemeOverride = {
     Button: {
       defaultProps: {
         loaderPosition: "center",
+        variant: "primary",
       },
       variants: {
         primary: (theme, params: ButtonStylesParams) => ({
@@ -171,9 +159,6 @@ const GeistTheme: MantineThemeOverride = {
         }),
         secondary: (theme, params: ButtonStylesParams) => ({
           root: getSecondaryButtonStyles(theme, params),
-        }),
-        shadow: (theme, params: ButtonStylesParams) => ({
-          root: getShadowButtonStyles(theme, params),
         }),
       },
       styles: (theme, params: ButtonStylesParams, { variant }) => ({
@@ -375,8 +360,9 @@ const GeistTheme: MantineThemeOverride = {
   globalStyles: (theme) => ({
     "::selection": {
       background: theme.other.geistCyanLight,
-      color: theme.black,
-      WebkitTextFillColor: theme.black,
+    },
+    body: {
+      WebkitFontSmoothing: "antialiased",
     },
   }),
 }

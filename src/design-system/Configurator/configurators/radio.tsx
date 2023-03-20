@@ -7,51 +7,39 @@ import { Radio } from '@mantine/core';
 
 function Demo() {
   return (
-    <Radio.Group${props}
-      name="radioConfigurator"
-    >
-      <Group my="xs">
-        <Radio value="kiwi" label="Kiwi" />
-        <Radio value="mango" label="Mango" />
-        <Radio value="apple" label="Apple" />
-        <Radio value="banana" label="Banana" />
-      </Group>
-    </Radio.Group>
+    <Radio value="banana" ${props} />
   );
 }
 `
 
-function Wrapper(props: RadioGroupProps) {
+function Wrapper(props: RadioProps) {
   return (
     <Group position="center">
-      <Radio.Group name="radioConfigurator" {...props}>
-        <Group my="xs">
-          <Radio value="kiwi" label="Kiwi" />
-          <Radio value="mango" label="Mango" />
-          <Radio value="apple" label="Apple" />
-          <Radio value="banana" label="Banana" />
-        </Group>
-      </Radio.Group>
+      <Radio value="Banana" {...props} />
     </Group>
   )
 }
 
-const RadioConfigurator: MantineDemo = {
-  type: "configurator",
-  component: Wrapper,
-  codeTemplate,
-  configurator: [
-    { name: "label", type: "string", initialValue: "Select your favorite fruit" },
-    { name: "description", type: "string", initialValue: "This is anonymous" },
-    { name: "error", type: "string", initialValue: "" },
-    {
-      name: "withAsterisk",
-      label: "With asterisk",
-      type: "boolean",
-      initialValue: false,
-      defaultValue: false,
-    },
-  ],
-}
+const getRadioConfigurator = (theme) =>
+  ({
+    type: "configurator",
+    component: Wrapper,
+    codeTemplate,
+    configurator: [
+      { name: "label", type: "string", initialValue: "Banana" },
+      { name: "description", type: "string", initialValue: "" },
+      { name: "error", type: "string", initialValue: "" },
+      {
+        name: "color",
+        type: "color",
+        initialValue: theme.components?.Radio?.defaultProps?.["color"] || theme.primaryColor,
+      },
+      {
+        name: "size",
+        type: "size",
+        initialValue: theme.components?.Radio?.defaultProps?.["size"] || "md",
+      },
+    ],
+  } as MantineDemo)
 
-export default RadioConfigurator
+export default getRadioConfigurator

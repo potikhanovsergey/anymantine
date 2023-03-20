@@ -9,9 +9,10 @@ const size = 96
 export default createStyles((theme: MantineTheme, { shadow }: ShadowItemStylesParams) => ({
   box: {
     boxShadow: theme.shadows[shadow],
-    width: "100%",
+    width: rem(size),
     maxWidth: rem(size),
     aspectRatio: "1/1",
     background: theme.colors.gray[2],
+    marginBottom: theme.spacing.md
   },
 }))

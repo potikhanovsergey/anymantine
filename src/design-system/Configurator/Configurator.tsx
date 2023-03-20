@@ -26,7 +26,7 @@ export default function Configurator({
   multiline = false,
   includeCode = true,
   center = true,
-  radius = "xs",
+  radius,
   filter = [],
   background,
 }: ConfiguratorProps) {

@@ -1,11 +1,13 @@
 import { Group, Checkbox, Stack } from "@mantine/core"
-import CheckboxConfigurator from "src/design-system/Configurator/configurators/checkbox"
+import getCheckboxConfigurator from "src/design-system/Configurator/configurators/checkbox"
 import ItemPreview from "src/design-system/ItemPreview"
+import { DesignTheme } from "src/state/design-system"
 
 const AtomCheckboxes = () => {
+  const checkboxConfigurator = getCheckboxConfigurator(DesignTheme.peek())
   return (
     <ItemPreview
-      configurator={CheckboxConfigurator}
+      configurator={checkboxConfigurator}
       title="Чекбоксы"
       mantineLink="https://mantine.dev/core/checkbox"
     >

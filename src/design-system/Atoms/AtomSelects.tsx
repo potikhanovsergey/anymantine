@@ -1,14 +1,16 @@
 import { SimpleGrid, Select } from "@mantine/core"
 import { IconInfoCircle, IconPassword } from "@tabler/icons-react"
-import SelectConfigurator from "src/design-system/Configurator/configurators/select"
+import getSelectConfigurator from "src/design-system/Configurator/configurators/select"
 import ItemPreview from "src/design-system/ItemPreview"
+import { DesignTheme } from "src/state/design-system"
 
 export const selectDataMock = ["Orange", "Banana", "Mango", "Apple", "Lemon", "Kiwi"]
 
 const AtomSelects = () => {
+  const selectConfigurator = getSelectConfigurator(DesignTheme.peek())
   return (
     <ItemPreview
-      configurator={SelectConfigurator}
+      configurator={selectConfigurator}
       title="Выпадающие списки"
       mantineLink="https://mantine.dev/core/select"
     >

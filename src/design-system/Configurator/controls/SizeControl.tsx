@@ -29,7 +29,6 @@ export function SizeControl({ label, value, onChange, step = 25, ...others }: Si
         label={(val) => MARKS.find((mark) => mark.value === val)!.label}
         step={step}
         marks={MARKS}
-        color="violet"
         styles={{ markLabel: { display: "none" } }}
       />
     </Input.Wrapper>

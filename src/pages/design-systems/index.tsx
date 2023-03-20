@@ -57,7 +57,7 @@ const DesignSystemsPage: BlitzPage = () => {
                 />
               </Stack>
               <Group grow noWrap mt="xl">
-                <Button variant="outline">Сбросить</Button>
+                <Button variant="secondary">Сбросить</Button>
                 <Button>Применить</Button>
               </Group>
             </Paper>
@@ -67,9 +67,8 @@ const DesignSystemsPage: BlitzPage = () => {
               {themeCards.map((card) => (
                 <Card
                   key={card.slug}
-                  caption={card.caption}
                   title={card.title}
-                  price={2999}
+                  price={1450}
                   slug={card.slug}
                   imageUrl={card.imageUrl}
                 />

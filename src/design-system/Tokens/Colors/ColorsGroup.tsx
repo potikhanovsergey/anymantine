@@ -1,5 +1,14 @@
-import React from "react"
-import { ColorSwatch, Text, Box, rem, Center, UnstyledButton, CopyButton } from "@mantine/core"
+import React, { useState } from "react"
+import {
+  ColorSwatch,
+  Text,
+  Box,
+  rem,
+  Center,
+  UnstyledButton,
+  CopyButton,
+  useMantineTheme,
+} from "@mantine/core"
 import useStyles from "./ColorsGroup.styles"
 
 interface ColorsGroupProps {
@@ -8,20 +17,23 @@ interface ColorsGroupProps {
   onMouseLeave?: () => void
 }
 
-export function ColorsGroup({ group, setTooltip, onMouseLeave }: ColorsGroupProps) {
-  const { classes, theme } = useStyles()
+const getColor = (color, group, i) => `${color} / theme.colors.${group}[${i}]`
 
-  return (
+export function ColorsGroup({ group, setTooltip, onMouseLeave }: ColorsGroupProps) {
+  const { classes } = useStyles()
+  const theme = useMantineTheme()
+
+  return theme.colors[group] ? (
     <>
-      {theme.colors[group].map((color) => (
-        <CopyButton key={color} value={color} timeout={2000}>
+      {theme.colors[group]?.map((color, i) => (
+        <CopyButton key={color} value={getColor(color, group, i)} timeout={2000}>
           {({ copied, copy }) => (
             <UnstyledButton
               onClick={() => {
                 copy()
                 setTooltip?.("Copied")
               }}
-              onMouseEnter={() => setTooltip?.(color)}
+              onMouseEnter={() => setTooltip?.(getColor(color, group, i))}
               onMouseLeave={onMouseLeave}
               w="100%"
               bg={`${color} content-box`}
@@ -34,5 +46,7 @@ export function ColorsGroup({ group, setTooltip, onMouseLeave }: ColorsGroupProp
         <Text color="dimmed">{group}</Text>
       </Center>
     </>
+  ) : (
+    <></>
   )
 }

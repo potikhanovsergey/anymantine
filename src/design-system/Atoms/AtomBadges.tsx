@@ -1,12 +1,14 @@
 import { Group, Badge } from "@mantine/core"
 import { IconHeart } from "@tabler/icons-react"
-import BadgeConfigurator from "src/design-system/Configurator/configurators/badge"
+import getBadgeConfigurator from "src/design-system/Configurator/configurators/badge"
 import ItemPreview from "src/design-system/ItemPreview"
+import { DesignTheme } from "src/state/design-system"
 
 const AtomBadges = () => {
+  const badgeConfigurator = getBadgeConfigurator(DesignTheme.peek())
   return (
     <ItemPreview
-      configurator={BadgeConfigurator}
+      configurator={badgeConfigurator}
       title="Теги"
       mantineLink="https://mantine.dev/core/badge"
     >

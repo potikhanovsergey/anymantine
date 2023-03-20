@@ -1,37 +1,73 @@
-import { MantineThemeOverride, Text, rem, getStylesRef, ButtonStylesParams } from "@mantine/core"
+import {
+  MantineThemeOverride,
+  Text,
+  rem,
+  getStylesRef,
+  ButtonStylesParams,
+  TabsStylesParams,
+  ActionIconStylesParams,
+} from "@mantine/core"
 import { Nunito_Sans } from "next/font/google"
 
-export const font = Nunito_Sans({
-  variable: "--primary-font",
+export const marshmallowFont = Nunito_Sans({
+  variable: "--marshmallow-font",
   weight: ["400", "600", "700"],
   subsets: ["cyrillic", "latin"],
+  preload: false,
 })
 
 const defaultFonts = `-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji`
 
-const CartoonTheme: MantineThemeOverride = {
+const MarshmallowTheme: MantineThemeOverride = {
   cursorType: "pointer",
   primaryColor: "violet",
   defaultRadius: "sm",
-  fontFamily: `var(--primary-font), ${defaultFonts}`,
+  fontFamily: `var(--marshmallow-font), ${defaultFonts}`,
   headings: {
-    fontFamily: `var(--primary-font), ${defaultFonts}`,
+    fontFamily: `var(--marshmallow-font), ${defaultFonts}`,
   },
   components: {
     Loader: {
       defaultProps: {
         color: "violet",
-        size: "xs",
       },
     },
     Button: {
       defaultProps: {
         loaderPosition: "center",
+        variant: "primary",
       },
       variants: {
-        filled: (theme, params: ButtonStylesParams) => ({
+        primary: (theme, params: ButtonStylesParams) => ({
           root: {
-            background: params.color || theme.colors[theme.primaryColor][1],
+            background: theme.colors[params.color]?.[1] || theme.colors[theme.primaryColor][1],
+            border: `1px solid ${theme.black}`,
+            color: theme.black,
+            "&:not([data-disabled])": theme.fn.hover({
+              background: theme.colors[params.color]?.[2] || theme.colors[theme.primaryColor][2],
+            }),
+          },
+        }),
+        secondary: (theme, params: ButtonStylesParams) => ({
+          root: {
+            backgroundColor: theme.white,
+            border: `1px solid ${theme.black}`,
+            color: theme.black,
+            "&:not([data-disabled])": theme.fn.hover({
+              background: theme.colors[params.color]?.[2] || theme.colors[theme.primaryColor][2],
+            }),
+          },
+        }),
+      },
+    },
+    ActionIcon: {
+      defaultProps: {
+        variant: "primary",
+      },
+      variants: {
+        primary: (theme, params: ActionIconStylesParams) => ({
+          root: {
+            background: theme.colors[params.color]?.[1] || theme.colors[theme.primaryColor][1],
             border: `1px solid ${theme.black}`,
             color: theme.black,
             "&:not([data-disabled])": theme.fn.hover({
@@ -39,15 +75,43 @@ const CartoonTheme: MantineThemeOverride = {
             }),
           },
         }),
-        outline: (theme) => ({
+        secondary: (theme) => ({
           root: {
             backgroundColor: theme.white,
-            border: "1px solid",
-            borderColor: theme.black,
+            border: `1px solid ${theme.black}`,
             color: theme.black,
             "&:not([data-disabled])": theme.fn.hover({
-              background: theme.colors[theme.primaryColor][1],
+              background: theme.colors[theme.primaryColor][2],
             }),
+          },
+        }),
+      },
+    },
+    Checkbox: {
+      styles: (theme) => ({
+        input: {
+          backgroundColor: theme.colors[theme.primaryColor][0],
+          border: "none",
+          ref: getStylesRef("icon"),
+          "&:checked": {
+            backgroundColor: theme.colors[theme.primaryColor][0],
+            border: "none",
+          },
+          "&:checked+": {
+            [`& .${getStylesRef("icon")}`]: {
+              color: theme.black,
+            },
+          },
+        },
+      }),
+    },
+    Badge: {
+      variants: {
+        outline: (theme) => ({
+          root: {
+            borderColor: theme.black,
+            color: theme.black,
+            backgroundColor: theme.white,
           },
         }),
       },
@@ -58,13 +122,6 @@ const CartoonTheme: MantineThemeOverride = {
         children: <Text size="lg">🐶</Text>,
         color: "violet",
       },
-    },
-    UnstyledButton: {
-      styles: (theme) => ({
-        root: {
-          transition: "all 200ms ease",
-        },
-      }),
     },
     Slider: {
       styles: (theme) => ({
@@ -144,6 +201,9 @@ const CartoonTheme: MantineThemeOverride = {
       }),
     },
     Switch: {
+      defaultProps: {
+        radius: "xl",
+      },
       styles: (theme) => ({
         track: {
           backgroundColor: theme.white,
@@ -272,70 +332,24 @@ const CartoonTheme: MantineThemeOverride = {
         },
       }),
     },
-    Tabs: {
-      styles: (theme) => ({
-        tab: {
-          ...theme.fn.focusStyles(),
-          backgroundColor: theme.white,
-          color: theme.black,
-          border: `${rem(1)} solid ${theme.black}`,
-          padding: `${rem(6)} ${theme.spacing.lg}`,
-          cursor: "pointer",
-          fontSize: theme.fontSizes.sm,
-          display: "flex",
-          alignItems: "center",
-          borderRadius: 0,
-
-          "&:disabled": {
-            opacity: 0.5,
-            cursor: "not-allowed",
-          },
-
-          "&:not(:disabled, &[data-active])": {
-            "&:hover": {
-              backgroundColor: theme.colors[theme.primaryColor][1],
-            },
-          },
-
-          "&:hover": {
-            border: `${rem(1)} solid`,
-            borderColor: theme.black,
-            "&:not(:first-of-type)": {
-              borderLeft: 0,
-            },
-          },
-
-          "&:not(:first-of-type)": {
-            borderLeft: 0,
-          },
-
-          "&[data-active]": {
-            backgroundColor: theme.black,
-            color: theme.white,
-            borderColor: theme.black,
-            "&:hover": {
-              borderColor: theme.black,
-            },
-          },
-        },
-
-        tabIcon: {
-          marginRight: theme.spacing.xs,
-          display: "flex",
-          alignItems: "center",
-        },
-
-        tabsList: {
-          display: "flex",
-          borderBottom: 0,
-        },
-      }),
-    },
     Prism: {
       defaultProps: {
         copyLabel: "Скопировать код",
         copiedLabel: "Скопировано",
       },
+    },
+    Accordion: {
+      styles: (theme) => ({
+        content: {
+          paddingTop: 0,
+        },
+        item: {
+          borderBottom: 0,
+        },
+        control: {
+          marginBottom: rem(4),
+        },
+      }),
     },
     Tooltip: {
       defaultProps: {
@@ -359,27 +373,13 @@ const CartoonTheme: MantineThemeOverride = {
     },
   },
   globalStyles: (theme) => ({
-    "*, *::before, *::after": {
-      boxSizing: "border-box",
-    },
-    html: {
-      scrollBehavior: "smooth",
-      scrollMarginTop: "-36px",
-    },
     "::selection": {
       background: theme.colors[theme.primaryColor][1],
     },
     body: {
-      lineHeight: theme.lineHeight,
-      minHeight: "100vh",
-      wordBreak: "break-word",
-      overflowY: "auto",
-      overflowX: "hidden",
-      letterSpacing: "-.01em",
       WebkitFontSmoothing: "antialiased",
-      background: theme.colorScheme === "dark" ? "#161920" : theme.white,
     },
   }),
 }
 
-export default CartoonTheme
+export default MarshmallowTheme

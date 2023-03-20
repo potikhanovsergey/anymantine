@@ -3,12 +3,14 @@ import React, { FC } from "react"
 import { BlitzLayout } from "@blitzjs/next"
 import { AppShell } from "@mantine/core"
 import Header from "./Header"
-import { font } from "src/themes/Marshmallow"
+import { useSelector } from "@legendapp/state/react"
+import { appDesignTheme } from "src/state"
 
 const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
   title,
   children,
 }) => {
+  const AppDesignTheme = useSelector(appDesignTheme)
   return (
     <>
       <Head>
@@ -16,7 +18,7 @@ const Layout: BlitzLayout<{ title?: string; children?: React.ReactNode }> = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <AppShell
-        className={font.variable}
+        className={AppDesignTheme.font.variable}
         header={
           <>
             {/* <Slogan /> */}

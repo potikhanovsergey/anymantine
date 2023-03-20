@@ -1,11 +1,13 @@
 import { Group, Stack, Radio } from "@mantine/core"
-import RadioConfigurator from "src/design-system/Configurator/configurators/radio"
+import getRadioConfigurator from "src/design-system/Configurator/configurators/radio"
 import ItemPreview from "src/design-system/ItemPreview"
+import { DesignTheme } from "src/state/design-system"
 
 const AtomRadios = () => {
+  const radioConfigurator = getRadioConfigurator(DesignTheme.peek())
   return (
     <ItemPreview
-      configurator={RadioConfigurator}
+      configurator={radioConfigurator}
       title="Радио кнопки"
       mantineLink="https://mantine.dev/core/radio"
     >

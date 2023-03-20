@@ -1,25 +1,14 @@
-import {
-  Box,
-  Title,
-  Text,
-  createStyles,
-  AspectRatio,
-  Group,
-  Badge,
-  Anchor,
-  Tooltip,
-} from "@mantine/core"
-import { IconWorld } from "@tabler/icons-react"
+import { Text, createStyles, AspectRatio, Group, Badge, Stack } from "@mantine/core"
 import Image from "next/image"
 import Link from "next/link"
 
 const useStyles = createStyles((theme) => ({
   card: {
-    borderRight: `1px solid ${theme.black}`,
-    borderBottom: `1px solid ${theme.black}`,
+    border: `1px solid ${theme.black}`,
+    borderRadius: theme.radius.md,
     display: "flex",
     flexDirection: "column",
-    padding: theme.spacing.xl,
+    padding: 0,
     textDecoration: "none",
     color: theme.black,
     position: "relative",
@@ -27,7 +16,14 @@ const useStyles = createStyles((theme) => ({
       background: theme.colors[theme.primaryColor][0],
     },
   },
-  caption: {
+  description: {
+    paddingTop: theme.spacing.md,
+    paddingBottom: theme.spacing.md,
+    paddingLeft: theme.spacing.lg,
+    paddingRight: theme.spacing.lg,
+    gap: 0,
+  },
+  title: {
     "&:after": {
       content: "''",
       position: "absolute",
@@ -45,46 +41,46 @@ const useStyles = createStyles((theme) => ({
       zIndex: 2,
     },
   },
+  image: {
+    borderTopRightRadius: theme.radius.md,
+    borderTopLeftRadius: theme.radius.md,
+  },
 }))
 
 interface CardProps {
-  caption: string
   title: string
   imageUrl: string
   price: number
   slug: number | string
 }
 
-const Card = ({ caption, title, imageUrl, price, slug }: CardProps) => {
+const Card = ({ title, imageUrl, price, slug }: CardProps) => {
   const { classes } = useStyles()
   return (
-    <Box className={classes.card}>
-      <Group spacing="xs" mb="xs" className={classes.links}>
-        <Tooltip label="https://figma.com">
-          <Anchor href="https://figma.com" target="_blank" rel="noreferrer">
-            <IconWorld size={20} />
-          </Anchor>
-        </Tooltip>
-      </Group>
-      <Text
-        className={classes.caption}
-        href={`/design-systems/${slug}`}
-        component={Link}
-        weight={300}
-        color="dimmed"
-      >
-        {caption}
-      </Text>
-      <Text size={28} mb="xl" weight="bold">
-        {title}
-      </Text>
-      <AspectRatio pos="relative" ratio={16 / 9} mb="md">
-        <Image alt="Vercel Geist" fill src={imageUrl} />
+    <div className={classes.card}>
+      <AspectRatio pos="relative" ratio={16 / 9}>
+        <Image alt="Vercel Geist" fill src={imageUrl} className={classes.image} />
       </AspectRatio>
-      <Group position="right">
-        <Badge variant="outline">₽{price}</Badge>
-      </Group>
-    </Box>
+      <Stack className={classes.description}>
+        <Text size={28} weight="bold" href={`/${slug}`} component={Link} className={classes.title}>
+          {title}
+        </Text>
+        <Group spacing="xs" mb="xs">
+          <Badge variant="outline" size="sm">
+            with Figma
+          </Badge>
+          <Badge variant="outline" size="sm">
+            light
+          </Badge>
+          <Badge variant="outline" size="sm">
+            beautiful
+          </Badge>
+        </Group>
+        <Text size={22} weight="bold" mt="auto">
+          ₽{price}
+        </Text>
+      </Stack>
+    </div>
   )
 }
 

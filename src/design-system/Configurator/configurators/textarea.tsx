@@ -1,4 +1,4 @@
-import { TextareaProps, Group, Textarea } from "@mantine/core"
+import { TextareaProps, Group, Textarea, MantineThemeOverride } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
 
@@ -20,19 +20,28 @@ function Wrapper(props: TextareaProps) {
   )
 }
 
-const TextareaConfigurator: MantineDemo = {
-  type: "configurator",
-  component: Wrapper,
-  codeTemplate,
-  configurator: [
-    { name: "placeholder", type: "string", initialValue: "Пример поля" },
-    { name: "label", type: "string", initialValue: "Label" },
-    { name: "description", type: "string", initialValue: "" },
-    { name: "radius", type: "size", initialValue: "sm", defaultValue: "sm" },
-    { name: "size", type: "size", initialValue: "sm", defaultValue: "sm" },
-    { name: "disabled", type: "boolean", initialValue: false, defaultValue: false },
-    { name: "required", type: "boolean", initialValue: false, defaultValue: false },
-  ],
-}
+const getTextareaConfigurator = (theme: MantineThemeOverride) =>
+  ({
+    type: "configurator",
+    component: Wrapper,
+    codeTemplate,
+    configurator: [
+      { name: "placeholder", type: "string", initialValue: "Пример поля" },
+      { name: "label", type: "string", initialValue: "Label" },
+      { name: "description", type: "string", initialValue: "" },
+      {
+        name: "radius",
+        type: "size",
+        initialValue: theme.components?.TextInput?.defaultProps?.["radius"] || theme.defaultRadius,
+      },
+      {
+        name: "size",
+        type: "size",
+        initialValue: theme.components?.TextInput?.defaultProps?.["size"] || "md",
+      },
+      { name: "disabled", type: "boolean", initialValue: false },
+      { name: "required", type: "boolean", initialValue: false },
+    ],
+  } as MantineDemo)
 
-export default TextareaConfigurator
+export default getTextareaConfigurator

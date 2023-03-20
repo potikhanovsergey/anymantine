@@ -1,9 +1,9 @@
 import React from "react"
-import { MantineProvider, useMantineTheme } from "@mantine/core"
+import { useMantineTheme } from "@mantine/core"
 import { MantineDemo } from "./types"
 import CodeDemo from "../CodeDemo/CodeDemo"
 import Configurator from "../Configurator/Configurator"
-import { DesignTheme } from "src/state/design-system"
+import DesignSystemProvider from "../DesignSystemProvider"
 
 export { CodeDemo, Configurator }
 
@@ -32,7 +32,7 @@ export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
         {...demoProps}
       >
         {data.component && (
-          <MantineProvider theme={DesignTheme.get()}>
+          <DesignSystemProvider>
             {data.wrapper ? (
               <data.wrapper>
                 <data.component />
@@ -40,7 +40,7 @@ export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
             ) : (
               <data.component />
             )}
-          </MantineProvider>
+          </DesignSystemProvider>
         )}
       </CodeDemo>
     )
@@ -51,7 +51,7 @@ export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
       <Configurator
         component={(props: any) =>
           data.component && (
-            <MantineProvider theme={DesignTheme.peek()}>
+            <DesignSystemProvider>
               {data.wrapper ? (
                 <data.wrapper>
                   <data.component {...props} />
@@ -59,7 +59,7 @@ export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
               ) : (
                 <data.component {...props} />
               )}
-            </MantineProvider>
+            </DesignSystemProvider>
           )
         }
         codeTemplate={data.codeTemplate}

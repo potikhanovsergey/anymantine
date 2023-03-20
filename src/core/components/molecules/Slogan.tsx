@@ -1,4 +1,4 @@
-import { Box, createStyles, keyframes, Text, getStylesRef, Anchor } from "@mantine/core"
+import { createStyles, keyframes, Text, getStylesRef, Anchor, Group } from "@mantine/core"
 
 export const motion = keyframes({
   "0%": { transform: "translate(0%, 0px)" },
@@ -17,13 +17,13 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     overflow: "hidden",
     borderBottom: `1px solid ${theme.black}`,
-    backgroundColor: theme.colors.violet[1],
+    backgroundColor: theme.colors[theme.primaryColor][1],
     paddingTop: theme.spacing.xs,
     paddingBottom: theme.spacing.xs,
     textDecoration: "none",
     color: theme.black,
     "&:hover": {
-      backgroundColor: theme.colors.violet[2],
+      backgroundColor: theme.colors[theme.primaryColor][2],
       [`& .${getStylesRef("row")}`]: {
         animationPlayState: "paused",
       },
@@ -35,20 +35,20 @@ const Slogan = () => {
   const { classes } = useStyles()
 
   return (
-    <Box component="a" href="#" className={classes.wrapper}>
-      <Box className={classes.row}>
+    <a href="#" className={classes.wrapper}>
+      <div className={classes.row}>
         {[0, 1].map((link) => (
-          <Box key={link} sx={{ display: "flex", gap: 16, height: "100%" }}>
+          <Group key={link} h="100%" spacing="md">
             {[0, 1, 2, 3].map((item) => (
               <Text key={item} size="xs">
                 Далеко-далеко за словесными горами, в стране гласных и согласных живут рыбные
                 тексты.
               </Text>
             ))}
-          </Box>
+          </Group>
         ))}
-      </Box>
-    </Box>
+      </div>
+    </a>
   )
 }
 

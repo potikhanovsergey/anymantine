@@ -1,21 +1,19 @@
-import { Group, Button } from "@mantine/core"
-import ButtonConfigurator from "src/design-system/Configurator/configurators/button"
+import { Group, Button, useMantineTheme } from "@mantine/core"
+import getButtonConfigurator from "src/design-system/Configurator/configurators/button"
 import ItemPreview from "src/design-system/ItemPreview"
+import { DesignTheme } from "src/state/design-system"
 
 const AtomButtons = () => {
+  const buttonConfigurator = getButtonConfigurator(DesignTheme.peek())
   return (
     <ItemPreview
-      configurator={ButtonConfigurator}
+      configurator={buttonConfigurator}
       title="Кнопки"
       mantineLink="https://mantine.dev/core/button"
     >
       <Group>
         <Button variant="primary">Пример кнопки</Button>
         <Button variant="secondary">Пример кнопки</Button>
-        <Button variant="shadow">Пример с тенью</Button>
-        <Button variant="shadow" color="red">
-          Пример с тенью
-        </Button>
       </Group>
     </ItemPreview>
   )

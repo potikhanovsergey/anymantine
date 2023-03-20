@@ -4,7 +4,7 @@ import { ReactNode } from "react"
 
 const Prism = dynamic(() => import("@mantine/prism").then((m) => m.Prism), {
   ssr: false,
-  loading: () => <Loader size="sm" p={24} color="violet" />,
+  loading: () => <Loader size="sm" p={24} />,
 })
 
 const useStyles = createStyles((theme) => ({
@@ -40,8 +40,8 @@ const ItemWithSnippet = ({ children, snippet }: ItemWithSnippetProps) => {
   const { classes } = useStyles()
   const theme = useMantineTheme()
   return (
-    <Box className={classes.wrapper}>
-      <Box className={classes.body}>{children}</Box>
+    <div className={classes.wrapper}>
+      <div className={classes.body}>{children}</div>
       <Accordion
         classNames={{
           content: classes.accordionContent,
@@ -57,7 +57,7 @@ const ItemWithSnippet = ({ children, snippet }: ItemWithSnippetProps) => {
           </Accordion.Panel>
         </Accordion.Item>
       </Accordion>
-    </Box>
+    </div>
   )
 }
 
