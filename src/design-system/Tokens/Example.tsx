@@ -1,5 +1,6 @@
-import { Group, Box, Title, Text } from "@mantine/core"
+import { Group, Title, Text } from "@mantine/core"
 import { ReactNode } from "react"
+import DesignSystemProvider from "../DesignSystemProvider"
 
 export interface ExampleProps {
   title: string
@@ -10,7 +11,9 @@ export interface ExampleProps {
 const Example = ({ title, description, children }: ExampleProps) => {
   return (
     <Group noWrap grow>
-      <Group position="center">{children}</Group>
+      <DesignSystemProvider>
+        <Group position="center">{children}</Group>
+      </DesignSystemProvider>
       <div>
         <Title order={3}>{title}</Title>
         {description && <Text>{description}</Text>}

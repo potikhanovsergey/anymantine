@@ -78,40 +78,26 @@ const Typography = () => {
           text as a heavier font weight. This is for semantic formatting, when it’s intended
           to add a tone that conveys importance."
           >
-            <DesignSystemProvider>
-              <Stack>
-                <Text>
-                  Lorem ipsum dolor sit amet <b>consectetur adipisicing</b> elit. Delectus,
-                  incidunt?
-                </Text>
-              </Stack>
-            </DesignSystemProvider>
+            <Text>
+              Lorem ipsum dolor sit amet <b>consectetur adipisicing</b> elit. Delectus, incidunt?
+            </Text>
           </Example>
           <Example
             title="Italic"
             description="Most commonly, italics are used for emphasis or contrast — that is, to draw attention to some particular part of a text."
           >
-            <DesignSystemProvider>
-              <Stack>
-                <Text>
-                  Lorem ipsum dolor sit amet <i>consectetur adipisicing</i> elit. Delectus,
-                  incidunt?
-                </Text>
-              </Stack>
-            </DesignSystemProvider>
+            <Text>
+              Lorem ipsum dolor sit amet <i>consectetur adipisicing</i> elit. Delectus, incidunt?
+            </Text>
           </Example>
           <Example
             title="Underline"
             description="Underline is used for text links (either hover state or default state, depending on the style of the link) and is never used as a mechanism for adding emphasis."
           >
-            <DesignSystemProvider>
-              <Stack>
-                <Text>
-                  Lorem ipsum dolor sit amet <Anchor underline>consectetur adipisicing </Anchor>
-                  elit. Delectus, incidunt?
-                </Text>
-              </Stack>
-            </DesignSystemProvider>
+            <Text>
+              Lorem ipsum dolor sit amet <Anchor underline>consectetur adipisicing </Anchor>
+              elit. Delectus, incidunt?
+            </Text>
           </Example>
         </Stack>
       </div>
