@@ -75,9 +75,21 @@ export const atoms = [
   },
 ]
 
+export const usage = [
+  {
+    slug: "preview",
+    label: "Превью",
+  },
+  {
+    slug: "files",
+    label: "Файлы",
+  },
+]
+
 export const dsSubPages = [
   ...atoms.map((item) => ({ ...item, type: "atoms" })),
   ...tokens.map((item) => ({ ...item, type: "tokens" })),
+  ...usage.map((item) => ({ ...item, type: "usage" })),
 ]
 
 export type DesignSystemSubPage = (typeof dsSubPages)[number]

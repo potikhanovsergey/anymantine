@@ -1,20 +1,18 @@
 import {
-  Grid,
-  Tabs,
   Tooltip,
-  useMantineTheme,
   Text,
   Accordion,
   Navbar as MantineNavbar,
   ScrollArea,
   NavbarProps,
   Divider,
+  UnstyledButton,
+  useMantineTheme,
 } from "@mantine/core"
 import { IconLock } from "@tabler/icons-react"
-import React, { useEffect } from "react"
+import React from "react"
 import NavbarLinks from "./NavbarLinks"
-import { DesignSystemSubPage, atoms, tokens } from "src/themes"
-import { useSelector } from "@legendapp/state/react"
+import { DesignSystemSubPage, atoms, tokens, usage } from "src/themes"
 import { DesignSystem } from "src/state/design-system"
 
 const Navbar = ({
@@ -25,8 +23,8 @@ const Navbar = ({
     <MantineNavbar {...navbarProps} width={{ base: 256 }}>
       <MantineNavbar.Section grow component={ScrollArea}>
         <Accordion multiple defaultValue={subPage ? [subPage.type] : undefined}>
-          <Accordion.Item value="files">
-            <Tooltip
+          <Accordion.Item value="usage">
+            {/* <Tooltip
               multiline
               label={
                 <>
@@ -38,11 +36,12 @@ const Navbar = ({
               }
               withinPortal
               position="right"
-            >
-              <Accordion.Control chevron={<IconLock stroke={1} />} disabled>
-                Использование
-              </Accordion.Control>
-            </Tooltip>
+            > */}
+            <Accordion.Control>Использование</Accordion.Control>
+            <Accordion.Panel>
+              <NavbarLinks links={usage} />
+            </Accordion.Panel>
+            {/* </Tooltip> */}
 
             <Accordion.Panel>{/** FILES */}</Accordion.Panel>
           </Accordion.Item>

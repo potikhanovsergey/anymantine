@@ -349,6 +349,11 @@ const GeistTheme: MantineThemeOverride = {
         },
       }),
     },
+    NavbarLinks: {
+      defaultProps: {
+        color: "blue",
+      },
+    },
   },
   globalStyles: (theme) => ({
     "::selection": {
