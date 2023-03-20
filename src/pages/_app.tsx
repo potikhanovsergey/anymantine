@@ -6,6 +6,7 @@ import { MantineProvider } from "@mantine/core"
 import { enableLegendStateReact, useObserve, useSelector } from "@legendapp/state/react"
 import MarshmallowTheme from "src/themes/Marshmallow"
 import { appDesignTheme } from "src/state"
+import { RouterTransition } from "src/core/layouts/RouterTransition"
 
 enableLegendStateReact()
 
@@ -36,6 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS theme={AppDesignTheme}>
+      <RouterTransition />
       <ErrorBoundary FallbackComponent={RootErrorFallback}>
         {getLayout(<Component {...pageProps} />)}
       </ErrorBoundary>
