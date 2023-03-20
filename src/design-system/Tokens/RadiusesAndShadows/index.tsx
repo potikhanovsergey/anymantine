@@ -1,17 +1,4 @@
-import {
-  Box,
-  Group,
-  Stack,
-  Title,
-  Text,
-  Button,
-  MantineProvider,
-  TextInput,
-  ActionIcon,
-  useMantineTheme,
-} from "@mantine/core"
-import { IconHeart } from "@tabler/icons-react"
-import { DesignTheme } from "src/state/design-system"
+import { Group, Title, useMantineTheme } from "@mantine/core"
 import ShadowItem from "../Shadows/ShadowItem"
 import CornerItem from "../Corners/CornerItem"
 
@@ -43,15 +30,11 @@ const RadiusesAndShadows = () => {
       <Title order={2} mb="xl">
         Радиусы
       </Title>
-      <MantineProvider>
-        <Radiuses />
-      </MantineProvider>
+      <Radiuses />
       <Title order={2} my="xl">
         Тени
       </Title>
-      <MantineProvider>
-        <Shadows />
-      </MantineProvider>
+      <Shadows />
     </div>
   )
 }

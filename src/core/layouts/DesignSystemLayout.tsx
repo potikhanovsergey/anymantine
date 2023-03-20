@@ -16,8 +16,9 @@ const DesignSystemLayout: BlitzLayout<{
   subPage: DesignSystemSubPage
 }> = ({ title, children, slug, subPage }) => {
   useEffect(() => {
-    const theme = themes[slug].theme
-    theme && DesignSystem.set({ label: slug, theme })
+    const designSystem = themes[slug]
+    designSystem &&
+      DesignSystem.set({ label: slug, theme: designSystem.theme, font: designSystem.font })
   }, [slug])
 
   const appFont = useSelector(appDesignTheme.font)

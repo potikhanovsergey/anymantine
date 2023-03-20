@@ -13,7 +13,7 @@ import { Inter } from "next/font/google"
 const cardShadow = "0 4px 6px rgb(0 0 0 / 4%)"
 
 export const geistFont = Inter({
-  variable: "--primary-font",
+  variable: "--geist-font",
   weight: ["400", "600", "700"],
   subsets: ["cyrillic", "latin"],
   preload: false,
@@ -69,9 +69,9 @@ const GeistTheme: MantineThemeOverride = {
     cardShadow,
     geistCyanLight: "#79FFF0",
   },
-  fontFamily: `var(--primary-font), ${defaultFonts}`,
+  fontFamily: `var(--geist-font), ${defaultFonts}`,
   headings: {
-    fontFamily: `var(--primary-font), ${defaultFonts}`,
+    fontFamily: `var(--geist-font), ${defaultFonts}`,
   },
   shadows: {
     xs: "0px 2px 4px rgba(0,0,0,.1)",
@@ -360,8 +360,9 @@ const GeistTheme: MantineThemeOverride = {
   globalStyles: (theme) => ({
     "::selection": {
       background: theme.other.geistCyanLight,
-      color: theme.black,
-      WebkitTextFillColor: theme.black,
+    },
+    body: {
+      WebkitFontSmoothing: "antialiased",
     },
   }),
 }

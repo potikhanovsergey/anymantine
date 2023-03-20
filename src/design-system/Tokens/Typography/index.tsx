@@ -12,11 +12,12 @@ import {
 } from "@mantine/core"
 import { DesignTheme } from "src/state/design-system"
 import Example from "../Example"
+import DesignSystemProvider from "src/design-system/DesignSystemProvider"
 
 const Headings = () => {
   const theme = useMantineTheme()
   return (
-    <>
+    <Stack>
       {Object.keys(theme.headings.sizes).map((heading, i) => (
         <Title
           // @ts-ignore
@@ -28,14 +29,14 @@ const Headings = () => {
           Далеко-далеко за словесными горами в стране.
         </Title>
       ))}
-    </>
+    </Stack>
   )
 }
 
 const Paragraphs = () => {
   const theme = useMantineTheme()
   return (
-    <>
+    <Stack>
       {Object.keys(theme.fontSizes)
         .reverse()
         .map((fontSize, i) => (
@@ -43,7 +44,7 @@ const Paragraphs = () => {
             Далеко-далеко за словесными горами в стране.
           </Text>
         ))}
-    </>
+    </Stack>
   )
 }
 
@@ -54,21 +55,17 @@ const Typography = () => {
         <Title order={2} mb="sm">
           Размеры заголовков
         </Title>
-        <Stack>
-          <MantineProvider inherit theme={DesignTheme.peek()}>
-            <Headings />
-          </MantineProvider>
-        </Stack>
+        <DesignSystemProvider>
+          <Headings />
+        </DesignSystemProvider>
       </div>
       <div>
         <Title order={2} mb="sm">
           Размеры текста
         </Title>
-        <Stack>
-          <MantineProvider inherit theme={DesignTheme.peek()}>
-            <Paragraphs />
-          </MantineProvider>
-        </Stack>
+        <DesignSystemProvider>
+          <Paragraphs />
+        </DesignSystemProvider>
       </div>
       <div>
         <Title order={2} mb="sm">
@@ -81,40 +78,40 @@ const Typography = () => {
           text as a heavier font weight. This is for semantic formatting, when it’s intended
           to add a tone that conveys importance."
           >
-            <MantineProvider inherit theme={DesignTheme.peek()}>
+            <DesignSystemProvider>
               <Stack>
                 <Text>
                   Lorem ipsum dolor sit amet <b>consectetur adipisicing</b> elit. Delectus,
                   incidunt?
                 </Text>
               </Stack>
-            </MantineProvider>
+            </DesignSystemProvider>
           </Example>
           <Example
             title="Italic"
             description="Most commonly, italics are used for emphasis or contrast — that is, to draw attention to some particular part of a text."
           >
-            <MantineProvider inherit theme={DesignTheme.peek()}>
+            <DesignSystemProvider>
               <Stack>
                 <Text>
                   Lorem ipsum dolor sit amet <i>consectetur adipisicing</i> elit. Delectus,
                   incidunt?
                 </Text>
               </Stack>
-            </MantineProvider>
+            </DesignSystemProvider>
           </Example>
           <Example
             title="Underline"
             description="Underline is used for text links (either hover state or default state, depending on the style of the link) and is never used as a mechanism for adding emphasis."
           >
-            <MantineProvider inherit theme={DesignTheme.peek()}>
+            <DesignSystemProvider>
               <Stack>
                 <Text>
                   Lorem ipsum dolor sit amet <Anchor underline>consectetur adipisicing </Anchor>
                   elit. Delectus, incidunt?
                 </Text>
               </Stack>
-            </MantineProvider>
+            </DesignSystemProvider>
           </Example>
         </Stack>
       </div>

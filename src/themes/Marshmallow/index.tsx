@@ -10,7 +10,7 @@ import {
 import { Nunito_Sans } from "next/font/google"
 
 export const marshmallowFont = Nunito_Sans({
-  variable: "--primary-font",
+  variable: "--marshmallow-font",
   weight: ["400", "600", "700"],
   subsets: ["cyrillic", "latin"],
   preload: false,
@@ -22,9 +22,9 @@ const MarshmallowTheme: MantineThemeOverride = {
   cursorType: "pointer",
   primaryColor: "violet",
   defaultRadius: "sm",
-  fontFamily: `var(--primary-font), ${defaultFonts}`,
+  fontFamily: `var(--marshmallow-font), ${defaultFonts}`,
   headings: {
-    fontFamily: `var(--primary-font), ${defaultFonts}`,
+    fontFamily: `var(--marshmallow-font), ${defaultFonts}`,
   },
   components: {
     Loader: {
@@ -373,25 +373,11 @@ const MarshmallowTheme: MantineThemeOverride = {
     },
   },
   globalStyles: (theme) => ({
-    "*, *::before, *::after": {
-      boxSizing: "border-box",
-    },
-    html: {
-      scrollBehavior: "smooth",
-      scrollMarginTop: "-36px",
-    },
     "::selection": {
       background: theme.colors[theme.primaryColor][1],
     },
     body: {
-      lineHeight: theme.lineHeight,
-      minHeight: "100vh",
-      wordBreak: "break-word",
-      overflowY: "auto",
-      overflowX: "hidden",
-      letterSpacing: "-.01em",
       WebkitFontSmoothing: "antialiased",
-      background: theme.colorScheme === "dark" ? "#161920" : theme.white,
     },
   }),
 }

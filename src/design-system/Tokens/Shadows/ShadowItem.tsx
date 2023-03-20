@@ -1,7 +1,6 @@
-import { Box, MantineProvider, MantineShadow, Text } from "@mantine/core"
+import { Box, MantineShadow, Text } from "@mantine/core"
 import createStyles from "./ShadowItem.styles"
-import { DesignTheme } from "src/state/design-system"
-import { observer } from "@legendapp/state/react"
+import DesignSystemProvider from "src/design-system/DesignSystemProvider"
 
 interface ShadowItemProps {
   shadow: MantineShadow
@@ -21,9 +20,9 @@ const ShadowBox = ({ shadow }: ShadowBoxProps) => {
 const ShadowItem = ({ shadow, title, useCases }: ShadowItemProps) => {
   return (
     <Box>
-      <MantineProvider theme={DesignTheme.get() || undefined}>
+      <DesignSystemProvider>
         <ShadowBox shadow={shadow} />
-      </MantineProvider>
+      </DesignSystemProvider>
       <Text weight={500}>{title}</Text>
       {useCases.map((useCase) => (
         <Text size="sm" color="dimmed" key={useCase}>
