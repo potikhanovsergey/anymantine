@@ -21,14 +21,6 @@ export const geistFont = Inter({
 
 const defaultFonts = `-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji`
 
-export type ExtendedCustomColors = "accent" | DefaultMantineColor
-
-declare module "@mantine/core" {
-  export interface MantineThemeColorsOverride {
-    colors: Record<ExtendedCustomColors, Tuple<string, 10>>
-  }
-}
-
 const getPrimaryButtonStyles = (
   theme: MantineTheme,
   { color = "dark" }: ButtonStylesParams | ActionIconStylesParams
@@ -51,8 +43,8 @@ const getSecondaryButtonStyles = (
 ) => {
   return {
     border: "1px solid",
-    borderColor: color === "dark" ? theme.colors.accent[2] : theme.colors[color][2],
-    color: color === "dark" ? theme.colors.accent[5] : theme.colors[color][5],
+    borderColor: color === "dark" ? theme.colors[theme.primaryColor][2] : theme.colors[color][2],
+    color: color === "dark" ? theme.colors[theme.primaryColor][5] : theme.colors[color][5],
     backgroundColor: theme.white,
     "&:not([data-disabled])": theme.fn.hover({
       borderColor: color === "dark" ? theme.black : theme.colors[color][5],
@@ -64,6 +56,7 @@ const getSecondaryButtonStyles = (
 
 const GeistTheme: MantineThemeOverride = {
   primaryShade: 5,
+  primaryColor: "dark",
   cursorType: "pointer",
   other: {
     cardShadow,
@@ -81,7 +74,7 @@ const GeistTheme: MantineThemeOverride = {
     xl: "0 30px 60px rgba(0,0,0,.12)",
   },
   colors: {
-    accent: [
+    dark: [
       "#ffffff",
       "#fafafa",
       "#eaeaea",
@@ -108,7 +101,7 @@ const GeistTheme: MantineThemeOverride = {
       },
       styles: (theme) => ({
         root: {
-          borderColor: theme.colors.accent[2],
+          borderColor: theme.colors[theme.primaryColor][2],
         },
       }),
     },
@@ -206,10 +199,10 @@ const GeistTheme: MantineThemeOverride = {
         },
         item: {
           transition: "color.1s ease, background-color.1s ease",
-          color: theme.colors.accent[5],
+          color: theme.colors[theme.primaryColor][5],
           padding: "8px 20px",
           "&:hover": {
-            backgroundColor: theme.colors.accent[1],
+            backgroundColor: theme.colors[theme.primaryColor][1],
             color: theme.black,
           },
         },
@@ -241,8 +234,8 @@ const GeistTheme: MantineThemeOverride = {
           border: "none",
         },
         close: {
-          "&:hover": { background: theme.fn.rgba(theme.colors.dark[5], 0.07) },
-          color: theme.colors.dark[5],
+          "&:hover": { background: theme.fn.rgba(theme.colors[theme.primaryColor][5], 0.07) },
+          color: theme.colors[theme.primaryColor][5],
         },
       }),
     },
@@ -262,7 +255,7 @@ const GeistTheme: MantineThemeOverride = {
       styles: (theme) => ({
         label: {
           marginBottom: rem(4),
-          color: theme.colors.accent[5],
+          color: theme.colors[theme.primaryColor][5],
         },
       }),
     },
@@ -272,16 +265,16 @@ const GeistTheme: MantineThemeOverride = {
           transition: "border-color .15s ease",
           "&:focus-within": {
             "&:not([data-invalid])": {
-              borderColor: theme.colors.accent[5],
+              borderColor: theme.colors[theme.primaryColor][5],
             },
           },
-          borderColor: theme.colors.accent[2],
+          borderColor: theme.colors[theme.primaryColor][2],
           "::placeholder": {
-            color: theme.colors.accent[3],
+            color: theme.colors[theme.primaryColor][3],
           },
           "&:disabled": {
             "&:hover": {
-              borderColor: theme.colors.accent[2],
+              borderColor: theme.colors[theme.primaryColor][2],
             },
           },
         },
@@ -290,12 +283,12 @@ const GeistTheme: MantineThemeOverride = {
         },
         rightSection: {
           svg: {
-            color: theme.colors.dark[5] + " !important",
+            color: theme.colors[theme.primaryColor][5] + " !important",
           },
         },
         icon: {
           svg: {
-            color: theme.colors.dark[5] + " !important",
+            color: theme.colors[theme.primaryColor][5] + " !important",
           },
         },
       }),

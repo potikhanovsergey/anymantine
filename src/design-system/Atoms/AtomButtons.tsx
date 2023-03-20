@@ -1,4 +1,4 @@
-import { Group, Button, useMantineTheme } from "@mantine/core"
+import { Group, Button } from "@mantine/core"
 import getButtonConfigurator from "src/design-system/Configurator/configurators/button"
 import ItemPreview from "src/design-system/ItemPreview"
 import { DesignTheme } from "src/state/design-system"
