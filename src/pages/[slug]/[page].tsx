@@ -2,7 +2,14 @@ import { BlitzPage } from "@blitzjs/next"
 import { Container, Title, Grid, Paper, useMantineTheme } from "@mantine/core"
 import { GetStaticPropsContext } from "next"
 import DesignSystemLayout from "src/core/layouts/DesignSystemLayout"
-import themes, { DesignSystem, DesignSystemSubPage, atoms, dsSubPages, tokens } from "src/themes"
+import designSystems, {
+  DesignSystem,
+  themes,
+  DesignSystemSubPage,
+  atoms,
+  dsSubPages,
+  tokens,
+} from "src/themes"
 
 import dynamic from "next/dynamic"
 import { Switch } from "@legendapp/state/react"
@@ -24,6 +31,7 @@ const AtomSwitches = dynamic(() => import("src/design-system/Atoms/AtomSwitches"
 const AtomTextareas = dynamic(() => import("src/design-system/Atoms/AtomTextareas"))
 const AtomTextInputs = dynamic(() => import("src/design-system/Atoms/AtomTextInputs"))
 const AtomTooltips = dynamic(() => import("src/design-system/Atoms/AtomTooltips"))
+const AtomPapers = dynamic(() => import("src/design-system/Atoms/AtomPapers"))
 
 const DesignSystemSubpage: BlitzPage = ({
   slug,
@@ -31,7 +39,7 @@ const DesignSystemSubpage: BlitzPage = ({
   designSystem,
   subPage,
 }: {
-  slug: string
+  slug: keyof typeof themes
   page: string
   designSystem: DesignSystem
   subPage: DesignSystemSubPage
@@ -57,6 +65,7 @@ const DesignSystemSubpage: BlitzPage = ({
             textarea: () => <AtomTextareas />,
             "text-input": () => <AtomTextInputs />,
             tooltip: () => <AtomTooltips />,
+            paper: () => <AtomPapers />,
             default: () => <></>,
           }}
         </Switch>
@@ -66,7 +75,7 @@ const DesignSystemSubpage: BlitzPage = ({
 }
 
 export async function getStaticPaths() {
-  const slugs = themes.map((theme) => theme.slug)
+  const slugs = designSystems.map((theme) => theme.slug)
   const paths: { params: { [key: string]: string } }[] = []
 
   for (let i = 0; i < slugs.length; i++) {
@@ -87,7 +96,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context: GetStaticPropsContext) {
-  const designSystem = themes.find((ds) => ds.slug === context.params?.slug)
+  const designSystem = designSystems.find((ds) => ds.slug === context.params?.slug)
   const subPage = dsSubPages.find((subPage) => subPage.slug === context.params?.page)
   return {
     props: {
