@@ -1,5 +1,6 @@
-import { Title, Text, Anchor } from "@mantine/core"
+import { Title, Text } from "@mantine/core"
 import { Prism } from "@mantine/prism"
+import Link from "src/core/components/atoms/Link"
 
 const Icons = () => {
   return (
@@ -9,10 +10,9 @@ const Icons = () => {
       </Title>
       <Text mb="sm">
         В дизайн-системе используются иконки из библиотеки{" "}
-        <Anchor href="https://tabler-icons.io/" inline target="_blank">
+        <Link href="https://tabler-icons.io/" target="_blank">
           Tabler Icons
-        </Anchor>
-        .
+        </Link>
       </Text>
       <Text mb="xs">Установка библиотеки иконок на React</Text>
       <Prism.Tabs defaultValue="npm" mb="md">
