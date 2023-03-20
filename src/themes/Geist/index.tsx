@@ -8,9 +8,18 @@ import {
   rem,
   getStylesRef,
 } from "@mantine/core"
+import { Inter } from "next/font/google"
 
 const cardShadow = "0 4px 6px rgb(0 0 0 / 4%)"
-const fontFamily = `"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif`
+
+export const geistFont = Inter({
+  variable: "--primary-font",
+  weight: ["400", "600", "700"],
+  subsets: ["cyrillic", "latin"],
+  preload: false,
+})
+
+const defaultFonts = `-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji`
 
 type ExtendedCustomColors = "accent" | DefaultMantineColor
 
@@ -60,9 +69,9 @@ const GeistTheme: MantineThemeOverride = {
     cardShadow,
     geistCyanLight: "#79FFF0",
   },
-  fontFamily,
+  fontFamily: `var(--primary-font), ${defaultFonts}`,
   headings: {
-    fontFamily,
+    fontFamily: `var(--primary-font), ${defaultFonts}`,
   },
   shadows: {
     xs: "0px 2px 4px rgba(0,0,0,.1)",

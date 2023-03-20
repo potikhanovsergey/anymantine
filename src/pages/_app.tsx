@@ -32,7 +32,7 @@ function RootErrorFallback({ error }: ErrorFallbackProps) {
 function MyApp({ Component, pageProps }: AppProps) {
   const getLayout = Component.getLayout || ((page) => page)
 
-  const AppDesignTheme = useSelector(appDesignTheme)
+  const AppDesignTheme = useSelector(appDesignTheme.theme)
 
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS theme={AppDesignTheme}>

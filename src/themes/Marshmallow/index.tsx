@@ -9,10 +9,11 @@ import {
 } from "@mantine/core"
 import { Nunito_Sans } from "next/font/google"
 
-export const font = Nunito_Sans({
+export const marshmallowFont = Nunito_Sans({
   variable: "--primary-font",
   weight: ["400", "600", "700"],
   subsets: ["cyrillic", "latin"],
+  preload: false,
 })
 
 const defaultFonts = `-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji`

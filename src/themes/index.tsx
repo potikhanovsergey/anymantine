@@ -1,5 +1,5 @@
-import Marshmallow from "./Marshmallow"
-import Geist from "./Geist"
+import Marshmallow, { marshmallowFont } from "./Marshmallow"
+import Geist, { geistFont } from "./Geist"
 
 export const tokens = [
   {
@@ -79,8 +79,8 @@ export const dsSubPages = [
 export type DesignSystemSubPage = (typeof dsSubPages)[number]
 
 export const themes = {
-  marshmallow: Marshmallow,
-  geist: Geist,
+  marshmallow: { theme: Marshmallow, font: marshmallowFont },
+  geist: { theme: Geist, font: geistFont },
 }
 
 const designSystems = [
