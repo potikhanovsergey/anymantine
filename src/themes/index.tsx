@@ -69,6 +69,10 @@ export const atoms = [
     slug: "tooltip",
     label: "Туллтипы",
   },
+  {
+    slug: "paper",
+    label: "Карточка",
+  },
 ]
 
 export const dsSubPages = [
