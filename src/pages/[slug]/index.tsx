@@ -1,20 +1,26 @@
 import { BlitzPage } from "@blitzjs/next"
-import { Container, Title } from "@mantine/core"
+import { Container } from "@mantine/core"
 import { GetStaticPropsContext } from "next"
 
 import DesignSystemLayout from "src/core/layouts/DesignSystemLayout"
-import themes from "src/themes"
+import designSystems, { DesignSystemSubPage, themes } from "src/themes"
 
-const DesignSystemPage: BlitzPage = ({ slug }: { slug: string }) => {
+const DesignSystemPage: BlitzPage = ({
+  slug,
+  subPage,
+}: {
+  slug: keyof typeof themes
+  subPage: DesignSystemSubPage
+}) => {
   return (
-    <DesignSystemLayout slug={slug} title="Vercel">
+    <DesignSystemLayout subPage={subPage} slug={slug}>
       <Container pt={40} size="xl"></Container>
     </DesignSystemLayout>
   )
 }
 
 export async function getStaticPaths() {
-  const paths = themes.map((theme) => ({
+  const paths = designSystems.map((theme) => ({
     params: {
       slug: theme.slug,
     },
@@ -30,6 +36,11 @@ export async function getStaticProps(context: GetStaticPropsContext) {
   return {
     props: {
       slug: context.params?.slug,
+      subPage: {
+        type: "usage",
+        label: "Label",
+        slug: "/",
+      },
     },
   }
 }

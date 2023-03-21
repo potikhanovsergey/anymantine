@@ -1,5 +1,5 @@
 import { BlitzPage } from "@blitzjs/next"
-import { Container, Title, Grid, Paper, useMantineTheme } from "@mantine/core"
+import { Container } from "@mantine/core"
 import { GetStaticPropsContext } from "next"
 import DesignSystemLayout from "src/core/layouts/DesignSystemLayout"
 import designSystems, {
@@ -45,7 +45,7 @@ const DesignSystemSubpage: BlitzPage = ({
   subPage: DesignSystemSubPage
 }) => {
   return (
-    <DesignSystemLayout subPage={subPage} slug={slug} title="Vercel">
+    <DesignSystemLayout subPage={subPage} slug={slug}>
       <Container pt="sm" size="xl">
         <Switch value={page}>
           {{

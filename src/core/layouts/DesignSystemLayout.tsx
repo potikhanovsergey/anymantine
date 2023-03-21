@@ -10,11 +10,10 @@ import { Show, useSelector } from "@legendapp/state/react"
 import { appDesignTheme } from "src/state"
 
 const DesignSystemLayout: BlitzLayout<{
-  title?: string
-  children?: React.ReactNode
+  children: React.ReactNode
   slug: keyof typeof themes
   subPage: DesignSystemSubPage
-}> = ({ title, children, slug, subPage }) => {
+}> = ({ children, slug, subPage }) => {
   useEffect(() => {
     const designSystem = themes[slug]
     designSystem &&
@@ -23,36 +22,29 @@ const DesignSystemLayout: BlitzLayout<{
 
   const appFont = useSelector(appDesignTheme.font)
   return (
-    <>
-      <Head>
-        <title>{title || "marshadow"}</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <AppShell
-        className={appFont.variable}
-        header={<Header fixed />}
-        navbar={<Navbar subPage={subPage} fixed />}
-        styles={{
-          main: {
-            paddingRight: 0,
-            paddingLeft: "var(--mantine-navbar-width)",
-            paddingTop: "var(--mantine-header-height)",
-          },
-        }}
-        fixed={false}
+    <AppShell
+      className={appFont.variable}
+      header={<Header />}
+      navbar={<Navbar subPage={subPage} />}
+      styles={{
+        main: {
+          paddingRight: 0,
+          paddingLeft: "var(--mantine-navbar-width)",
+          paddingTop: "var(--mantine-header-height)",
+        },
+      }}
+    >
+      <Show
+        if={DesignTheme}
+        else={
+          <Center h="calc(90vh - var(--mantine-header-height))">
+            <Loader variant="bars" size="md" />
+          </Center>
+        }
       >
-        <Show
-          if={DesignTheme}
-          else={
-            <Center h="calc(90vh - var(--mantine-header-height))">
-              <Loader variant="bars" size="md" />
-            </Center>
-          }
-        >
-          {children}
-        </Show>
-      </AppShell>
-    </>
+        {children}
+      </Show>
+    </AppShell>
   )
 }
 

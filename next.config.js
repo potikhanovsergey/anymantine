@@ -8,9 +8,9 @@ const config = {
   images: {
     domains: ["vercel.com", "t3.ftcdn.net"],
   },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  // typescript: {
+  //   ignoreBuildErrors: true,
+  // },
 }
 
 module.exports = withBlitz(config)

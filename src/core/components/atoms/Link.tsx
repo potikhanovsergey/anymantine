@@ -1,11 +1,17 @@
 import { PropsOf } from "@emotion/react"
-import { Anchor, AnchorProps, Box, createStyles, Group, rem, useMantineTheme } from "@mantine/core"
+import {
+  Anchor,
+  AnchorProps,
+  MantineColor,
+  createStyles,
+  rem,
+  useMantineTheme,
+} from "@mantine/core"
 import { IconExternalLink } from "@tabler/icons-react"
 import NextLink from "next/link"
-import { ExtendedCustomColors } from "src/themes/Geist"
 
 const useStyles = createStyles(
-  (theme, { color = theme.primaryColor }: { color?: ExtendedCustomColors }) => ({
+  (theme, { color = theme.primaryColor }: { color?: MantineColor }) => ({
     root: {
       display: "inline-flex",
       alignItems: "center",

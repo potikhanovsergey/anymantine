@@ -1,15 +1,11 @@
 import {
-  Tooltip,
   Text,
   Accordion,
   Navbar as MantineNavbar,
   ScrollArea,
   NavbarProps,
   Divider,
-  UnstyledButton,
-  useMantineTheme,
 } from "@mantine/core"
-import { IconLock } from "@tabler/icons-react"
 import React from "react"
 import NavbarLinks from "./NavbarLinks"
 import { DesignSystemSubPage, atoms, tokens, usage } from "src/themes"

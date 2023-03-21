@@ -4,7 +4,6 @@ import {
   rem,
   getStylesRef,
   ButtonStylesParams,
-  TabsStylesParams,
   ActionIconStylesParams,
 } from "@mantine/core"
 import { Nunito_Sans } from "next/font/google"
