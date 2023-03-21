@@ -8,7 +8,7 @@ const AtomRadios = () => {
   return (
     <ItemPreview
       configurator={radioConfigurator}
-      title="Радио кнопки"
+      title="Radio Button"
       mantineLink="https://mantine.dev/core/radio"
     >
       <Radio.Group

@@ -20,7 +20,7 @@ import { themeCards } from "src/themes"
 const DesignSystemsPage: BlitzPage = () => {
   const theme = useMantineTheme()
   return (
-    <Layout title="Home">
+    <Layout>
       <Container pt="xl" size="xl">
         <Title order={1} mb="xl">
           Дизайн системы

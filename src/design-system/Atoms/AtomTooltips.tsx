@@ -9,7 +9,7 @@ const AtomTooltips = () => {
   return (
     <ItemPreview
       configurator={tooltipConfigurator}
-      title="Подсказки"
+      title="Tooltip"
       mantineLink="https://mantine.dev/core/tooltip"
     >
       <Group>

@@ -9,7 +9,7 @@ const AtomBadges = () => {
   return (
     <ItemPreview
       configurator={badgeConfigurator}
-      title="Теги"
+      title="Tag"
       mantineLink="https://mantine.dev/core/badge"
     >
       <Group>

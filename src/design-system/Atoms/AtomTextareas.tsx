@@ -8,7 +8,7 @@ const AtomTextareas = () => {
   return (
     <ItemPreview
       configurator={textareaConfigurator}
-      title="Textareas"
+      title="Textarea"
       mantineLink="https://mantine.dev/core/textarea"
     >
       <SimpleGrid cols={2}>

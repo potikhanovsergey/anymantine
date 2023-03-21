@@ -1,6 +1,5 @@
 import {
   Button,
-  Container,
   Group,
   HeaderProps,
   Header as MantineHeader,
@@ -9,16 +8,15 @@ import {
   useMantineTheme,
 } from "@mantine/core"
 import NextLink from "next/link"
-import AuthButton from "./AuthButton"
-import { useSession } from "@blitzjs/auth"
-import { Show, useSelector } from "@legendapp/state/react"
-import ProfileMenu from "./ProfileMenu"
+import { useSelector } from "@legendapp/state/react"
 import designSystems from "src/themes"
 import { appDesignThemeSlug } from "src/state"
+import dynamic from "next/dynamic"
+
+const ProfileMenuOrAuth = dynamic(() => import("./ProfileMenuOrAuth"), { ssr: false })
 
 const Header = (props: Omit<HeaderProps, "children" | "height">) => {
   const theme = useMantineTheme()
-  const session = useSession({ suspense: false })
 
   const appDesignThemeValue = useSelector(appDesignThemeSlug)
   const onSelectTheme = (value) => {
@@ -51,9 +49,7 @@ const Header = (props: Omit<HeaderProps, "children" | "height">) => {
           <Button size="xs" variant="secondary" href="/design-systems" component={NextLink}>
             Дизайн системы
           </Button>
-          <Show if={session.userId} else={<AuthButton />}>
-            <ProfileMenu />
-          </Show>
+          <ProfileMenuOrAuth />
         </Group>
       </Group>
     </MantineHeader>

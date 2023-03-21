@@ -5,7 +5,7 @@ import { Container } from "@mantine/core"
 
 const LoginPage: BlitzPage = () => {
   return (
-    <Layout title="Login">
+    <Layout>
       <Container pt={120}>
         <LoginProviders />
       </Container>

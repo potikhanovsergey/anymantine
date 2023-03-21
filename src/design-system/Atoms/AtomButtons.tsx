@@ -8,7 +8,7 @@ const AtomButtons = () => {
   return (
     <ItemPreview
       configurator={buttonConfigurator}
-      title="Кнопки"
+      title="Button"
       mantineLink="https://mantine.dev/core/button"
     >
       <Group>

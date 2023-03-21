@@ -9,7 +9,7 @@ const AtomTextInputs = () => {
   return (
     <ItemPreview
       configurator={textInputConfigurator}
-      title="Текстовые поля"
+      title="Input"
       mantineLink="https://mantine.dev/core/text-input"
     >
       <SimpleGrid cols={2}>

@@ -9,7 +9,7 @@ const AtomActionIcons = () => {
   return (
     <ItemPreview
       configurator={actionIconConfigurator}
-      title="Action Icons"
+      title="Action Icon"
       mantineLink="https://mantine.dev/core/action-icon"
     >
       <Group>

@@ -12,7 +12,7 @@ const AtomPapers = () => {
   return (
     <ItemPreview
       configurator={paperConfigurator}
-      title="Карточка"
+      title="Card"
       mantineLink="https://mantine.dev/core/paper"
     >
       <SimpleGrid cols={2}>

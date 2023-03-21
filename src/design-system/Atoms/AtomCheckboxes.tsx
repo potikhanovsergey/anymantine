@@ -8,7 +8,7 @@ const AtomCheckboxes = () => {
   return (
     <ItemPreview
       configurator={checkboxConfigurator}
-      title="Чекбоксы"
+      title="Checkbox"
       mantineLink="https://mantine.dev/core/checkbox"
     >
       <Stack mb="xs">

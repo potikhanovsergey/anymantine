@@ -8,7 +8,7 @@ const AtomSkeletons = () => {
   return (
     <ItemPreview
       configurator={skeletonConfigurator}
-      title="Скелетоны"
+      title="Skeleton"
       mantineLink="https://mantine.dev/core/skeleton"
     >
       <Group w="100%">

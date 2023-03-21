@@ -1,4 +1,4 @@
-import { Avatar, Button, Group, HoverCard, Stack, Text, Title } from "@mantine/core"
+import { Avatar, Button, Text, Title } from "@mantine/core"
 import ProfileHoverCard from "src/core/components/molecules/ProfileHoverCard"
 
 const DetailsCard = () => {

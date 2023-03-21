@@ -1,9 +1,11 @@
 import React, { useState } from "react"
 import { MantineNumberSize, useMantineTheme, rem } from "@mantine/core"
-import { Prism } from "@mantine/prism"
 import controls, { ControlProps } from "./controls"
 import { propsToString } from "./props-to-string"
 import useStyles from "./Configurator.styles"
+import dynamic from "next/dynamic"
+
+const Prism = dynamic(() => import("@mantine/prism").then((m) => m.Prism))
 
 interface ConfiguratorProps {
   component: any

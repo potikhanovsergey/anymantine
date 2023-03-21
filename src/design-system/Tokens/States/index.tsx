@@ -59,7 +59,7 @@ const States = () => {
       </Title>
       <Stack spacing={64}>
         <Example
-          title="По умолчанию"
+          title="Default"
           description="This is the default state of a component or item when not interacted with."
         >
           {Object.keys(buttonStyles?.variants!)?.map((variant) => (
@@ -70,7 +70,7 @@ const States = () => {
         </Example>
 
         <Example
-          title="Наведение"
+          title="Hover"
           description="A hover state is initiated by the user and appears when the user places their cursor
           over an interactive item."
         >
@@ -79,7 +79,7 @@ const States = () => {
           ))}
         </Example>
         <Example
-          title="Фокус с клавиатуры"
+          title="Keyboard Focus"
           description="Keyboard focus is initiated by the user and highlights an item when navigated using a
           keyboard. The keyboard focus state typically takes the component’s visual hover state
           and adds an additional indication, most commonly a 2px blue ring around the component."

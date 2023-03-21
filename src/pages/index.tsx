@@ -3,7 +3,7 @@ import { BlitzPage } from "@blitzjs/next"
 
 const Home: BlitzPage = () => {
   return (
-    <Layout title="Home">
+    <Layout>
       <div>ds</div>
     </Layout>
   )

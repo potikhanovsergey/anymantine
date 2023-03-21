@@ -8,7 +8,7 @@ const AtomSwitches = () => {
   return (
     <ItemPreview
       configurator={switchConfigurator}
-      title="Переключатели"
+      title="Switch"
       mantineLink="https://mantine.dev/core/switch"
     >
       <Group>

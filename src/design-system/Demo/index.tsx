@@ -1,11 +1,11 @@
 import React from "react"
 import { useMantineTheme } from "@mantine/core"
 import { MantineDemo } from "./types"
-import CodeDemo from "../CodeDemo/CodeDemo"
-import Configurator from "../Configurator/Configurator"
 import DesignSystemProvider from "../DesignSystemProvider"
+import dynamic from "next/dynamic"
 
-export { CodeDemo, Configurator }
+const CodeDemo = dynamic(() => import("../CodeDemo/CodeDemo"))
+const Configurator = dynamic(() => import("../Configurator/Configurator"))
 
 type ConfiguratorProps = React.ComponentProps<typeof Configurator>
 type CodeDemoProps = React.ComponentProps<typeof CodeDemo>

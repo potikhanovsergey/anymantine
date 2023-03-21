@@ -1,12 +1,11 @@
 import { ErrorFallbackProps, ErrorComponent, ErrorBoundary, AppProps } from "@blitzjs/next"
 import { AuthenticationError, AuthorizationError } from "blitz"
-import React, { useEffect } from "react"
+import React from "react"
 import { withBlitz } from "src/blitz-client"
 import { MantineProvider } from "@mantine/core"
-import { enableLegendStateReact, useObserve, useSelector } from "@legendapp/state/react"
-import MarshmallowTheme from "src/themes/Marshmallow"
+import { enableLegendStateReact, useSelector } from "@legendapp/state/react"
 import { appDesignTheme } from "src/state"
-import { RouterTransition } from "src/core/layouts/RouterTransition"
+import RouterTransition from "src/core/layouts/RouterTransition"
 
 enableLegendStateReact()
 

@@ -11,7 +11,7 @@ const AtomSelects = () => {
   return (
     <ItemPreview
       configurator={selectConfigurator}
-      title="Выпадающие списки"
+      title="Select"
       mantineLink="https://mantine.dev/core/select"
     >
       <SimpleGrid cols={2}>
