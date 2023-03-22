@@ -39,21 +39,22 @@ const MarshmallowTheme: MantineThemeOverride = {
       variants: {
         primary: (theme, params: ButtonStylesParams) => ({
           root: {
-            background: theme.colors[params.color]?.[1] || theme.colors[theme.primaryColor][1],
+            background: theme.colors[params.color || theme.primaryColor][1],
             border: `1px solid ${theme.black}`,
             color: theme.black,
             "&:not([data-disabled])": theme.fn.hover({
-              background: theme.colors[params.color]?.[2] || theme.colors[theme.primaryColor][2],
+              background: theme.colors[params.color || theme.primaryColor][2],
             }),
           },
         }),
         secondary: (theme, params: ButtonStylesParams) => ({
           root: {
             backgroundColor: theme.white,
-            border: `1px solid ${theme.black}`,
-            color: theme.black,
+            border: `1px solid ${theme.colors[params.color || theme.primaryColor][4]}`,
+            color: theme.colors[params.color || theme.primaryColor][4],
             "&:not([data-disabled])": theme.fn.hover({
-              background: theme.colors[params.color]?.[2] || theme.colors[theme.primaryColor][2],
+              color: theme.black,
+              background: theme.colors[params.color || theme.primaryColor][2],
             }),
           },
         }),
@@ -66,7 +67,7 @@ const MarshmallowTheme: MantineThemeOverride = {
       variants: {
         primary: (theme, params: ActionIconStylesParams) => ({
           root: {
-            background: theme.colors[params.color]?.[1] || theme.colors[theme.primaryColor][1],
+            background: theme.colors[params.color || theme.primaryColor][1],
             border: `1px solid ${theme.black}`,
             color: theme.black,
             "&:not([data-disabled])": theme.fn.hover({

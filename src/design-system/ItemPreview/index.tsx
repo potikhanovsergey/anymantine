@@ -22,7 +22,7 @@ const ItemPreview = ({ children, title, configurator, mantineLink }: ItemPreview
   return (
     <Stack spacing="xs">
       <Group noWrap spacing="xs">
-        <Title order={2}>{title}</Title>
+        <Title order={2}>Quick preview</Title>
         {mantineLink && (
           <Tooltip label={mantineLink}>
             <Box component={Link} lh={0} href={mantineLink} target="_blank">

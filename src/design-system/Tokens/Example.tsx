@@ -10,7 +10,7 @@ export interface ExampleProps {
 
 const Example = ({ title, description, children }: ExampleProps) => {
   return (
-    <Group noWrap grow>
+    <Group noWrap grow align="flex-start">
       <DesignSystemProvider>
         <Group position="center">{children}</Group>
       </DesignSystemProvider>
