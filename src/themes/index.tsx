@@ -4,85 +4,85 @@ import Geist, { geistFont } from "./Geist"
 export const tokens = [
   {
     slug: "colors",
-    label: "Цвета",
+    label: "Colors",
   },
   {
     slug: "typography",
-    label: "Типографика",
+    label: "Typography",
   },
   {
     slug: "radiuses-and-shadows",
-    label: "Радиусы и тени",
+    label: "Radiuses & Shadows",
   },
   {
     slug: "states",
-    label: "Состояния",
+    label: "States",
   },
   {
     slug: "icons",
-    label: "Иконки",
+    label: "Icons",
   },
 ]
 
 export const atoms = [
   {
     slug: "button",
-    label: "Кнопки",
+    label: "Button",
   },
   {
     slug: "action-icon",
-    label: "Кнопки-иконки",
+    label: "Action Icon",
   },
   {
     slug: "badge",
-    label: "Теги",
+    label: "Badge",
   },
   {
     slug: "checkbox",
-    label: "Чекбоксы",
+    label: "Checkbox",
   },
   {
     slug: "radio",
-    label: "Радио-кнопки",
+    label: "Radio Button",
   },
   {
     slug: "switch",
-    label: "Переключатели",
+    label: "Switch",
   },
   {
     slug: "select",
-    label: "Выпадающее меню",
+    label: "Select",
   },
   {
-    slug: "text-input",
-    label: "Инпуты",
+    slug: "input",
+    label: "Input",
   },
   {
     slug: "textarea",
-    label: "Textareas",
+    label: "Textarea",
   },
   {
     slug: "skeleton",
-    label: "Скелетоны",
+    label: "Skeleton",
   },
   {
     slug: "tooltip",
-    label: "Туллтипы",
+    label: "Tooltip",
   },
   {
     slug: "paper",
-    label: "Карточка",
+    label: "Card",
   },
 ]
 
 export const usage = [
   {
     slug: "preview",
-    label: "Превью",
+    label: "Preview",
   },
   {
     slug: "files",
-    label: "Файлы",
+    label: "Files",
   },
 ]
 
@@ -103,7 +103,6 @@ const designSystems = [
   {
     slug: "marshmallow",
     title: "Marshmallow",
-    caption: "Marshadow",
     colors: ["dark", "gray", "red", "violet"],
     imageUrl:
       "https://t3.ftcdn.net/jpg/01/14/94/70/360_F_114947051_ZedDWoCQXNK9CioGMIYLrHr8M5Xs7gRW.jpg",
@@ -111,7 +110,6 @@ const designSystems = [
   {
     slug: "geist",
     title: "Geist",
-    caption: "Vercel",
     colors: ["red", "dark"],
     imageUrl:
       "https://vercel.com/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1671111035%2Fgeist%2Fgeist-illustration-light.png&w=1920&q=100",
@@ -123,7 +121,6 @@ export type DesignSystem = (typeof designSystems)[number]
 export const themeCards = designSystems.map((theme) => ({
   slug: theme.slug,
   title: theme.title,
-  caption: theme.caption,
   imageUrl: theme.imageUrl,
 }))
 

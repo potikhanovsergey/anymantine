@@ -23,10 +23,10 @@ const DesignSystemsPage: BlitzPage = () => {
     <Layout>
       <Container pt="xl" size="xl">
         <Title order={1} mb="xl">
-          Дизайн системы
+          Design systems
         </Title>
-        <MantineGrid gutter="xl">
-          <MantineGrid.Col span={3}>
+        {/* <MantineGrid gutter="xl"> */}
+        {/* <MantineGrid.Col span={3}>
             <Paper pos="sticky" top={theme.spacing.md}>
               <Title size={24} mb="xs" order={2}>
                 Фильтры
@@ -61,21 +61,21 @@ const DesignSystemsPage: BlitzPage = () => {
                 <Button>Применить</Button>
               </Group>
             </Paper>
-          </MantineGrid.Col>
-          <MantineGrid.Col span={9}>
-            <Grid spacing="xs" cols={3}>
-              {themeCards.map((card) => (
-                <Card
-                  key={card.slug}
-                  title={card.title}
-                  price={1450}
-                  slug={card.slug}
-                  imageUrl={card.imageUrl}
-                />
-              ))}
-            </Grid>
-          </MantineGrid.Col>
-        </MantineGrid>
+          </MantineGrid.Col> */}
+        {/* <MantineGrid.Col span={9}> */}
+        <Grid spacing="xs" cols={4}>
+          {themeCards.map((card) => (
+            <Card
+              key={card.slug}
+              title={card.title}
+              price={1450}
+              slug={card.slug}
+              imageUrl={card.imageUrl}
+            />
+          ))}
+        </Grid>
+        {/* </MantineGrid.Col>
+        </MantineGrid> */}
       </Container>
     </Layout>
   )

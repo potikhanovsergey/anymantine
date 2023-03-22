@@ -52,10 +52,11 @@ const States = () => {
   return (
     <div>
       <Text mb="md">
-        Состояние сообщает пользователю статус компонента или интерактивного элемента.
+        A state communicates the status or potential of a component or an interactive item to the
+        user.
       </Text>
       <Title order={2} mb={40}>
-        Виды состояний
+        Examples
       </Title>
       <Stack spacing={64}>
         <Example
@@ -64,7 +65,7 @@ const States = () => {
         >
           {Object.keys(buttonStyles?.variants!)?.map((variant) => (
             <Button key={variant} variant={variant}>
-              Действие
+              Action
             </Button>
           ))}
         </Example>
@@ -96,7 +97,7 @@ const States = () => {
         >
           {Object.keys?.(buttonStyles?.variants!)?.map((variant) => (
             <Button variant={variant} disabled key={variant}>
-              Действие
+              Action
             </Button>
           ))}
         </Example>

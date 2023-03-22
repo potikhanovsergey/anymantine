@@ -9,13 +9,13 @@ const AtomBadges = () => {
   return (
     <ItemPreview
       configurator={badgeConfigurator}
-      title="Tag"
+      title="Badge"
       mantineLink="https://mantine.dev/core/badge"
     >
       <Group>
-        <Badge>Тег</Badge>
-        <Badge leftSection={<IconHeart size={10} />}>Тег с иконкой слева</Badge>
-        <Badge rightSection={<IconHeart size={10} />}>Тег с иконкой справа</Badge>
+        <Badge>Badge</Badge>
+        <Badge leftSection={<IconHeart size={10} />}>Badge with left icon</Badge>
+        <Badge rightSection={<IconHeart size={10} />}>Badge with right icon</Badge>
       </Group>
     </ItemPreview>
   )

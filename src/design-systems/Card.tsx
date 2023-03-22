@@ -50,11 +50,10 @@ const useStyles = createStyles((theme) => ({
 interface CardProps {
   title: string
   imageUrl: string
-  price: number
   slug: number | string
 }
 
-const Card = ({ title, imageUrl, price, slug }: CardProps) => {
+const Card = ({ title, imageUrl, slug }: CardProps) => {
   const { classes } = useStyles()
   return (
     <div className={classes.card}>
@@ -70,15 +69,12 @@ const Card = ({ title, imageUrl, price, slug }: CardProps) => {
             with Figma
           </Badge>
           <Badge variant="outline" size="sm">
-            light
+            calm
           </Badge>
           <Badge variant="outline" size="sm">
-            beautiful
+            colorful
           </Badge>
         </Group>
-        <Text size={22} weight="bold" mt="auto">
-          ₽{price}
-        </Text>
       </Stack>
     </div>
   )
