@@ -20,41 +20,26 @@ const Navbar = ({
       <MantineNavbar.Section grow component={ScrollArea}>
         <Accordion multiple defaultValue={subPage ? [subPage.type] : undefined}>
           <Accordion.Item value="usage">
-            {/* <Tooltip
-              multiline
-              label={
-                <>
-                  <Text size="sm" weight={600}>
-                    Инструкции, файлы
-                  </Text>
-                  <Text size="xs">Необходимо приобрести дизайн-систему</Text>
-                </>
-              }
-              withinPortal
-              position="right"
-            > */}
-            <Accordion.Control>Использование</Accordion.Control>
+            <Accordion.Control>Usage</Accordion.Control>
             <Accordion.Panel>
               <NavbarLinks links={usage} />
             </Accordion.Panel>
-            {/* </Tooltip> */}
-
             <Accordion.Panel>{/** FILES */}</Accordion.Panel>
           </Accordion.Item>
           <Accordion.Item value="tokens">
-            <Accordion.Control>Токены</Accordion.Control>
+            <Accordion.Control>Tokens</Accordion.Control>
             <Accordion.Panel>
               <NavbarLinks links={tokens} />
             </Accordion.Panel>
           </Accordion.Item>
           <Accordion.Item value="atoms">
-            <Accordion.Control>Атомы</Accordion.Control>
+            <Accordion.Control>Atoms</Accordion.Control>
             <Accordion.Panel>
               <NavbarLinks links={atoms} />
             </Accordion.Panel>
           </Accordion.Item>
           <Accordion.Item value="molecules">
-            <Accordion.Control>Молекулы</Accordion.Control>
+            <Accordion.Control>Molecules</Accordion.Control>
             <Accordion.Panel>{/** MOLECULES  */}</Accordion.Panel>
           </Accordion.Item>
         </Accordion>
