@@ -13,7 +13,7 @@ import designSystems from "src/themes"
 import { appDesignThemeSlug } from "src/state"
 import dynamic from "next/dynamic"
 
-const ProfileMenuOrAuth = dynamic(() => import("./ProfileMenuOrAuth"), { ssr: false })
+// const ProfileMenuOrAuth = dynamic(() => import("./ProfileMenuOrAuth"), { ssr: false })
 
 const Header = (props: Omit<HeaderProps, "children" | "height">) => {
   const theme = useMantineTheme()
@@ -35,7 +35,7 @@ const Header = (props: Omit<HeaderProps, "children" | "height">) => {
               alignItems: "center",
             }}
           >
-            Themeo
+            Animantine
           </Text>
           <Select
             withinPortal
@@ -46,10 +46,10 @@ const Header = (props: Omit<HeaderProps, "children" | "height">) => {
           />
         </Group>
         <Group noWrap h="100%" spacing="xs">
-          <Button size="xs" variant="secondary" href="/design-systems" component={NextLink}>
-            Дизайн системы
+          <Button size="xs" variant="secondary" href="/" component={NextLink}>
+            Themes
           </Button>
-          <ProfileMenuOrAuth />
+          {/* <ProfileMenuOrAuth /> */}
         </Group>
       </Group>
     </MantineHeader>
