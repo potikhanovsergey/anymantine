@@ -12,6 +12,7 @@ import { useSelector } from "@legendapp/state/react"
 import designSystems from "src/themes"
 import { appDesignThemeSlug } from "src/state"
 import dynamic from "next/dynamic"
+import { useRouter } from "next/router"
 
 // const ProfileMenuOrAuth = dynamic(() => import("./ProfileMenuOrAuth"), { ssr: false })
 
@@ -19,8 +20,14 @@ const Header = (props: Omit<HeaderProps, "children" | "height">) => {
   const theme = useMantineTheme()
 
   const appDesignThemeValue = useSelector(appDesignThemeSlug)
+  const router = useRouter()
   const onSelectTheme = (value) => {
-    appDesignThemeSlug.set(value)
+    const slug = router.query.slug?.toString?.()
+    if (slug && slug !== value) {
+      void router.push(router.asPath.split(slug).join(value))
+    } else {
+      appDesignThemeSlug.set(value)
+    }
   }
   return (
     <MantineHeader height={64} px={theme.spacing.md} {...props}>

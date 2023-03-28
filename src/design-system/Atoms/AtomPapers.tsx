@@ -1,5 +1,4 @@
 import { SimpleGrid, Paper, Anchor, Group, Stack, Text } from "@mantine/core"
-import ItemPreview from "src/design-system/ItemPreview"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 import getPaperConfigurator from "../Configurator/configurators/paper"
@@ -12,7 +11,7 @@ export const paperDataShortMock =
 
 const paperComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Paper",
-  description: `Paper group information into flexible containers with background and shadow to let users to browse a collection of related items.`,
+  description: `Papers group information into flexible containers with background and shadow to let users to browse a collection of related items.`,
   examples: [
     {
       title: "Shadow",
@@ -32,7 +31,7 @@ const paperComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
     },
     {
       title: "With border",
-      description: `Withborder variant will draw more user attention than without it.`,
+      description: `withBorder prop will draw more attention to the paper. You can combine shadow and border if it fits your design.`,
       children: (
         <Group>
           {["With border", "Without border"].map((variant) => (

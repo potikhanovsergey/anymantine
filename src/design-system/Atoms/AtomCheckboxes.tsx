@@ -47,6 +47,7 @@ const checkboxComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
               <Text color="dimmed">{variant}</Text>
               <Checkbox
                 label="Default checkbox"
+                readOnly
                 checked={variant === "selected"}
                 indeterminate={variant === "indeterminate"}
               />
@@ -79,6 +80,7 @@ const checkboxComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
               key={variant}
               disabled
               label="Default checkbox"
+              readOnly
               checked={variant === "selected"}
               indeterminate={variant === "indeterminate"}
             />
@@ -96,6 +98,7 @@ const checkboxComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
               key={variant}
               disabled
               label="Default checkbox"
+              readOnly
               checked={variant === "selected"}
               indeterminate={variant === "indeterminate"}
             />
@@ -113,6 +116,7 @@ const checkboxComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
               key={variant}
               error="Error"
               label="Default checkbox"
+              readOnly
               checked={variant === "selected"}
               indeterminate={variant === "indeterminate"}
             />
