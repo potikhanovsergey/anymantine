@@ -96,7 +96,7 @@ export type DesignSystemSubPage = (typeof dsSubPages)[number]
 
 export const themes = {
   marshmallow: { theme: Marshmallow, font: marshmallowFont },
-  geist: { theme: Geist, font: geistFont },
+  ghost: { theme: Geist, font: geistFont },
 }
 
 const designSystems = [
@@ -105,11 +105,11 @@ const designSystems = [
     title: "Marshmallow",
     colors: ["dark", "gray", "red", "violet"],
     imageUrl:
-      "https://t3.ftcdn.net/jpg/01/14/94/70/360_F_114947051_ZedDWoCQXNK9CioGMIYLrHr8M5Xs7gRW.jpg",
+      "https://messy.com.au/app/uploads/2020/04/Article_Images-Digital_Design_System-Messy_Collective.jpg",
   },
   {
-    slug: "geist",
-    title: "Geist",
+    slug: "ghost",
+    title: "Ghost",
     colors: ["red", "dark"],
     imageUrl:
       "https://vercel.com/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1671111035%2Fgeist%2Fgeist-illustration-light.png&w=1920&q=100",

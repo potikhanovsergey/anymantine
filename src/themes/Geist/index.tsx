@@ -1,8 +1,6 @@
 import {
   MantineThemeOverride,
   ButtonStylesParams,
-  DefaultMantineColor,
-  Tuple,
   MantineTheme,
   ActionIconStylesParams,
   rem,
