@@ -75,7 +75,7 @@ export const atoms = [
   },
   {
     slug: "paper",
-    label: "Card",
+    label: "Paper",
   },
 ]
 

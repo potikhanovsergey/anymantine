@@ -1,11 +1,7 @@
-import { Group, ActionIcon, Button, Stack, Title, Text, Tooltip, Anchor } from "@mantine/core"
-import { IconDownload, IconHeart, IconSettings } from "@tabler/icons-react"
-import getActionIconConfigurator from "src/design-system/Configurator/configurators/action-icon"
-import ItemPreview from "src/design-system/ItemPreview"
+import { Group, Stack, Text, Anchor } from "@mantine/core"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 import getAnchorConfigurator from "../Configurator/configurators/anchor"
-import Example from "../Tokens/Example"
 
 const anchorComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Anchor",
