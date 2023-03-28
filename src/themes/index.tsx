@@ -30,6 +30,10 @@ export const atoms = [
     label: "Button",
   },
   {
+    slug: "anchor",
+    label: "Anchor",
+  },
+  {
     slug: "action-icon",
     label: "Action Icon",
   },
@@ -71,7 +75,7 @@ export const atoms = [
   },
   {
     slug: "paper",
-    label: "Card",
+    label: "Paper",
   },
 ]
 

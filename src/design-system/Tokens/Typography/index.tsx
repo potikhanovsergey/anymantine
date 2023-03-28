@@ -1,16 +1,4 @@
-import {
-  Box,
-  MantineProvider,
-  Stack,
-  Title,
-  TitleOrder,
-  useMantineTheme,
-  Text,
-  TextInput,
-  Button,
-  Anchor,
-} from "@mantine/core"
-import { DesignTheme } from "src/state/design-system"
+import { Stack, Title, TitleOrder, useMantineTheme, Text, Anchor } from "@mantine/core"
 import Example from "../Example"
 import DesignSystemProvider from "src/design-system/DesignSystemProvider"
 

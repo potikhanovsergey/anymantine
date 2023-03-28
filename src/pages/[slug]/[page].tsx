@@ -32,6 +32,7 @@ const AtomTextareas = dynamic(() => import("src/design-system/Atoms/AtomTextarea
 const AtomTextInputs = dynamic(() => import("src/design-system/Atoms/AtomTextInputs"))
 const AtomTooltips = dynamic(() => import("src/design-system/Atoms/AtomTooltips"))
 const AtomPapers = dynamic(() => import("src/design-system/Atoms/AtomPapers"))
+const AtomAnchor = dynamic(() => import("src/design-system/Atoms/AtomAnchor"))
 
 const DesignSystemSubpage: BlitzPage = ({
   slug,
@@ -66,6 +67,7 @@ const DesignSystemSubpage: BlitzPage = ({
             input: () => <AtomTextInputs />,
             tooltip: () => <AtomTooltips />,
             paper: () => <AtomPapers />,
+            anchor: () => <AtomAnchor />,
             default: () => <></>,
           }}
         </Switch>
