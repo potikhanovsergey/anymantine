@@ -29,6 +29,7 @@ const getTextInputConfigurator = (theme: MantineThemeOverride) =>
       { name: "placeholder", type: "string", initialValue: "Пример поля" },
       { name: "label", type: "string", initialValue: "Label" },
       { name: "description", type: "string", initialValue: "" },
+      { name: "error", type: "string", initialValue: "" },
       {
         name: "radius",
         type: "size",
