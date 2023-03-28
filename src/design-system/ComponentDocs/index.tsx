@@ -23,7 +23,7 @@ const ComponentDocs = ({ title, description, preview, examples }: ComponentDocsP
         <Title order={2} mb="md">
           Options
         </Title>
-        <Stack spacing={40}>
+        <Stack spacing={64}>
           {examples.map((example) => (
             <Example {...example} key={example.title} />
           ))}
