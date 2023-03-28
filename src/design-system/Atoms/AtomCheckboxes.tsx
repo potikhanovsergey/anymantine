@@ -22,6 +22,22 @@ const checkboxComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       ),
     },
     {
+      title: "Label position",
+      description: `You can use different label positions depending on the layout where you use checkbox.`,
+      children: (
+        <Stack>
+          {["left", "right"].map((position) => (
+            <Checkbox
+              label="Default checkbox"
+              labelPosition={position as "left" | "right"}
+              size="md"
+              key={position}
+            />
+          ))}
+        </Stack>
+      ),
+    },
+    {
       title: "State",
       description: `Checkboxes can be selected, not selected, or in an indeterminate state. They are in an indeterminate state when they represent both selected and not selected values. Learn more about representing mixed values.`,
       children: (
