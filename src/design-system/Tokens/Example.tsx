@@ -4,7 +4,7 @@ import DesignSystemProvider from "../DesignSystemProvider"
 
 export interface ExampleProps {
   title: string
-  description?: string
+  description?: ReactNode
   children: ReactNode
 }
 
@@ -16,7 +16,7 @@ const Example = ({ title, description, children }: ExampleProps) => {
       </DesignSystemProvider>
       <div>
         <Title order={3}>{title}</Title>
-        {description && <Text>{description}</Text>}
+        {description && typeof description === "string" ? <Text>{description}</Text> : description}
       </div>
     </Group>
   )
