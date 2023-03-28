@@ -1,9 +1,7 @@
-import { Group, ActionIcon, Stack, Title, Text, Tooltip } from "@mantine/core"
+import { Group, ActionIcon, Stack, Text, Tooltip } from "@mantine/core"
 import { IconHeart, IconSettings } from "@tabler/icons-react"
 import getActionIconConfigurator from "src/design-system/Configurator/configurators/action-icon"
-import ItemPreview from "src/design-system/ItemPreview"
 import { DesignTheme } from "src/state/design-system"
-import Example from "../Tokens/Example"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 
 const actionIconComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
