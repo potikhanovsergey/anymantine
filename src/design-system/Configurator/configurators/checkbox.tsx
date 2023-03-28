@@ -51,6 +51,11 @@ const getCheckboxConfigurator = (theme: MantineThemeOverride) =>
         type: "size",
         initialValue: theme.components?.Checkbox?.defaultProps?.["size"] || "md",
       },
+      {
+        name: "disabled",
+        type: "boolean",
+        initialValue: false,
+      },
     ],
   } as MantineDemo)
 
