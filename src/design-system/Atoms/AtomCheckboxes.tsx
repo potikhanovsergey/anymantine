@@ -71,24 +71,6 @@ const checkboxComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       ),
     },
     {
-      title: "With astericks",
-      description: `A checkbox in a disabled state shows that a selection exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that an action may become available later.`,
-      children: (
-        <Group>
-          {["not selected", "selected", "indeterminate"].map((variant) => (
-            <Checkbox
-              key={variant}
-              disabled
-              label="Default checkbox"
-              readOnly
-              checked={variant === "selected"}
-              indeterminate={variant === "indeterminate"}
-            />
-          ))}
-        </Group>
-      ),
-    },
-    {
       title: "Disabled",
       description: `A checkbox in a disabled state shows that a selection exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that an action may become available later.`,
       children: (
@@ -126,7 +108,7 @@ const checkboxComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
     },
     {
       title: "Required",
-      description: `Checkboxe group can be marked as required to show that a selection needs to be made in order to move forward. For example, in a form that requires a user to acknowledge legal terms before proceeding, the checkbox would show an unchecked error to communicate that it needs to be selected. WithAsterisk prop do the same thing but without logic.s`,
+      description: `Checkbox group can be marked as required to show that a selection needs to be made in order to move forward. For example, in a form that requires a user to acknowledge legal terms before proceeding, the checkbox would show an unchecked error to communicate that it needs to be selected. WithAsterisk prop do the same thing but without logic.`,
       children: (
         <Checkbox.Group
           label="Select your favorite fruits"
