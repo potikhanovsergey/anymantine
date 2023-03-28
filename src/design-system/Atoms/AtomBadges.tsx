@@ -5,7 +5,7 @@ import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 
 const removeButton = (
-  <ActionIcon size="xs" radius="xl" variant="transparent">
+  <ActionIcon size="xs" variant="transparent">
     <IconX size={rem(10)} />
   </ActionIcon>
 )
@@ -53,6 +53,7 @@ const badgeComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
             radius="xl"
             leftSection={
               <Avatar
+                radius={1000}
                 size={24}
                 src="https://media.wired.com/photos/5fb2cc575c9914713ead03de/1:1/w_1358,h_1358,c_limit/Gear-Apple-MacBook-Air-top-down-SOURCE-Apple.jpg"
               />
