@@ -27,7 +27,7 @@ const HoveredState = ({ variant }: { variant: string }) => {
         ]?.["&:hover"],
       }}
     >
-      Действие
+      Action
     </Button>
   )
 }
@@ -41,7 +41,7 @@ const FocusedState = ({ variant }: { variant: string }) => {
         ...theme.fn.focusStyles()["&:focus"],
       }}
     >
-      Действие
+      Action
     </Button>
   )
 }

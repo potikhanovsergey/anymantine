@@ -47,7 +47,7 @@ const actionIconComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
                 {variant}
               </Text>
               {[undefined, "green", "red", "gray"].map((color) => (
-                <ActionIcon tabIndex={-1} color={color} variant={variant} key={color}>
+                <ActionIcon tabIndex={-1} color={color} variant={variant} key={color || ""}>
                   <IconSettings />
                 </ActionIcon>
               ))}

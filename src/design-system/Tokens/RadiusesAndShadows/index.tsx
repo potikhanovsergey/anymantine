@@ -1,4 +1,4 @@
-import { Group, Title, useMantineTheme } from "@mantine/core"
+import { Group, Title, useMantineTheme, Text } from "@mantine/core"
 import ShadowItem from "../Shadows/ShadowItem"
 import CornerItem from "../Corners/CornerItem"
 
@@ -27,12 +27,16 @@ const Shadows = () => {
 const RadiusesAndShadows = () => {
   return (
     <div>
-      <Title order={2} mb="xl">
-        Радиусы
+      <Title order={1} mb="md">
+        Radiuses and shadows
+      </Title>
+      <Text mb="xl">We need radiuses and shadows to ...</Text>
+      <Title order={2} mb="md">
+        Radiuses
       </Title>
       <Radiuses />
-      <Title order={2} my="xl">
-        Тени
+      <Title order={2} my="md">
+        Shadows
       </Title>
       <Shadows />
     </div>

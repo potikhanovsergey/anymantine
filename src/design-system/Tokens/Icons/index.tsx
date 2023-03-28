@@ -6,15 +6,15 @@ const Icons = () => {
   return (
     <>
       <Title order={1} mb="md">
-        Иконки
+        Icons
       </Title>
       <Text mb="sm">
-        В дизайн-системе используются иконки из библиотеки{" "}
+        Design-system uses icons from{" "}
         <Link href="https://tabler-icons.io/" target="_blank">
           Tabler Icons
         </Link>
       </Text>
-      <Text mb="xs">Установка библиотеки иконок на React</Text>
+      <Text mb="xs">Installation of React library</Text>
       <Prism.Tabs defaultValue="npm" mb="md">
         <Prism.TabsList>
           <Prism.Tab value="npm">npm</Prism.Tab>
@@ -27,7 +27,7 @@ const Icons = () => {
           yarn add @tabler/icons-react
         </Prism.Panel>
       </Prism.Tabs>
-      <Text mb="xs">Использование иконки</Text>
+      <Text mb="xs">Icon usage</Text>
       <Prism language="jsx">
         {`import { IconHeart } from "@tabler/icons-react"
 

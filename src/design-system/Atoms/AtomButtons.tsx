@@ -44,7 +44,7 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
               Primary
             </Text>
             {[undefined, "green", "red", "gray"].map((color) => (
-              <Button tabIndex={-1} color={color} variant="primary" key={color}>
+              <Button tabIndex={-1} color={color} variant="primary" key={color || ""}>
                 Action
               </Button>
             ))}
@@ -54,7 +54,7 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
               Secondary
             </Text>
             {[undefined, "green", "red", "gray"].map((color) => (
-              <Button tabIndex={-1} color={color} variant="secondary" key={color}>
+              <Button tabIndex={-1} color={color} variant="secondary" key={color || ""}>
                 Action
               </Button>
             ))}
