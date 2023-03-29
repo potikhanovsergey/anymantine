@@ -27,6 +27,16 @@ const getRadioConfigurator = (theme) =>
     codeTemplate,
     configurator: [
       { name: "label", type: "string", initialValue: "Banana" },
+      {
+        name: "labelPosition",
+        label: "Label Position",
+        type: "segmented",
+        data: [
+          { label: "Right", value: "right" },
+          { label: "Left", value: "left" },
+        ],
+        initialValue: "right",
+      },
       { name: "description", type: "string", initialValue: "" },
       { name: "error", type: "string", initialValue: "" },
       {
