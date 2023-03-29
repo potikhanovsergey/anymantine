@@ -3,39 +3,11 @@ import getRadioConfigurator from "src/design-system/Configurator/configurators/r
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 
-const AtomRadios = () => {
-  const radioConfigurator = getRadioConfigurator(DesignTheme.peek())
-  return (
-    <ComponentDocs
-      {...radioComponentDocsProps}
-      preview={{
-        title: "Checkbox",
-        mantineLink: "https://mantine.dev/core/radio",
-        configurator: radioConfigurator,
-        children: (
-          <Radio.Group
-            name="favoriteFruit"
-            label="Select your favorite fruit"
-            description="This is anonymous"
-            withAsterisk
-            defaultValue="kiwi"
-          >
-            <Group mt="xs">
-              <Radio value="kiwi" label="Kiwi" />
-              <Radio value="mango" label="Mango" />
-              <Radio value="apple" label="Apple" />
-              <Radio value="banana" label="Banana" />
-            </Group>
-          </Radio.Group>
-        ),
-      }}
-    />
-  )
-}
-
 const radioComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Radio Button",
   description: `A radio button is an interface element that allows the user to select one option from a predefined set. A radio group is a grouping of radio buttons that are related to each other.`,
+  mantineLink: "https://mantine.dev/core/radio",
+
   examples: [
     {
       title: "Label",
@@ -114,7 +86,7 @@ const radioComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       description: `Radio buttons group can be marked as required to show that a selection needs to be made in order to move forward. For example, in a form that requires a user to acknowledge legal terms before proceeding, the checkbox would show an unchecked error to communicate that it needs to be selected. WithAsterisk prop do the same thing but without logic.`,
       children: (
         <Radio.Group
-          name="favoriteFruit"
+          name="favoriteFruitRequired"
           label="Select your favorite fruit"
           description="This is anonymous"
           withAsterisk
@@ -130,6 +102,35 @@ const radioComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       ),
     },
   ],
+}
+
+const AtomRadios = () => {
+  const radioConfigurator = getRadioConfigurator(DesignTheme.peek())
+  return (
+    <ComponentDocs
+      {...radioComponentDocsProps}
+      preview={{
+        title: "Checkbox",
+        configurator: radioConfigurator,
+        children: (
+          <Radio.Group
+            name="favoriteFruit"
+            label="Select your favorite fruit"
+            description="This is anonymous"
+            withAsterisk
+            defaultValue="kiwi"
+          >
+            <Group mt="xs">
+              <Radio value="kiwi" label="Kiwi" />
+              <Radio value="mango" label="Mango" />
+              <Radio value="apple" label="Apple" />
+              <Radio value="banana" label="Banana" />
+            </Group>
+          </Radio.Group>
+        ),
+      }}
+    />
+  )
 }
 
 export default AtomRadios

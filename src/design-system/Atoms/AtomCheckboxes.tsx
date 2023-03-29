@@ -6,6 +6,7 @@ import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 const checkboxComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Checkbox",
   description: `Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected. A checkbox group is a grouping of checkboxes that are related to each other.`,
+  mantineLink: "https://mantine.dev/core/checkbox",
   examples: [
     {
       title: "Label",
@@ -134,7 +135,6 @@ const AtomCheckboxes = () => {
       {...checkboxComponentDocsProps}
       preview={{
         title: "Checkbox",
-        mantineLink: "https://mantine.dev/core/checkbox",
         configurator: checkboxConfigurator,
         children: (
           <>

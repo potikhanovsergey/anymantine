@@ -13,6 +13,7 @@ const removeButton = (
 const badgeComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Badge",
   description: `Badges are colored text elements containing small bits of information. They are used for labeling content, displaying metadata and/or highlighting information.`,
+  mantineLink: "https://mantine.dev/core/badge",
   examples: [
     {
       title: "Full width and overflow",
@@ -81,7 +82,6 @@ const AtomBadges = () => {
       preview={{
         title: "Badge",
         configurator: badgeConfigurator,
-        mantineLink: "https://mantine.dev/core/badge",
         children: (
           <Group>
             <Badge>Badge</Badge>

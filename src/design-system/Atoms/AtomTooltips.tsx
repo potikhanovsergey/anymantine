@@ -7,6 +7,7 @@ import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 const tooltipDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Tooltip",
   description: `Tooltips display additional information upon hover or focus. The information included should be contextual, helpful, and nonessential while providing that extra ability to communicate and give clarity to a user.`,
+  mantineLink: "https://mantine.dev/core/tooltip",
   examples: [
     {
       title: "withArrow prop",
@@ -101,7 +102,6 @@ const AtomTooltips = () => {
       {...tooltipDocsProps}
       preview={{
         title: "Tooltip",
-        mantineLink: "https://mantine.dev/core/tooltip",
         configurator: tooltipConfigurator,
         children: (
           <Stack>

@@ -7,6 +7,7 @@ const anchorComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Anchor",
   description: `Anchors(links) allow users to navigate to a different location. They can be presented inside a
   paragraph or as standalone text.`,
+  mantineLink: "https://mantine.dev/core/anchor",
   examples: [
     {
       title: "Size",
@@ -50,7 +51,6 @@ const AtomAnchor = () => {
       {...anchorComponentDocsProps}
       preview={{
         title: "Anchor",
-        mantineLink: "https://mantine.dev/core/anchor",
         configurator: anchorConfigurator,
         children: (
           <Group>

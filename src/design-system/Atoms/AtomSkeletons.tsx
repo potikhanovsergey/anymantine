@@ -6,6 +6,7 @@ import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 const skeletonDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Skeleton",
   description: `Skeleton is a component for displaying the structure of a widget and/or a page during their initial loading.`,
+  mantineLink: "https://mantine.dev/core/skeleton",
   examples: [
     {
       title: "Animate prop",
@@ -59,7 +60,6 @@ const AtomSkeletons = () => {
       {...skeletonDocsProps}
       preview={{
         title: "Skeleton",
-        mantineLink: "https://mantine.dev/core/skeleton",
         configurator: skeletonConfigurator,
         children: (
           <Group w="100%">

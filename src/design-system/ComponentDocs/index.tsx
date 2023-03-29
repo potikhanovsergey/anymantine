@@ -1,21 +1,38 @@
-import { Stack, Title, Text } from "@mantine/core"
+import { Stack, Title, Text, Box, Group, Tooltip } from "@mantine/core"
 import ItemPreview, { ItemPreviewProps } from "../ItemPreview"
 import Example, { ExampleProps } from "../Tokens/Example"
+import Link from "next/link"
+import Mantine from "src/core/components/icons/Mantine"
 
 export interface ComponentDocsProps {
   title: string
+  mantineLink?: string
   description: string
   preview: ItemPreviewProps
   examples: ExampleProps[]
 }
 
-const ComponentDocs = ({ title, description, preview, examples }: ComponentDocsProps) => {
+const ComponentDocs = ({
+  title,
+  description,
+  mantineLink,
+  preview,
+  examples,
+}: ComponentDocsProps) => {
   return (
     <Stack spacing={40}>
       <div>
-        <Title order={1} mb="md">
-          {title}
-        </Title>
+        <Group spacing="xs" mb="md">
+          <Title order={1}>{title}</Title>
+          {mantineLink && (
+            <Tooltip label={mantineLink}>
+              <Box component={Link} lh={0} href={mantineLink} target="_blank">
+                <Mantine />
+              </Box>
+            </Tooltip>
+          )}
+        </Group>
+
         <Text maw="75%">{description}</Text>
       </div>
       <ItemPreview {...preview} />

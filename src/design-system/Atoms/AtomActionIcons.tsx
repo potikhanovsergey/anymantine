@@ -9,6 +9,7 @@ const actionIconComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   description: `Buttons allow users to perform an action or to navigate to another page. They have
   multiple styles for various needs, and are ideal for calling attention to where a user
   needs to do something in order to move forward in a flow.`,
+  mantineLink: "https://mantine.dev/core/action-icon",
   examples: [
     {
       title: "Tooltip",
@@ -115,7 +116,6 @@ const AtomActionIcons = () => {
       preview={{
         title: "Action Icon",
         configurator: actionIconConfigurator,
-        mantineLink: "https://mantine.dev/core/action-icon",
         children: (
           <Group>
             {["primary", "secondary", "transparent"].map((variant) => (
