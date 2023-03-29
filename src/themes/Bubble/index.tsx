@@ -6,24 +6,60 @@ import {
   ButtonStylesParams,
   ActionIconStylesParams,
 } from "@mantine/core"
-import { Nunito_Sans } from "next/font/google"
+import { Open_Sans } from "next/font/google"
 
-export const marshmallowFont = Nunito_Sans({
-  variable: "--marshmallow-font",
-  weight: ["400", "600", "700"],
+export const bubbleFont = Open_Sans({
+  variable: "--bubble-font",
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   preload: false,
 })
 
 const defaultFonts = `-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji`
 
-const MarshmallowTheme: MantineThemeOverride = {
+const BubbleTheme: MantineThemeOverride = {
   cursorType: "pointer",
-  primaryColor: "violet",
-  defaultRadius: "sm",
-  fontFamily: `var(--marshmallow-font), ${defaultFonts}`,
+  primaryColor: "blue",
+  defaultRadius: "md",
+  fontFamily: `var(--bubble-font), ${defaultFonts}`,
   headings: {
-    fontFamily: `var(--marshmallow-font), ${defaultFonts}`,
+    fontFamily: `var(--bubble-font), ${defaultFonts}`,
+  },
+  other: {
+    hover: {
+      menu: "rgba(0,16,61,.04)",
+    },
+  },
+  shadows: {
+    sm: "0 2px 0 0 rgba(0, 0, 0, 0.04)",
+    md: "0 4px 32px 0 rgba(0, 0, 0, 0.32)",
+    lg: "0 16px 48px 0 rgba(0, 0, 0, 0.48)",
+  },
+  colors: {
+    gray: [
+      "#E0E1E6",
+      "#e0e1e6",
+      "#c3c6cb",
+      "#aaadb2",
+      "#909398",
+      "#797a7f",
+      "#5f6266",
+      "#474a4d",
+      "#313133",
+      "#1e1e1f",
+    ],
+    blue: [
+      "#ccdffe",
+      "#99bffd",
+      "#669ffb",
+      "#4d8ffb",
+      "#1a6ffa",
+      "#005FF9", // [5]
+      "#0056e0",
+      "#0043ae",
+      "#00307d",
+      "#001c4b",
+    ],
   },
   components: {
     Loader: {
@@ -39,22 +75,24 @@ const MarshmallowTheme: MantineThemeOverride = {
       variants: {
         primary: (theme, params: ButtonStylesParams) => ({
           root: {
-            background: theme.colors[params.color || theme.primaryColor][1],
-            border: `1px solid ${theme.black}`,
-            color: theme.black,
+            background: theme.colors[params.color || theme.primaryColor][5],
+            color: theme.white,
             "&:not([data-disabled])": theme.fn.hover({
-              background: theme.colors[params.color || theme.primaryColor][2],
+              background: theme.colors[params.color || theme.primaryColor][6],
             }),
           },
         }),
         secondary: (theme, params: ButtonStylesParams) => ({
           root: {
             backgroundColor: theme.white,
-            border: `1px solid ${theme.colors[params.color || theme.primaryColor][4]}`,
-            color: theme.colors[params.color || theme.primaryColor][4],
+            color: theme.colors.gray[3],
+            border: "1px solid",
+            borderColor: theme.colors.gray[3],
             "&:not([data-disabled])": theme.fn.hover({
-              color: theme.black,
-              background: theme.colors[params.color || theme.primaryColor][2],
+              borderColor: theme.colors[params.color || theme.primaryColor][3],
+              background: theme.colors[params.color || theme.primaryColor][0],
+              color: theme.colors[params.color || theme.primaryColor][3],
+              // borderColor: theme.colors[params.color || theme.primaryColor][5],
             }),
           },
         }),
@@ -159,73 +197,26 @@ const MarshmallowTheme: MantineThemeOverride = {
         },
       }),
     },
-    Input: {
-      defaultProps: {
-        variant: "filled",
-      },
-      styles: (theme) => ({
-        input: {
-          backgroundColor: theme.colors[theme.primaryColor][0],
-        },
-      }),
-    },
+    Input: {},
     Select: {
       styles: (theme) => ({
-        input: {
-          "&:active, &:focus": {
-            borderColor: theme.black,
-          },
-        },
-        rightSection: {
-          svg: {
-            color: theme.black + "!important",
-          },
-        },
         dropdown: {
-          borderColor: theme.black,
+          border: 0,
+          borderRadius: 0,
+          boxShadow: theme.shadows.md,
+        },
+        itemsWrapper: {
+          padding: 0,
         },
         item: {
+          borderRadius: 0,
           "&[data-selected]": {
-            "&, &:hover": {
-              backgroundColor: theme.colors[theme.primaryColor][1],
-              border: `1px solid ${theme.black}`,
-              color: theme.black,
+            backgroundColor: theme.white,
+            color: theme.black,
+            "&:hover": {
+              backgroundColor: theme.colors.gray[0],
             },
           },
-          "&:not(&[data-selected])": {
-            "&[data-hovered]": {
-              backgroundColor: theme.colors[theme.primaryColor][0],
-            },
-          },
-        },
-      }),
-    },
-    Switch: {
-      defaultProps: {
-        radius: "xl",
-      },
-      styles: (theme) => ({
-        track: {
-          backgroundColor: theme.white,
-          borderColor: theme.black,
-          ref: getStylesRef("track"),
-        },
-        input: {
-          "&:checked+": {
-            [`& .${getStylesRef("track")}`]: {
-              backgroundColor: theme.colors[theme.primaryColor][1],
-              borderColor: theme.black,
-            },
-            [`*> .${getStylesRef("thumb")}`]: {
-              borderColor: theme.black,
-              backgroundColor: theme.white,
-            },
-          },
-        },
-        thumb: {
-          borderColor: theme.black,
-          backgroundColor: theme.colors[theme.primaryColor][1],
-          ref: getStylesRef("thumb"),
         },
       }),
     },
@@ -238,22 +229,15 @@ const MarshmallowTheme: MantineThemeOverride = {
         },
       }),
     },
-    Menu: {
-      styles: (theme) => ({
-        dropdown: {
-          border: "none",
-        },
-      }),
-    },
     Popover: {
       defaultProps: {
         shadow: "md",
       },
-      styles: (theme) => ({
+      styles: {
         dropdown: {
           border: "none",
         },
-      }),
+      },
     },
     HoverCard: {
       styles: (theme) => ({
@@ -306,24 +290,14 @@ const MarshmallowTheme: MantineThemeOverride = {
       }),
     },
     ScrollArea: {
-      styles: (theme, params, context) => ({
+      defaultProps: {
+        type: "never",
+      },
+      styles: {
         scrollbar: {
           zIndex: 101,
         },
-      }),
-    },
-    TooltipFloating: {
-      styles: (theme) => ({
-        tooltip: {
-          background: theme.colors[theme.primaryColor][1],
-          color: theme.black,
-          border: `1px solid ${theme.black}`,
-          fontWeight: 500,
-        },
-        arrow: {
-          border: `1px solid ${theme.black}`,
-        },
-      }),
+      },
     },
     Progress: {
       styles: (theme) => ({
@@ -338,36 +312,60 @@ const MarshmallowTheme: MantineThemeOverride = {
         copiedLabel: "Скопировано",
       },
     },
+    Navbar: {
+      styles: (theme) => ({
+        root: {
+          border: 0,
+        },
+      }),
+    },
+    Header: {
+      styles: (theme) => ({
+        root: {
+          borderBottom: 0,
+        },
+      }),
+    },
     Accordion: {
+      defaultProps: {
+        chevron: null,
+      },
       styles: (theme) => ({
         content: {
           paddingTop: 0,
         },
         item: {
-          borderBottom: 0,
+          border: 0,
+        },
+        label: {
+          fontWeight: 500,
+          color: theme.colors.gray[9],
         },
         control: {
           marginBottom: rem(4),
+          borderRadius: theme.radius[theme.defaultRadius],
+          "&:hover": {
+            backgroundColor: theme.other.hover.menu,
+          },
         },
       }),
     },
-    Tooltip: {
-      defaultProps: {
-        withArrow: true,
-        transitionProps: {
-          transition: "pop",
-          duration: 200,
-        },
-      },
+    NavbarLinks: {
       styles: (theme) => ({
-        tooltip: {
-          background: theme.colors[theme.primaryColor][1],
-          color: theme.black,
-          border: `1px solid ${theme.black}`,
+        link: {
+          // width: "fit-content",
+          height: rem(48),
           fontWeight: 500,
-        },
-        arrow: {
-          border: `1px solid ${theme.black}`,
+          color: theme.colors.gray[9],
+          "&[data-active=true]": {
+            background: "rgba(0,95,249,.08)",
+            color: theme.colors[theme.primaryColor][5],
+          },
+          "&:not([data-active=true])": {
+            "&:hover": {
+              background: theme.other.hover.menu,
+            },
+          },
         },
       }),
     },
@@ -382,4 +380,4 @@ const MarshmallowTheme: MantineThemeOverride = {
   }),
 }
 
-export default MarshmallowTheme
+export default BubbleTheme

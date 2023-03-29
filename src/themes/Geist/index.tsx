@@ -13,7 +13,7 @@ const cardShadow = "0 4px 6px rgb(0 0 0 / 4%)"
 export const geistFont = Inter({
   variable: "--geist-font",
   weight: ["400", "600", "700"],
-  subsets: ["cyrillic", "latin"],
+  subsets: ["latin"],
   preload: false,
 })
 
@@ -313,7 +313,6 @@ const GeistTheme: MantineThemeOverride = {
         },
       },
       styles: (theme) => ({
-        itemsWrapper: {},
         item: {
           "&[data-selected]": {
             backgroundColor: theme.white,

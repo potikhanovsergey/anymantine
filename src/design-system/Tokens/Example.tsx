@@ -15,7 +15,9 @@ const Example = ({ title, description, children }: ExampleProps) => {
         <Group position="center">{children}</Group>
       </DesignSystemProvider>
       <div>
-        <Title order={3}>{title}</Title>
+        <Title order={3} mb="lg">
+          {title}
+        </Title>
         {description && typeof description === "string" ? <Text>{description}</Text> : description}
       </div>
     </Group>

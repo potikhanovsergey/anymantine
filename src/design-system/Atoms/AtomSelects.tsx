@@ -42,6 +42,7 @@ const CreatableSelect = () => {
 const selectDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Select",
   description: `Select allow users to choose from a list of options in a limited space. The list of options can change based on the context.`,
+  mantineLink: "https://mantine.dev/core/select",
   examples: [
     {
       title: "Searchable",
@@ -171,7 +172,6 @@ const AtomSelects = () => {
       {...selectDocsProps}
       preview={{
         title: "Select",
-        mantineLink: "https://mantine.dev/core/select",
         configurator: selectConfigurator,
         children: (
           <SimpleGrid cols={2}>

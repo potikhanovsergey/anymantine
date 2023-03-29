@@ -12,6 +12,8 @@ export default createStyles((theme: MantineTheme, { color }: NavbarLinksStylesPa
     borderRadius: theme.radius[theme.defaultRadius],
     paddingTop: rem(4),
     paddingBottom: rem(4),
+    display: "flex",
+    alignItems: "center",
     "&[data-active=true]": {
       background: theme.colors[color || theme.primaryColor][1],
     },

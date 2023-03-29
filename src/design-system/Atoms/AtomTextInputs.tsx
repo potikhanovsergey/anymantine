@@ -1,14 +1,13 @@
-import { Checkbox, Group, SimpleGrid, Stack, TextInput, Text, Loader, Select } from "@mantine/core"
+import { Group, SimpleGrid, Stack, TextInput, Text, Loader } from "@mantine/core"
 import { IconInfoCircle, IconPassword } from "@tabler/icons-react"
 import getTextInputConfigurator from "src/design-system/Configurator/configurators/text-input"
-import ItemPreview from "src/design-system/ItemPreview"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
-import { selectDataMock } from "./AtomSelects"
 
 const textInputComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Text Input",
   description: `Text inputs allow users to input custom text entries with a keyboard. Various options can be shown with the field to communicate the input requirements.`,
+  mantineLink: "https://mantine.dev/core/text-input",
   examples: [
     {
       title: "Label",
@@ -108,7 +107,6 @@ const AtomTextInputs = () => {
       {...textInputComponentDocsProps}
       preview={{
         title: "Text Input",
-        mantineLink: "https://mantine.dev/core/text-input",
         configurator: textInputConfigurator,
         children: (
           <SimpleGrid cols={2}>

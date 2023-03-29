@@ -1,5 +1,6 @@
 import Marshmallow, { marshmallowFont } from "./Marshmallow"
 import Geist, { geistFont } from "./Geist"
+import Bubble, { bubbleFont } from "./Bubble"
 
 export const tokens = [
   {
@@ -101,6 +102,7 @@ export type DesignSystemSubPage = (typeof dsSubPages)[number]
 export const themes = {
   marshmallow: { theme: Marshmallow, font: marshmallowFont },
   ghost: { theme: Geist, font: geistFont },
+  bubble: { theme: Bubble, font: bubbleFont },
 }
 
 const designSystems = [
@@ -114,9 +116,15 @@ const designSystems = [
   {
     slug: "ghost",
     title: "Ghost",
-    colors: ["red", "dark"],
+    colors: ["red", "gray", "dark"],
     imageUrl:
       "https://vercel.com/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1671111035%2Fgeist%2Fgeist-illustration-light.png&w=1920&q=100",
+  },
+  {
+    slug: "bubble",
+    title: "Bubble",
+    colors: ["blue", "gray", "dark"],
+    imageUrl: "https://paradigm.mail.ru/notionStatic/d6b09a0e-f167-4b18-92a0-b62611c6b536.png",
   },
 ]
 

@@ -44,12 +44,12 @@ const Navbar = ({
           </Accordion.Item>
         </Accordion>
       </MantineNavbar.Section>
-      <Divider />
+      {/* <Divider />
       <MantineNavbar.Section pl="md" py="xs">
         <Text span weight="bold" tt="capitalize" size="xl">
           {DesignSystem.label}
         </Text>
-      </MantineNavbar.Section>
+      </MantineNavbar.Section> */}
     </MantineNavbar>
   )
 }

@@ -9,6 +9,7 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   description: `Buttons allow users to perform an action or to navigate to another page. They have
   multiple styles for various needs, and are ideal for calling attention to where a user
   needs to do something in order to move forward in a flow.`,
+  mantineLink: "https://mantine.dev/core/button",
   examples: [
     {
       title: "Label and icon",
@@ -136,7 +137,6 @@ const AtomButtons = () => {
       {...buttonComponentDocsProps}
       preview={{
         title: "Button",
-        mantineLink: "https://mantine.dev/core/button",
         configurator: buttonConfigurator,
         children: (
           <Group>

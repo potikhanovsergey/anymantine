@@ -55,7 +55,7 @@ export default createStyles(
       borderBottomRightRadius: theme.fn.radius(radius),
       borderBottomLeftRadius: theme.fn.radius(radius),
       border: `${rem(1)} solid ${theme.black}`,
-      background: theme.colors[theme.primaryColor][0],
+      background: theme.white,
     },
 
     code: {
