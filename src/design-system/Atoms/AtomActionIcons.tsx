@@ -4,6 +4,10 @@ import getActionIconConfigurator from "src/design-system/Configurator/configurat
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 
+const ExampleIcon = () => {
+  return <IconSettings size="75%" />
+}
+
 const actionIconComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Action Icon",
   description: `Buttons allow users to perform an action or to navigate to another page. They have
@@ -22,7 +26,7 @@ const actionIconComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
             </Text>
             <Tooltip label="Profile settings">
               <ActionIcon>
-                <IconSettings />
+                <ExampleIcon />
               </ActionIcon>
             </Tooltip>
           </div>
@@ -31,7 +35,7 @@ const actionIconComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
               Without tooltip
             </Text>
             <ActionIcon>
-              <IconSettings />
+              <ExampleIcon />
             </ActionIcon>
           </div>
         </Group>
@@ -47,9 +51,9 @@ const actionIconComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
               <Text mb="sm" color="dimmed">
                 {variant}
               </Text>
-              {[undefined, "green", "red", "gray"].map((color) => (
+              {[undefined, "green", "red"].map((color) => (
                 <ActionIcon tabIndex={-1} color={color} variant={variant} key={color || ""}>
-                  <IconSettings />
+                  <ExampleIcon />
                 </ActionIcon>
               ))}
             </Stack>
@@ -66,7 +70,7 @@ const actionIconComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
             <Group w="100%" position="apart" key={size}>
               <Text color="dimmed">{size}</Text>
               <ActionIcon tabIndex={-1} size={size}>
-                <IconSettings />
+                <ExampleIcon />
               </ActionIcon>
             </Group>
           ))}
@@ -82,7 +86,7 @@ const actionIconComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
             <Stack key={variant}>
               <Text color="dimmed">{variant}</Text>
               <ActionIcon tabIndex={-1} loading variant={variant}>
-                <IconSettings />
+                <ExampleIcon />
               </ActionIcon>
             </Stack>
           ))}
@@ -98,7 +102,7 @@ const actionIconComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
             <Stack key={variant}>
               <Text color="dimmed">{variant}</Text>
               <ActionIcon tabIndex={-1} disabled variant={variant}>
-                <IconSettings />
+                <ExampleIcon />
               </ActionIcon>
             </Stack>
           ))}

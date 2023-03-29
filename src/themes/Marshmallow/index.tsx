@@ -332,12 +332,6 @@ const MarshmallowTheme: MantineThemeOverride = {
         },
       }),
     },
-    Prism: {
-      defaultProps: {
-        copyLabel: "Скопировать код",
-        copiedLabel: "Скопировано",
-      },
-    },
     Accordion: {
       styles: (theme) => ({
         content: {

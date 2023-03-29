@@ -10,8 +10,8 @@ import { Inter } from "next/font/google"
 
 const cardShadow = "0 4px 6px rgb(0 0 0 / 4%)"
 
-export const geistFont = Inter({
-  variable: "--geist-font",
+export const ghostFont = Inter({
+  variable: "--ghost-font",
   weight: ["400", "600", "700"],
   subsets: ["latin"],
   preload: false,
@@ -52,17 +52,17 @@ const getSecondaryButtonStyles = (
   }
 }
 
-const GeistTheme: MantineThemeOverride = {
+const GhostTheme: MantineThemeOverride = {
   primaryShade: 5,
   primaryColor: "dark",
   cursorType: "pointer",
   other: {
     cardShadow,
-    geistCyanLight: "#79FFF0",
+    ghostCyanLight: "#79FFF0",
   },
-  fontFamily: `var(--geist-font), ${defaultFonts}`,
+  fontFamily: `var(--ghost-font), ${defaultFonts}`,
   headings: {
-    fontFamily: `var(--geist-font), ${defaultFonts}`,
+    fontFamily: `var(--ghost-font), ${defaultFonts}`,
   },
   shadows: {
     xs: "0px 2px 4px rgba(0,0,0,.1)",
@@ -354,7 +354,7 @@ const GeistTheme: MantineThemeOverride = {
   },
   globalStyles: (theme) => ({
     "::selection": {
-      background: theme.other.geistCyanLight,
+      background: theme.other.ghostCyanLight,
     },
     body: {
       WebkitFontSmoothing: "antialiased",
@@ -362,4 +362,4 @@ const GeistTheme: MantineThemeOverride = {
   }),
 }
 
-export default GeistTheme
+export default GhostTheme

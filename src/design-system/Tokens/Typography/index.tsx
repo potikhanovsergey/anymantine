@@ -14,7 +14,7 @@ const Headings = () => {
           key={heading}
           order={(i + 1) as TitleOrder}
         >
-          Далеко-далеко за словесными горами в стране.
+          Lorem ipsum dolor sit amet consectetur adipisicing.
         </Title>
       ))}
     </Stack>
@@ -29,7 +29,7 @@ const Paragraphs = () => {
         .reverse()
         .map((fontSize, i) => (
           <Text span color="dimmed" size={fontSize} key={fontSize}>
-            Далеко-далеко за словесными горами в стране.
+            Lorem ipsum dolor sit amet consectetur adipisicing.
           </Text>
         ))}
     </Stack>
@@ -41,7 +41,7 @@ const Typography = () => {
     <Stack spacing={40}>
       <div>
         <Title order={2} mb="sm">
-          Размеры заголовков
+          Heading sizes
         </Title>
         <DesignSystemProvider>
           <Headings />
@@ -49,7 +49,7 @@ const Typography = () => {
       </div>
       <div>
         <Title order={2} mb="sm">
-          Размеры текста
+          Text sizes
         </Title>
         <DesignSystemProvider>
           <Paragraphs />

@@ -18,15 +18,12 @@ const HoveredState = ({ variant }: { variant: string }) => {
   const buttonStyles = DesignTheme.get?.()?.components?.Button
   const theme = useMantineTheme()
 
+  const hoverStyles = buttonStyles?.variants?.[variant]?.(theme, {}, {})?.root?.[
+    "&:not([data-disabled])"
+  ]?.["@media (hover: hover)"]?.["&:hover"]
+
   return (
-    <Button
-      variant={variant}
-      sx={{
-        ...buttonStyles?.variants![variant](theme, {}, {}).root["&:not([data-disabled])"]?.[
-          "@media (hover: hover)"
-        ]?.["&:hover"],
-      }}
-    >
+    <Button tabIndex={-1} variant={variant} sx={hoverStyles}>
       Action
     </Button>
   )
@@ -51,6 +48,9 @@ const States = () => {
 
   return (
     <div>
+      <Title order={1} mb="xl">
+        States
+      </Title>
       <Text mb="md">
         A state communicates the status or potential of a component or an interactive item to the
         user.
@@ -95,11 +95,9 @@ const States = () => {
           but is not interactive in that circumstance. This state can be used to maintain layout
           continuity and to communicate that an action may become available later."
         >
-          {Object.keys?.(buttonStyles?.variants!)?.map((variant) => (
-            <Button variant={variant} disabled key={variant}>
-              Action
-            </Button>
-          ))}
+          <Button tabIndex={-1} disabled>
+            Action
+          </Button>
         </Example>
         <Example
           title="Selected"

@@ -6,9 +6,9 @@ import {
   ButtonStylesParams,
   ActionIconStylesParams,
 } from "@mantine/core"
-import { Open_Sans } from "next/font/google"
+import { Karla } from "next/font/google"
 
-export const bubbleFont = Open_Sans({
+export const bubbleFont = Karla({
   variable: "--bubble-font",
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
@@ -21,6 +21,7 @@ const BubbleTheme: MantineThemeOverride = {
   cursorType: "pointer",
   primaryColor: "blue",
   defaultRadius: "md",
+  primaryShade: 5,
   fontFamily: `var(--bubble-font), ${defaultFonts}`,
   headings: {
     fontFamily: `var(--bubble-font), ${defaultFonts}`,
@@ -30,23 +31,30 @@ const BubbleTheme: MantineThemeOverride = {
       menu: "rgba(0,16,61,.04)",
     },
   },
-  shadows: {
-    sm: "0 2px 0 0 rgba(0, 0, 0, 0.04)",
-    md: "0 4px 32px 0 rgba(0, 0, 0, 0.32)",
-    lg: "0 16px 48px 0 rgba(0, 0, 0, 0.48)",
-  },
   colors: {
     gray: [
-      "#E0E1E6",
-      "#e0e1e6",
-      "#c3c6cb",
-      "#aaadb2",
+      "#F3F3F5",
+      "#E6E7EB",
+      "#D9DCE0",
+      "#CED1D6",
+      "#B9BCC1",
+      "#A4A7AC",
+      "#909398",
+      "#7E7F84",
+      "#5F6266",
+      "#525357",
+    ],
+    dark: [
+      "#9fa2a7",
       "#909398",
       "#797a7f",
-      "#5f6266",
+      "#57585c",
       "#474a4d",
-      "#313133",
-      "#1e1e1f",
+      "#363638",
+      "#2c2d2e",
+      "#19191a",
+      "#0f0f0f",
+      "#050505",
     ],
     blue: [
       "#ccdffe",
@@ -85,74 +93,94 @@ const BubbleTheme: MantineThemeOverride = {
         secondary: (theme, params: ButtonStylesParams) => ({
           root: {
             backgroundColor: theme.white,
-            color: theme.colors.gray[3],
+            color: theme.colors.dark[3],
             border: "1px solid",
-            borderColor: theme.colors.gray[3],
+            borderColor: theme.colors.dark[3],
             "&:not([data-disabled])": theme.fn.hover({
-              borderColor: theme.colors[params.color || theme.primaryColor][3],
+              borderColor: theme.colors[params.color || theme.primaryColor][5],
               background: theme.colors[params.color || theme.primaryColor][0],
-              color: theme.colors[params.color || theme.primaryColor][3],
-              // borderColor: theme.colors[params.color || theme.primaryColor][5],
+              color: theme.colors[params.color || theme.primaryColor][5],
             }),
           },
         }),
       },
-    },
-    ActionIcon: {
-      defaultProps: {
-        variant: "primary",
-      },
-      variants: {
-        primary: (theme, params: ActionIconStylesParams) => ({
-          root: {
-            background: theme.colors[params.color || theme.primaryColor][1],
-            border: `1px solid ${theme.black}`,
-            color: theme.black,
-            "&:not([data-disabled])": theme.fn.hover({
-              background: theme.colors[theme.primaryColor][2],
-            }),
-          },
-        }),
-        secondary: (theme) => ({
-          root: {
-            backgroundColor: theme.white,
-            border: `1px solid ${theme.black}`,
-            color: theme.black,
-            "&:not([data-disabled])": theme.fn.hover({
-              background: theme.colors[theme.primaryColor][2],
-            }),
-          },
-        }),
-      },
-    },
-    Checkbox: {
-      styles: (theme) => ({
-        input: {
-          backgroundColor: theme.colors[theme.primaryColor][0],
-          border: "none",
-          ref: getStylesRef("icon"),
-          "&:checked": {
-            backgroundColor: theme.colors[theme.primaryColor][0],
-            border: "none",
-          },
-          "&:checked+": {
-            [`& .${getStylesRef("icon")}`]: {
-              color: theme.black,
+      styles: (theme, params: ButtonStylesParams, { variant }) => ({
+        root: {
+          "&[data-loading]": {
+            color: "transparent",
+            svg: {
+              stroke:
+                variant === "transparent" || variant === "secondary"
+                  ? theme.colors[params.color || theme.primaryColor][5]
+                  : theme.white,
+            },
+            "&:before": {
+              display: "none",
+            },
+            ".mantine-Button-centerLoader": {
+              opacity: 1,
+            },
+            [`& .${getStylesRef("rightIcon")}, .${getStylesRef("leftIcon")}`]: {
+              opacity: 0,
             },
           },
         },
       }),
     },
-    Badge: {
+    ActionIcon: {
+      defaultProps: (theme) => ({
+        variant: "primary",
+        color: theme.primaryColor,
+      }),
       variants: {
-        outline: (theme) => ({
+        primary: (theme, params: ButtonStylesParams) => ({
           root: {
-            borderColor: theme.black,
-            color: theme.black,
+            background: theme.colors[params.color || theme.primaryColor][5],
+            color: theme.white,
+            "&:not([data-disabled])": theme.fn.hover({
+              background: theme.colors[params.color || theme.primaryColor][6],
+            }),
+          },
+        }),
+        secondary: (theme, params: ButtonStylesParams) => ({
+          root: {
             backgroundColor: theme.white,
+            color: theme.colors.dark[3],
+            border: "1px solid",
+            borderColor: theme.colors.dark[3],
+            "&:not([data-disabled])": theme.fn.hover({
+              borderColor: theme.colors[params.color || theme.primaryColor][3],
+              background: theme.colors[params.color || theme.primaryColor][0],
+              color: theme.colors[params.color || theme.primaryColor][3],
+            }),
           },
         }),
       },
+      styles: (theme, params: ActionIconStylesParams, { variant }) => ({
+        root: {
+          "&[data-loading]": {
+            color: "transparent",
+            svg: {
+              "&[data-action-icon-loader]": {
+                maxWidth: "60%",
+                stroke:
+                  variant === "transparent" || variant === "secondary"
+                    ? theme.colors[params.color || theme.primaryColor][5]
+                    : theme.white,
+              },
+            },
+            "&:before": {
+              display: "none",
+            },
+            ".mantine-Button-centerLoader": {
+              opacity: 1,
+            },
+            [`& .${getStylesRef("rightIcon")}, .${getStylesRef("leftIcon")}`]: {
+              opacity: 0,
+            },
+          },
+        },
+      }),
     },
     Avatar: {
       defaultProps: {
@@ -161,43 +189,11 @@ const BubbleTheme: MantineThemeOverride = {
         color: "violet",
       },
     },
-    Slider: {
-      styles: (theme) => ({
-        track: {
-          height: "4px",
-          "::before": {
-            backgroundColor: theme.white,
-            border: `1px solid ${theme.black}`,
-          },
-        },
-        markWrapper: {
-          transform: "translateY(-25%)",
-        },
-        mark: {
-          border: `1px solid ${theme.black}`,
-          backgroundColor: theme.white,
-        },
-        markFilled: {
-          border: `1px solid ${theme.black}`,
-          backgroundColor: theme.colors[theme.primaryColor][1],
-        },
-        bar: {
-          backgroundColor: theme.colors[theme.primaryColor][1],
-          border: `1px solid ${theme.black}`,
-        },
-        thumb: {
-          backgroundColor: theme.colors[theme.primaryColor][1],
-          color: theme.colors[theme.primaryColor][1],
-          border: `1px solid ${theme.black}`,
-        },
-        label: {
-          backgroundColor: theme.colors[theme.primaryColor][1],
-          color: theme.black,
-          border: `1px solid ${theme.black}`,
-        },
-      }),
+    Paper: {
+      defaultProps: {
+        p: "lg",
+      },
     },
-    Input: {},
     Select: {
       styles: (theme) => ({
         dropdown: {
@@ -220,15 +216,6 @@ const BubbleTheme: MantineThemeOverride = {
         },
       }),
     },
-    TextInput: {
-      styles: (theme) => ({
-        input: {
-          "&:active, &:focus": {
-            borderColor: theme.black,
-          },
-        },
-      }),
-    },
     Popover: {
       defaultProps: {
         shadow: "md",
@@ -246,49 +233,6 @@ const BubbleTheme: MantineThemeOverride = {
         },
       }),
     },
-    Paper: {
-      defaultProps: {
-        p: "lg",
-        withBorder: true,
-      },
-      styles: (theme) => ({
-        root: {
-          "&[data-with-border]": {
-            borderColor: theme.black,
-          },
-        },
-      }),
-    },
-    Modal: {
-      defaultProps: {
-        shadow: "xl",
-        transitionProps: {
-          transition: {
-            in: { opacity: 1, transform: "translateY(0)" },
-            out: { opacity: 0, transform: "translateY(-30px)" },
-            common: { transformOrigin: "top" },
-            transitionProperty: "transform, opacity",
-          },
-          duration: 350,
-          timingFunction: "cubic-bezier(.4,0,.2,1)",
-        },
-      },
-      styles: (theme) => ({
-        header: {
-          zIndex: 100,
-        },
-        title: {
-          fontWeight: 600,
-        },
-        modal: {
-          border: "none",
-        },
-        close: {
-          "&:hover": { background: theme.fn.rgba(theme.colors.dark[5], 0.07) },
-          color: theme.colors.dark[5],
-        },
-      }),
-    },
     ScrollArea: {
       defaultProps: {
         type: "never",
@@ -297,19 +241,6 @@ const BubbleTheme: MantineThemeOverride = {
         scrollbar: {
           zIndex: 101,
         },
-      },
-    },
-    Progress: {
-      styles: (theme) => ({
-        root: {
-          background: theme.colors.dark[5],
-        },
-      }),
-    },
-    Prism: {
-      defaultProps: {
-        copyLabel: "Скопировать код",
-        copiedLabel: "Скопировано",
       },
     },
     Navbar: {

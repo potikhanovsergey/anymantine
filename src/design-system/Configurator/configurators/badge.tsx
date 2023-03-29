@@ -53,7 +53,7 @@ const getBadgeConfigurator = (theme: MantineThemeOverride) =>
         type: "size",
         initialValue: theme.components?.Badge?.defaultProps?.["size"] || "md",
       },
-      { name: "children", type: "string", initialValue: "Пример тега" },
+      { name: "children", type: "string", initialValue: "Tag example" },
     ],
   } as MantineDemo)
 

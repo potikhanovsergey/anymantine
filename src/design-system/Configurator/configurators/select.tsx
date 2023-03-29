@@ -29,7 +29,7 @@ const getSelectConfigurator = (theme: MantineThemeOverride) =>
     component: Wrapper,
     codeTemplate,
     configurator: [
-      { name: "placeholder", type: "string", initialValue: "Пример поля" },
+      { name: "placeholder", type: "string", initialValue: "Placeholder..." },
       { name: "label", type: "string", initialValue: "Label" },
       { name: "description", type: "string", initialValue: "" },
       {

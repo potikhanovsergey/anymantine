@@ -56,7 +56,7 @@ const getButtonConfigurator = (theme: MantineThemeOverride) => {
       { name: "loading", type: "boolean", initialValue: false },
       { name: "compact", type: "boolean", initialValue: false },
       { name: "uppercase", type: "boolean", initialValue: false },
-      { name: "children", type: "string", initialValue: "Пример кнопки" },
+      { name: "children", type: "string", initialValue: "Some action" },
     ],
   } as MantineDemo
 }

@@ -140,8 +140,8 @@ const AtomButtons = () => {
         configurator: buttonConfigurator,
         children: (
           <Group>
-            <Button variant="primary">Пример кнопки</Button>
-            <Button variant="secondary">Пример кнопки</Button>
+            <Button variant="primary">Primary action</Button>
+            <Button variant="secondary">Secondary action</Button>
           </Group>
         ),
       }}

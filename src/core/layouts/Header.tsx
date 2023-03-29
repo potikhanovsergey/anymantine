@@ -53,7 +53,10 @@ const Header = (props: Omit<HeaderProps, "children" | "height">) => {
           />
         </Group>
         <Group noWrap h="100%" spacing="xs">
-          <Button size="xs" variant="secondary" href="/" component={NextLink}>
+          <Button href="/" component={NextLink} size="xs" variant="secondary">
+            About
+          </Button>
+          <Button size="xs" href="/" component={NextLink}>
             Themes
           </Button>
           {/* <ProfileMenuOrAuth /> */}

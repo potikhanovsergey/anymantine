@@ -5,7 +5,7 @@ import getAnchorConfigurator from "../Configurator/configurators/anchor"
 
 const anchorComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Anchor",
-  description: `Anchors(links) allow users to navigate to a different location. They can be presented inside a
+  description: `Anchors (links) allow users to navigate to a different location. They can be presented inside a
   paragraph or as standalone text.`,
   mantineLink: "https://mantine.dev/core/anchor",
   examples: [
@@ -54,13 +54,8 @@ const AtomAnchor = () => {
         configurator: anchorConfigurator,
         children: (
           <Group>
-            <Anchor color="grape" size="xl">
-              Link
-            </Anchor>
-            <Anchor color="green" underline={false}>
-              Link
-            </Anchor>
-            <Anchor strikethrough={true}>Link</Anchor>
+            <Anchor>Link with underline</Anchor>
+            <Anchor underline={false}>Link without underline</Anchor>
           </Group>
         ),
       }}

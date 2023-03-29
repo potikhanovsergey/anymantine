@@ -58,7 +58,7 @@ const Card = ({ title, imageUrl, slug }: CardProps) => {
   return (
     <div className={classes.card}>
       <AspectRatio pos="relative" ratio={16 / 9}>
-        <Image alt="Vercel Geist" fill src={imageUrl} className={classes.image} />
+        <Image alt={`${title} theme`} fill src={imageUrl} className={classes.image} />
       </AspectRatio>
       <Stack className={classes.description}>
         <Text size={28} weight="bold" href={`/${slug}`} component={Link} className={classes.title}>

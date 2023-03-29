@@ -13,14 +13,14 @@ const textInputComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Label",
       description: `Text inputs should always have a label. In rare cases where context is sufficient and an accessibility expert has reviewed the design, the label could be undefined. These text inputs without a visible label should still include an aria-label in HTML (depending on the context, “aria-label” or “aria-labelledby”).`,
       children: (
-        <Group>
+        <Stack>
           {["with label", "alone"].map((variant) => (
             <Stack key={variant}>
               <Text color="dimmed">{variant}</Text>
               <TextInput label={variant === "with label" && "Label"} placeholder="Placeholder..." />
             </Stack>
           ))}
-        </Group>
+        </Stack>
       ),
     },
     {
