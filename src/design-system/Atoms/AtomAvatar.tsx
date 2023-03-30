@@ -81,11 +81,9 @@ const AtomAvatar = () => {
               src="https://ucarecdn.com/c7a89916-f499-4fb9-90da-cb89f738c59a/"
               alt="it's me"
             />
-            <Avatar radius="xl" />
-            <Avatar color="cyan" radius="xl">
-              MK
-            </Avatar>
-            <Avatar color="blue" radius="sm">
+            <Avatar />
+            <Avatar>MK</Avatar>
+            <Avatar>
               <IconHeart size="1.5rem" />
             </Avatar>
           </Group>

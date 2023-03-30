@@ -58,7 +58,9 @@ const AtomSlider = () => {
       preview={{
         title: "Slider",
         configurator: sliderConfigurator,
-        children: <Slider marks={[{ value: 20 }, { value: 50 }, { value: 80 }]} w="100%" />,
+        children: (
+          <Slider marks={[{ value: 20 }, { value: 50 }, { value: 80 }]} w="100%" maw={400} />
+        ),
       }}
     />
   )

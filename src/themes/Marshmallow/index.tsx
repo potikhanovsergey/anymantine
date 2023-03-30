@@ -118,9 +118,7 @@ const MarshmallowTheme: MantineThemeOverride = {
     },
     Avatar: {
       defaultProps: {
-        radius: 1000,
         children: <Text size="lg">🐶</Text>,
-        color: "violet",
       },
     },
     Slider: {

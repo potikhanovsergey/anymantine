@@ -1,26 +1,36 @@
-import { Group, MantineThemeOverride, CheckboxProps, Avatar, AvatarProps } from "@mantine/core"
+import {
+  Group,
+  MantineThemeOverride,
+  CheckboxProps,
+  Avatar,
+  AvatarProps,
+  Chip,
+  ChipProps,
+} from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
 
 const codeTemplate = (props: string) => `
-import { Avatar } from '@mantine/core';
+import { Chip } from '@mantine/core';
 
 function Demo() {
   return (
-    <Avatar ${props} />
+    <Chip ${props}>
+      Awesome chip
+    </Chip>
   );
 }
 `
 
-function Wrapper(props: AvatarProps) {
+function Wrapper(props: ChipProps) {
   return (
     <Group position="center">
-      <Avatar {...props} />
+      <Chip {...props}>Awesome chip</Chip>
     </Group>
   )
 }
 
-const getAvatarConfigurator = (theme: MantineThemeOverride) =>
+const getChipConfigurator = (theme: MantineThemeOverride) =>
   ({
     type: "configurator",
     component: Wrapper,
@@ -39,20 +49,19 @@ const getAvatarConfigurator = (theme: MantineThemeOverride) =>
       {
         name: "color",
         type: "color",
-        initialValue: theme.components?.Avatar?.defaultProps?.["color"] || theme.primaryColor,
+        initialValue: theme.components?.Chip?.defaultProps?.["color"] || theme.primaryColor,
       },
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.Avatar?.defaultProps?.["radius"] || theme.defaultRadius,
+        initialValue: theme.components?.Chip?.defaultProps?.["radius"] || theme.defaultRadius,
       },
       {
         name: "size",
         type: "size",
-        initialValue: theme.components?.Avatar?.defaultProps?.["size"] || "md",
+        initialValue: theme.components?.Chip?.defaultProps?.["size"] || "md",
       },
-      { name: "src", type: "string", initialValue: "" },
     ],
   } as MantineDemo)
 
-export default getAvatarConfigurator
+export default getChipConfigurator
