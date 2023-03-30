@@ -4,7 +4,7 @@ import { ReactNode } from "react"
 
 const Prism = dynamic(() => import("@mantine/prism").then((m) => m.Prism), {
   ssr: false,
-  loading: () => <Loader size="sm" p={24} color="violet" />,
+  loading: () => <Loader size="sm" p={24} />,
 })
 
 const useStyles = createStyles((theme) => ({
@@ -40,8 +40,8 @@ const ItemWithSnippet = ({ children, snippet }: ItemWithSnippetProps) => {
   const { classes } = useStyles()
   const theme = useMantineTheme()
   return (
-    <Box className={classes.wrapper}>
-      <Box className={classes.body}>{children}</Box>
+    <div className={classes.wrapper}>
+      <div className={classes.body}>{children}</div>
       <Accordion
         classNames={{
           content: classes.accordionContent,
@@ -49,21 +49,15 @@ const ItemWithSnippet = ({ children, snippet }: ItemWithSnippetProps) => {
         }}
       >
         <Accordion.Item value="code">
-          <Accordion.Control>Пример кода</Accordion.Control>
+          <Accordion.Control>Code snippet</Accordion.Control>
           <Accordion.Panel p={0}>
-            <Prism
-              bg={theme.colors.gray[0]}
-              withLineNumbers
-              copyLabel="Скопировать код"
-              copiedLabel="Скопировано"
-              language="tsx"
-            >
+            <Prism bg={theme.colors.gray[0]} withLineNumbers language="tsx">
               {snippet}
             </Prism>
           </Accordion.Panel>
         </Accordion.Item>
       </Accordion>
-    </Box>
+    </div>
   )
 }
 

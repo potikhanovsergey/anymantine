@@ -1,33 +1,29 @@
-import {
-  Box,
-  Title,
-  Text,
-  createStyles,
-  AspectRatio,
-  Group,
-  Badge,
-  Anchor,
-  Tooltip,
-} from "@mantine/core"
-import { IconWorld } from "@tabler/icons-react"
+import { Text, createStyles, AspectRatio, Group, Badge, Stack } from "@mantine/core"
 import Image from "next/image"
 import Link from "next/link"
 
 const useStyles = createStyles((theme) => ({
   card: {
-    borderRight: `1px solid ${theme.black}`,
-    borderBottom: `1px solid ${theme.black}`,
+    border: `1px solid ${theme.black}`,
+    borderRadius: theme.radius.md,
     display: "flex",
     flexDirection: "column",
-    padding: theme.spacing.xl,
+    padding: 0,
     textDecoration: "none",
     color: theme.black,
     position: "relative",
     "&:hover": {
-      background: theme.colors.violet[0],
+      background: theme.colors[theme.primaryColor][0],
     },
   },
-  caption: {
+  description: {
+    paddingTop: theme.spacing.md,
+    paddingBottom: theme.spacing.md,
+    paddingLeft: theme.spacing.lg,
+    paddingRight: theme.spacing.lg,
+    gap: 0,
+  },
+  title: {
     "&:after": {
       content: "''",
       position: "absolute",
@@ -45,40 +41,42 @@ const useStyles = createStyles((theme) => ({
       zIndex: 2,
     },
   },
+  image: {
+    borderTopRightRadius: theme.radius.md,
+    borderTopLeftRadius: theme.radius.md,
+  },
 }))
 
-interface CardProps {}
+interface CardProps {
+  title: string
+  imageUrl: string
+  slug: number | string
+}
 
-const Card = ({}: CardProps) => {
+const Card = ({ title, imageUrl, slug }: CardProps) => {
   const { classes } = useStyles()
   return (
-    <Box className={classes.card}>
-      <Group spacing="xs" mb="xs" className={classes.links}>
-        <Tooltip label="https://figma.com">
-          <Anchor href="https://figma.com" target="_blank" rel="noreferrer">
-            <IconWorld size={20} />
-          </Anchor>
-        </Tooltip>
-      </Group>
-      <Link passHref href="/design-systems/1">
-        <Text className={classes.caption} component="a" weight={300} color="dimmed">
-          Vercel
-        </Text>
-      </Link>
-      <Text size={28} mb="xl" weight="bold">
-        Geist
-      </Text>
-      <AspectRatio pos="relative" ratio={16 / 9} mb="md">
-        <Image
-          alt="Vercel Geist"
-          layout="fill"
-          src="https://vercel.com/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1671111035%2Fgeist%2Fgeist-illustration-light.png&w=1920&q=100"
-        />
+    <div className={classes.card}>
+      <AspectRatio pos="relative" ratio={16 / 9}>
+        <Image alt={`${title} theme`} fill src={imageUrl} className={classes.image} />
       </AspectRatio>
-      <Group position="right">
-        <Badge variant="outline">₽299</Badge>
-      </Group>
-    </Box>
+      <Stack className={classes.description}>
+        <Text size={28} weight="bold" href={`/${slug}`} component={Link} className={classes.title}>
+          {title}
+        </Text>
+        <Group spacing="xs" mb="xs">
+          <Badge variant="outline" size="sm">
+            with Figma
+          </Badge>
+          <Badge variant="outline" size="sm">
+            calm
+          </Badge>
+          <Badge variant="outline" size="sm">
+            colorful
+          </Badge>
+        </Group>
+      </Stack>
+    </div>
   )
 }
 

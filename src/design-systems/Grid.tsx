@@ -2,9 +2,7 @@ import { Title, Text, createStyles, CardProps, SimpleGridProps, SimpleGrid } fro
 
 const useStyles = createStyles((theme) => ({
   grid: {
-    borderTop: `1px solid ${theme.black}`,
-    borderLeft: `1px solid ${theme.black}`,
-    gap: 0,
+    gap: theme.spacing.md,
   },
 }))
 

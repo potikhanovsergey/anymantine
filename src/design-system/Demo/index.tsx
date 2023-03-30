@@ -1,10 +1,11 @@
 import React from "react"
 import { useMantineTheme } from "@mantine/core"
 import { MantineDemo } from "./types"
-import CodeDemo from "../CodeDemo/CodeDemo"
-import Configurator from "../Configurator/Configurator"
+import DesignSystemProvider from "../DesignSystemProvider"
+import dynamic from "next/dynamic"
 
-export { CodeDemo, Configurator }
+const CodeDemo = dynamic(() => import("../CodeDemo/CodeDemo"))
+const Configurator = dynamic(() => import("../Configurator/Configurator"))
 
 type ConfiguratorProps = React.ComponentProps<typeof Configurator>
 type CodeDemoProps = React.ComponentProps<typeof CodeDemo>
@@ -31,7 +32,7 @@ export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
         {...demoProps}
       >
         {data.component && (
-          <>
+          <DesignSystemProvider>
             {data.wrapper ? (
               <data.wrapper>
                 <data.component />
@@ -39,7 +40,7 @@ export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
             ) : (
               <data.component />
             )}
-          </>
+          </DesignSystemProvider>
         )}
       </CodeDemo>
     )
@@ -50,7 +51,7 @@ export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
       <Configurator
         component={(props: any) =>
           data.component && (
-            <>
+            <DesignSystemProvider>
               {data.wrapper ? (
                 <data.wrapper>
                   <data.component {...props} />
@@ -58,7 +59,7 @@ export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
               ) : (
                 <data.component {...props} />
               )}
-            </>
+            </DesignSystemProvider>
           )
         }
         codeTemplate={data.codeTemplate}

@@ -38,7 +38,7 @@ export default function CodeDemo({
   }
 
   return (
-    <Box className={classes.root} mb="xl" mt="md">
+    <div className={classes.root}>
       <Paper
         p={spacing ? "md" : 0}
         className={cx(classes.demo, { [classes.withToggle]: toggle })}
@@ -56,7 +56,6 @@ export default function CodeDemo({
             <Tooltip
               label={`${visible ? "Hide" : "Show"} code`}
               position="left"
-              withArrow
               arrowSize={6}
               offset={6}
               positionDependencies={[visible]}
@@ -79,6 +78,6 @@ export default function CodeDemo({
           {code}
         </Prism>
       )}
-    </Box>
+    </div>
   )
 }

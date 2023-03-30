@@ -6,11 +6,11 @@ const { withBlitz } = require("@blitzjs/next")
  **/
 const config = {
   images: {
-    domains: ["vercel.com"],
+    domains: ["vercel.com", "messy.com.au", "paradigm.mail.ru"],
   },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  // typescript: {
+  //   ignoreBuildErrors: true,
+  // },
 }
 
 module.exports = withBlitz(config)

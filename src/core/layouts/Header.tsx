@@ -1,50 +1,67 @@
 import {
-  Container,
-  Group,
-  Header as MantineHeader,
-  Title,
   Button,
+  Group,
+  HeaderProps,
+  Header as MantineHeader,
+  Select,
+  Text,
   useMantineTheme,
 } from "@mantine/core"
-import { useSession } from "@blitzjs/auth"
-import { Suspense } from "react"
-import Nav from "./Nav"
-import Link from "../components/atoms/Link"
 import NextLink from "next/link"
+import { useSelector } from "@legendapp/state/react"
+import designSystems from "src/themes"
+import { appDesignThemeSlug } from "src/state"
+import dynamic from "next/dynamic"
+import { useRouter } from "next/router"
 
-const AuthButton = () => {
-  const session = useSession()
+// const ProfileMenuOrAuth = dynamic(() => import("./ProfileMenuOrAuth"), { ssr: false })
 
-  return !session.userId ? <Button size="xs">Войти в аккаунт</Button> : null
-}
-
-const Header = () => {
+const Header = (props: Omit<HeaderProps, "children" | "height">) => {
   const theme = useMantineTheme()
+
+  const appDesignThemeValue = useSelector(appDesignThemeSlug)
+  const router = useRouter()
+  const onSelectTheme = (value) => {
+    const slug = router.query.slug?.toString?.()
+    if (slug && slug !== value) {
+      void router.push(router.asPath.split(slug).join(value))
+    } else {
+      appDesignThemeSlug.set(value)
+    }
+  }
   return (
-    <MantineHeader
-      height={80}
-      sx={{
-        background: theme.colorScheme === "dark" ? "#161920" : theme.white,
-      }}
-    >
-      <Container size="xl" h="100%">
-        <Group h="100%" position="apart" noWrap>
-          <Group noWrap spacing="xl">
-            <Title size={24}>Marshadow</Title>
-            <Nav />
-          </Group>
-          <Group noWrap>
-            <NextLink href="/design-systems" passHref>
-              <Button size="xs" variant="outline" component="a">
-                Дизайн системы
-              </Button>
-            </NextLink>
-            <Suspense>
-              <AuthButton />
-            </Suspense>
-          </Group>
+    <MantineHeader height={64} px={theme.spacing.md} {...props}>
+      <Group h="100%" position="apart" noWrap>
+        <Group noWrap h="100%" spacing="lg">
+          <Text
+            size={24}
+            weight="bold"
+            sx={{
+              height: "100%",
+              display: "flex",
+              alignItems: "center",
+            }}
+          >
+            Animantine
+          </Text>
+          <Select
+            withinPortal
+            value={appDesignThemeValue}
+            onChange={onSelectTheme}
+            size="xs"
+            data={designSystems.map((ds) => ({ label: ds.title, value: ds.slug }))}
+          />
         </Group>
-      </Container>
+        <Group noWrap h="100%" spacing="xs">
+          <Button href="/" component={NextLink} size="xs" variant="secondary">
+            About
+          </Button>
+          <Button size="xs" href="/" component={NextLink}>
+            Themes
+          </Button>
+          {/* <ProfileMenuOrAuth /> */}
+        </Group>
+      </Group>
     </MantineHeader>
   )
 }
