@@ -94,6 +94,10 @@ export const atoms = [
     slug: "multi-select",
     label: "MultiSelect",
   },
+  {
+    slug: "segmented-control",
+    label: "SegmentedControl",
+  },
 ]
 
 export const usage = [
