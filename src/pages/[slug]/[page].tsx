@@ -15,6 +15,7 @@ import dynamic from "next/dynamic"
 import { Switch } from "@legendapp/state/react"
 import RadiusesAndShadows from "src/design-system/Tokens/RadiusesAndShadows"
 import Typography from "src/design-system/Tokens/Typography"
+import AtomAvatar from "src/design-system/Atoms/AtomAvatar"
 
 const ThemeColors = dynamic(() => import("src/design-system/Tokens/Colors/ThemeColors"))
 const States = dynamic(() => import("src/design-system/Tokens/States"))
@@ -68,6 +69,7 @@ const DesignSystemSubpage: BlitzPage = ({
             tooltip: () => <AtomTooltips />,
             paper: () => <AtomPapers />,
             anchor: () => <AtomAnchor />,
+            avatar: () => <AtomAvatar />,
             default: () => <></>,
           }}
         </Switch>
