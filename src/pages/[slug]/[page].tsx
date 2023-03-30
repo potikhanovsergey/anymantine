@@ -18,6 +18,7 @@ import Typography from "src/design-system/Tokens/Typography"
 import AtomAvatar from "src/design-system/Atoms/AtomAvatar"
 import AtomSlider from "src/design-system/Atoms/AtomSlider"
 import AtomChip from "src/design-system/Atoms/AtomChip"
+import AtomMultiSelect from "src/design-system/Atoms/AtomMultiSelect"
 
 const ThemeColors = dynamic(() => import("src/design-system/Tokens/Colors/ThemeColors"))
 const States = dynamic(() => import("src/design-system/Tokens/States"))
@@ -74,6 +75,7 @@ const DesignSystemSubpage: BlitzPage = ({
             avatar: () => <AtomAvatar />,
             slider: () => <AtomSlider />,
             chip: () => <AtomChip />,
+            "multi-select": () => <AtomMultiSelect />,
             default: () => <></>,
           }}
         </Switch>

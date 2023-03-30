@@ -90,6 +90,10 @@ export const atoms = [
     slug: "chip",
     label: "Chip",
   },
+  {
+    slug: "multi-select",
+    label: "MultiSelect",
+  },
 ]
 
 export const usage = [
