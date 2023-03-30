@@ -3,7 +3,7 @@ import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
 
 const codeTemplate = (props: string) => `
-import { Checkbox } from '@mantine/core';
+import { Avatar } from '@mantine/core';
 
 function Demo() {
   return (
@@ -39,17 +39,17 @@ const getAvatarConfigurator = (theme: MantineThemeOverride) =>
       {
         name: "color",
         type: "color",
-        initialValue: theme.components?.Checkbox?.defaultProps?.["color"] || theme.primaryColor,
+        initialValue: theme.components?.Avatar?.defaultProps?.["color"] || theme.primaryColor,
       },
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.Checkbox?.defaultProps?.["radius"] || theme.defaultRadius,
+        initialValue: theme.components?.Avatar?.defaultProps?.["radius"] || theme.defaultRadius,
       },
       {
         name: "size",
         type: "size",
-        initialValue: theme.components?.Checkbox?.defaultProps?.["size"] || "md",
+        initialValue: theme.components?.Avatar?.defaultProps?.["size"] || "md",
       },
       { name: "src", type: "string", initialValue: "" },
     ],

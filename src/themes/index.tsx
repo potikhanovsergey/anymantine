@@ -82,6 +82,10 @@ export const atoms = [
     slug: "avatar",
     label: "Avatar",
   },
+  {
+    slug: "slider",
+    label: "Slider",
+  },
 ]
 
 export const usage = [
