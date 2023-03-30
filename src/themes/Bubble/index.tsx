@@ -70,11 +70,6 @@ const BubbleTheme: MantineThemeOverride = {
     ],
   },
   components: {
-    Loader: {
-      defaultProps: {
-        color: "violet",
-      },
-    },
     Button: {
       defaultProps: {
         loaderPosition: "center",
@@ -244,19 +239,20 @@ const BubbleTheme: MantineThemeOverride = {
       },
     },
     Navbar: {
-      styles: (theme) => ({
+      styles: {
         root: {
           border: 0,
         },
-      }),
+      },
     },
     Header: {
-      styles: (theme) => ({
+      styles: {
         root: {
           borderBottom: 0,
         },
-      }),
+      },
     },
+
     Accordion: {
       defaultProps: {
         chevron: null,
@@ -281,10 +277,24 @@ const BubbleTheme: MantineThemeOverride = {
         },
       }),
     },
+    Input: {
+      styles: (theme) => ({
+        input: {
+          transition: "border-color .15s ease",
+          // "::placeholder": {
+          //   color: theme.colors[theme.primaryColor][3],
+          // },
+          "&:not(:disabled, :focus-within)": {
+            "&:hover": {
+              borderColor: theme.colors.gray[6],
+            },
+          },
+        },
+      }),
+    },
     NavbarLinks: {
       styles: (theme) => ({
         link: {
-          // width: "fit-content",
           height: rem(48),
           fontWeight: 500,
           color: theme.colors.gray[9],
