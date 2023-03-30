@@ -27,9 +27,7 @@ const BubbleTheme: MantineThemeOverride = {
     fontFamily: `var(--bubble-font), ${defaultFonts}`,
   },
   other: {
-    hover: {
-      menu: "rgba(0,16,61,.04)",
-    },
+    transition: ".15s ease",
   },
   colors: {
     gray: [
@@ -57,7 +55,7 @@ const BubbleTheme: MantineThemeOverride = {
       "#050505",
     ],
     blue: [
-      "#ccdffe",
+      "#edf2ff",
       "#99bffd",
       "#669ffb",
       "#4d8ffb",
@@ -101,6 +99,7 @@ const BubbleTheme: MantineThemeOverride = {
       },
       styles: (theme, params: ButtonStylesParams, { variant }) => ({
         root: {
+          transition: `all ${theme.other.transition}`,
           "&[data-loading]": {
             color: "transparent",
             svg: {
@@ -153,6 +152,7 @@ const BubbleTheme: MantineThemeOverride = {
       },
       styles: (theme, params: ActionIconStylesParams, { variant }) => ({
         root: {
+          transition: `all ${theme.other.transition}`,
           "&[data-loading]": {
             color: "transparent",
             svg: {
@@ -272,7 +272,7 @@ const BubbleTheme: MantineThemeOverride = {
           marginBottom: rem(4),
           borderRadius: theme.radius[theme.defaultRadius],
           "&:hover": {
-            backgroundColor: theme.other.hover.menu,
+            backgroundColor: theme.colors.gray[0],
           },
         },
       }),
@@ -280,10 +280,7 @@ const BubbleTheme: MantineThemeOverride = {
     Input: {
       styles: (theme) => ({
         input: {
-          transition: "border-color .15s ease",
-          // "::placeholder": {
-          //   color: theme.colors[theme.primaryColor][3],
-          // },
+          transition: `border-color ${theme.other.transition}`,
           "&:not(:disabled, :focus-within)": {
             "&:hover": {
               borderColor: theme.colors.gray[6],
@@ -299,12 +296,12 @@ const BubbleTheme: MantineThemeOverride = {
           fontWeight: 500,
           color: theme.colors.gray[9],
           "&[data-active=true]": {
-            background: "rgba(0,95,249,.08)",
+            background: theme.colors[theme.primaryColor][0],
             color: theme.colors[theme.primaryColor][5],
           },
           "&:not([data-active=true])": {
             "&:hover": {
-              background: theme.other.hover.menu,
+              background: theme.colors.gray[0],
             },
           },
         },
