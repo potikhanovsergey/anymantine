@@ -1,7 +1,7 @@
 import Head from "next/head"
 import React, { FC, useEffect } from "react"
 import { BlitzLayout } from "@blitzjs/next"
-import { AppShell, Center, Loader } from "@mantine/core"
+import { AppShell, Center, Loader, rem } from "@mantine/core"
 import Header from "./Header"
 import Navbar from "src/design-system/Navbar"
 import { DesignSystem, DesignTheme } from "src/state/design-system"
@@ -29,8 +29,8 @@ const DesignSystemLayout: BlitzLayout<{
       styles={{
         main: {
           paddingRight: 0,
-          paddingLeft: "var(--mantine-navbar-width)",
-          paddingTop: "var(--mantine-header-height)",
+          paddingLeft: `calc(var(--mantine-navbar-width) + ${rem(16)})`,
+          paddingTop: `calc(var(--mantine-header-height) + ${rem(16)})`,
         },
       }}
     >
