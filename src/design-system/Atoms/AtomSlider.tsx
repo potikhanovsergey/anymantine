@@ -13,7 +13,7 @@ const sliderComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Size",
       description: `Sliders come in five different sizes: extra-small, small, medium, large, and extra-large. Use the sizes sparingly; they should be used to create a hierarchy of importance within the page.`,
       children: (
-        <Stack w="75%">
+        <Stack align="center">
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Group w="100%" position="apart" key={size}>
               <Text color="dimmed">{size}</Text>
@@ -33,15 +33,13 @@ const sliderComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Disabled",
       description: `A slider in a disabled state shows that a slider exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that an action may become available later.`,
       children: (
-        <Group>
-          <Slider
-            marks={[{ value: 20 }, { value: 50 }, { value: 80 }]}
-            w="100%"
-            miw={200}
-            defaultValue={70}
-            disabled
-          />
-        </Group>
+        <Slider
+          marks={[{ value: 20 }, { value: 50 }, { value: 80 }]}
+          w="100%"
+          miw={200}
+          defaultValue={70}
+          disabled
+        />
       ),
     },
   ],

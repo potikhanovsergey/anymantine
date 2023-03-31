@@ -18,7 +18,7 @@ const paperComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Shadow",
       description: `The different size of the shadow changes the perception of the card: it is necessary to select it according to the overall composition and how important the information is. A large shadow will draw more attention.`,
       children: (
-        <Stack w="75%">
+        <Stack align="center">
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Group w="100%" position="apart" key={size} noWrap>
               <Text color="dimmed">{size}</Text>
