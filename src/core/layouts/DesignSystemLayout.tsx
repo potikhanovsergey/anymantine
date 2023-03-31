@@ -31,6 +31,7 @@ const DesignSystemLayout: BlitzLayout<{
           paddingRight: 0,
           paddingLeft: `calc(var(--mantine-navbar-width) + ${rem(16)})`,
           paddingTop: `calc(var(--mantine-header-height) + ${rem(16)})`,
+          overflowX: "hidden",
         },
       }}
     >
