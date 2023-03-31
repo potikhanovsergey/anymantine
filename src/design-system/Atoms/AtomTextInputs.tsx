@@ -1,4 +1,4 @@
-import { Group, SimpleGrid, Stack, TextInput, Text, Loader } from "@mantine/core"
+import { Group, Stack, TextInput, Text, Loader } from "@mantine/core"
 import getTextInputConfigurator from "src/design-system/Configurator/configurators/text-input"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
@@ -14,10 +14,12 @@ const textInputComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       description: `Text inputs should always have a label. In rare cases where context is sufficient and an accessibility expert has reviewed the design, the label could be undefined. These text inputs without a visible label should still include an aria-label in HTML (depending on the context, “aria-label” or “aria-labelledby”).`,
       children: (
         <Stack>
-          {["with label", "alone"].map((variant) => (
+          {["labeled", "standalone"].map((variant) => (
             <Stack key={variant}>
-              <Text color="dimmed">{variant}</Text>
-              <TextInput label={variant === "with label" && "Label"} placeholder="Placeholder..." />
+              <Text color="dimmed" tt="capitalize">
+                {variant}
+              </Text>
+              <TextInput label={variant === "labeled" && "Label"} placeholder="Placeholder..." />
             </Stack>
           ))}
         </Stack>
@@ -39,18 +41,14 @@ const textInputComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       description: `Text inputs are available in either fill or outline styles. An input in the fill style has a solid background, since it’s meant to be intentionally more prominent than an input in the outline style.`,
       children: (
         <Group position="apart">
-          <Stack>
-            <Text mb="sm" color="dimmed">
-              Filled
-            </Text>
-            <TextInput label="Label" placeholder="Placeholder..." variant="filled" />
-          </Stack>
-          <Stack>
-            <Text mb="sm" color="dimmed">
-              Outline
-            </Text>
-            <TextInput label="Label" placeholder="Placeholder..." variant="default" />
-          </Stack>
+          {["filled", "default"].map((variant) => (
+            <Stack key={variant}>
+              <Text mb="sm" color="dimmed" tt="capitalize">
+                {variant}
+              </Text>
+              <TextInput label="Label" placeholder="Placeholder..." variant={variant} />
+            </Stack>
+          ))}
         </Group>
       ),
     },
@@ -108,12 +106,12 @@ const AtomTextInputs = () => {
       preview={{
         configurator: textInputConfigurator,
         children: (
-          <SimpleGrid cols={2}>
+          <Stack>
             <TextInput label="Label" placeholder="Placeholder..." />
             <TextInput label="Label" defaultValue="Wrong value..." error="Error..." />
             <TextInput icon={<ExampleIcon />} label="Label" placeholder="Иконка слева" />
             <TextInput label="Label" description="Description..." placeholder="Placeholder..." />
-          </SimpleGrid>
+          </Stack>
         ),
       }}
     />

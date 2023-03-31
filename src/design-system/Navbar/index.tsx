@@ -1,4 +1,4 @@
-import { Navbar as MantineNavbar, NavbarProps, NavLink } from "@mantine/core"
+import { Navbar as MantineNavbar, NavbarProps, NavLink, ScrollArea } from "@mantine/core"
 import React from "react"
 import NavbarLinks from "./NavbarLinks"
 import { DesignSystemSubPage, atoms, tokens } from "src/themes"
@@ -28,16 +28,18 @@ const Navbar = ({
 }: Omit<NavbarProps, "children"> & { subPage?: DesignSystemSubPage }) => {
   return (
     <MantineNavbar {...navbarProps} width={{ base: 256 }}>
-      {sections.map((section) => (
-        <NavLink
-          label={section.label}
-          key={section.label}
-          childrenOffset={28}
-          defaultOpened={subPage?.type === section.label.toLowerCase()}
-        >
-          <NavbarLinks links={section.links} />
-        </NavLink>
-      ))}
+      <ScrollArea>
+        {sections.map((section) => (
+          <NavLink
+            label={section.label}
+            key={section.label}
+            childrenOffset={28}
+            defaultOpened={subPage?.type === section.label.toLowerCase()}
+          >
+            <NavbarLinks links={section.links} />
+          </NavLink>
+        ))}
+      </ScrollArea>
     </MantineNavbar>
   )
 }

@@ -280,7 +280,7 @@ const BubbleTheme: MantineThemeOverride = {
       styles: (theme) => ({
         input: {
           transition: `border-color ${theme.other.transition}`,
-          "&:not(:disabled, :focus-within)": {
+          "&:not(:disabled, :focus-within, [data-invalid])": {
             "&:hover": {
               borderColor: theme.colors.gray[6],
             },
