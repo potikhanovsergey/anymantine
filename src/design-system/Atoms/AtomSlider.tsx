@@ -20,7 +20,6 @@ const sliderComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
               <Slider
                 marks={[{ value: 20 }, { value: 50 }, { value: 80 }]}
                 maw={200}
-                tabIndex={-1}
                 size={size}
                 w="100%"
               />

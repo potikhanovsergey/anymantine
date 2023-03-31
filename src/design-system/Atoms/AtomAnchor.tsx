@@ -17,9 +17,7 @@ const anchorComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Group w="100%" position="apart" key={size}>
               <Text color="dimmed">{size}</Text>
-              <Anchor tabIndex={-1} size={size}>
-                Link
-              </Anchor>
+              <Anchor size={size}>Link</Anchor>
             </Group>
           ))}
         </Stack>
@@ -35,9 +33,7 @@ const anchorComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
               <Text color="dimmed">
                 {underline ? "Underline on hover" : "No underline on hover"}
               </Text>
-              <Anchor tabIndex={-1} underline={underline}>
-                Link
-              </Anchor>
+              <Anchor underline={underline}>Link</Anchor>
             </Stack>
           ))}
         </Group>

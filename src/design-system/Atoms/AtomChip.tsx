@@ -19,9 +19,7 @@ const chipComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
               <Text mb="xs" color="dimmed" tt="capitalize">
                 {variant}
               </Text>
-              <Chip tabIndex={-1} variant={variant}>
-                Chip
-              </Chip>
+              <Chip variant={variant}>Chip</Chip>
             </Stack>
           ))}
         </Group>
@@ -35,9 +33,7 @@ const chipComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Group w="100%" position="apart" key={size}>
               <Text color="dimmed">{size}</Text>
-              <Chip tabIndex={-1} size={size}>
-                Chip
-              </Chip>
+              <Chip size={size}>Chip</Chip>
             </Group>
           ))}
         </Stack>

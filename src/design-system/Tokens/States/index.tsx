@@ -25,7 +25,7 @@ const HoveredState = ({ variant }: { variant: string }) => {
   ]?.["@media (hover: hover)"]?.["&:hover"]
 
   return (
-    <Button tabIndex={-1} variant={variant} sx={hoverStyles}>
+    <Button variant={variant} sx={hoverStyles}>
       Action
     </Button>
   )
@@ -35,7 +35,6 @@ const FocusedState = ({ variant }: { variant: string }) => {
   const theme = useMantineTheme()
   return (
     <Button
-      tabIndex={-1}
       variant={variant}
       sx={{
         ...theme.fn.focusStyles()["&:focus"],
@@ -55,7 +54,7 @@ const States = () => {
       title: "Default",
       description: "This is the default state of a component or item when not interacted with.",
       children: variants.map((variant) => (
-        <Button tabIndex={-1} key={variant} variant={variant}>
+        <Button key={variant} variant={variant}>
           Action
         </Button>
       )),
@@ -78,11 +77,7 @@ const States = () => {
       description: `A disabled state is initiated by a component option. It shows that the item exists,
       but is not interactive in that circumstance. This state can be used to maintain layout
       continuity and to communicate that an action may become available later.`,
-      children: (
-        <Button tabIndex={-1} disabled>
-          Action
-        </Button>
-      ),
+      children: <Button disabled>Action</Button>,
     },
     {
       title: "Selected",
@@ -90,9 +85,9 @@ const States = () => {
       user’s choice.`,
       children: (
         <>
-          <Checkbox tabIndex={-1} defaultChecked />
-          <Radio tabIndex={-1} defaultChecked />
-          <Switch tabIndex={-1} defaultChecked />
+          <Checkbox defaultChecked />
+          <Radio defaultChecked />
+          <Switch defaultChecked />
         </>
       ),
     },
@@ -103,7 +98,6 @@ const States = () => {
       completed before moving forward or that an input is invalid.`,
       children: (
         <TextInput
-          tabIndex={-1}
           label="Password"
           defaultValue="qwerty"
           error="Password must be at least 8 characters"

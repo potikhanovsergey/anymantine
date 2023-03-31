@@ -45,7 +45,7 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
               Primary
             </Text>
             {[undefined, "green", "red", "gray"].map((color) => (
-              <Button tabIndex={-1} color={color} variant="primary" key={color || ""}>
+              <Button color={color} variant="primary" key={color || ""}>
                 Action
               </Button>
             ))}
@@ -55,7 +55,7 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
               Secondary
             </Text>
             {[undefined, "green", "red", "gray"].map((color) => (
-              <Button tabIndex={-1} color={color} variant="secondary" key={color || ""}>
+              <Button color={color} variant="secondary" key={color || ""}>
                 Action
               </Button>
             ))}
@@ -71,9 +71,7 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Group position="apart" key={size}>
               <Text color="dimmed">{size}</Text>
-              <Button tabIndex={-1} size={size}>
-                Action
-              </Button>
+              <Button size={size}>Action</Button>
             </Group>
           ))}
         </Stack>
@@ -87,7 +85,7 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
           {["primary", "secondary"].map((variant) => (
             <Box w="100%" key={variant}>
               <Text color="dimmed">{variant}</Text>
-              <Button tabIndex={-1} fullWidth variant={variant}>
+              <Button fullWidth variant={variant}>
                 Action
               </Button>
             </Box>
@@ -103,7 +101,7 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
           {["primary", "secondary"].map((variant) => (
             <Stack key={variant}>
               <Text color="dimmed">{variant}</Text>
-              <Button tabIndex={-1} loading variant={variant}>
+              <Button loading variant={variant}>
                 Action
               </Button>
             </Stack>
@@ -119,7 +117,7 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
           {["primary", "secondary"].map((variant) => (
             <Stack key={variant}>
               <Text color="dimmed">{variant}</Text>
-              <Button tabIndex={-1} disabled variant={variant}>
+              <Button disabled variant={variant}>
                 Action
               </Button>
             </Stack>

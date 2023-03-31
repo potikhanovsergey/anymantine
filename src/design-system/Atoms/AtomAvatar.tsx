@@ -19,9 +19,7 @@ const avatarComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
               <Text mb="sm" color="dimmed" tt="capitalize">
                 {variant}
               </Text>
-              <Avatar tabIndex={-1} variant={variant}>
-                DS
-              </Avatar>
+              <Avatar variant={variant}>DS</Avatar>
             </Stack>
           ))}
         </Group>
@@ -35,9 +33,7 @@ const avatarComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Group w="100%" position="apart" key={size}>
               <Text color="dimmed">{size}</Text>
-              <Avatar tabIndex={-1} size={size}>
-                DS
-              </Avatar>
+              <Avatar size={size}>DS</Avatar>
             </Group>
           ))}
         </Stack>

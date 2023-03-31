@@ -22,7 +22,7 @@ const paperComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Group w="100%" position="apart" key={size} noWrap>
               <Text color="dimmed">{size}</Text>
-              <Paper tabIndex={-1} withBorder={false} shadow={size}>
+              <Paper withBorder={false} shadow={size}>
                 {paperDataShortMock}
               </Paper>
             </Group>
@@ -38,7 +38,7 @@ const paperComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
           {["With border", "Without border"].map((variant) => (
             <Stack key={variant}>
               <Text color="dimmed">{variant}</Text>
-              <Paper tabIndex={-1} withBorder={variant === "With border"} shadow="md">
+              <Paper withBorder={variant === "With border"} shadow="md">
                 {paperDataShortMock}
               </Paper>
             </Stack>
