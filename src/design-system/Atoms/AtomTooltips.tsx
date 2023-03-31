@@ -3,6 +3,7 @@ import { IconHeart } from "@tabler/icons-react"
 import getTooltipConfigurator from "src/design-system/Configurator/configurators/tooltip"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
+import ExampleIcon from "../ExampleIcon"
 
 const tooltipDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Tooltip",
@@ -106,7 +107,7 @@ const AtomTooltips = () => {
           <Stack>
             <Tooltip label="Make love">
               <ActionIcon>
-                <IconHeart size="75%" stroke={1} />
+                <ExampleIcon />
               </ActionIcon>
             </Tooltip>
             <Text maw={400}>

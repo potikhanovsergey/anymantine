@@ -1,12 +1,9 @@
 import { Group, ActionIcon, Stack, Text, Tooltip } from "@mantine/core"
-import { IconHeart, IconSettings } from "@tabler/icons-react"
+import { IconHeart } from "@tabler/icons-react"
 import getActionIconConfigurator from "src/design-system/Configurator/configurators/action-icon"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
-
-const ExampleIcon = () => {
-  return <IconSettings size="75%" />
-}
+import ExampleIcon from "../ExampleIcon"
 
 const actionIconComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Action Icon",
@@ -123,7 +120,7 @@ const AtomActionIcons = () => {
           <Group>
             {["primary", "secondary", "transparent"].map((variant) => (
               <ActionIcon key={variant} variant={variant}>
-                <IconHeart stroke={1} size="75%" />
+                <ExampleIcon />
               </ActionIcon>
             ))}
           </Group>

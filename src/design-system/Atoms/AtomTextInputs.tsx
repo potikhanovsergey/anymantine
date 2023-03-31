@@ -1,8 +1,8 @@
 import { Group, SimpleGrid, Stack, TextInput, Text, Loader } from "@mantine/core"
-import { IconInfoCircle, IconPassword } from "@tabler/icons-react"
 import getTextInputConfigurator from "src/design-system/Configurator/configurators/text-input"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
+import ExampleIcon from "../ExampleIcon"
 
 const textInputComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Text Input",
@@ -87,7 +87,7 @@ const textInputComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "With icon",
       description:
         "Text input can display an icon in the left. It is useful for email input, for example.",
-      children: <TextInput icon={<IconPassword />} label="Label" placeholder="Иконка слева" />,
+      children: <TextInput icon={<ExampleIcon />} label="Label" placeholder="Иконка слева" />,
     },
     {
       title: "With right section",
@@ -111,12 +111,7 @@ const AtomTextInputs = () => {
           <SimpleGrid cols={2}>
             <TextInput label="Label" placeholder="Placeholder..." />
             <TextInput label="Label" defaultValue="Wrong value..." error="Error..." />
-            <TextInput icon={<IconPassword />} label="Label" placeholder="Иконка слева" />
-            <TextInput
-              rightSection={<IconInfoCircle stroke={1} />}
-              label="Label"
-              placeholder="Иконка справа"
-            />
+            <TextInput icon={<ExampleIcon />} label="Label" placeholder="Иконка слева" />
             <TextInput label="Label" description="Description..." placeholder="Placeholder..." />
           </SimpleGrid>
         ),
