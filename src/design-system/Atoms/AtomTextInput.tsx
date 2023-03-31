@@ -40,23 +40,23 @@ const textInputComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Variants",
       description: `Text inputs are available in either fill or outline styles. An input in the fill style has a solid background, since it’s meant to be intentionally more prominent than an input in the outline style.`,
       children: (
-        <Group position="apart">
+        <Stack>
           {["filled", "default"].map((variant) => (
-            <Stack key={variant}>
-              <Text mb="sm" color="dimmed" tt="capitalize">
+            <Stack spacing="xs" key={variant}>
+              <Text color="dimmed" tt="capitalize">
                 {variant}
               </Text>
               <TextInput label="Label" placeholder="Placeholder..." variant={variant} />
             </Stack>
           ))}
-        </Group>
+        </Stack>
       ),
     },
     {
       title: "Size",
       description: `Text inputs come in five different sizes: extra-small, small, medium, large, and extra-large. Use the sizes sparingly; they should be used to create a hierarchy of importance within the page.`,
       children: (
-        <Stack w="75%">
+        <Stack align="center">
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Group w="100%" position="apart" key={size}>
               <Text color="dimmed">{size}</Text>
