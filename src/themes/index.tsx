@@ -1,6 +1,8 @@
 import Marshmallow, { marshmallowFont } from "./Marshmallow"
 import Ghost, { ghostFont } from "./Ghost"
 import Bubble, { bubbleFont } from "./Bubble"
+import { MantineThemeOverride } from "@mantine/core"
+import { NextFontWithVariable } from "next/dist/compiled/@next/font"
 
 export const tokens = [
   {
@@ -115,10 +117,40 @@ export const dsSubPages = [
 
 export type DesignSystemSubPage = (typeof dsSubPages)[number]
 
+export type Theme = {
+  theme: MantineThemeOverride
+  font: {
+    nextFont: NextFontWithVariable
+    label: string
+    source: string
+  }
+}
+
 export const themes = {
-  bubble: { theme: Bubble, font: bubbleFont },
-  marshmallow: { theme: Marshmallow, font: marshmallowFont },
-  ghost: { theme: Ghost, font: ghostFont },
+  bubble: {
+    theme: Bubble,
+    font: {
+      nextFont: bubbleFont,
+      label: "Karla",
+      source: "https://fonts.google.com/specimen/Karla?query=karla",
+    },
+  },
+  marshmallow: {
+    theme: Marshmallow,
+    font: {
+      nextFont: marshmallowFont,
+      label: "Nunito Sans",
+      source: "https://fonts.google.com/specimen/Nunito+Sans?query=nunito",
+    },
+  },
+  ghost: {
+    theme: Ghost,
+    font: {
+      nextFont: ghostFont,
+      label: "Inter",
+      source: "https://fonts.google.com/specimen/Inter?query=inter",
+    },
+  },
 }
 
 const designSystems = [

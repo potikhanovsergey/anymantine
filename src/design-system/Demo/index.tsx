@@ -30,12 +30,16 @@ export function Demo({ data, demoProps, configuratorProps }: DemoProps) {
         {...data.demoProps}
         {...demoProps}
       >
-        {data.component && data.wrapper ? (
-          <data.wrapper>
-            <data.component />
-          </data.wrapper>
-        ) : (
-          <data.component />
+        {data.component && (
+          <>
+            {data.wrapper ? (
+              <data.wrapper>
+                <data.component />
+              </data.wrapper>
+            ) : (
+              <data.component />
+            )}
+          </>
         )}
       </CodeDemo>
     )

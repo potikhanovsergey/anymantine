@@ -1,9 +1,11 @@
+import { useSelector } from "@legendapp/state/react"
 import { Stack, Title, TitleOrder, useMantineTheme, Text, Anchor } from "@mantine/core"
 import Link from "src/core/components/atoms/Link"
 import { ExampleProps } from "src/design-system/Examples/Example"
 import Examples from "src/design-system/Examples/Examples"
 import PageSubtitle from "src/design-system/layout/PageSubtitle"
 import PageTitle from "src/design-system/layout/PageTitle"
+import { DesignSystem } from "src/state/design-system"
 
 const Headings = () => {
   const theme = useMantineTheme()
@@ -80,6 +82,8 @@ const Typography = () => {
       ),
     },
   ]
+
+  const font = useSelector(DesignSystem.font)
   return (
     <>
       <PageTitle>Typography</PageTitle>
@@ -87,9 +91,9 @@ const Typography = () => {
         <div>
           <PageSubtitle>Font family</PageSubtitle>
           <Text>
-            This theme uses <strong>Karla</strong> font-family. It&apos;s free and can be downloaded
-            from{" "}
-            <Link target="_blank" href="https://fonts.google.com/specimen/Karla?query=karla">
+            This theme uses <strong>{font.label}</strong> font-family. It&apos;s free and can be
+            downloaded from{" "}
+            <Link target="_blank" href={font.source}>
               Google Fonts.
             </Link>
           </Text>
