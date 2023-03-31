@@ -253,9 +253,6 @@ const BubbleTheme: MantineThemeOverride = {
     },
 
     Accordion: {
-      defaultProps: {
-        chevron: null,
-      },
       styles: (theme) => ({
         content: {
           paddingTop: 0,
@@ -269,7 +266,6 @@ const BubbleTheme: MantineThemeOverride = {
         },
         control: {
           marginBottom: rem(4),
-          borderRadius: theme.radius[theme.defaultRadius],
           "&:hover": {
             backgroundColor: theme.colors.gray[0],
           },

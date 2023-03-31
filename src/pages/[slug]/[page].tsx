@@ -15,9 +15,6 @@ import dynamic from "next/dynamic"
 import { Switch } from "@legendapp/state/react"
 import RadiusesAndShadows from "src/design-system/Tokens/RadiusesAndShadows"
 import Typography from "src/design-system/Tokens/Typography"
-import AtomAvatar from "src/design-system/Atoms/AtomAvatar"
-import AtomSlider from "src/design-system/Atoms/AtomSlider"
-import AtomChip from "src/design-system/Atoms/AtomChip"
 
 const ColorsPage = dynamic(() => import("src/design-system/Tokens/Colors/ColorsPage"))
 const States = dynamic(() => import("src/design-system/Tokens/States"))
@@ -35,6 +32,10 @@ const AtomTextInputs = dynamic(() => import("src/design-system/Atoms/AtomTextInp
 const AtomTooltips = dynamic(() => import("src/design-system/Atoms/AtomTooltip"))
 const AtomPapers = dynamic(() => import("src/design-system/Atoms/AtomPaper"))
 const AtomAnchor = dynamic(() => import("src/design-system/Atoms/AtomAnchor"))
+const AtomAvatar = dynamic(() => import("src/design-system/Atoms/AtomAvatar"))
+const AtomSlider = dynamic(() => import("src/design-system/Atoms/AtomSlider"))
+const AtomChip = dynamic(() => import("src/design-system/Atoms/AtomChip"))
+const AtomAccordion = dynamic(() => import("src/design-system/Atoms/AtomAccordion"))
 
 const DesignSystemSubpage: BlitzPage = ({
   slug,
@@ -73,6 +74,7 @@ const DesignSystemSubpage: BlitzPage = ({
             avatar: () => <AtomAvatar />,
             slider: () => <AtomSlider />,
             chip: () => <AtomChip />,
+            accordion: () => <AtomAccordion />,
             default: () => <></>,
           }}
         </Switch>
