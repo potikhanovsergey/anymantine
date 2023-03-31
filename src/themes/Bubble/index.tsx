@@ -179,8 +179,8 @@ const BubbleTheme: MantineThemeOverride = {
     },
     Avatar: {
       defaultProps: {
-        radius: 1000,
-        color: "violet",
+        children: <Text size="lg">🐶</Text>,
+        radius: "xl",
       },
     },
     Paper: {
