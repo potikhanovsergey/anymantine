@@ -1,4 +1,4 @@
-import {
+const mock = `import {
   MantineThemeOverride,
   Text,
   rem,
@@ -15,16 +15,16 @@ export const bubbleFont = Karla({
   preload: false,
 })
 
-const defaultFonts = `-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji`
+const defaultFonts = \`-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji\`
 
 const BubbleTheme: MantineThemeOverride = {
   cursorType: "pointer",
   primaryColor: "blue",
   defaultRadius: "md",
   primaryShade: 5,
-  fontFamily: `var(--bubble-font), ${defaultFonts}`,
+  fontFamily: \`var(--bubble-font), \${defaultFonts}\`,
   headings: {
-    fontFamily: `var(--bubble-font), ${defaultFonts}`,
+    fontFamily: \`var(--bubble-font), \${defaultFonts}\`,
   },
   other: {
     transition: ".15s ease",
@@ -99,7 +99,7 @@ const BubbleTheme: MantineThemeOverride = {
       },
       styles: (theme, params: ButtonStylesParams, { variant }) => ({
         root: {
-          transition: `all ${theme.other.transition}`,
+          transition: \`all \${theme.other.transition}\`,
           "&[data-loading]": {
             color: "transparent",
             svg: {
@@ -114,7 +114,7 @@ const BubbleTheme: MantineThemeOverride = {
             ".mantine-Button-centerLoader": {
               opacity: 1,
             },
-            [`& .${getStylesRef("rightIcon")}, .${getStylesRef("leftIcon")}`]: {
+            [\`& .\${getStylesRef("rightIcon")}, .\${getStylesRef("leftIcon")}\`]: {
               opacity: 0,
             },
           },
@@ -152,7 +152,7 @@ const BubbleTheme: MantineThemeOverride = {
       },
       styles: (theme, params: ActionIconStylesParams, { variant }) => ({
         root: {
-          transition: `all ${theme.other.transition}`,
+          transition: \`all \${theme.other.transition}\`,
           "&[data-loading]": {
             color: "transparent",
             svg: {
@@ -170,7 +170,7 @@ const BubbleTheme: MantineThemeOverride = {
             ".mantine-Button-centerLoader": {
               opacity: 1,
             },
-            [`& .${getStylesRef("rightIcon")}, .${getStylesRef("leftIcon")}`]: {
+            [\`& .\${getStylesRef("rightIcon")}, .\${getStylesRef("leftIcon")}\`]: {
               opacity: 0,
             },
           },
@@ -179,8 +179,9 @@ const BubbleTheme: MantineThemeOverride = {
     },
     Avatar: {
       defaultProps: {
+        radius: 1000,
         children: <Text size="lg">🐶</Text>,
-        radius: "xl",
+        color: "violet",
       },
     },
     Paper: {
@@ -279,7 +280,7 @@ const BubbleTheme: MantineThemeOverride = {
     Input: {
       styles: (theme) => ({
         input: {
-          transition: `border-color ${theme.other.transition}`,
+          transition: \`border-color \${theme.other.transition}\`,
           "&:not(:disabled, :focus-within)": {
             "&:hover": {
               borderColor: theme.colors.gray[6],
@@ -317,4 +318,6 @@ const BubbleTheme: MantineThemeOverride = {
   }),
 }
 
-export default BubbleTheme
+export default BubbleTheme`
+
+export default mock
