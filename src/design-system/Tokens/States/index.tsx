@@ -9,6 +9,8 @@ import {
   Radio,
   Switch,
   TextInput,
+  Group,
+  Center,
 } from "@mantine/core"
 import { DesignTheme } from "src/state/design-system"
 import PageTitle from "src/design-system/layout/PageTitle"
@@ -53,42 +55,62 @@ const States = () => {
     {
       title: "Default",
       description: "This is the default state of a component or item when not interacted with.",
-      children: variants.map((variant) => (
-        <Button key={variant} variant={variant}>
-          Action
-        </Button>
-      )),
+      children: (
+        <Group position="center">
+          {variants.map((variant) => (
+            <Button key={variant} variant={variant}>
+              Action
+            </Button>
+          ))}
+        </Group>
+      ),
     },
     {
       title: "Hover",
       description: `A hover state is initiated by the user and appears when the user places their cursor
       over an interactive item.`,
-      children: variants.map((variant) => <HoveredState variant={variant} key={variant} />),
+      children: (
+        <Group position="center">
+          {variants.map((variant) => (
+            <HoveredState variant={variant} key={variant} />
+          ))}
+        </Group>
+      ),
     },
     {
       title: "Keyboard Focus",
       description: `Keyboard focus is initiated by the user and highlights an item when navigated using a
       keyboard. The keyboard focus state typically takes the component’s visual hover state
       and adds an additional indication, most commonly a 2px blue ring around the component.`,
-      children: variants.map((variant) => <FocusedState variant={variant} key={variant} />),
+      children: (
+        <Group position="center">
+          {variants.map((variant) => (
+            <FocusedState variant={variant} key={variant} />
+          ))}
+        </Group>
+      ),
     },
     {
       title: "Disabled",
       description: `A disabled state is initiated by a component option. It shows that the item exists,
       but is not interactive in that circumstance. This state can be used to maintain layout
       continuity and to communicate that an action may become available later.`,
-      children: <Button disabled>Action</Button>,
+      children: (
+        <Center>
+          <Button disabled>Action</Button>
+        </Center>
+      ),
     },
     {
       title: "Selected",
       description: `A selected state is initiated by a component option. It is used to communicate a
       user’s choice.`,
       children: (
-        <>
+        <Stack align="center">
           <Checkbox defaultChecked />
           <Radio defaultChecked />
           <Switch defaultChecked />
-        </>
+        </Stack>
       ),
     },
     {
