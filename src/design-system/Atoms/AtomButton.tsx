@@ -67,7 +67,7 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Size",
       description: `Buttons come in five different sizes: extra-small, small, medium, large, and extra-large. Use the sizes sparingly; they should be used to create a hierarchy of importance within the page.`,
       children: (
-        <Stack align="center">
+        <Stack>
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Group position="apart" key={size}>
               <Text color="dimmed">{size}</Text>

@@ -45,9 +45,9 @@ const radioComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Size",
       description: `Radio buttons come in five different sizes: extra-small, small, medium, large, and extra-large. Use the sizes sparingly; they should be used to create a hierarchy of importance within the page.`,
       children: (
-        <Stack align="center">
+        <Stack>
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
-            <Group w="100%" position="center" key={size}>
+            <Group w="100%" position="apart" key={size}>
               <Text color="dimmed">{size}</Text>
               <Radio value="kiwi" label="Kiwi" size={size} />
             </Group>
@@ -90,10 +90,9 @@ const radioComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
             defaultValue="mango"
           >
             <Group mt="xs">
-              <Radio value="kiwi" label="Kiwi" />
-              <Radio value="mango" label="Mango" />
-              <Radio value="apple" label="Apple" />
-              <Radio value="banana" label="Banana" />
+              {["Kiwi", "Mango", "Apple", "Banana"].map((label) => (
+                <Radio key={label} value={label} label={label} />
+              ))}
             </Group>
           </Radio.Group>
         </Center>

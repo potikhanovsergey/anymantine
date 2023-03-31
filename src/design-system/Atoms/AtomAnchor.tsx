@@ -13,9 +13,9 @@ const anchorComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Size",
       description: `Anchors come in five different sizes: extra-small, small, medium, large, and extra-large. Use the sizes sparingly; they should be used to create a hierarchy of importance within the page.`,
       children: (
-        <Stack align="center">
+        <Stack>
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
-            <Group w="100%" position="center" key={size}>
+            <Group w="100%" position="apart" key={size}>
               <Text color="dimmed">{size}</Text>
               <Anchor tabIndex={-1} size={size}>
                 Link
