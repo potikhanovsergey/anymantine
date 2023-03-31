@@ -23,8 +23,8 @@ const ItemPreview = ({ children, configurator }: ItemPreviewProps) => {
         <PageSubtitle mb={0}>Quick preview</PageSubtitle>
         <Tooltip
           label={
-            <Show if={configuratorOpened} else="Открыть конфигуратор">
-              Скрыть конфигуратор
+            <Show if={configuratorOpened} else="Open configurator">
+              Hide configurator
             </Show>
           }
         >
