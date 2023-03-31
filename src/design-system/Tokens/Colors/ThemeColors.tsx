@@ -4,6 +4,7 @@ import { ColorsGroup } from "./ColorsGroup"
 import { observer, useComputed, useObservable } from "@legendapp/state/react"
 import DesignSystemProvider from "src/design-system/DesignSystemProvider"
 import PrimaryColor from "./PrimaryColor"
+import PageTitle from "src/design-system/layout/PageTitle"
 
 const ThemeSwatches = ({
   onMouseLeave,
@@ -41,9 +42,7 @@ const ThemeColors = ({ colors }: { colors: string[] }) => {
 
   return (
     <div>
-      <Title order={1} mb="xl">
-        Colors
-      </Title>
+      <PageTitle>Colors</PageTitle>
       <Stack spacing={64}>
         <div>
           <Title order={2} mb="md">

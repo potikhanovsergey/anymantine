@@ -13,6 +13,7 @@ import {
 import { DesignTheme } from "src/state/design-system"
 import Example from "../Example"
 import DesignSystemProvider from "src/design-system/DesignSystemProvider"
+import PageTitle from "src/design-system/layout/PageTitle"
 
 const HoveredState = ({ variant }: { variant: string }) => {
   const buttonStyles = DesignTheme.get?.()?.components?.Button
@@ -47,10 +48,8 @@ const States = () => {
   const buttonStyles = DesignTheme.get?.()?.components?.Button
 
   return (
-    <div>
-      <Title order={1} mb="xl">
-        States
-      </Title>
+    <>
+      <PageTitle>States</PageTitle>
       <Text mb="md">
         A state communicates the status or potential of a component or an interactive item to the
         user.
@@ -121,7 +120,7 @@ const States = () => {
           />
         </Example>
       </Stack>
-    </div>
+    </>
   )
 }
 

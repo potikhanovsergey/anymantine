@@ -3,6 +3,7 @@ import ItemPreview, { ItemPreviewProps } from "../ItemPreview"
 import Example, { ExampleProps } from "../Tokens/Example"
 import Link from "next/link"
 import Mantine from "src/core/components/icons/Mantine"
+import PageTitle from "../layout/PageTitle"
 
 export interface ComponentDocsProps {
   title: string
@@ -22,17 +23,7 @@ const ComponentDocs = ({
   return (
     <Stack spacing={40}>
       <div>
-        <Group spacing="xs" mb="md">
-          <Title order={1}>{title}</Title>
-          {mantineLink && (
-            <Tooltip label={mantineLink}>
-              <Box component={Link} lh={0} href={mantineLink} target="_blank">
-                <Mantine />
-              </Box>
-            </Tooltip>
-          )}
-        </Group>
-
+        <PageTitle mantineLink={mantineLink}>{title}</PageTitle>
         <Text maw="75%">{description}</Text>
       </div>
       <ItemPreview {...preview} />
