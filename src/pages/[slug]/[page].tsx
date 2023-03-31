@@ -18,24 +18,22 @@ import Typography from "src/design-system/Tokens/Typography"
 import AtomAvatar from "src/design-system/Atoms/AtomAvatar"
 import AtomSlider from "src/design-system/Atoms/AtomSlider"
 import AtomChip from "src/design-system/Atoms/AtomChip"
-import ColorsPage from "src/design-system/Tokens/Colors/ColorsPage"
 
-const ThemeColors = dynamic(() => import("src/design-system/Tokens/Colors/ThemeColors"))
+const ColorsPage = dynamic(() => import("src/design-system/Tokens/Colors/ColorsPage"))
 const States = dynamic(() => import("src/design-system/Tokens/States"))
 const Icons = dynamic(() => import("src/design-system/Tokens/Icons"))
-
-const AtomButtons = dynamic(() => import("src/design-system/Atoms/AtomButtons"))
-const AtomBadges = dynamic(() => import("src/design-system/Atoms/AtomBadges"))
-const AtomActionIcons = dynamic(() => import("src/design-system/Atoms/AtomActionIcons"))
-const AtomCheckboxes = dynamic(() => import("src/design-system/Atoms/AtomCheckboxes"))
-const AtomRadios = dynamic(() => import("src/design-system/Atoms/AtomRadios"))
-const AtomSelects = dynamic(() => import("src/design-system/Atoms/AtomSelects"))
-const AtomSkeletons = dynamic(() => import("src/design-system/Atoms/AtomSkeletons"))
-const AtomSwitches = dynamic(() => import("src/design-system/Atoms/AtomSwitches"))
-const AtomTextareas = dynamic(() => import("src/design-system/Atoms/AtomTextareas"))
-const AtomTextInputs = dynamic(() => import("src/design-system/Atoms/AtomTextInputs"))
-const AtomTooltips = dynamic(() => import("src/design-system/Atoms/AtomTooltips"))
-const AtomPapers = dynamic(() => import("src/design-system/Atoms/AtomPapers"))
+const AtomButtons = dynamic(() => import("src/design-system/Atoms/AtomButton"))
+const AtomBadges = dynamic(() => import("src/design-system/Atoms/AtomBadge"))
+const AtomActionIcons = dynamic(() => import("src/design-system/Atoms/AtomActionIcon"))
+const AtomCheckboxes = dynamic(() => import("src/design-system/Atoms/AtomCheckbox"))
+const AtomRadios = dynamic(() => import("src/design-system/Atoms/AtomRadio"))
+const AtomSelects = dynamic(() => import("src/design-system/Atoms/AtomSelect"))
+const AtomSkeletons = dynamic(() => import("src/design-system/Atoms/AtomSkeleton"))
+const AtomSwitches = dynamic(() => import("src/design-system/Atoms/AtomSwitch"))
+const AtomTextareas = dynamic(() => import("src/design-system/Atoms/AtomTextarea"))
+const AtomTextInputs = dynamic(() => import("src/design-system/Atoms/AtomTextInput"))
+const AtomTooltips = dynamic(() => import("src/design-system/Atoms/AtomTooltip"))
+const AtomPapers = dynamic(() => import("src/design-system/Atoms/AtomPaper"))
 const AtomAnchor = dynamic(() => import("src/design-system/Atoms/AtomAnchor"))
 
 const DesignSystemSubpage: BlitzPage = ({

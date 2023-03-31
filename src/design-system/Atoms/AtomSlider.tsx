@@ -1,9 +1,6 @@
-import { Group, Button, Text, Stack, Avatar, Slider } from "@mantine/core"
-import getButtonConfigurator from "src/design-system/Configurator/configurators/button"
+import { Group, Text, Stack, Slider } from "@mantine/core"
 import { DesignTheme } from "src/state/design-system"
-import { IconDownload, IconHeart, IconStar } from "@tabler/icons-react"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
-import getAvatarConfigurator from "../Configurator/configurators/avatar"
 import getSliderConfigurator from "../Configurator/configurators/slider"
 
 const sliderComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {

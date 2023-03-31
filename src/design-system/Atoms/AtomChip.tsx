@@ -1,9 +1,6 @@
-import { Group, Button, Text, Stack, Avatar, Chip } from "@mantine/core"
-import getButtonConfigurator from "src/design-system/Configurator/configurators/button"
+import { Group, Text, Stack, Chip } from "@mantine/core"
 import { DesignTheme } from "src/state/design-system"
-import { IconDownload, IconHeart, IconStar } from "@tabler/icons-react"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
-import getAvatarConfigurator from "../Configurator/configurators/avatar"
 import getChipConfigurator from "../Configurator/configurators/chip"
 
 const chipComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
@@ -17,36 +14,16 @@ const chipComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       description: `Chips are available in either light, fill or outline styles. An avatar in the fill style has a solid background, since it’s meant to be intentionally more prominent than an avatar in the outline style. Light style simular to filled, but it is not so bright.`,
       children: (
         <Group position="apart">
-          <Stack>
-            <Text mb="sm" color="dimmed">
-              Light
-            </Text>
-            {[undefined, "green", "red", "gray"].map((color) => (
-              <Chip tabIndex={-1} color={color} variant="light" key={color || ""}>
+          {["light", "filled", "outline"].map((variant) => (
+            <Stack key={variant}>
+              <Text mb="xs" color="dimmed" tt="capitalize">
+                {variant}
+              </Text>
+              <Chip tabIndex={-1} variant={variant}>
                 Chip
               </Chip>
-            ))}
-          </Stack>
-          <Stack>
-            <Text mb="sm" color="dimmed">
-              Filled
-            </Text>
-            {[undefined, "green", "red", "gray"].map((color) => (
-              <Chip tabIndex={-1} color={color} variant="filled" key={color || ""}>
-                Chip
-              </Chip>
-            ))}
-          </Stack>
-          <Stack>
-            <Text mb="sm" color="dimmed">
-              Outline
-            </Text>
-            {[undefined, "green", "red", "gray"].map((color) => (
-              <Chip tabIndex={-1} color={color} variant="outline" key={color || ""}>
-                Chip
-              </Chip>
-            ))}
-          </Stack>
+            </Stack>
+          ))}
         </Group>
       ),
     },
@@ -66,6 +43,33 @@ const chipComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
         </Stack>
       ),
     },
+    {
+      title: "Chip.Group",
+      description:
+        "Chip.Group component can be used to display a list of related chips. You may want to use it everytime you have more than one chip.",
+      children: (
+        <>
+          <Text color="dimmed">Default</Text>
+          <Chip.Group>
+            <Group position="center">
+              <Chip value="1">Single chip</Chip>
+              <Chip value="2">Can be selected</Chip>
+              <Chip value="3">At a time</Chip>
+            </Group>
+          </Chip.Group>
+          <Text color="dimmed">
+            With <strong>multiple</strong> prop
+          </Text>
+          <Chip.Group multiple>
+            <Group position="center">
+              <Chip value="1">Multiple chips</Chip>
+              <Chip value="2">Can be selected</Chip>
+              <Chip value="3">At a time</Chip>
+            </Group>
+          </Chip.Group>
+        </>
+      ),
+    },
   ],
 }
 
@@ -78,7 +82,7 @@ const AtomChip = () => {
         configurator: chipConfigurator,
         children: (
           <Group>
-            <Chip>Awesome chip</Chip>
+            <Chip variant="outline">Awesome chip</Chip>
             <Chip variant="light">Awesome chip</Chip>
             <Chip variant="filled">Awesome chip</Chip>
           </Group>

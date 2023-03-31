@@ -1,4 +1,4 @@
-import { Group, Button, Text, Stack } from "@mantine/core"
+import { Group, Button, Text, Stack, Box } from "@mantine/core"
 import getButtonConfigurator from "src/design-system/Configurator/configurators/button"
 import { DesignTheme } from "src/state/design-system"
 import { IconDownload } from "@tabler/icons-react"
@@ -15,7 +15,7 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Label and icon",
       description: `Buttons should always have a label, unless they are only using an icon that is universally understood and accessible. They can have an optional icon, but it should not be used for decoration. Use an icon only when necessary and when it has a strong association with the label text.`,
       children: (
-        <Stack>
+        <Stack align="center">
           <Button leftIcon={<IconDownload size={16} />}>With icon</Button>
           <Button>Without icon</Button>
         </Stack>
@@ -25,7 +25,7 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Negative button",
       description: `The negative button is for emphasizing actions that can be destructive or have negative consequences if taken. Use it sparingly.`,
       children: (
-        <Stack>
+        <Stack align="center">
           <Button color="red" variant="primary">
             Destructive action
           </Button>
@@ -39,7 +39,7 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Variants",
       description: `Buttons are available in either fill or outline styles. A button in the fill style has a solid background, since it’s meant to be intentionally more prominent than a button in the outline style.`,
       children: (
-        <Group position="apart">
+        <Group position="center" noWrap>
           <Stack>
             <Text mb="sm" color="dimmed">
               Primary
@@ -67,9 +67,9 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Size",
       description: `Buttons come in five different sizes: extra-small, small, medium, large, and extra-large. Use the sizes sparingly; they should be used to create a hierarchy of importance within the page.`,
       children: (
-        <Stack w="75%">
+        <Stack align="center">
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
-            <Group w="100%" position="apart" key={size}>
+            <Group position="apart" key={size}>
               <Text color="dimmed">{size}</Text>
               <Button tabIndex={-1} size={size}>
                 Action
@@ -83,14 +83,14 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Full width",
       description: `By default, the button size depends on the label and/or icon inside of each button. When a button is justified, it takes up the entire available container width.`,
       children: (
-        <Stack w="75%">
+        <Stack align="center">
           {["primary", "secondary"].map((variant) => (
-            <Group w="100%" position="apart" key={variant}>
+            <Box w="100%" key={variant}>
               <Text color="dimmed">{variant}</Text>
               <Button tabIndex={-1} fullWidth variant={variant}>
                 Action
               </Button>
-            </Group>
+            </Box>
           ))}
         </Stack>
       ),
@@ -99,7 +99,7 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Loading",
       description: `Buttons can indicate that a quick progress taking place (e.g., saving settings on a server). In this case, the label and optional icon disappear and a progress circle appears. The progress circle always shows an indeterminate progress.`,
       children: (
-        <Group>
+        <Group position="center">
           {["primary", "secondary"].map((variant) => (
             <Stack key={variant}>
               <Text color="dimmed">{variant}</Text>
@@ -115,7 +115,7 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Disabled",
       description: `A button in a disabled state shows that an action exists, but is not available in that circumstance. This state can be used to maintain layout continuity and to communicate that an action may become available later.`,
       children: (
-        <Group>
+        <Group position="center">
           {["primary", "secondary"].map((variant) => (
             <Stack key={variant}>
               <Text color="dimmed">{variant}</Text>
