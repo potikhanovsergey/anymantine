@@ -288,20 +288,27 @@ const BubbleTheme: MantineThemeOverride = {
         },
       }),
     },
-    NavbarLinks: {
+    NavLink: {
       styles: (theme) => ({
-        link: {
-          height: rem(48),
+        root: {
           fontWeight: 500,
+          borderRadius: theme.radius[theme.defaultRadius],
           color: theme.colors.gray[9],
+          backgroundColor: theme.white,
           "&[data-active=true]": {
             background: theme.colors[theme.primaryColor][0],
             color: theme.colors[theme.primaryColor][5],
+            "&:hover": {
+              background: theme.colors[theme.primaryColor][0],
+            },
           },
           "&:not([data-active=true])": {
             "&:hover": {
               background: theme.colors.gray[0],
             },
+          },
+          "&:not(:last-child)": {
+            marginBottom: rem(4),
           },
         },
       }),
