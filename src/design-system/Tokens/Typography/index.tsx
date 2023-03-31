@@ -14,7 +14,10 @@ const Headings = () => {
           key={heading}
           order={(i + 1) as TitleOrder}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing.
+          <Text inherit color="black" tt="uppercase" span>
+            {heading}
+          </Text>{" "}
+          Lorem ipsum dolor sit amet.
         </Title>
       ))}
     </Stack>
@@ -29,6 +32,9 @@ const Paragraphs = () => {
         .reverse()
         .map((fontSize, i) => (
           <Text span color="dimmed" size={fontSize} key={fontSize}>
+            <Text inherit color="black" tt="uppercase" span>
+              {fontSize}
+            </Text>{" "}
             Lorem ipsum dolor sit amet consectetur adipisicing.
           </Text>
         ))}
