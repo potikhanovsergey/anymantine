@@ -31,7 +31,7 @@ const chipComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Size",
       description: `Chips come in five different sizes: extra-small, small, medium, large, and extra-large. Use the sizes sparingly; they should be used to create a hierarchy of importance within the page.`,
       children: (
-        <Stack w="75%">
+        <Stack align="center">
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Group w="100%" position="apart" key={size}>
               <Text color="dimmed">{size}</Text>
@@ -48,26 +48,32 @@ const chipComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       description:
         "Chip.Group component can be used to display a list of related chips. You may want to use it everytime you have more than one chip.",
       children: (
-        <>
-          <Text color="dimmed">Default</Text>
-          <Chip.Group>
-            <Group position="center">
-              <Chip value="1">Single chip</Chip>
-              <Chip value="2">Can be selected</Chip>
-              <Chip value="3">At a time</Chip>
-            </Group>
-          </Chip.Group>
-          <Text color="dimmed">
-            With <strong>multiple</strong> prop
-          </Text>
-          <Chip.Group multiple>
-            <Group position="center">
-              <Chip value="1">Multiple chips</Chip>
-              <Chip value="2">Can be selected</Chip>
-              <Chip value="3">At a time</Chip>
-            </Group>
-          </Chip.Group>
-        </>
+        <Stack>
+          <div>
+            <Text mb="sm" color="dimmed">
+              Default
+            </Text>
+            <Chip.Group>
+              <Group>
+                <Chip value="1">Single chip</Chip>
+                <Chip value="2">Can be selected</Chip>
+                <Chip value="3">At a time</Chip>
+              </Group>
+            </Chip.Group>
+          </div>
+          <div>
+            <Text mb="sm" color="dimmed">
+              With <strong>multiple</strong> prop
+            </Text>
+            <Chip.Group multiple>
+              <Group>
+                <Chip value="1">Multiple chips</Chip>
+                <Chip value="2">Can be selected</Chip>
+                <Chip value="3">At a time</Chip>
+              </Group>
+            </Chip.Group>
+          </div>
+        </Stack>
       ),
     },
   ],
