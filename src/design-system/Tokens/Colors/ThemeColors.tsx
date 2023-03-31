@@ -41,7 +41,7 @@ const ThemeColors = ({ colors }: { colors: string[] }) => {
   const tooltipHidden = useComputed(() => hoveredColor.get() === null)
 
   return (
-    <div>
+    <>
       <PageTitle>Colors</PageTitle>
       <Stack spacing={64}>
         <div>
@@ -83,7 +83,7 @@ const ThemeColors = ({ colors }: { colors: string[] }) => {
           </DesignSystemProvider>
         </div>
       </Stack>
-    </div>
+    </>
   )
 }
 

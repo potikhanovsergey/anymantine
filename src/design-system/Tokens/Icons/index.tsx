@@ -1,13 +1,12 @@
 import { Title, Text } from "@mantine/core"
 import { Prism } from "@mantine/prism"
 import Link from "src/core/components/atoms/Link"
+import PageTitle from "src/design-system/layout/PageTitle"
 
 const Icons = () => {
   return (
     <>
-      <Title order={1} mb="md">
-        Icons
-      </Title>
+      <PageTitle>Icons</PageTitle>
       <Text mb="sm">
         Design-system uses icons from{" "}
         <Link href="https://tabler-icons.io/" target="_blank">
