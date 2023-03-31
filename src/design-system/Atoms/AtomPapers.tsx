@@ -12,6 +12,7 @@ export const paperDataShortMock =
 const paperComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Paper",
   description: `Papers group information into flexible containers with background and shadow to let users to browse a collection of related items.`,
+  mantineLink: "https://mantine.dev/core/paper",
   examples: [
     {
       title: "Shadow",
@@ -55,8 +56,6 @@ const AtomPapers = () => {
     <ComponentDocs
       {...paperComponentDocsProps}
       preview={{
-        title: "Anchor",
-        mantineLink: "https://mantine.dev/core/paper",
         configurator: paperConfigurator,
         children: (
           <SimpleGrid cols={2}>

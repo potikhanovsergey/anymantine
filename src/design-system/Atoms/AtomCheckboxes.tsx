@@ -134,7 +134,6 @@ const AtomCheckboxes = () => {
     <ComponentDocs
       {...checkboxComponentDocsProps}
       preview={{
-        title: "Checkbox",
         configurator: checkboxConfigurator,
         children: (
           <>

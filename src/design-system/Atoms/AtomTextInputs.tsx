@@ -106,7 +106,6 @@ const AtomTextInputs = () => {
     <ComponentDocs
       {...textInputComponentDocsProps}
       preview={{
-        title: "Text Input",
         configurator: textInputConfigurator,
         children: (
           <SimpleGrid cols={2}>

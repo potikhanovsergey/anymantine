@@ -73,7 +73,6 @@ const AtomTextareas = () => {
     <ComponentDocs
       {...textareaDocsProps}
       preview={{
-        title: "Textarea",
         configurator: textareaConfigurator,
         children: (
           <SimpleGrid cols={2}>

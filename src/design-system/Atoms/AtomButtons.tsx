@@ -136,7 +136,6 @@ const AtomButtons = () => {
     <ComponentDocs
       {...buttonComponentDocsProps}
       preview={{
-        title: "Button",
         configurator: buttonConfigurator,
         children: (
           <Group>

@@ -9,7 +9,6 @@ import PageSubtitle from "../layout/PageSubtitle"
 
 export interface ItemPreviewProps {
   children: ReactNode
-  title: string
   configurator: MantineDemo
 }
 

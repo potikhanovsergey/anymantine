@@ -171,7 +171,6 @@ const AtomSelects = () => {
     <ComponentDocs
       {...selectDocsProps}
       preview={{
-        title: "Select",
         configurator: selectConfigurator,
         children: (
           <SimpleGrid cols={2}>

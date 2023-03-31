@@ -73,7 +73,6 @@ const AtomAvatar = () => {
     <ComponentDocs
       {...avatarComponentDocsProps}
       preview={{
-        title: "Avatar",
         configurator: avatarConfigurator,
         children: (
           <Group>

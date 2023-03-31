@@ -59,7 +59,6 @@ const AtomSkeletons = () => {
     <ComponentDocs
       {...skeletonDocsProps}
       preview={{
-        title: "Skeleton",
         configurator: skeletonConfigurator,
         children: (
           <Group w="100%">

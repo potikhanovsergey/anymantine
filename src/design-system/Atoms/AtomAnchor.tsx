@@ -50,7 +50,6 @@ const AtomAnchor = () => {
     <ComponentDocs
       {...anchorComponentDocsProps}
       preview={{
-        title: "Anchor",
         configurator: anchorConfigurator,
         children: (
           <Group>

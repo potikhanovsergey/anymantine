@@ -118,7 +118,6 @@ const AtomActionIcons = () => {
     <ComponentDocs
       {...actionIconComponentDocsProps}
       preview={{
-        title: "Action Icon",
         configurator: actionIconConfigurator,
         children: (
           <Group>

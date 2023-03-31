@@ -80,7 +80,6 @@ const AtomBadges = () => {
     <ComponentDocs
       {...badgeComponentDocsProps}
       preview={{
-        title: "Badge",
         configurator: badgeConfigurator,
         children: (
           <Group>

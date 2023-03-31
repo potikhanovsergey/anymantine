@@ -110,7 +110,6 @@ const AtomRadios = () => {
     <ComponentDocs
       {...radioComponentDocsProps}
       preview={{
-        title: "Checkbox",
         configurator: radioConfigurator,
         children: (
           <Radio.Group

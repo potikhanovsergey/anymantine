@@ -101,7 +101,6 @@ const AtomTooltips = () => {
     <ComponentDocs
       {...tooltipDocsProps}
       preview={{
-        title: "Tooltip",
         configurator: tooltipConfigurator,
         children: (
           <Stack>

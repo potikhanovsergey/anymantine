@@ -75,7 +75,6 @@ const AtomChip = () => {
     <ComponentDocs
       {...chipComponentDocsProps}
       preview={{
-        title: "Chip",
         configurator: chipConfigurator,
         children: (
           <Group>

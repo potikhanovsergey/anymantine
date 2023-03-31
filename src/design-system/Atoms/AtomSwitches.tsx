@@ -29,6 +29,7 @@ const ThumbSwitch = () => {
 const switchComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Switch",
   description: `A switch is used to quickly switch between two possible states. They are commonly used for “on/off” toggles.`,
+  mantineLink: "https://mantine.dev/core/switch",
   examples: [
     {
       title: "Label position",
@@ -106,8 +107,6 @@ const AtomSwitches = () => {
     <ComponentDocs
       {...switchComponentDocsProps}
       preview={{
-        title: "Switch",
-        mantineLink: "https://mantine.dev/core/switch",
         configurator: switchConfigurator,
         children: (
           <Stack>
