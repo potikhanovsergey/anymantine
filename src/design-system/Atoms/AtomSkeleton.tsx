@@ -12,20 +12,15 @@ const skeletonDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Animate prop",
       description: `You can either use static skeleton or animated one with the "animate" boolean prop`,
       children: (
-        <Group spacing="xl">
-          <div>
-            <Text color="dimmed" mb="xs">
-              No animation
-            </Text>
-            <Skeleton height={80} circle animate={false} />
-          </div>
-          <div>
-            <Text color="dimmed" mb="xs">
-              Animated one
-            </Text>
-
-            <Skeleton height={80} circle />
-          </div>
+        <Group spacing="xl" position="center">
+          {[false, true].map((animate) => (
+            <div key={animate + ""}>
+              <Text color="dimmed" mb="xs">
+                {animate ? "Circle prop is true" : "No circle prop"}
+              </Text>
+              <Skeleton height={80} width={80} animate={animate} />
+            </div>
+          ))}
         </Group>
       ),
     },
@@ -33,20 +28,15 @@ const skeletonDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Circle prop",
       description: `If true width, height and border-radius will equal to value specified in height prop`,
       children: (
-        <Group spacing="xl">
-          <div>
-            <Text color="dimmed" mb="xs">
-              No circle prop
-            </Text>
-            <Skeleton height={80} width={80} />
-          </div>
-          <div>
-            <Text color="dimmed" mb="xs">
-              Circle prop is true
-            </Text>
-
-            <Skeleton height={80} width={80} circle />
-          </div>
+        <Group spacing="xl" position="center">
+          {[false, true].map((circle) => (
+            <div key={circle + ""}>
+              <Text color="dimmed" mb="xs">
+                {circle ? "Circle prop is true" : "No circle prop"}
+              </Text>
+              <Skeleton height={80} width={80} circle={circle} />
+            </div>
+          ))}
         </Group>
       ),
     },
