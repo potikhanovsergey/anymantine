@@ -1,4 +1,4 @@
-import { Title, Text } from "@mantine/core"
+import { Text } from "@mantine/core"
 import { Prism } from "@mantine/prism"
 import Link from "src/core/components/atoms/Link"
 import PageTitle from "src/design-system/layout/PageTitle"

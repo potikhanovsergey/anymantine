@@ -1,7 +1,8 @@
 import { Stack, Title, TitleOrder, useMantineTheme, Text, Anchor } from "@mantine/core"
 import DesignSystemProvider from "src/design-system/DesignSystemProvider"
-import Example, { ExampleProps } from "src/design-system/Examples/Example"
+import { ExampleProps } from "src/design-system/Examples/Example"
 import Examples from "src/design-system/Examples/Examples"
+import PageSubtitle from "src/design-system/layout/PageSubtitle"
 import PageTitle from "src/design-system/layout/PageTitle"
 
 const Headings = () => {
@@ -84,25 +85,19 @@ const Typography = () => {
       <PageTitle>Typography</PageTitle>
       <Stack spacing={40}>
         <div>
-          <Title order={2} mb="sm">
-            Heading sizes
-          </Title>
+          <PageSubtitle>Heading sizes</PageSubtitle>
           <DesignSystemProvider>
             <Headings />
           </DesignSystemProvider>
         </div>
         <div>
-          <Title order={2} mb="sm">
-            Text sizes
-          </Title>
+          <PageSubtitle>Text sizes</PageSubtitle>
           <DesignSystemProvider>
             <Paragraphs />
           </DesignSystemProvider>
         </div>
         <div>
-          <Title order={2} mb="sm">
-            Text formatting
-          </Title>
+          <PageSubtitle>Text formatting</PageSubtitle>
           <Examples examples={examples} />
         </div>
       </Stack>

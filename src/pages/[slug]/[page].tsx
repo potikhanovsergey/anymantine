@@ -18,6 +18,7 @@ import Typography from "src/design-system/Tokens/Typography"
 import AtomAvatar from "src/design-system/Atoms/AtomAvatar"
 import AtomSlider from "src/design-system/Atoms/AtomSlider"
 import AtomChip from "src/design-system/Atoms/AtomChip"
+import ColorsPage from "src/design-system/Tokens/Colors/ColorsPage"
 
 const ThemeColors = dynamic(() => import("src/design-system/Tokens/Colors/ThemeColors"))
 const States = dynamic(() => import("src/design-system/Tokens/States"))
@@ -53,7 +54,7 @@ const DesignSystemSubpage: BlitzPage = ({
       <Container pt="sm" size="xl">
         <Switch value={page}>
           {{
-            colors: () => <ThemeColors colors={designSystem.colors} />,
+            colors: () => <ColorsPage colors={designSystem.colors} />,
             typography: () => <Typography />,
             "radiuses-and-shadows": () => <RadiusesAndShadows />,
             states: () => <States />,

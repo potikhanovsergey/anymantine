@@ -3,6 +3,7 @@ import ItemPreview, { ItemPreviewProps } from "../ItemPreview"
 import PageTitle from "../layout/PageTitle"
 import Example, { ExampleProps } from "../Examples/Example"
 import Examples from "../Examples/Examples"
+import PageSubtitle from "../layout/PageSubtitle"
 
 export interface ComponentDocsProps {
   title: string
@@ -27,9 +28,7 @@ const ComponentDocs = ({
       </div>
       <ItemPreview {...preview} />
       <div>
-        <Title order={2} mb="md">
-          Examples
-        </Title>
+        <PageSubtitle>Examples</PageSubtitle>
         <Examples examples={examples} />
       </div>
     </Stack>

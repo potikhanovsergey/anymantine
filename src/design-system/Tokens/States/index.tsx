@@ -14,6 +14,7 @@ import { DesignTheme } from "src/state/design-system"
 import PageTitle from "src/design-system/layout/PageTitle"
 import { ExampleProps } from "src/design-system/Examples/Example"
 import Examples from "src/design-system/Examples/Examples"
+import PageSubtitle from "src/design-system/layout/PageSubtitle"
 
 const HoveredState = ({ variant }: { variant: string }) => {
   const buttonStyles = DesignTheme.get?.()?.components?.Button
@@ -117,9 +118,7 @@ const States = () => {
         A state communicates the status or potential of a component or an interactive item to the
         user.
       </Text>
-      <Title order={2} mb={40}>
-        Examples
-      </Title>
+      <PageSubtitle mb={40}>Examples</PageSubtitle>
       <Examples examples={examples} />
     </>
   )
