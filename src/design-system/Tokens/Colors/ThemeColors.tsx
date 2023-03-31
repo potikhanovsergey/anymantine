@@ -2,7 +2,6 @@ import React from "react"
 import { SimpleGrid, Tooltip, Text } from "@mantine/core"
 import { ColorsGroup } from "./ColorsGroup"
 import { observer, useComputed, useObservable } from "@legendapp/state/react"
-import DesignSystemProvider from "src/design-system/DesignSystemProvider"
 import { ColorsPageProps } from "./ColorsPage"
 
 const ThemeSwatches = ({
@@ -48,21 +47,19 @@ const ThemeColors = ({ colors }: ColorsPageProps) => {
       position="top"
     >
       <div>
-        <DesignSystemProvider>
-          <SimpleGrid spacing={0} maw={560} cols={11}>
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
-              <Text key={n} color="dimmed" ta="center">
-                {n}
-              </Text>
-            ))}
-            <span></span>
-            <ThemeSwatches
-              colors={colors}
-              onMouseLeave={handleMouseLeave}
-              setTooltip={handleSetTooltip}
-            />
-          </SimpleGrid>
-        </DesignSystemProvider>
+        <SimpleGrid spacing={0} maw={560} cols={11}>
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
+            <Text key={n} color="dimmed" ta="center">
+              {n}
+            </Text>
+          ))}
+          <span></span>
+          <ThemeSwatches
+            colors={colors}
+            onMouseLeave={handleMouseLeave}
+            setTooltip={handleSetTooltip}
+          />
+        </SimpleGrid>
       </div>
     </Tooltip.Floating>
   )

@@ -33,7 +33,9 @@ const avatarComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Group w="100%" position="apart" key={size}>
               <Text color="dimmed">{size}</Text>
-              <Avatar size={size}>DS</Avatar>
+              <Avatar radius={1000} size={size}>
+                DS
+              </Avatar>
             </Group>
           ))}
         </Stack>

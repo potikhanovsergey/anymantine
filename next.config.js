@@ -6,7 +6,7 @@ const { withBlitz } = require("@blitzjs/next")
  **/
 const config = {
   images: {
-    domains: ["vercel.com", "messy.com.au", "paradigm.mail.ru"],
+    domains: ["cdn.dribbble.com", "messy.com.au", "paradigm.mail.ru"],
   },
   // typescript: {
   //   ignoreBuildErrors: true,

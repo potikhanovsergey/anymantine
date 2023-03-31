@@ -1,5 +1,5 @@
 import { Stack, Title, TitleOrder, useMantineTheme, Text, Anchor } from "@mantine/core"
-import DesignSystemProvider from "src/design-system/DesignSystemProvider"
+import Link from "src/core/components/atoms/Link"
 import { ExampleProps } from "src/design-system/Examples/Example"
 import Examples from "src/design-system/Examples/Examples"
 import PageSubtitle from "src/design-system/layout/PageSubtitle"
@@ -85,16 +85,22 @@ const Typography = () => {
       <PageTitle>Typography</PageTitle>
       <Stack spacing={40}>
         <div>
+          <PageSubtitle>Font family</PageSubtitle>
+          <Text>
+            This theme uses <strong>Karla</strong> font-family. It&apos;s free and can be downloaded
+            from{" "}
+            <Link target="_blank" href="https://fonts.google.com/specimen/Karla?query=karla">
+              Google Fonts.
+            </Link>
+          </Text>
+        </div>
+        <div>
           <PageSubtitle>Heading sizes</PageSubtitle>
-          <DesignSystemProvider>
-            <Headings />
-          </DesignSystemProvider>
+          <Headings />
         </div>
         <div>
           <PageSubtitle>Text sizes</PageSubtitle>
-          <DesignSystemProvider>
-            <Paragraphs />
-          </DesignSystemProvider>
+          <Paragraphs />
         </div>
         <div>
           <PageSubtitle>Text formatting</PageSubtitle>

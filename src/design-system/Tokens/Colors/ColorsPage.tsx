@@ -1,5 +1,4 @@
-import { Stack, Title } from "@mantine/core"
-import DesignSystemProvider from "src/design-system/DesignSystemProvider"
+import { Stack } from "@mantine/core"
 import PageTitle from "src/design-system/layout/PageTitle"
 import PrimaryColor from "./PrimaryColor"
 import ThemeColors from "./ThemeColors"
@@ -20,9 +19,7 @@ const ColorsPage = ({ colors }: ColorsPageProps) => {
         </div>
         <div>
           <PageSubtitle>Primary color</PageSubtitle>
-          <DesignSystemProvider>
-            <PrimaryColor />
-          </DesignSystemProvider>
+          <PrimaryColor />
         </div>
       </Stack>
     </>

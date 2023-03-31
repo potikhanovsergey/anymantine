@@ -140,7 +140,7 @@ const designSystems = [
     title: "Ghost",
     colors: ["red", "gray", "dark"],
     imageUrl:
-      "https://vercel.com/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1671111035%2Fghost%2Fghost-illustration-light.png&w=1920&q=100",
+      "https://cdn.dribbble.com/users/2403087/screenshots/9354743/dashboard_components_dark_4x.png",
   },
 ]
 

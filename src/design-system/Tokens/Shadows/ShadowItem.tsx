@@ -1,6 +1,5 @@
 import { Box, MantineShadow, Text } from "@mantine/core"
 import createStyles from "./ShadowItem.styles"
-import DesignSystemProvider from "src/design-system/DesignSystemProvider"
 
 interface ShadowItemProps {
   shadow: MantineShadow
@@ -20,9 +19,7 @@ const ShadowBox = ({ shadow }: ShadowBoxProps) => {
 const ShadowItem = ({ shadow, title, useCases }: ShadowItemProps) => {
   return (
     <Box>
-      <DesignSystemProvider>
-        <ShadowBox shadow={shadow} />
-      </DesignSystemProvider>
+      <ShadowBox shadow={shadow} />
       <Text weight={500}>{title}</Text>
       {useCases.map((useCase) => (
         <Text size="sm" color="dimmed" key={useCase}>

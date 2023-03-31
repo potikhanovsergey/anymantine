@@ -82,7 +82,7 @@ const accordionComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
           {[
             {
               value: "customization",
-              label: "Customizetion",
+              label: "Customization",
               panel: `Colors, fonts, shadows and many other parts are customizable to fit your design
     needs`,
             },
@@ -116,7 +116,7 @@ const AtomAccordion = () => {
   const items = [
     {
       value: "customization",
-      label: "Customizetion",
+      label: "Customization",
       panel: `Colors, fonts, shadows and many other parts are customizable to fit your design
     needs`,
     },

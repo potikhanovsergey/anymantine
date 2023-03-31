@@ -4,7 +4,6 @@ import { IconSettings } from "@tabler/icons-react"
 import { ReactNode } from "react"
 import { MantineDemo } from "../Demo/types"
 import { Demo } from "../Demo"
-import DesignSystemProvider from "../DesignSystemProvider"
 import PageSubtitle from "../layout/PageSubtitle"
 
 export interface ItemPreviewProps {
@@ -33,7 +32,7 @@ const ItemPreview = ({ children, configurator }: ItemPreviewProps) => {
           </ActionIcon>
         </Tooltip>
       </Group>
-      <Show if={configuratorOpened} else={<DesignSystemProvider>{children}</DesignSystemProvider>}>
+      <Show if={configuratorOpened} else={children}>
         <Demo
           data={configurator}
           configuratorProps={{
