@@ -16,6 +16,7 @@ const useStyles = createStyles(
       display: "inline-flex",
       alignItems: "center",
       textDecoration: "none",
+      color: theme.colors[color][5],
       "&:hover": {
         textDecoration: "none",
         backgroundImage: `linear-gradient(${theme.colors[color][5]}, ${theme.colors[color][5]})`,
