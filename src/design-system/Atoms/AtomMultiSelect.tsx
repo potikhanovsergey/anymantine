@@ -170,7 +170,6 @@ const AtomMultiSelect = () => {
     <ComponentDocs
       {...multiSelectComponentDocsProps}
       preview={{
-        title: "MultiSelect",
         configurator: multiSelectConfigurator,
         children: (
           <Group>

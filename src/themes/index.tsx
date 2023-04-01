@@ -104,6 +104,10 @@ export const atoms = [
     slug: "accordion",
     label: "Accordion",
   },
+  {
+    slug: "stepper",
+    label: "Stepper",
+  },
 ]
 
 export const usage = [
