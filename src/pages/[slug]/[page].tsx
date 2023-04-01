@@ -40,6 +40,9 @@ const AtomAvatar = dynamic(() => import("src/design-system/Atoms/AtomAvatar"))
 const AtomSlider = dynamic(() => import("src/design-system/Atoms/AtomSlider"))
 const AtomChip = dynamic(() => import("src/design-system/Atoms/AtomChip"))
 const AtomAccordion = dynamic(() => import("src/design-system/Atoms/AtomAccordion"))
+const AtomMultiSelect = dynamic(() => import("src/design-system/Atoms/AtomMultiSelect"))
+const AtomSegmentedControl = dynamic(() => import("src/design-system/Atoms/AtomSegmentedControl"))
+const AtomStepper = dynamic(() => import("src/design-system/Atoms/AtomStepper"))
 
 const DesignSystemSubpage: BlitzPage = ({
   slug,
@@ -80,7 +83,10 @@ const DesignSystemSubpage: BlitzPage = ({
             avatar: () => <AtomAvatar />,
             slider: () => <AtomSlider />,
             chip: () => <AtomChip />,
+            "multi-select": () => <AtomMultiSelect />,
+            "segmented-control": () => <AtomSegmentedControl />,
             accordion: () => <AtomAccordion />,
+            stepper: () => <AtomStepper />,
             default: () => <></>,
           }}
         </Switch>

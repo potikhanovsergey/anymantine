@@ -97,8 +97,20 @@ export const atoms = [
     label: "Chip",
   },
   {
+    slug: "multi-select",
+    label: "MultiSelect",
+  },
+  {
+    slug: "segmented-control",
+    label: "SegmentedControl",
+  },
+  {
     slug: "accordion",
     label: "Accordion",
+  },
+  {
+    slug: "stepper",
+    label: "Stepper",
   },
 ]
 
