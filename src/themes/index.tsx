@@ -14,8 +14,12 @@ export const tokens = [
     label: "Typography",
   },
   {
-    slug: "radiuses-and-shadows",
-    label: "Radiuses & Shadows",
+    slug: "radiuses",
+    label: "Radiuses",
+  },
+  {
+    slug: "shadows",
+    label: "Shadows",
   },
   {
     slug: "states",

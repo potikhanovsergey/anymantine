@@ -5,8 +5,11 @@ import { IconDownload } from "@tabler/icons-react"
 import PageSubtitle from "../layout/PageSubtitle"
 import mock from "src/mocks/themeStringMock"
 import { Prism } from "@mantine/prism"
+import { DesignSystem } from "src/state/design-system"
+import { useSelector } from "@legendapp/state/react"
 
 const UsagePage = () => {
+  const DesignSystemLabel = useSelector(DesignSystem.label)
   return (
     <>
       <PageTitle>Usage</PageTitle>
@@ -32,7 +35,7 @@ const UsagePage = () => {
             Theme is stored in a single file which exports the theme object for MantineProvider.
           </Text>
           <Button mb="xs" leftIcon={<IconDownload size={16} />}>
-            Download theme file
+            Download {DesignSystemLabel}Theme.ts
           </Button>
           <Text mb="xs">You can later use it like this:</Text>
           <Prism language="tsx">
