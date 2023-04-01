@@ -7,8 +7,23 @@ import { Prism } from "@mantine/prism"
 import { DesignSystem } from "src/state/design-system"
 import { useSelector } from "@legendapp/state/react"
 
-const UsagePage = () => {
+const DownloadButton = () => {
   const DesignSystemLabel = useSelector(DesignSystem.label)
+  const fileName = `${DesignSystemLabel}Theme.ts`
+  return (
+    <Button
+      component="a"
+      download={fileName}
+      href={`/api/theme?theme=${DesignSystemLabel}`}
+      mb="xs"
+      leftIcon={<IconDownload size={16} />}
+    >
+      Download {fileName}
+    </Button>
+  )
+}
+
+const UsagePage = () => {
   return (
     <>
       <PageTitle>Usage</PageTitle>
@@ -33,15 +48,7 @@ const UsagePage = () => {
           <Text maw={700} mb="xs">
             Theme is stored in a single file which exports the theme object for MantineProvider.
           </Text>
-          <Button
-            component="a"
-            download
-            href={`/api/theme?theme=${DesignSystemLabel.toLowerCase()}`}
-            mb="xs"
-            leftIcon={<IconDownload size={16} />}
-          >
-            Download {DesignSystemLabel}Theme.ts
-          </Button>
+          <DownloadButton />
           <Text mb="xs">You can later use it like this:</Text>
           <Prism language="tsx">
             {`import { MantineProvider } from "@mantine/core";

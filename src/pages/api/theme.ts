@@ -38,7 +38,7 @@ export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
 
     //Set the proper headers
     res.setHeader("Content-Type", "application/zip")
-    res.setHeader("Content-Disposition", `attachment; filename=${theme}Theme.tsx`)
+    // res.setHeader("Content-Disposition", `attachment; filename=${theme}Theme.tsx`)
 
     //Create a read stream and pipe to the response
     createReadStream(filePath).pipe(res)
