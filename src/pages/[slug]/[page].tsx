@@ -16,8 +16,8 @@ import dynamic from "next/dynamic"
 import { Switch } from "@legendapp/state/react"
 
 const UsagePage = dynamic(() => import("src/design-system/Usage/UsagePage"))
-
-const RadiusesAndShadows = dynamic(() => import("src/design-system/Tokens/RadiusesAndShadows"))
+const RadiusesPage = dynamic(() => import("src/design-system/Tokens/Radiuses/RadiusesPage"))
+const ShadowsPage = dynamic(() => import("src/design-system/Tokens/Shadows/ShadowsPage"))
 const Typography = dynamic(() => import("src/design-system/Tokens/Typography"))
 const ColorsPage = dynamic(() => import("src/design-system/Tokens/Colors/ColorsPage"))
 const States = dynamic(() => import("src/design-system/Tokens/States"))
@@ -63,7 +63,8 @@ const DesignSystemSubpage: BlitzPage = ({
             usage: () => <UsagePage />,
             colors: () => <ColorsPage colors={designSystem.colors} />,
             typography: () => <Typography />,
-            "radiuses-and-shadows": () => <RadiusesAndShadows />,
+            radiuses: () => <RadiusesPage />,
+            shadows: () => <ShadowsPage />,
             states: () => <States />,
             icons: () => <Icons />,
             button: () => <AtomButtons />,
