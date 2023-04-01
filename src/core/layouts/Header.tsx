@@ -4,6 +4,7 @@ import {
   HeaderProps,
   Header as MantineHeader,
   Select,
+  Stack,
   Text,
   useMantineTheme,
 } from "@mantine/core"
@@ -11,8 +12,9 @@ import NextLink from "next/link"
 import { useSelector } from "@legendapp/state/react"
 import designSystems from "src/themes"
 import { appDesignThemeSlug } from "src/state"
-import dynamic from "next/dynamic"
 import { useRouter } from "next/router"
+import Logo from "./Logo"
+import LogoText from "./LogoText"
 
 // const ProfileMenuOrAuth = dynamic(() => import("./ProfileMenuOrAuth"), { ssr: false })
 
@@ -33,17 +35,7 @@ const Header = (props: Omit<HeaderProps, "children" | "height">) => {
     <MantineHeader height={64} px={theme.spacing.md} {...props}>
       <Group h="100%" position="apart" noWrap>
         <Group noWrap h="100%" spacing="lg">
-          <Text
-            size={24}
-            weight="bold"
-            sx={{
-              height: "100%",
-              display: "flex",
-              alignItems: "center",
-            }}
-          >
-            Animantine
-          </Text>
+          <LogoText height="48px" />
           <Select
             withinPortal
             value={appDesignThemeValue}
