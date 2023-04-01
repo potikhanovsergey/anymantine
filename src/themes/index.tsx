@@ -103,10 +103,6 @@ export const usage = [
     slug: "usage",
     label: "Usage",
   },
-  {
-    slug: "",
-    label: "Preview",
-  },
 ]
 
 export const dsSubPages = [
