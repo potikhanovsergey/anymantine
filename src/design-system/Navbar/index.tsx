@@ -2,12 +2,10 @@ import { Navbar as MantineNavbar, NavbarProps, NavLink, ScrollArea } from "@mant
 import React from "react"
 import NavbarLinks from "./NavbarLinks"
 import { DesignSystemSubPage, atoms, tokens } from "src/themes"
+import Link from "next/link"
+import { useRouter } from "next/router"
 
 const sections = [
-  {
-    label: "Usage",
-    links: [],
-  },
   {
     label: "Tokens",
     links: tokens,
@@ -26,9 +24,13 @@ const Navbar = ({
   subPage,
   ...navbarProps
 }: Omit<NavbarProps, "children"> & { subPage?: DesignSystemSubPage }) => {
+  const router = useRouter()
   return (
     <MantineNavbar {...navbarProps} width={{ base: 256 }}>
       <ScrollArea>
+        <NavLink component={Link} href={`/${router.query.slug}`} label="Preview" />
+
+        <NavLink component={Link} href={`/${router.query.slug}/usage`} label="Usage" />
         {sections.map((section) => (
           <NavLink
             label={section.label}

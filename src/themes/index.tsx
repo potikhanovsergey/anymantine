@@ -100,12 +100,12 @@ export const atoms = [
 
 export const usage = [
   {
-    slug: "preview",
-    label: "Preview",
+    slug: "usage",
+    label: "Usage",
   },
   {
-    slug: "files",
-    label: "Files",
+    slug: "",
+    label: "Preview",
   },
 ]
 

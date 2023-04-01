@@ -9,16 +9,21 @@ import designSystems, {
   atoms,
   dsSubPages,
   tokens,
+  usage,
 } from "src/themes"
 
 import dynamic from "next/dynamic"
 import { Switch } from "@legendapp/state/react"
-import RadiusesAndShadows from "src/design-system/Tokens/RadiusesAndShadows"
-import Typography from "src/design-system/Tokens/Typography"
+import UsagePage from "src/design-system/Usage/UsagePage"
 
+const Usage = dynamic(() => import("src/design-system/Usage/UsagePage"))
+
+const RadiusesAndShadows = dynamic(() => import("src/design-system/Tokens/RadiusesAndShadows"))
+const Typography = dynamic(() => import("src/design-system/Tokens/Typography"))
 const ColorsPage = dynamic(() => import("src/design-system/Tokens/Colors/ColorsPage"))
 const States = dynamic(() => import("src/design-system/Tokens/States"))
 const Icons = dynamic(() => import("src/design-system/Tokens/Icons"))
+
 const AtomButtons = dynamic(() => import("src/design-system/Atoms/AtomButton"))
 const AtomBadges = dynamic(() => import("src/design-system/Atoms/AtomBadge"))
 const AtomActionIcons = dynamic(() => import("src/design-system/Atoms/AtomActionIcon"))
@@ -53,6 +58,7 @@ const DesignSystemSubpage: BlitzPage = ({
       <Container pt="sm" size="xl">
         <Switch value={page}>
           {{
+            usage: () => <UsagePage />,
             colors: () => <ColorsPage colors={designSystem.colors} />,
             typography: () => <Typography />,
             "radiuses-and-shadows": () => <RadiusesAndShadows />,
@@ -88,6 +94,10 @@ export async function getStaticPaths() {
   const paths: { params: { [key: string]: string } }[] = []
 
   for (let i = 0; i < slugs.length; i++) {
+    // Usage
+    for (let j = 0; j < usage.length; j++) {
+      paths.push({ params: { slug: slugs[i], page: usage[j].slug } })
+    }
     // Tokens
     for (let j = 0; j < tokens.length; j++) {
       paths.push({ params: { slug: slugs[i], page: tokens[j].slug } })
