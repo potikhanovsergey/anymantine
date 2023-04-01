@@ -3,6 +3,7 @@ import { Container } from "@mantine/core"
 import { GetStaticPropsContext } from "next"
 
 import DesignSystemLayout from "src/core/layouts/DesignSystemLayout"
+import PreviewPage from "src/design-system/Preview/PreviewPage"
 import designSystems, { DesignSystemSubPage, themes } from "src/themes"
 
 const DesignSystemPage: BlitzPage = ({
@@ -14,7 +15,9 @@ const DesignSystemPage: BlitzPage = ({
 }) => {
   return (
     <DesignSystemLayout subPage={subPage} slug={slug}>
-      <Container pt={40} size="xl"></Container>
+      <Container pt="sm" size="xl">
+        <PreviewPage />
+      </Container>
     </DesignSystemLayout>
   )
 }
@@ -38,7 +41,7 @@ export async function getStaticProps(context: GetStaticPropsContext) {
       slug: context.params?.slug,
       subPage: {
         type: "usage",
-        label: "Label",
+        label: "Preview",
         slug: "/",
       },
     },

@@ -1,7 +1,6 @@
 import React from "react"
 import { Group, Input, useMantineTheme, ColorSwatch, CheckIcon, rem } from "@mantine/core"
 import { upperFirst } from "@mantine/hooks"
-import DesignSystemProvider from "src/design-system/DesignSystemProvider"
 
 interface ColorControlProps {
   value: string
@@ -38,9 +37,7 @@ export function ColorControl({ value, label, onChange, ...others }: ColorControl
   return (
     <Input.Wrapper labelElement="div" label={upperFirst(label)} {...others}>
       <Group spacing={2} mt={5}>
-        {/* <DesignSystemProvider> */}
         <ColorSwatches value={value} onChange={onChange} />
-        {/* </DesignSystemProvider> */}
       </Group>
     </Input.Wrapper>
   )

@@ -1,8 +1,9 @@
-import { Stack, Title, Text, Box, Group, Tooltip } from "@mantine/core"
+import { Stack, Title, Text } from "@mantine/core"
 import ItemPreview, { ItemPreviewProps } from "../ItemPreview"
-import Example, { ExampleProps } from "../Tokens/Example"
-import Link from "next/link"
-import Mantine from "src/core/components/icons/Mantine"
+import PageTitle from "../layout/PageTitle"
+import Example, { ExampleProps } from "../Examples/Example"
+import Examples from "../Examples/Examples"
+import PageSubtitle from "../layout/PageSubtitle"
 
 export interface ComponentDocsProps {
   title: string
@@ -22,29 +23,13 @@ const ComponentDocs = ({
   return (
     <Stack spacing={40}>
       <div>
-        <Group spacing="xs" mb="md">
-          <Title order={1}>{title}</Title>
-          {mantineLink && (
-            <Tooltip label={mantineLink}>
-              <Box component={Link} lh={0} href={mantineLink} target="_blank">
-                <Mantine />
-              </Box>
-            </Tooltip>
-          )}
-        </Group>
-
+        <PageTitle mantineLink={mantineLink}>{title}</PageTitle>
         <Text maw="75%">{description}</Text>
       </div>
       <ItemPreview {...preview} />
       <div>
-        <Title order={2} mb="md">
-          Options
-        </Title>
-        <Stack spacing={64}>
-          {examples.map((example) => (
-            <Example {...example} key={example.title} />
-          ))}
-        </Stack>
+        <PageSubtitle>Examples</PageSubtitle>
+        <Examples examples={examples} />
       </div>
     </Stack>
   )

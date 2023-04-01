@@ -65,15 +65,11 @@ const Card = ({ title, imageUrl, slug }: CardProps) => {
           {title}
         </Text>
         <Group spacing="xs" mb="xs">
-          <Badge variant="outline" size="sm">
-            with Figma
-          </Badge>
-          <Badge variant="outline" size="sm">
-            calm
-          </Badge>
-          <Badge variant="outline" size="sm">
-            colorful
-          </Badge>
+          {["with Figma", "calm", "colorful"].map((tag) => (
+            <Badge variant="outline" bg="white" size="sm" key={tag}>
+              with Figma
+            </Badge>
+          ))}
         </Group>
       </Stack>
     </div>

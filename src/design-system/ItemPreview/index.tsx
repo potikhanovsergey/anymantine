@@ -1,54 +1,38 @@
-import { Show, observer } from "@legendapp/state/react"
-import { ActionIcon, Box, Group, Stack, Tooltip, Title, useMantineTheme } from "@mantine/core"
+import { Show, useObservable } from "@legendapp/state/react"
+import { ActionIcon, Group, Stack, Tooltip, useMantineTheme } from "@mantine/core"
 import { IconSettings } from "@tabler/icons-react"
 import { ReactNode } from "react"
 import { MantineDemo } from "../Demo/types"
 import { Demo } from "../Demo"
-import { configurableAtom } from "src/state/design-system"
-import Mantine from "src/core/components/icons/Mantine"
-import Link from "next/link"
-import DesignSystemProvider from "../DesignSystemProvider"
+import PageSubtitle from "../layout/PageSubtitle"
 
 export interface ItemPreviewProps {
   children: ReactNode
-  title: string
   configurator: MantineDemo
-  mantineLink?: string
 }
 
-const ItemPreview = ({ children, title, configurator, mantineLink }: ItemPreviewProps) => {
+const ItemPreview = ({ children, configurator }: ItemPreviewProps) => {
   const theme = useMantineTheme()
+
+  const configuratorOpened = useObservable(false)
 
   return (
     <Stack spacing="xs">
       <Group noWrap spacing="xs">
-        <Title order={2}>Quick preview</Title>
-        {mantineLink && (
-          <Tooltip label={mantineLink}>
-            <Box component={Link} lh={0} href={mantineLink} target="_blank">
-              <Mantine />
-            </Box>
-          </Tooltip>
-        )}
+        <PageSubtitle mb={0}>Quick preview</PageSubtitle>
         <Tooltip
           label={
-            <Show if={configurableAtom.get() === title} else="Открыть конфигуратор">
-              Скрыть конфигуратор
+            <Show if={configuratorOpened} else="Open configurator">
+              Hide configurator
             </Show>
           }
         >
-          <ActionIcon
-            variant="transparent"
-            onClick={() => configurableAtom.set((prev) => (prev === title ? null : title))}
-          >
+          <ActionIcon variant="transparent" onClick={configuratorOpened.toggle}>
             <IconSettings stroke={1} color={theme.black} />
           </ActionIcon>
         </Tooltip>
       </Group>
-      <Show
-        if={configurableAtom.get() === title}
-        else={<DesignSystemProvider>{children}</DesignSystemProvider>}
-      >
+      <Show if={configuratorOpened} else={children}>
         <Demo
           data={configurator}
           configuratorProps={{
@@ -60,4 +44,4 @@ const ItemPreview = ({ children, title, configurator, mantineLink }: ItemPreview
   )
 }
 
-export default observer(ItemPreview)
+export default ItemPreview

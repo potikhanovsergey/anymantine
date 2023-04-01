@@ -2,6 +2,7 @@ import { TooltipProps, Group, Tooltip, ActionIcon, MantineThemeOverride } from "
 import { IconHeart } from "@tabler/icons-react"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
+import ExampleIcon from "src/design-system/ExampleIcon"
 
 const FLOATING_POSITION_DATA = [
   { label: "top", value: "top" },
@@ -20,13 +21,13 @@ const FLOATING_POSITION_DATA = [
 
 const codeTemplate = (props: string) => `
 import { Tooltip, ActionIcon } from '@mantine/core';
-import { IconHeart } from "@tabler/icons-react"
+import { IconSettings } from "@tabler/icons-react"
 
 function Demo() {
   return (
     <Tooltip${props}>
       <ActionIcon>
-        <IconHeart size="75%" stroke={1} />
+        <IconSettings size="75%" stroke={1} />
       </ActionIcon>
     </Tooltip>
   );
@@ -38,7 +39,7 @@ function Wrapper(props: TooltipProps) {
     <Group position="center">
       <Tooltip {...props}>
         <ActionIcon>
-          <IconHeart size="75%" stroke={1} />
+          <ExampleIcon />
         </ActionIcon>
       </Tooltip>
     </Group>

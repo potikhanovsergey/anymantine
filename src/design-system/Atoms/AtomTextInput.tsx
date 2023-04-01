@@ -1,8 +1,8 @@
-import { Group, SimpleGrid, Stack, TextInput, Text, Loader } from "@mantine/core"
-import { IconInfoCircle, IconPassword } from "@tabler/icons-react"
+import { Group, Stack, TextInput, Text, Loader } from "@mantine/core"
 import getTextInputConfigurator from "src/design-system/Configurator/configurators/text-input"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
+import ExampleIcon from "../ExampleIcon"
 
 const textInputComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Text Input",
@@ -14,10 +14,12 @@ const textInputComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       description: `Text inputs should always have a label. In rare cases where context is sufficient and an accessibility expert has reviewed the design, the label could be undefined. These text inputs without a visible label should still include an aria-label in HTML (depending on the context, “aria-label” or “aria-labelledby”).`,
       children: (
         <Stack>
-          {["with label", "alone"].map((variant) => (
+          {["labeled", "standalone"].map((variant) => (
             <Stack key={variant}>
-              <Text color="dimmed">{variant}</Text>
-              <TextInput label={variant === "with label" && "Label"} placeholder="Placeholder..." />
+              <Text color="dimmed" tt="capitalize">
+                {variant}
+              </Text>
+              <TextInput label={variant === "labeled" && "Label"} placeholder="Placeholder..." />
             </Stack>
           ))}
         </Stack>
@@ -38,27 +40,23 @@ const textInputComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Variants",
       description: `Text inputs are available in either fill or outline styles. An input in the fill style has a solid background, since it’s meant to be intentionally more prominent than an input in the outline style.`,
       children: (
-        <Group position="apart">
-          <Stack>
-            <Text mb="sm" color="dimmed">
-              Filled
-            </Text>
-            <TextInput label="Label" placeholder="Placeholder..." variant="filled" />
-          </Stack>
-          <Stack>
-            <Text mb="sm" color="dimmed">
-              Outline
-            </Text>
-            <TextInput label="Label" placeholder="Placeholder..." variant="default" />
-          </Stack>
-        </Group>
+        <Stack>
+          {["filled", "default"].map((variant) => (
+            <Stack spacing="xs" key={variant}>
+              <Text color="dimmed" tt="capitalize">
+                {variant}
+              </Text>
+              <TextInput label="Label" placeholder="Placeholder..." variant={variant} />
+            </Stack>
+          ))}
+        </Stack>
       ),
     },
     {
       title: "Size",
       description: `Text inputs come in five different sizes: extra-small, small, medium, large, and extra-large. Use the sizes sparingly; they should be used to create a hierarchy of importance within the page.`,
       children: (
-        <Stack w="75%">
+        <Stack align="center">
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Group w="100%" position="apart" key={size}>
               <Text color="dimmed">{size}</Text>
@@ -87,7 +85,7 @@ const textInputComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "With icon",
       description:
         "Text input can display an icon in the left. It is useful for email input, for example.",
-      children: <TextInput icon={<IconPassword />} label="Label" placeholder="Иконка слева" />,
+      children: <TextInput icon={<ExampleIcon />} label="Label" placeholder="Иконка слева" />,
     },
     {
       title: "With right section",
@@ -106,20 +104,14 @@ const AtomTextInputs = () => {
     <ComponentDocs
       {...textInputComponentDocsProps}
       preview={{
-        title: "Text Input",
         configurator: textInputConfigurator,
         children: (
-          <SimpleGrid cols={2}>
+          <Stack>
             <TextInput label="Label" placeholder="Placeholder..." />
             <TextInput label="Label" defaultValue="Wrong value..." error="Error..." />
-            <TextInput icon={<IconPassword />} label="Label" placeholder="Иконка слева" />
-            <TextInput
-              rightSection={<IconInfoCircle stroke={1} />}
-              label="Label"
-              placeholder="Иконка справа"
-            />
+            <TextInput icon={<ExampleIcon />} label="Label" placeholder="Иконка слева" />
             <TextInput label="Label" description="Description..." placeholder="Placeholder..." />
-          </SimpleGrid>
+          </Stack>
         ),
       }}
     />

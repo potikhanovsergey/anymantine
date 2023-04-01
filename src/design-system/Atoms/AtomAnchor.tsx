@@ -13,13 +13,11 @@ const anchorComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Size",
       description: `Anchors come in five different sizes: extra-small, small, medium, large, and extra-large. Use the sizes sparingly; they should be used to create a hierarchy of importance within the page.`,
       children: (
-        <Stack w="75%">
+        <Stack>
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Group w="100%" position="apart" key={size}>
               <Text color="dimmed">{size}</Text>
-              <Anchor tabIndex={-1} size={size}>
-                Link
-              </Anchor>
+              <Anchor size={size}>Link</Anchor>
             </Group>
           ))}
         </Stack>
@@ -29,13 +27,13 @@ const anchorComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Underline",
       description: `Underlined variant should be used to call attention to the link. Its no-underline appearance is optimal for when the underlined variant is too overwhelming, such as in blocks of text with several references linked throughout.`,
       children: (
-        <Group>
-          {["underline", "no underline"].map((variant) => (
-            <Stack key={variant}>
-              <Text color="dimmed">{variant}</Text>
-              <Anchor tabIndex={-1} underline={variant === "underline"}>
-                Link
-              </Anchor>
+        <Group position="center">
+          {[true, false].map((underline) => (
+            <Stack key={underline + ""}>
+              <Text color="dimmed">
+                {underline ? "Underline on hover" : "No underline on hover"}
+              </Text>
+              <Anchor underline={underline}>Link</Anchor>
             </Stack>
           ))}
         </Group>
@@ -50,7 +48,6 @@ const AtomAnchor = () => {
     <ComponentDocs
       {...anchorComponentDocsProps}
       preview={{
-        title: "Anchor",
         configurator: anchorConfigurator,
         children: (
           <Group>

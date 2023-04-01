@@ -1,13 +1,10 @@
 import { computed, observable } from "@legendapp/state"
 import { MantineThemeOverride } from "@mantine/core"
 import { NextFontWithVariable } from "next/dist/compiled/@next/font"
-
-export const configurableAtom = observable(null as string | null)
+import { Theme } from "src/themes"
 
 export const DesignSystem = observable(
-  undefined as
-    | { theme: MantineThemeOverride; label: string; font: NextFontWithVariable }
-    | undefined
+  undefined as { theme: MantineThemeOverride; label: string; font: Theme["font"] } | undefined
 )
 
 export const DesignTheme = computed(() => DesignSystem.theme.get())

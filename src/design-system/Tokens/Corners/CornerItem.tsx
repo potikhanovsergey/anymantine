@@ -1,6 +1,5 @@
 import { Center, MantineNumberSize, Text } from "@mantine/core"
 import createStyles from "./CornerItem.styles"
-import DesignSystemProvider from "src/design-system/DesignSystemProvider"
 
 interface CornerItemProps {
   radius: MantineNumberSize
@@ -24,9 +23,7 @@ const CornerBox = ({ radius }: CornerBoxProps) => {
 const CornerItem = ({ radius, title, useCases }: CornerItemProps) => {
   return (
     <div>
-      <DesignSystemProvider>
-        <CornerBox radius={radius} />
-      </DesignSystemProvider>
+      <CornerBox radius={radius} />
       <Text weight={500}>{title}</Text>
       {useCases.map((useCase) => (
         <Text size="sm" color="dimmed" key={useCase}>

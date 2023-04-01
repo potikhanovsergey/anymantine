@@ -1,4 +1,4 @@
-import {
+const mock = `import {
   MantineThemeOverride,
   Text,
   rem,
@@ -15,16 +15,16 @@ export const bubbleFont = Karla({
   preload: false,
 })
 
-const defaultFonts = `-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji`
+const defaultFonts = \`-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji\`
 
 const BubbleTheme: MantineThemeOverride = {
   cursorType: "pointer",
   primaryColor: "blue",
   defaultRadius: "md",
   primaryShade: 5,
-  fontFamily: `var(--bubble-font), ${defaultFonts}`,
+  fontFamily: \`var(--bubble-font), \${defaultFonts}\`,
   headings: {
-    fontFamily: `var(--bubble-font), ${defaultFonts}`,
+    fontFamily: \`var(--bubble-font), \${defaultFonts}\`,
   },
   other: {
     transition: ".15s ease",
@@ -99,7 +99,7 @@ const BubbleTheme: MantineThemeOverride = {
       },
       styles: (theme, params: ButtonStylesParams, { variant }) => ({
         root: {
-          transition: `all ${theme.other.transition}`,
+          transition: \`all \${theme.other.transition}\`,
           "&[data-loading]": {
             color: "transparent",
             svg: {
@@ -114,7 +114,7 @@ const BubbleTheme: MantineThemeOverride = {
             ".mantine-Button-centerLoader": {
               opacity: 1,
             },
-            [`& .${getStylesRef("rightIcon")}, .${getStylesRef("leftIcon")}`]: {
+            [\`& .\${getStylesRef("rightIcon")}, .\${getStylesRef("leftIcon")}\`]: {
               opacity: 0,
             },
           },
@@ -152,7 +152,7 @@ const BubbleTheme: MantineThemeOverride = {
       },
       styles: (theme, params: ActionIconStylesParams, { variant }) => ({
         root: {
-          transition: `all ${theme.other.transition}`,
+          transition: \`all \${theme.other.transition}\`,
           "&[data-loading]": {
             color: "transparent",
             svg: {
@@ -170,7 +170,7 @@ const BubbleTheme: MantineThemeOverride = {
             ".mantine-Button-centerLoader": {
               opacity: 1,
             },
-            [`& .${getStylesRef("rightIcon")}, .${getStylesRef("leftIcon")}`]: {
+            [\`& .\${getStylesRef("rightIcon")}, .\${getStylesRef("leftIcon")}\`]: {
               opacity: 0,
             },
           },
@@ -179,8 +179,9 @@ const BubbleTheme: MantineThemeOverride = {
     },
     Avatar: {
       defaultProps: {
+        radius: 1000,
         children: <Text size="lg">🐶</Text>,
-        radius: "xl",
+        color: "violet",
       },
     },
     Paper: {
@@ -253,6 +254,9 @@ const BubbleTheme: MantineThemeOverride = {
     },
 
     Accordion: {
+      defaultProps: {
+        chevron: null,
+      },
       styles: (theme) => ({
         content: {
           paddingTop: 0,
@@ -266,6 +270,7 @@ const BubbleTheme: MantineThemeOverride = {
         },
         control: {
           marginBottom: rem(4),
+          borderRadius: theme.radius[theme.defaultRadius],
           "&:hover": {
             backgroundColor: theme.colors.gray[0],
           },
@@ -275,8 +280,8 @@ const BubbleTheme: MantineThemeOverride = {
     Input: {
       styles: (theme) => ({
         input: {
-          transition: `border-color ${theme.other.transition}`,
-          "&:not(:disabled, :focus-within, [data-invalid])": {
+          transition: \`border-color \${theme.other.transition}\`,
+          "&:not(:disabled, :focus-within)": {
             "&:hover": {
               borderColor: theme.colors.gray[6],
             },
@@ -284,27 +289,20 @@ const BubbleTheme: MantineThemeOverride = {
         },
       }),
     },
-    NavLink: {
+    NavbarLinks: {
       styles: (theme) => ({
-        root: {
+        link: {
+          height: rem(48),
           fontWeight: 500,
-          borderRadius: theme.radius[theme.defaultRadius],
           color: theme.colors.gray[9],
-          backgroundColor: theme.white,
           "&[data-active=true]": {
             background: theme.colors[theme.primaryColor][0],
             color: theme.colors[theme.primaryColor][5],
-            "&:hover": {
-              background: theme.colors[theme.primaryColor][0],
-            },
           },
           "&:not([data-active=true])": {
             "&:hover": {
               background: theme.colors.gray[0],
             },
-          },
-          "&:not(:last-child)": {
-            marginBottom: rem(4),
           },
         },
       }),
@@ -320,4 +318,6 @@ const BubbleTheme: MantineThemeOverride = {
   }),
 }
 
-export default BubbleTheme
+export default BubbleTheme`
+
+export default mock

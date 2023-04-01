@@ -11,7 +11,7 @@ const DesignSystemProvider = ({ children }: DesignSystemProviderProps) => {
   const designSystem = useSelector(DesignSystem)
   return (
     <MantineProvider theme={designSystem.theme}>
-      <div className={designSystem.font?.variable}>{children}</div>
+      <div className={designSystem.font?.nextFont?.variable}>{children}</div>
     </MantineProvider>
   )
 }

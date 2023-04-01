@@ -1,4 +1,4 @@
-import { Group, Stack, Switch, useMantineTheme } from "@mantine/core"
+import { Center, Group, Stack, Switch, useMantineTheme } from "@mantine/core"
 import getSwitchConfigurator from "src/design-system/Configurator/configurators/switch"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
@@ -29,17 +29,17 @@ const ThumbSwitch = () => {
 const switchComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Switch",
   description: `A switch is used to quickly switch between two possible states. They are commonly used for “on/off” toggles.`,
+  mantineLink: "https://mantine.dev/core/switch",
   examples: [
     {
       title: "Label position",
       description: `You can use different label positions depending on the layout where you use switch.`,
       children: (
-        <Stack>
+        <Stack align="center">
           {["left", "right"].map((position) => (
             <Switch
               label="Switch's label"
               labelPosition={position as "left" | "right"}
-              size="md"
               key={position}
             />
           ))}
@@ -50,7 +50,7 @@ const switchComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Inner labels",
       description: `You can use inner labels to help users understand what's the current state of the switch`,
       children: (
-        <Group>
+        <Group position="center">
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Switch key={size} size={size} onLabel="ON" offLabel="OFF" />
           ))}
@@ -61,7 +61,7 @@ const switchComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Icon labels",
       description: `Icon labels have the same purpose as text labels, but can be better solution when you can't describe the switch's purpose shortly`,
       children: (
-        <Group>
+        <Group position="center">
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Switch
               key={size}
@@ -76,25 +76,30 @@ const switchComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
     {
       title: "Thumb icons",
       description: `Thumbs are another way to display icons to show switch's state`,
-      children: <ThumbSwitch />,
+      children: (
+        <Center>
+          <ThumbSwitch />
+        </Center>
+      ),
     },
     {
       title: "Switch.Group",
       description: `Use Switch.Group when you have multiple togglable parameters with close meaning`,
       children: (
-        <Switch.Group
-          defaultValue={["react"]}
-          label="Select your favorite framework/library"
-          description="This is anonymous"
-          withAsterisk
-        >
-          <Group mt="xs">
-            <Switch value="react" label="React" />
-            <Switch value="svelte" label="Svelte" />
-            <Switch value="ng" label="Angular" />
-            <Switch value="vue" label="Vue" />
-          </Group>
-        </Switch.Group>
+        <Center>
+          <Switch.Group
+            defaultValue={["react"]}
+            label="Select your favorite framework/library"
+            description="This is anonymous"
+            withAsterisk
+          >
+            <Group mt="xs">
+              {["React", "Svelte", "Angular", "Vue"].map((label) => (
+                <Switch key={label} value={label} label={label} />
+              ))}
+            </Group>
+          </Switch.Group>
+        </Center>
       ),
     },
   ],
@@ -106,8 +111,6 @@ const AtomSwitches = () => {
     <ComponentDocs
       {...switchComponentDocsProps}
       preview={{
-        title: "Switch",
-        mantineLink: "https://mantine.dev/core/switch",
         configurator: switchConfigurator,
         children: (
           <Stack>
