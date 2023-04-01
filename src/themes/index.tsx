@@ -1,5 +1,5 @@
-import Marshmallow, { marshmallowFont } from "./Marshmallow"
-import Ghost, { ghostFont } from "./Ghost"
+import Marshmallow, { marshmallowFont } from "./marshmallow"
+import Ghost, { ghostFont } from "./ghost"
 import Bubble, { bubbleFont } from "./bubble"
 import { MantineThemeOverride } from "@mantine/core"
 import { NextFontWithVariable } from "next/dist/compiled/@next/font"
@@ -97,20 +97,8 @@ export const atoms = [
     label: "Chip",
   },
   {
-    slug: "multi-select",
-    label: "MultiSelect",
-  },
-  {
-    slug: "segmented-control",
-    label: "SegmentedControl",
-  },
-  {
     slug: "accordion",
     label: "Accordion",
-  },
-  {
-    slug: "stepper",
-    label: "Stepper",
   },
 ]
 

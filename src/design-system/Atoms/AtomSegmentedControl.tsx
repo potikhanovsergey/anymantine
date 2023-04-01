@@ -11,8 +11,8 @@ export const segmentedControlDataMock = [
 ]
 
 const segmentedControlComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
-  title: "SegmentedControl",
-  description: `SegementedControl let user choose one of controls options. Unlike tabs, segemented control
+  title: "Segmentedc ontrol",
+  description: `Segemented control let user choose one of controls options. Unlike tabs, segemented control
   will not change section, but save the chosen option for later use.`,
   mantineLink: "https://mantine.dev/core/segmented-control",
   examples: [
@@ -32,7 +32,7 @@ const segmentedControlComponentDocsProps: Omit<ComponentDocsProps, "preview"> = 
     },
     {
       title: "Orientation",
-      description: `Segemented-controls come in two orientations: horizontal and vertical. Use them to fit in your page nice.`,
+      description: `Segemented controls come in two orientations: horizontal and vertical. Use them to fit in your page nice.`,
       children: (
         <Stack w="75%">
           {["horizontal", "vertical"].map((orientation: "horizontal" | "vertical") => (
@@ -67,7 +67,6 @@ const AtomSegmentedControl = () => {
     <ComponentDocs
       {...segmentedControlComponentDocsProps}
       preview={{
-        title: "Avatar",
         configurator: segmentedControlConfigurator,
         children: <SegmentedControl data={segmentedControlDataMock} />,
       }}

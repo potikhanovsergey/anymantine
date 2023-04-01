@@ -1,14 +1,4 @@
-import {
-  Group,
-  Stack,
-  TextInput,
-  Text,
-  Loader,
-  Button,
-  Stepper,
-  StepperProps,
-  Center,
-} from "@mantine/core"
+import { Group, Stack, Text, Button, Stepper, StepperProps, Center } from "@mantine/core"
 import {
   IconCircleCheck,
   IconUserCheck,
@@ -16,11 +6,9 @@ import {
   IconShieldCheck,
 } from "@tabler/icons-react"
 import { useState } from "react"
-import getTextInputConfigurator from "src/design-system/Configurator/configurators/text-input"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 import getStepperConfigurator from "../Configurator/configurators/stepper"
-import ExampleIcon from "../ExampleIcon"
 
 type SteperExampleProps = Pick<StepperProps, "orientation" | "iconPosition"> & {
   loading?: boolean
