@@ -1,6 +1,6 @@
 import Marshmallow, { marshmallowFont } from "./Marshmallow"
 import Ghost, { ghostFont } from "./Ghost"
-import Bubble, { bubbleFont } from "./Bubble"
+import Bubble, { bubbleFont } from "./bubble"
 import { MantineThemeOverride } from "@mantine/core"
 import { NextFontWithVariable } from "next/dist/compiled/@next/font"
 

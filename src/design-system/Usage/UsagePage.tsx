@@ -3,7 +3,6 @@ import PageTitle from "../layout/PageTitle"
 import { Button, Stack, Text } from "@mantine/core"
 import { IconDownload } from "@tabler/icons-react"
 import PageSubtitle from "../layout/PageSubtitle"
-import mock from "src/mocks/themeStringMock"
 import { Prism } from "@mantine/prism"
 import { DesignSystem } from "src/state/design-system"
 import { useSelector } from "@legendapp/state/react"
@@ -34,7 +33,13 @@ const UsagePage = () => {
           <Text maw={700} mb="xs">
             Theme is stored in a single file which exports the theme object for MantineProvider.
           </Text>
-          <Button mb="xs" leftIcon={<IconDownload size={16} />}>
+          <Button
+            component="a"
+            download
+            href={`/api/theme?theme=${DesignSystemLabel.toLowerCase()}`}
+            mb="xs"
+            leftIcon={<IconDownload size={16} />}
+          >
             Download {DesignSystemLabel}Theme.ts
           </Button>
           <Text mb="xs">You can later use it like this:</Text>

@@ -4,7 +4,7 @@ import { Prism } from "@mantine/prism"
 import Layout from "src/core/layouts/Layout"
 
 import beautify from "js-beautify"
-import BubbleTheme from "src/themes/Bubble"
+import BubbleTheme from "src/themes/bubble"
 
 // const themeData = {
 //   components: {
