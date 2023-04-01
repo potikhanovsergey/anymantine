@@ -1,6 +1,8 @@
 import Marshmallow, { marshmallowFont } from "./Marshmallow"
 import Ghost, { ghostFont } from "./Ghost"
 import Bubble, { bubbleFont } from "./Bubble"
+import { MantineThemeOverride } from "@mantine/core"
+import { NextFontWithVariable } from "next/dist/compiled/@next/font"
 
 export const tokens = [
   {
@@ -78,16 +80,28 @@ export const atoms = [
     slug: "paper",
     label: "Paper",
   },
+  {
+    slug: "avatar",
+    label: "Avatar",
+  },
+  {
+    slug: "slider",
+    label: "Slider",
+  },
+  {
+    slug: "chip",
+    label: "Chip",
+  },
+  {
+    slug: "accordion",
+    label: "Accordion",
+  },
 ]
 
 export const usage = [
   {
-    slug: "preview",
-    label: "Preview",
-  },
-  {
-    slug: "files",
-    label: "Files",
+    slug: "usage",
+    label: "Usage",
   },
 ]
 
@@ -99,10 +113,40 @@ export const dsSubPages = [
 
 export type DesignSystemSubPage = (typeof dsSubPages)[number]
 
+export type Theme = {
+  theme: MantineThemeOverride
+  font: {
+    nextFont: NextFontWithVariable
+    label: string
+    source: string
+  }
+}
+
 export const themes = {
-  bubble: { theme: Bubble, font: bubbleFont },
-  marshmallow: { theme: Marshmallow, font: marshmallowFont },
-  ghost: { theme: Ghost, font: ghostFont },
+  bubble: {
+    theme: Bubble,
+    font: {
+      nextFont: bubbleFont,
+      label: "Karla",
+      source: "https://fonts.google.com/specimen/Karla?query=karla",
+    },
+  },
+  marshmallow: {
+    theme: Marshmallow,
+    font: {
+      nextFont: marshmallowFont,
+      label: "Nunito Sans",
+      source: "https://fonts.google.com/specimen/Nunito+Sans?query=nunito",
+    },
+  },
+  ghost: {
+    theme: Ghost,
+    font: {
+      nextFont: ghostFont,
+      label: "Inter",
+      source: "https://fonts.google.com/specimen/Inter?query=inter",
+    },
+  },
 }
 
 const designSystems = [
@@ -124,7 +168,7 @@ const designSystems = [
     title: "Ghost",
     colors: ["red", "gray", "dark"],
     imageUrl:
-      "https://vercel.com/_next/image?url=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Fv1671111035%2Fghost%2Fghost-illustration-light.png&w=1920&q=100",
+      "https://cdn.dribbble.com/users/2403087/screenshots/9354743/dashboard_components_dark_4x.png",
   },
 ]
 

@@ -12,16 +12,17 @@ export const paperDataShortMock =
 const paperComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Paper",
   description: `Papers group information into flexible containers with background and shadow to let users to browse a collection of related items.`,
+  mantineLink: "https://mantine.dev/core/paper",
   examples: [
     {
       title: "Shadow",
       description: `The different size of the shadow changes the perception of the card: it is necessary to select it according to the overall composition and how important the information is. A large shadow will draw more attention.`,
       children: (
-        <Stack w="75%">
+        <Stack align="center">
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Group w="100%" position="apart" key={size} noWrap>
               <Text color="dimmed">{size}</Text>
-              <Paper tabIndex={-1} withBorder={false} shadow={size}>
+              <Paper withBorder={false} shadow={size}>
                 {paperDataShortMock}
               </Paper>
             </Group>
@@ -37,7 +38,7 @@ const paperComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
           {["With border", "Without border"].map((variant) => (
             <Stack key={variant}>
               <Text color="dimmed">{variant}</Text>
-              <Paper tabIndex={-1} withBorder={variant === "With border"} shadow="md">
+              <Paper withBorder={variant === "With border"} shadow="md">
                 {paperDataShortMock}
               </Paper>
             </Stack>
@@ -55,8 +56,6 @@ const AtomPapers = () => {
     <ComponentDocs
       {...paperComponentDocsProps}
       preview={{
-        title: "Anchor",
-        mantineLink: "https://mantine.dev/core/paper",
         configurator: paperConfigurator,
         children: (
           <SimpleGrid cols={2}>

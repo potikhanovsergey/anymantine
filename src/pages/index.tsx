@@ -1,17 +1,5 @@
 import { BlitzPage } from "@blitzjs/next"
-import {
-  Container,
-  Grid as MantineGrid,
-  Paper,
-  Title,
-  Select,
-  TextInput,
-  Stack,
-  Checkbox,
-  Button,
-  Group,
-  useMantineTheme,
-} from "@mantine/core"
+import { Container, Title, useMantineTheme } from "@mantine/core"
 import Layout from "src/core/layouts/Layout"
 import Card from "src/design-systems/Card"
 import Grid from "src/design-systems/Grid"

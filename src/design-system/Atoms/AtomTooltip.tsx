@@ -1,8 +1,9 @@
-import { ActionIcon, Group, Tooltip, Text, Mark, Button, Box, Stack } from "@mantine/core"
+import { ActionIcon, Group, Tooltip, Text, Mark, Button, Box, Stack, Center } from "@mantine/core"
 import { IconHeart } from "@tabler/icons-react"
 import getTooltipConfigurator from "src/design-system/Configurator/configurators/tooltip"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
+import ExampleIcon from "../ExampleIcon"
 
 const tooltipDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Tooltip",
@@ -11,15 +12,18 @@ const tooltipDocsProps: Omit<ComponentDocsProps, "preview"> = {
   examples: [
     {
       title: "withArrow prop",
-      description: `withArrow prop determines whether tooltip should have an arrow`,
+      description: `withArrow prop determines whether tooltip should have an arrow.`,
       children: (
-        <Group spacing="xl">
-          <Tooltip label="With arrow" withArrow>
-            <Button size="xs">With arrow</Button>
-          </Tooltip>
-          <Tooltip label="Without arrow" withArrow={false}>
-            <Button size="xs">Without arrow</Button>
-          </Tooltip>
+        <Group position="center">
+          {[false, true].map((withArrow) => (
+            <Tooltip
+              key={withArrow + ""}
+              label={`${withArrow ? "With" : "Without"} arrow`}
+              withArrow={withArrow}
+            >
+              <Button size="xs">{withArrow ? "With" : "Without"} arrow</Button>
+            </Tooltip>
+          ))}
         </Group>
       ),
     },
@@ -27,7 +31,7 @@ const tooltipDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "multiline prop",
       description: `To enable multiline mode set multiline prop to enable line breaks and width prop to set tooltip width.`,
       children: (
-        <Group spacing="xl">
+        <Center>
           <Tooltip
             multiline
             width={220}
@@ -37,14 +41,14 @@ const tooltipDocsProps: Omit<ComponentDocsProps, "preview"> = {
           >
             <Button size="xs">Multiline tooltip</Button>
           </Tooltip>
-        </Group>
+        </Center>
       ),
     },
     {
       title: "Close and open delay",
-      description: `You can delay tooltip open/close events by setting openDelay and closeDelay props in ms`,
+      description: `You can delay tooltip open/close events by setting openDelay and closeDelay props in ms.`,
       children: (
-        <Group spacing="xl">
+        <Group position="center">
           <Tooltip label="Opened after 500ms" openDelay={500}>
             <Button size="xs">Delay open - 500ms</Button>
           </Tooltip>
@@ -59,7 +63,7 @@ const tooltipDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Tooltip.Group",
       description: `Tooltip.Group component can be used to sync open and close delays for multiple tooltips.`,
       children: (
-        <Group spacing="xl">
+        <Group position="center">
           <Tooltip.Group openDelay={500} closeDelay={100}>
             <Group position="center">
               {[1, 2, 3].map((tooltip) => (
@@ -76,7 +80,7 @@ const tooltipDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Tooltip.Floating",
       description: `Tooltip.Floating component has the same API as Tooltip component but tooltip will follow mouse.`,
       children: (
-        <Group spacing="xl">
+        <Group position="center">
           <Tooltip.Floating label="Tooltip" color="blue">
             <Box
               sx={(theme) => ({
@@ -101,13 +105,12 @@ const AtomTooltips = () => {
     <ComponentDocs
       {...tooltipDocsProps}
       preview={{
-        title: "Tooltip",
         configurator: tooltipConfigurator,
         children: (
           <Stack>
             <Tooltip label="Make love">
               <ActionIcon>
-                <IconHeart size="75%" stroke={1} />
+                <ExampleIcon />
               </ActionIcon>
             </Tooltip>
             <Text maw={400}>

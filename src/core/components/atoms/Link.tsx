@@ -35,7 +35,7 @@ const Link = ({
   ...props
 }: AnchorProps & {
   href: PropsOf<typeof NextLink>["href"]
-  target: PropsOf<typeof NextLink>["target"]
+  target?: PropsOf<typeof NextLink>["target"]
 }) => {
   const theme = useMantineTheme()
   const { classes, cx } = useStyles({ color: props.color })

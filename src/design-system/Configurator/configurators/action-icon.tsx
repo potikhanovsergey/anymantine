@@ -1,22 +1,16 @@
-import {
-  ActionIconProps,
-  Group,
-  ActionIcon,
-  MantineTheme,
-  MantineThemeOverride,
-} from "@mantine/core"
-import { IconHeart } from "@tabler/icons-react"
+import { ActionIconProps, Group, ActionIcon, MantineThemeOverride } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
+import ExampleIcon from "src/design-system/ExampleIcon"
 
 const codeTemplate = (props: string) => `
 import { ActionIcon } from '@mantine/core';
-import { IconHeart } from "@tabler/icons-react"
+import { IconSettings } from "@tabler/icons-react"
 
 function Demo() {
   return (
     <ActionIcon${props}>
-      <IconHeart size="75%" stroke={1} />
+      <IconSettings size="75%" stroke={1} />
     </ActionIcon>
   );
 }
@@ -26,7 +20,7 @@ function Wrapper(props: ActionIconProps) {
   return (
     <Group position="center">
       <ActionIcon {...props}>
-        <IconHeart size="75%" stroke={1} />
+        <ExampleIcon />
       </ActionIcon>
     </Group>
   )

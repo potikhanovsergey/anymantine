@@ -1,6 +1,8 @@
 import { Group, Title, useMantineTheme, Text } from "@mantine/core"
 import ShadowItem from "../Shadows/ShadowItem"
 import CornerItem from "../Corners/CornerItem"
+import PageTitle from "src/design-system/layout/PageTitle"
+import PageSubtitle from "src/design-system/layout/PageSubtitle"
 
 const Radiuses = () => {
   const theme = useMantineTheme()
@@ -26,20 +28,14 @@ const Shadows = () => {
 
 const RadiusesAndShadows = () => {
   return (
-    <div>
-      <Title order={1} mb="md">
-        Radiuses and shadows
-      </Title>
+    <>
+      <PageTitle>Radiuses and shadows</PageTitle>
       <Text mb="xl">We need radiuses and shadows to ...</Text>
-      <Title order={2} mb="md">
-        Radiuses
-      </Title>
+      <PageSubtitle>Radiuses</PageSubtitle>
       <Radiuses />
-      <Title order={2} my="md">
-        Shadows
-      </Title>
+      <PageSubtitle>Shadows</PageSubtitle>
       <Shadows />
-    </div>
+    </>
   )
 }
 

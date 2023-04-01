@@ -4,6 +4,7 @@ import getSelectConfigurator from "src/design-system/Configurator/configurators/
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 import { useState } from "react"
+import ExampleIcon from "../ExampleIcon"
 
 export const selectDataMock = ["Orange", "Banana", "Mango", "Apple", "Lemon", "Kiwi"]
 
@@ -171,22 +172,15 @@ const AtomSelects = () => {
     <ComponentDocs
       {...selectDocsProps}
       preview={{
-        title: "Select",
         configurator: selectConfigurator,
         children: (
           <SimpleGrid cols={2}>
             <Select data={selectDataMock} label="Label" placeholder="Placeholder..." />
             <Select
               data={selectDataMock}
-              icon={<IconInfoCircle stroke={1} />}
+              icon={<ExampleIcon />}
               label="Label"
               placeholder="Left icon"
-            />
-            <Select
-              data={selectDataMock}
-              rightSection={<IconInfoCircle stroke={1} />}
-              label="Label"
-              placeholder="Right icon"
             />
           </SimpleGrid>
         ),

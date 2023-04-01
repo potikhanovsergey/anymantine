@@ -1,6 +1,6 @@
 import { SelectProps, Group, Select, MantineThemeOverride } from "@mantine/core"
 import React from "react"
-import { selectDataMock } from "src/design-system/Atoms/AtomSelects"
+import { selectDataMock } from "src/design-system/Atoms/AtomSelect"
 import { MantineDemo } from "src/design-system/Demo/types"
 
 const codeTemplate = (props: string) => `
