@@ -1,6 +1,7 @@
-import { SwitchProps, Group, Switch, MantineThemeOverride } from "@mantine/core"
+import { SwitchProps, Group, Switch, MantineThemeOverride, MantineTheme } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string) => `
 import { Switch } from '@mantine/core';
@@ -20,8 +21,9 @@ function Wrapper(props: SwitchProps) {
   )
 }
 
-const getSwitchConfigurator = (theme: MantineThemeOverride) =>
-  ({
+const getSwitchConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("Switch", theme)
+  return {
     type: "configurator",
     component: Wrapper,
     codeTemplate,
@@ -42,20 +44,21 @@ const getSwitchConfigurator = (theme: MantineThemeOverride) =>
       {
         name: "color",
         type: "color",
-        initialValue: theme.components?.Switch?.defaultProps?.["color"] || theme.primaryColor,
+        initialValue: defaultProps?.["color"] || theme.primaryColor,
       },
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.Switch?.defaultProps?.["radius"] || theme.defaultRadius,
+        initialValue: defaultProps?.["radius"] || theme.defaultRadius,
       },
       {
         name: "size",
         type: "size",
-        initialValue: theme.components?.Switch?.defaultProps?.["size"] || "md",
+        initialValue: defaultProps?.["size"] || "md",
       },
       { name: "disabled", type: "boolean", initialValue: false },
     ],
-  } as MantineDemo)
+  } as MantineDemo
+}
 
 export default getSwitchConfigurator

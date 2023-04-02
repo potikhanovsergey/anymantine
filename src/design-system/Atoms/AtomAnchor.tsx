@@ -1,4 +1,4 @@
-import { Group, Stack, Text, Anchor } from "@mantine/core"
+import { Group, Stack, Text, Anchor, useMantineTheme } from "@mantine/core"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 import getAnchorConfigurator from "../Configurator/configurators/anchor"
@@ -43,7 +43,8 @@ const anchorComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomAnchor = () => {
-  const anchorConfigurator = getAnchorConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const anchorConfigurator = getAnchorConfigurator(theme)
   return (
     <ComponentDocs
       {...anchorComponentDocsProps}

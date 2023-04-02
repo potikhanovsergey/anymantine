@@ -1,4 +1,4 @@
-import { Group, Text, Stack, Chip } from "@mantine/core"
+import { Group, Text, Stack, Chip, useMantineTheme } from "@mantine/core"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 import getChipConfigurator from "../Configurator/configurators/chip"
@@ -76,7 +76,8 @@ const chipComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomChip = () => {
-  const chipConfigurator = getChipConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const chipConfigurator = getChipConfigurator(theme)
   return (
     <ComponentDocs
       {...chipComponentDocsProps}

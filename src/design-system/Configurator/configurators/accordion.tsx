@@ -1,13 +1,7 @@
-import {
-  ButtonProps,
-  Group,
-  Button,
-  MantineThemeOverride,
-  AccordionProps,
-  Accordion,
-} from "@mantine/core"
+import { Group, AccordionProps, Accordion, MantineTheme } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string) => `
 import { Accordion } from '@mantine/core';
@@ -61,7 +55,8 @@ function Wrapper(props: AccordionProps) {
   )
 }
 
-const getAccordionConfigurator = (theme: MantineThemeOverride) => {
+const getAccordionConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("Accordion", theme)
   return {
     type: "configurator",
     component: Wrapper,
@@ -76,12 +71,12 @@ const getAccordionConfigurator = (theme: MantineThemeOverride) => {
           { label: "Filled", value: "filled" },
           { label: "Separated", value: "separated" },
         ],
-        initialValue: theme.components?.Accordion?.defaultProps?.["variant"] || "default",
+        initialValue: defaultProps?.["variant"] || "default",
       },
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.Accordion?.defaultProps?.["radius"] || theme.defaultRadius,
+        initialValue: defaultProps?.["radius"] || theme.defaultRadius,
       },
       {
         name: "chevronPosition",
@@ -91,7 +86,7 @@ const getAccordionConfigurator = (theme: MantineThemeOverride) => {
           { label: "Left", value: "left" },
           { label: "Right", value: "right" },
         ],
-        initialValue: theme.components?.Accordion?.defaultProps?.["chevronPosition"] || "left",
+        initialValue: defaultProps?.["chevronPosition"] || "left",
       },
       {
         name: "disableChevronRotation",

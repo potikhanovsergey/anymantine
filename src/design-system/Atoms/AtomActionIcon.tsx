@@ -1,4 +1,4 @@
-import { Group, ActionIcon, Stack, Text, Tooltip } from "@mantine/core"
+import { Group, ActionIcon, Stack, Text, Tooltip, useMantineTheme } from "@mantine/core"
 import { IconHeart } from "@tabler/icons-react"
 import getActionIconConfigurator from "src/design-system/Configurator/configurators/action-icon"
 import { DesignTheme } from "src/state/design-system"
@@ -108,7 +108,8 @@ const actionIconComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomActionIcons = () => {
-  const actionIconConfigurator = getActionIconConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const actionIconConfigurator = getActionIconConfigurator(theme)
   return (
     <ComponentDocs
       {...actionIconComponentDocsProps}

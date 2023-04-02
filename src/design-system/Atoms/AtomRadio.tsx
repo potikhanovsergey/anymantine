@@ -1,4 +1,4 @@
-import { Group, Stack, Radio, Text, Center } from "@mantine/core"
+import { Group, Stack, Radio, Text, Center, useMantineTheme } from "@mantine/core"
 import getRadioConfigurator from "src/design-system/Configurator/configurators/radio"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
@@ -102,7 +102,8 @@ const radioComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomRadios = () => {
-  const radioConfigurator = getRadioConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const radioConfigurator = getRadioConfigurator(theme)
   return (
     <ComponentDocs
       {...radioComponentDocsProps}

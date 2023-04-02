@@ -1,4 +1,4 @@
-import { Group, Stack, TextInput, Text, Loader } from "@mantine/core"
+import { Group, Stack, TextInput, Text, Loader, useMantineTheme } from "@mantine/core"
 import getTextInputConfigurator from "src/design-system/Configurator/configurators/text-input"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
@@ -99,7 +99,8 @@ const textInputComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomTextInputs = () => {
-  const textInputConfigurator = getTextInputConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const textInputConfigurator = getTextInputConfigurator(theme)
   return (
     <ComponentDocs
       {...textInputComponentDocsProps}

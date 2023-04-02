@@ -1,6 +1,7 @@
-import { SkeletonProps, Group, Skeleton, MantineThemeOverride } from "@mantine/core"
+import { SkeletonProps, Group, Skeleton, MantineThemeOverride, MantineTheme } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string) => `
 import { Skeleton } from '@mantine/core';
@@ -20,8 +21,9 @@ function Wrapper(props: SkeletonProps) {
   )
 }
 
-const getSkeletonConfigurator = (theme: MantineThemeOverride) =>
-  ({
+const getSkeletonConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("Skeleton", theme)
+  return {
     type: "configurator",
     component: Wrapper,
     codeTemplate,
@@ -29,7 +31,7 @@ const getSkeletonConfigurator = (theme: MantineThemeOverride) =>
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.Skeleton?.defaultProps?.["radius"] || theme.defaultRadius,
+        initialValue: defaultProps?.["radius"] || theme.defaultRadius,
       },
       { name: "width", type: "string", initialValue: "100%" },
       { name: "height", type: "string", initialValue: "40px" },
@@ -37,6 +39,7 @@ const getSkeletonConfigurator = (theme: MantineThemeOverride) =>
       { name: "circle", type: "boolean", initialValue: false },
       { name: "loading", type: "boolean", initialValue: true },
     ],
-  } as MantineDemo)
+  } as MantineDemo
+}
 
 export default getSkeletonConfigurator

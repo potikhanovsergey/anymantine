@@ -1,6 +1,7 @@
-import { ButtonProps, Group, Button, MantineThemeOverride } from "@mantine/core"
+import { ButtonProps, Group, Button, MantineThemeOverride, MantineTheme } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string, children: string) => `
 import { Button } from '@mantine/core';
@@ -22,7 +23,8 @@ function Wrapper(props: ButtonProps) {
   )
 }
 
-const getButtonConfigurator = (theme: MantineThemeOverride) => {
+const getButtonConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("Button", theme)
   return {
     type: "configurator",
     component: Wrapper,
@@ -35,22 +37,22 @@ const getButtonConfigurator = (theme: MantineThemeOverride) => {
           { label: "primary", value: "primary" },
           { label: "secondary", value: "secondary" },
         ],
-        initialValue: theme.components?.Button?.defaultProps?.["variant"] || "primary",
+        initialValue: defaultProps?.["variant"] || "primary",
       },
       {
         name: "color",
         type: "color",
-        initialValue: theme.components?.Button?.defaultProps?.["color"] || theme.primaryColor,
+        initialValue: defaultProps?.["color"] || theme.primaryColor,
       },
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.Button?.defaultProps?.["radius"] || theme.defaultRadius,
+        initialValue: defaultProps?.["radius"] || theme.defaultRadius,
       },
       {
         name: "size",
         type: "size",
-        initialValue: theme.components?.Button?.defaultProps?.["size"] || "md",
+        initialValue: defaultProps?.["size"] || "md",
       },
       { name: "disabled", type: "boolean", initialValue: false },
       { name: "loading", type: "boolean", initialValue: false },

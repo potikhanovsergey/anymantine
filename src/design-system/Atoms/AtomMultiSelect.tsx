@@ -1,4 +1,4 @@
-import { Group, Text, Stack, Avatar, MultiSelect } from "@mantine/core"
+import { Group, Text, Stack, Avatar, MultiSelect, useMantineTheme } from "@mantine/core"
 import { useState } from "react"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
@@ -165,7 +165,8 @@ const multiSelectComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomMultiSelect = () => {
-  const multiSelectConfigurator = getMultiSelectConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const multiSelectConfigurator = getMultiSelectConfigurator(theme)
   return (
     <ComponentDocs
       {...multiSelectComponentDocsProps}

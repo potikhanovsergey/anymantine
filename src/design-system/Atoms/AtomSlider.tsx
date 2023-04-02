@@ -1,4 +1,4 @@
-import { Group, Text, Stack, Slider } from "@mantine/core"
+import { Group, Text, Stack, Slider, useMantineTheme } from "@mantine/core"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 import getSliderConfigurator from "../Configurator/configurators/slider"
@@ -45,7 +45,8 @@ const sliderComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomSlider = () => {
-  const sliderConfigurator = getSliderConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const sliderConfigurator = getSliderConfigurator(theme)
   return (
     <ComponentDocs
       {...sliderComponentDocsProps}

@@ -1,4 +1,4 @@
-import { Text, Stack, SegmentedControl } from "@mantine/core"
+import { Text, Stack, SegmentedControl, useMantineTheme } from "@mantine/core"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 import getSegmentedControlConfigurator from "../Configurator/configurators/segmented-control"
@@ -61,7 +61,8 @@ const segmentedControlComponentDocsProps: Omit<ComponentDocsProps, "preview"> = 
 }
 
 const AtomSegmentedControl = () => {
-  const segmentedControlConfigurator = getSegmentedControlConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const segmentedControlConfigurator = getSegmentedControlConfigurator(theme)
   return (
     <ComponentDocs
       {...segmentedControlComponentDocsProps}

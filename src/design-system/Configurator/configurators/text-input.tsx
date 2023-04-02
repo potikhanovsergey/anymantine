@@ -1,6 +1,7 @@
-import { TextInputProps, Group, TextInput, MantineThemeOverride } from "@mantine/core"
+import { TextInputProps, Group, TextInput, MantineThemeOverride, MantineTheme } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string) => `
 import { TextInput } from '@mantine/core';
@@ -20,8 +21,9 @@ function Wrapper(props: TextInputProps) {
   )
 }
 
-const getTextInputConfigurator = (theme: MantineThemeOverride) =>
-  ({
+const getTextInputConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("Input", theme)
+  return {
     type: "configurator",
     component: Wrapper,
     codeTemplate,
@@ -33,16 +35,17 @@ const getTextInputConfigurator = (theme: MantineThemeOverride) =>
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.TextInput?.defaultProps?.["radius"] || theme.defaultRadius,
+        initialValue: defaultProps?.["radius"] || theme.defaultRadius,
       },
       {
         name: "size",
         type: "size",
-        initialValue: theme.components?.TextInput?.defaultProps?.["size"] || "md",
+        initialValue: defaultProps?.["size"] || "md",
       },
       { name: "disabled", type: "boolean", initialValue: false },
       { name: "required", type: "boolean", initialValue: false },
     ],
-  } as MantineDemo)
+  } as MantineDemo
+}
 
 export default getTextInputConfigurator

@@ -1,6 +1,14 @@
-import { Group, Switch, MantineThemeOverride, StepperProps, Stepper } from "@mantine/core"
+import {
+  Group,
+  Switch,
+  MantineThemeOverride,
+  StepperProps,
+  Stepper,
+  MantineTheme,
+} from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string) => `
 import { Stepper } from '@mantine/core';
@@ -26,8 +34,9 @@ function Wrapper(props: StepperProps) {
   )
 }
 
-const getStepperConfigurator = (theme: MantineThemeOverride) =>
-  ({
+const getStepperConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("Stepper", theme)
+  return {
     type: "configurator",
     component: Wrapper,
     codeTemplate,
@@ -35,17 +44,17 @@ const getStepperConfigurator = (theme: MantineThemeOverride) =>
       {
         name: "color",
         type: "color",
-        initialValue: theme.components?.Stepper?.defaultProps?.["color"] || theme.primaryColor,
+        initialValue: defaultProps?.["color"] || theme.primaryColor,
       },
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.Stepper?.defaultProps?.["radius"] || theme.defaultRadius,
+        initialValue: defaultProps?.["radius"] || theme.defaultRadius,
       },
       {
         name: "size",
         type: "size",
-        initialValue: theme.components?.Stepper?.defaultProps?.["size"] || "md",
+        initialValue: defaultProps?.["size"] || "md",
       },
       {
         name: "orientation",
@@ -67,6 +76,7 @@ const getStepperConfigurator = (theme: MantineThemeOverride) =>
         initialValue: "left",
       },
     ],
-  } as MantineDemo)
+  } as MantineDemo
+}
 
 export default getStepperConfigurator

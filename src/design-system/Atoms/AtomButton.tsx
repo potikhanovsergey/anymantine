@@ -1,4 +1,4 @@
-import { Group, Button, Text, Stack, Box } from "@mantine/core"
+import { Group, Button, Text, Stack, Box, useMantineTheme } from "@mantine/core"
 import getButtonConfigurator from "src/design-system/Configurator/configurators/button"
 import { DesignTheme } from "src/state/design-system"
 import { IconDownload } from "@tabler/icons-react"
@@ -129,7 +129,8 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomButtons = () => {
-  const buttonConfigurator = getButtonConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const buttonConfigurator = getButtonConfigurator(theme)
   return (
     <ComponentDocs
       {...buttonComponentDocsProps}

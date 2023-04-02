@@ -1,14 +1,14 @@
 import {
-  SelectProps,
   Group,
-  Select,
   MantineThemeOverride,
   MultiSelectProps,
   MultiSelect,
+  MantineTheme,
 } from "@mantine/core"
 import React from "react"
 import { multiSelectDataMock } from "src/design-system/Atoms/AtomMultiSelect"
 import { MantineDemo } from "src/design-system/Demo/types"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string) => `
 import { MultiSelect } from '@mantine/core';
@@ -38,8 +38,9 @@ function Wrapper(props: MultiSelectProps) {
   )
 }
 
-const getMultiSelectConfigurator = (theme: MantineThemeOverride) =>
-  ({
+const getMultiSelectConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("Input", theme)
+  return {
     type: "configurator",
     component: Wrapper,
     codeTemplate,
@@ -50,18 +51,19 @@ const getMultiSelectConfigurator = (theme: MantineThemeOverride) =>
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.Select?.defaultProps?.["radius"] || theme.defaultRadius,
+        initialValue: defaultProps?.["radius"] || theme.defaultRadius,
       },
       {
         name: "size",
         type: "size",
-        initialValue: theme.components?.Select?.defaultProps?.["size"] || "md",
+        initialValue: defaultProps?.["size"] || "md",
       },
       { name: "disabled", type: "boolean", initialValue: false },
       { name: "clearable", type: "boolean", initialValue: false },
       { name: "searchable", type: "boolean", initialValue: false },
       { name: "required", type: "boolean", initialValue: false },
     ],
-  } as MantineDemo)
+  } as MantineDemo
+}
 
 export default getMultiSelectConfigurator

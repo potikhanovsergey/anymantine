@@ -1,4 +1,4 @@
-import { SimpleGrid, Select, Text } from "@mantine/core"
+import { SimpleGrid, Select, Text, useMantineTheme } from "@mantine/core"
 import { IconInfoCircle, IconPassword } from "@tabler/icons-react"
 import getSelectConfigurator from "src/design-system/Configurator/configurators/select"
 import { DesignTheme } from "src/state/design-system"
@@ -167,7 +167,8 @@ const selectDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomSelects = () => {
-  const selectConfigurator = getSelectConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const selectConfigurator = getSelectConfigurator(theme)
   return (
     <ComponentDocs
       {...selectDocsProps}

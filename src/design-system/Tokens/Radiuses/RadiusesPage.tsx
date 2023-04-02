@@ -1,8 +1,9 @@
-import { useMantineTheme, Group, Text, DEFAULT_THEME } from "@mantine/core"
-import RadiuseItem from "./RadiusItem"
+import { useMantineTheme, Group, Text } from "@mantine/core"
+import RadiusItem from "./RadiusItem"
 import PageTitle from "src/design-system/layout/PageTitle"
-import { useEffect, useMemo } from "react"
+import { useMemo } from "react"
 import { radiusItemSize } from "./RadiusItem.styles"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const canHaveRadius = [
   "Button",
@@ -25,10 +26,6 @@ const canHaveRadius = [
 
 const Radiuses = () => {
   const theme = useMantineTheme()
-
-  useEffect(() => {
-    console.log(theme, DEFAULT_THEME)
-  }, [])
   const useCases = useMemo(() => {
     const radiusCases: { [key: string]: string[] } = {
       xs: [],
@@ -40,11 +37,7 @@ const Radiuses = () => {
 
     for (let i = 0; i < canHaveRadius.length; i++) {
       const componentName = canHaveRadius[i]
-      const component = theme.components[componentName]
-      const defaultProps =
-        typeof component?.defaultProps === "function"
-          ? component?.defaultProps(theme)
-          : component?.defaultProps
+      const defaultProps = getDefaultProps(componentName, theme)
       const defaultRadius = defaultProps?.radius
 
       if (Object.keys(radiusCases).includes(defaultRadius) && typeof defaultRadius !== "number") {
@@ -55,12 +48,12 @@ const Radiuses = () => {
     }
 
     return radiusCases
-  }, [theme.components])
+  }, [theme])
 
   return (
     <Group spacing={64} align="flex-start">
       {Object.keys(theme.radius).map((radius) => (
-        <RadiuseItem useCases={useCases[radius]} key={radius} radius={radius} title={radius} />
+        <RadiusItem useCases={useCases[radius]} key={radius} radius={radius} title={radius} />
       ))}
     </Group>
   )

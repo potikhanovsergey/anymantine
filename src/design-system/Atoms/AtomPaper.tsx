@@ -1,4 +1,4 @@
-import { SimpleGrid, Paper, Anchor, Group, Stack, Text } from "@mantine/core"
+import { SimpleGrid, Paper, Anchor, Group, Stack, Text, useMantineTheme } from "@mantine/core"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 import getPaperConfigurator from "../Configurator/configurators/paper"
@@ -50,7 +50,8 @@ const paperComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomPapers = () => {
-  const paperConfigurator = getPaperConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const paperConfigurator = getPaperConfigurator(theme)
 
   return (
     <ComponentDocs

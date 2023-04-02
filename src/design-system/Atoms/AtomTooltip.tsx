@@ -1,4 +1,15 @@
-import { ActionIcon, Group, Tooltip, Text, Mark, Button, Box, Stack, Center } from "@mantine/core"
+import {
+  ActionIcon,
+  Group,
+  Tooltip,
+  Text,
+  Mark,
+  Button,
+  Box,
+  Stack,
+  Center,
+  useMantineTheme,
+} from "@mantine/core"
 import { IconHeart } from "@tabler/icons-react"
 import getTooltipConfigurator from "src/design-system/Configurator/configurators/tooltip"
 import { DesignTheme } from "src/state/design-system"
@@ -100,7 +111,8 @@ const tooltipDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomTooltips = () => {
-  const tooltipConfigurator = getTooltipConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const tooltipConfigurator = getTooltipConfigurator(theme)
   return (
     <ComponentDocs
       {...tooltipDocsProps}

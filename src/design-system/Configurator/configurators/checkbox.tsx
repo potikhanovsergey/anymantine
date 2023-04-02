@@ -5,9 +5,11 @@ import {
   MantineThemeOverride,
   MantineSize,
   CheckboxProps,
+  MantineTheme,
 } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string) => `
 import { Checkbox } from '@mantine/core';
@@ -27,8 +29,9 @@ function Wrapper(props: CheckboxProps) {
   )
 }
 
-const getCheckboxConfigurator = (theme: MantineThemeOverride) =>
-  ({
+const getCheckboxConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("Checkbox", theme)
+  return {
     type: "configurator",
     component: Wrapper,
     codeTemplate,
@@ -49,17 +52,17 @@ const getCheckboxConfigurator = (theme: MantineThemeOverride) =>
       {
         name: "color",
         type: "color",
-        initialValue: theme.components?.Checkbox?.defaultProps?.["color"] || theme.primaryColor,
+        initialValue: defaultProps?.["color"] || theme.primaryColor,
       },
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.Checkbox?.defaultProps?.["radius"] || theme.defaultRadius,
+        initialValue: defaultProps?.["radius"] || theme.defaultRadius,
       },
       {
         name: "size",
         type: "size",
-        initialValue: theme.components?.Checkbox?.defaultProps?.["size"] || "md",
+        initialValue: defaultProps?.["size"] || "md",
       },
       {
         name: "disabled",
@@ -67,6 +70,7 @@ const getCheckboxConfigurator = (theme: MantineThemeOverride) =>
         initialValue: false,
       },
     ],
-  } as MantineDemo)
+  } as MantineDemo
+}
 
 export default getCheckboxConfigurator

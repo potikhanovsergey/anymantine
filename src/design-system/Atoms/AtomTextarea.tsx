@@ -1,4 +1,4 @@
-import { SimpleGrid, Textarea, Text, Stack } from "@mantine/core"
+import { SimpleGrid, Textarea, Text, Stack, useMantineTheme } from "@mantine/core"
 import getTextareaConfigurator from "src/design-system/Configurator/configurators/textarea"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
@@ -68,7 +68,8 @@ const textareaDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomTextareas = () => {
-  const textareaConfigurator = getTextareaConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const textareaConfigurator = getTextareaConfigurator(theme)
   return (
     <ComponentDocs
       {...textareaDocsProps}

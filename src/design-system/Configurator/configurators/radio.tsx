@@ -1,6 +1,7 @@
-import { RadioProps, Group, Radio, RadioGroupProps } from "@mantine/core"
+import { RadioProps, Group, Radio, RadioGroupProps, MantineTheme } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string) => `
 import { Radio } from '@mantine/core';
@@ -20,8 +21,9 @@ function Wrapper(props: RadioProps) {
   )
 }
 
-const getRadioConfigurator = (theme) =>
-  ({
+const getRadioConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("Radio", theme)
+  return {
     type: "configurator",
     component: Wrapper,
     codeTemplate,
@@ -42,14 +44,15 @@ const getRadioConfigurator = (theme) =>
       {
         name: "color",
         type: "color",
-        initialValue: theme.components?.Radio?.defaultProps?.["color"] || theme.primaryColor,
+        initialValue: defaultProps?.["color"] || theme.primaryColor,
       },
       {
         name: "size",
         type: "size",
-        initialValue: theme.components?.Radio?.defaultProps?.["size"] || "md",
+        initialValue: defaultProps?.["size"] || "md",
       },
     ],
-  } as MantineDemo)
+  } as MantineDemo
+}
 
 export default getRadioConfigurator

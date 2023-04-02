@@ -1,4 +1,13 @@
-import { Group, Stack, Text, Button, Stepper, StepperProps, Center } from "@mantine/core"
+import {
+  Group,
+  Stack,
+  Text,
+  Button,
+  Stepper,
+  StepperProps,
+  Center,
+  useMantineTheme,
+} from "@mantine/core"
 import {
   IconCircleCheck,
   IconUserCheck,
@@ -97,7 +106,8 @@ const stepperComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomStepper = () => {
-  const stepperConfigurator = getStepperConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const stepperConfigurator = getStepperConfigurator(theme)
 
   const [active, setActive] = useState(1)
   const nextStep = () => setActive((current) => (current < 3 ? current + 1 : current))

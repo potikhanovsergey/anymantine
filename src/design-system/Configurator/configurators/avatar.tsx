@@ -1,6 +1,7 @@
-import { Group, MantineThemeOverride, CheckboxProps, Avatar, AvatarProps } from "@mantine/core"
+import { Group, Avatar, AvatarProps, MantineTheme } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string) => `
 import { Avatar } from '@mantine/core';
@@ -20,8 +21,9 @@ function Wrapper(props: AvatarProps) {
   )
 }
 
-const getAvatarConfigurator = (theme: MantineThemeOverride) =>
-  ({
+const getAvatarConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("Avatar", theme)
+  return {
     type: "configurator",
     component: Wrapper,
     codeTemplate,
@@ -34,25 +36,26 @@ const getAvatarConfigurator = (theme: MantineThemeOverride) =>
           { label: "Filled", value: "filled" },
           { label: "Outline", value: "outline" },
         ],
-        initialValue: "light",
+        initialValue: defaultProps?.["variant"] || "light",
       },
       {
         name: "color",
         type: "color",
-        initialValue: theme.components?.Avatar?.defaultProps?.["color"] || theme.primaryColor,
+        initialValue: defaultProps?.["color"] || theme.primaryColor,
       },
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.Avatar?.defaultProps?.["radius"] || theme.defaultRadius,
+        initialValue: defaultProps?.["radius"] || theme.defaultRadius,
       },
       {
         name: "size",
         type: "size",
-        initialValue: theme.components?.Avatar?.defaultProps?.["size"] || "md",
+        initialValue: defaultProps?.["size"] || "md",
       },
       { name: "src", type: "string", initialValue: "" },
     ],
-  } as MantineDemo)
+  } as MantineDemo
+}
 
 export default getAvatarConfigurator

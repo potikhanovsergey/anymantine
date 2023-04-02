@@ -1,6 +1,7 @@
-import { BadgeProps, Group, Badge, MantineThemeOverride } from "@mantine/core"
+import { BadgeProps, Group, Badge, MantineThemeOverride, MantineTheme } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string, children: string) => `
 import { Badge } from '@mantine/core';
@@ -22,8 +23,8 @@ function Wrapper(props: BadgeProps) {
   )
 }
 
-const getBadgeConfigurator = (theme: MantineThemeOverride) => {
-  console.log("THEME", theme.components, theme.components?.Badge?.defaultProps?.["radius"])
+const getBadgeConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("Badge", theme)
   return {
     type: "configurator",
     component: Wrapper,
@@ -37,24 +38,24 @@ const getBadgeConfigurator = (theme: MantineThemeOverride) => {
           { label: "light", value: "light" },
           { label: "outline", value: "outline" },
         ],
-        initialValue: theme.components?.Badge?.defaultProps?.["variant"] || "filled",
+        initialValue: defaultProps?.["variant"] || "filled",
       },
       {
         name: "color",
         type: "color",
-        initialValue: theme.components?.Badge?.defaultProps?.["color"] || theme.primaryColor,
+        initialValue: defaultProps?.["color"] || theme.primaryColor,
       },
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.Badge?.defaultProps?.["radius"] || theme.defaultRadius,
+        initialValue: defaultProps?.["radius"] || theme.defaultRadius,
       },
       {
         name: "size",
         type: "size",
-        initialValue: theme.components?.Badge?.defaultProps?.["size"] || "md",
+        initialValue: defaultProps?.["size"] || "md",
       },
-      { name: "children", type: "string", initialValue: "Tag example" },
+      { name: "children", type: "string", initialValue: "Badge example" },
     ],
   } as MantineDemo
 }

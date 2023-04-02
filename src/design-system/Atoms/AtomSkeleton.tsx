@@ -1,4 +1,4 @@
-import { Group, Skeleton, Text } from "@mantine/core"
+import { Group, Skeleton, Text, useMantineTheme } from "@mantine/core"
 import getSkeletonConfigurator from "src/design-system/Configurator/configurators/skeleton"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
@@ -44,7 +44,8 @@ const skeletonDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomSkeletons = () => {
-  const skeletonConfigurator = getSkeletonConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const skeletonConfigurator = getSkeletonConfigurator(theme)
   return (
     <ComponentDocs
       {...skeletonDocsProps}

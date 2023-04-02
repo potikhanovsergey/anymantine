@@ -1,7 +1,8 @@
-import { Group, SegmentedControlProps, SegmentedControl } from "@mantine/core"
+import { Group, SegmentedControlProps, SegmentedControl, MantineTheme } from "@mantine/core"
 import React from "react"
 import { segmentedControlDataMock } from "src/design-system/Atoms/AtomSegmentedControl"
 import { MantineDemo } from "src/design-system/Demo/types"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string) => `
 import { SegmentedControl } from '@mantine/core';
@@ -28,8 +29,9 @@ function Wrapper(props: SegmentedControlProps) {
   )
 }
 
-const getSegmentedControlConfigurator = (theme) =>
-  ({
+const getSegmentedControlConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("SegmentedControl", theme)
+  return {
     type: "configurator",
     component: Wrapper,
     codeTemplate,
@@ -46,12 +48,12 @@ const getSegmentedControlConfigurator = (theme) =>
       {
         name: "color",
         type: "color",
-        initialValue: theme.components?.Radio?.defaultProps?.["color"] || theme.primaryColor,
+        initialValue: defaultProps?.["color"] || theme.primaryColor,
       },
       {
         name: "size",
         type: "size",
-        initialValue: theme.components?.Radio?.defaultProps?.["size"] || "md",
+        initialValue: defaultProps?.["size"] || "md",
       },
       {
         name: "disabled",
@@ -59,6 +61,7 @@ const getSegmentedControlConfigurator = (theme) =>
         initialValue: false,
       },
     ],
-  } as MantineDemo)
+  } as MantineDemo
+}
 
 export default getSegmentedControlConfigurator

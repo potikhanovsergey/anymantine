@@ -1,4 +1,4 @@
-import { Group, Checkbox, Stack, Text, Center } from "@mantine/core"
+import { Group, Checkbox, Stack, Text, Center, useMantineTheme } from "@mantine/core"
 import getCheckboxConfigurator from "src/design-system/Configurator/configurators/checkbox"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
@@ -131,7 +131,8 @@ const checkboxComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomCheckboxes = () => {
-  const checkboxConfigurator = getCheckboxConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const checkboxConfigurator = getCheckboxConfigurator(theme)
   return (
     <ComponentDocs
       {...checkboxComponentDocsProps}
