@@ -1,6 +1,7 @@
-import { PaperProps, Group, Paper, MantineThemeOverride } from "@mantine/core"
+import { PaperProps, Group, Paper, MantineThemeOverride, MantineTheme } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string, children: string) => `
 import { Paper } from '@mantine/core';
@@ -22,7 +23,8 @@ function Wrapper(props: PaperProps) {
   )
 }
 
-const getPaperConfigurator = (theme: MantineThemeOverride) => {
+const getPaperConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("Paper", theme)
   return {
     type: "configurator",
     component: Wrapper,
@@ -31,18 +33,18 @@ const getPaperConfigurator = (theme: MantineThemeOverride) => {
       {
         name: "shadow",
         type: "size",
-        initialValue: theme.components?.Paper?.defaultProps?.["shadow"] || "md",
+        initialValue: defaultProps?.["shadow"] || "md",
       },
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.Paper?.defaultProps?.["radius"] || theme.defaultRadius,
+        initialValue: defaultProps?.["radius"] || theme.defaultRadius,
       },
       {
         name: "p",
         label: "Padding",
         type: "size",
-        initialValue: theme.components?.Paper?.defaultProps?.["p"] || "md",
+        initialValue: defaultProps?.["p"] || "md",
       },
       { name: "withBorder", type: "boolean", initialValue: false },
       {

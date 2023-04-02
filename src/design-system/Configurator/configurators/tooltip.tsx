@@ -1,8 +1,8 @@
-import { TooltipProps, Group, Tooltip, ActionIcon, MantineThemeOverride } from "@mantine/core"
-import { IconHeart } from "@tabler/icons-react"
+import { TooltipProps, Group, Tooltip, ActionIcon, MantineTheme } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
 import ExampleIcon from "src/design-system/ExampleIcon"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const FLOATING_POSITION_DATA = [
   { label: "top", value: "top" },
@@ -46,8 +46,10 @@ function Wrapper(props: TooltipProps) {
   )
 }
 
-const getTooltipConfigurator = (theme: MantineThemeOverride) =>
-  ({
+const getTooltipConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("Tooltip", theme)
+
+  return {
     type: "configurator",
     component: Wrapper,
     codeTemplate,
@@ -55,7 +57,7 @@ const getTooltipConfigurator = (theme: MantineThemeOverride) =>
       {
         name: "color",
         type: "color",
-        initialValue: theme.components?.Tooltip?.defaultProps?.["color"] || theme.primaryColor,
+        initialValue: defaultProps?.["color"] || theme.primaryColor,
       },
       {
         name: "position",
@@ -66,15 +68,16 @@ const getTooltipConfigurator = (theme: MantineThemeOverride) =>
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.Tooltip?.defaultProps?.["radius"] || theme.defaultRadius,
+        initialValue: defaultProps?.["radius"] || theme.defaultRadius,
       },
-      { name: "withArrow", type: "boolean", initialValue: true },
+      { name: "withArrow", type: "boolean", initialValue: defaultProps?.["withArrow"] || true },
       {
         name: "label",
         type: "string",
         initialValue: "Make love",
       },
     ],
-  } as MantineDemo)
+  } as MantineDemo
+}
 
 export default getTooltipConfigurator

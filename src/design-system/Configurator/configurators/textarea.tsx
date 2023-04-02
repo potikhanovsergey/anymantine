@@ -1,6 +1,7 @@
-import { TextareaProps, Group, Textarea, MantineThemeOverride } from "@mantine/core"
+import { TextareaProps, Group, Textarea, MantineThemeOverride, MantineTheme } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string) => `
 import { Textarea } from '@mantine/core';
@@ -20,8 +21,9 @@ function Wrapper(props: TextareaProps) {
   )
 }
 
-const getTextareaConfigurator = (theme: MantineThemeOverride) =>
-  ({
+const getTextareaConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("Input", theme)
+  return {
     type: "configurator",
     component: Wrapper,
     codeTemplate,
@@ -32,16 +34,17 @@ const getTextareaConfigurator = (theme: MantineThemeOverride) =>
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.TextInput?.defaultProps?.["radius"] || theme.defaultRadius,
+        initialValue: defaultProps?.["radius"] || theme.defaultRadius,
       },
       {
         name: "size",
         type: "size",
-        initialValue: theme.components?.TextInput?.defaultProps?.["size"] || "md",
+        initialValue: defaultProps?.["size"] || "md",
       },
       { name: "disabled", type: "boolean", initialValue: false },
       { name: "required", type: "boolean", initialValue: false },
     ],
-  } as MantineDemo)
+  } as MantineDemo
+}
 
 export default getTextareaConfigurator

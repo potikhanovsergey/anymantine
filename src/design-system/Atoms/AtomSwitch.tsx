@@ -106,7 +106,8 @@ const switchComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomSwitches = () => {
-  const switchConfigurator = getSwitchConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const switchConfigurator = getSwitchConfigurator(theme)
   return (
     <ComponentDocs
       {...switchComponentDocsProps}

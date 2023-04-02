@@ -1,27 +1,44 @@
-import { TextInputProps, Group, TextInput, MantineThemeOverride, MantineTheme } from "@mantine/core"
+import {
+  Group,
+  MantineThemeOverride,
+  MultiSelectProps,
+  MultiSelect,
+  MantineTheme,
+} from "@mantine/core"
 import React from "react"
+import { multiSelectDataMock } from "src/design-system/Atoms/AtomMultiSelect"
 import { MantineDemo } from "src/design-system/Demo/types"
 import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string) => `
-import { TextInput } from '@mantine/core';
+import { MultiSelect } from '@mantine/core';
 
 function Demo() {
   return (
-    <TextInput${props} />
+    <MultiSelect${props}
+      data=[
+        { value: "react", label: "React" },
+        { value: "ng", label: "Angular" },
+        { value: "svelte", label: "Svelte" },
+        { value: "vue", label: "Vue" },
+        { value: "riot", label: "Riot" },
+        { value: "next", label: "Next.js" },
+        { value: "blitz", label: "Blitz.js" },
+      ]
+    />
   );
 }
 `
 
-function Wrapper(props: TextInputProps) {
+function Wrapper(props: MultiSelectProps) {
   return (
     <Group position="center">
-      <TextInput {...props} />
+      <MultiSelect {...props} data={multiSelectDataMock} />
     </Group>
   )
 }
 
-const getTextInputConfigurator = (theme: MantineTheme) => {
+const getMultiSelectConfigurator = (theme: MantineTheme) => {
   const defaultProps = getDefaultProps("Input", theme)
   return {
     type: "configurator",
@@ -31,7 +48,6 @@ const getTextInputConfigurator = (theme: MantineTheme) => {
       { name: "placeholder", type: "string", initialValue: "Placeholder..." },
       { name: "label", type: "string", initialValue: "Label" },
       { name: "description", type: "string", initialValue: "" },
-      { name: "error", type: "string", initialValue: "" },
       {
         name: "radius",
         type: "size",
@@ -43,9 +59,11 @@ const getTextInputConfigurator = (theme: MantineTheme) => {
         initialValue: defaultProps?.["size"] || "md",
       },
       { name: "disabled", type: "boolean", initialValue: false },
+      { name: "clearable", type: "boolean", initialValue: false },
+      { name: "searchable", type: "boolean", initialValue: false },
       { name: "required", type: "boolean", initialValue: false },
     ],
   } as MantineDemo
 }
 
-export default getTextInputConfigurator
+export default getMultiSelectConfigurator

@@ -1,4 +1,4 @@
-import { Group, Text, Stack, Accordion, rem } from "@mantine/core"
+import { Group, Text, Stack, Accordion, rem, useMantineTheme } from "@mantine/core"
 import { DesignTheme } from "src/state/design-system"
 import { IconCameraSelfie, IconPhoto, IconPrinter } from "@tabler/icons-react"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
@@ -112,7 +112,8 @@ const accordionComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomAccordion = () => {
-  const accordionConfigurator = getAccordionConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const accordionConfigurator = getAccordionConfigurator(theme)
   const items = [
     {
       value: "customization",

@@ -1,4 +1,4 @@
-import { Group, Text, Stack, Avatar } from "@mantine/core"
+import { Group, Text, Stack, Avatar, useMantineTheme } from "@mantine/core"
 import { DesignTheme } from "src/state/design-system"
 import { IconHeart } from "@tabler/icons-react"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
@@ -45,7 +45,8 @@ const avatarComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomAvatar = () => {
-  const avatarConfigurator = getAvatarConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const avatarConfigurator = getAvatarConfigurator(theme)
   return (
     <ComponentDocs
       {...avatarComponentDocsProps}

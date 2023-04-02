@@ -1,27 +1,31 @@
 import { NavLink, NavLinkProps } from "@mantine/core"
 import Link from "next/link"
 import { useRouter } from "next/router"
+import getHyphenCase from "src/helpers/getHyphenCase"
 
 interface NavbarLinksProps extends NavLinkProps {
-  links: {
-    slug: string
-    label: string
-  }[]
+  links: string[]
+}
+
+const NavbarLink = ({ label, ...props }: NavLinkProps & { label: string }) => {
+  const router = useRouter()
+  const slug = getHyphenCase(label)
+  return (
+    <NavLink
+      {...(router.query.page === slug && { "data-active": true })}
+      component={Link}
+      {...props}
+      label={label}
+      href={`/${router.query.slug}/${slug}`}
+    />
+  )
 }
 
 const NavbarLinks = ({ links, ...props }: NavbarLinksProps) => {
-  const router = useRouter()
   return (
     <>
       {links.map((link) => (
-        <NavLink
-          {...(router.query.page === link.slug && { "data-active": true })}
-          key={link.slug}
-          component={Link}
-          {...props}
-          label={link.label}
-          href={`/${router.query.slug}/${link.slug}`}
-        />
+        <NavbarLink {...props} label={link} key={link} />
       ))}
     </>
   )

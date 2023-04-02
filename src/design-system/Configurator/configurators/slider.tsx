@@ -7,9 +7,11 @@ import {
   SliderProps,
   Slider,
   Stack,
+  MantineTheme,
 } from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string) => `
 import { Slider } from '@mantine/core';
@@ -35,8 +37,9 @@ function Wrapper(props: SliderProps) {
   )
 }
 
-const getSliderConfigurator = (theme: MantineThemeOverride) =>
-  ({
+const getSliderConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("Slider", theme)
+  return {
     type: "configurator",
     component: Wrapper,
     codeTemplate,
@@ -44,17 +47,17 @@ const getSliderConfigurator = (theme: MantineThemeOverride) =>
       {
         name: "color",
         type: "color",
-        initialValue: theme.components?.Slider?.defaultProps?.["color"] || theme.primaryColor,
+        initialValue: defaultProps?.["color"] || theme.primaryColor,
       },
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.Slider?.defaultProps?.["radius"] || theme.defaultRadius,
+        initialValue: defaultProps?.["radius"] || theme.defaultRadius,
       },
       {
         name: "size",
         type: "size",
-        initialValue: theme.components?.Slider?.defaultProps?.["size"] || "md",
+        initialValue: defaultProps?.["size"] || "md",
       },
       {
         name: "showLabelOnHover",
@@ -64,6 +67,7 @@ const getSliderConfigurator = (theme: MantineThemeOverride) =>
       },
       { name: "labelAlwaysOn", label: "Label always on", type: "boolean", initialValue: false },
     ],
-  } as MantineDemo)
+  } as MantineDemo
+}
 
 export default getSliderConfigurator

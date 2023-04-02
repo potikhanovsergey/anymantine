@@ -1,12 +1,18 @@
-import { SimpleGrid, Select, Text, useMantineTheme } from "@mantine/core"
-import { IconInfoCircle, IconPassword } from "@tabler/icons-react"
-import getSelectConfigurator from "src/design-system/Configurator/configurators/select"
+import { Group, Text, Stack, Avatar, MultiSelect, useMantineTheme } from "@mantine/core"
+import { useState } from "react"
 import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
-import { useState } from "react"
-import ExampleIcon from "../ExampleIcon"
+import getMultiSelectConfigurator from "../Configurator/configurators/multi-select"
 
-export const selectDataMock = ["Orange", "Banana", "Mango", "Apple", "Lemon", "Kiwi"]
+export const multiSelectDataMock = [
+  { value: "react", label: "React" },
+  { value: "ng", label: "Angular" },
+  { value: "svelte", label: "Svelte" },
+  { value: "vue", label: "Vue" },
+  { value: "riot", label: "Riot" },
+  { value: "next", label: "Next.js" },
+  { value: "blitz", label: "Blitz.js" },
+]
 
 const dropdownHeightData = Array(50)
   .fill(0)
@@ -27,8 +33,8 @@ const CreatableSelect = () => {
   const getCreateLabel = (query) => `+ Create ${query}`
 
   return (
-    <Select
-      label="Creatable Select"
+    <MultiSelect
+      label="Creatable MultiSelect"
       data={data}
       placeholder="Select items"
       nothingFound="Nothing found"
@@ -40,36 +46,28 @@ const CreatableSelect = () => {
   )
 }
 
-const selectDocsProps: Omit<ComponentDocsProps, "preview"> = {
-  title: "Select",
-  description: `Select allow users to choose from a list of options in a limited space. The list of options can change based on the context.`,
-  mantineLink: "https://mantine.dev/core/select",
+const multiSelectComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
+  title: "MultiSelect",
+  description: `MultiSelect component allows user to pick any amount of option from the given list of options `,
+  mantineLink: "https://mantine.dev/core/multi-select",
   examples: [
     {
       title: "Searchable",
       description: (
         <Text>
-          You can make select searchable when there&apos;s to many options to pick from. Set
-          <strong> searchable</strong> prop to true to enable search in select and{" "}
+          You can make multi-select searchable when there&apos;s to many options to pick from. Set
+          <strong> searchable</strong> prop to true to enable search in multi-select and{" "}
           <strong>nothingFound</strong> prop to any ReactNode to provide label that will be shown
           when no options were found.
         </Text>
       ),
       children: (
-        <Select
-          label="Your favorite fruit"
+        <MultiSelect
+          label="Your favorite framework"
           placeholder="Pick one"
           searchable
           nothingFound="No options"
-          data={[
-            ...selectDataMock,
-            "Dragonfruit",
-            "Pineapple",
-            "Watermelon",
-            "Grape",
-            "Lime",
-            "Tangelo",
-          ]}
+          data={multiSelectDataMock}
         />
       ),
     },
@@ -82,11 +80,11 @@ const selectDocsProps: Omit<ComponentDocsProps, "preview"> = {
         </Text>
       ),
       children: (
-        <Select
-          label="Your favorite fruit"
+        <MultiSelect
+          label="Your favorite framework"
           placeholder="Pick one"
           clearable
-          data={selectDataMock}
+          data={multiSelectDataMock}
         />
       ),
     },
@@ -99,7 +97,7 @@ const selectDocsProps: Omit<ComponentDocsProps, "preview"> = {
         </Text>
       ),
       children: (
-        <Select
+        <MultiSelect
           label="Your favorite Rick and Morty character"
           placeholder="Pick one"
           data={[
@@ -115,13 +113,13 @@ const selectDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Disabled items",
       description: (
         <Text>
-          You can disable items in select by setting <strong>disabled</strong> value to true inside
-          data array objects. Use it when you want to show that the item exists, but is not
+          You can disable items in multi-select by setting <strong>disabled</strong> value to true
+          inside data array objects. Use it when you want to show that the item exists, but is not
           available at the moment.
         </Text>
       ),
       children: (
-        <Select
+        <MultiSelect
           label="Select with disabled items"
           placeholder="Select something"
           data={[
@@ -153,7 +151,7 @@ const selectDocsProps: Omit<ComponentDocsProps, "preview"> = {
         </Text>
       ),
       children: (
-        <Select
+        <MultiSelect
           label="What item is the best?"
           placeholder="Pick one"
           searchable
@@ -166,28 +164,26 @@ const selectDocsProps: Omit<ComponentDocsProps, "preview"> = {
   ],
 }
 
-const AtomSelects = () => {
+const AtomMultiSelect = () => {
   const theme = useMantineTheme()
-  const selectConfigurator = getSelectConfigurator(theme)
+  const multiSelectConfigurator = getMultiSelectConfigurator(theme)
   return (
     <ComponentDocs
-      {...selectDocsProps}
+      {...multiSelectComponentDocsProps}
       preview={{
-        configurator: selectConfigurator,
+        configurator: multiSelectConfigurator,
         children: (
-          <SimpleGrid cols={2}>
-            <Select data={selectDataMock} label="Label" placeholder="Placeholder..." />
-            <Select
-              data={selectDataMock}
-              icon={<ExampleIcon />}
-              label="Label"
-              placeholder="Left icon"
+          <Group>
+            <MultiSelect
+              data={multiSelectDataMock}
+              label="Your favorite frameworks/libraries"
+              placeholder="Pick all that you like"
             />
-          </SimpleGrid>
+          </Group>
         ),
       }}
     />
   )
 }
 
-export default AtomSelects
+export default AtomMultiSelect

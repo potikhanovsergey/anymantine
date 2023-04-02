@@ -1,7 +1,14 @@
-import { ActionIconProps, Group, ActionIcon, MantineThemeOverride } from "@mantine/core"
+import {
+  ActionIconProps,
+  Group,
+  ActionIcon,
+  MantineThemeOverride,
+  MantineTheme,
+} from "@mantine/core"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
 import ExampleIcon from "src/design-system/ExampleIcon"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string) => `
 import { ActionIcon } from '@mantine/core';
@@ -26,8 +33,9 @@ function Wrapper(props: ActionIconProps) {
   )
 }
 
-const getActionIconConfigurator = (theme: MantineThemeOverride) =>
-  ({
+const getActionIconConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("ActionIcon", theme)
+  return {
     type: "configurator",
     component: Wrapper,
     codeTemplate,
@@ -45,21 +53,22 @@ const getActionIconConfigurator = (theme: MantineThemeOverride) =>
       {
         name: "color",
         type: "color",
-        initialValue: theme.components?.ActionIcon?.defaultProps?.["color"] || theme.primaryColor,
+        initialValue: defaultProps?.["color"] || theme.primaryColor,
       },
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.ActionIcon?.defaultProps?.["radius"] || theme.defaultRadius,
+        initialValue: defaultProps?.["radius"] || theme.defaultRadius,
       },
       {
         name: "size",
         type: "size",
-        initialValue: theme.components?.ActionIcon?.defaultProps?.["size"] || "md",
+        initialValue: defaultProps?.["size"] || "md",
       },
       { name: "disabled", type: "boolean", initialValue: false },
       { name: "loading", type: "boolean", initialValue: false },
     ],
-  } as MantineDemo)
+  } as MantineDemo
+}
 
 export default getActionIconConfigurator

@@ -28,6 +28,11 @@ export default createStyles(
       borderBottom: `${rem(1)} solid ${theme.black}`,
     },
 
+    copy: {
+      backgroundColor: "transparent !important",
+      border: 0,
+      color: theme.black,
+    },
     preview: {
       flex: 1,
       padding: theme.spacing.md,
@@ -55,7 +60,6 @@ export default createStyles(
       borderBottomRightRadius: theme.fn.radius(radius),
       borderBottomLeftRadius: theme.fn.radius(radius),
       border: `${rem(1)} solid ${theme.black}`,
-      background: theme.white,
     },
 
     code: {

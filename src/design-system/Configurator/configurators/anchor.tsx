@@ -10,6 +10,7 @@ import {
 import { IconHeart } from "@tabler/icons-react"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
+import getDefaultProps from "src/helpers/getDefaultProps"
 
 const codeTemplate = (props: string, children: string) => `
 import { Anchor } from '@mantine/core';
@@ -31,8 +32,10 @@ function Wrapper(props: AnchorProps) {
   )
 }
 
-const getAnchorConfigurator = (theme: MantineThemeOverride) =>
-  ({
+const getAnchorConfigurator = (theme: MantineTheme) => {
+  const defaultProps = getDefaultProps("Anchor", theme)
+
+  return {
     type: "configurator",
     component: Wrapper,
     codeTemplate,
@@ -40,12 +43,12 @@ const getAnchorConfigurator = (theme: MantineThemeOverride) =>
       {
         name: "color",
         type: "color",
-        initialValue: theme.components?.Anchor?.defaultProps?.["color"] || theme.primaryColor,
+        initialValue: defaultProps?.["color"] || theme.primaryColor,
       },
       {
         name: "size",
         type: "size",
-        initialValue: theme.components?.Anchor?.defaultProps?.["size"] || "md",
+        initialValue: defaultProps?.["size"] || "md",
       },
       { name: "underline", type: "boolean", initialValue: false },
       { name: "strikethrough", type: "boolean", initialValue: false },
@@ -55,6 +58,7 @@ const getAnchorConfigurator = (theme: MantineThemeOverride) =>
         initialValue: "Link",
       },
     ],
-  } as MantineDemo)
+  } as MantineDemo
+}
 
 export default getAnchorConfigurator

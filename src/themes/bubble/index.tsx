@@ -253,6 +253,9 @@ const BubbleTheme: MantineThemeOverride = {
     },
 
     Accordion: {
+      defaultProps: {
+        radius: "lg",
+      },
       styles: (theme) => ({
         content: {
           paddingTop: 0,
@@ -309,7 +312,38 @@ const BubbleTheme: MantineThemeOverride = {
         },
       }),
     },
+    Checkbox: {
+      defaultProps: {
+        radius: "sm",
+      },
+    },
+    Switch: {
+      defaultProps: {
+        radius: "xl",
+      },
+    },
+    Badge: {
+      defaultProps: {
+        radius: "xl",
+      },
+    },
+    Skeleton: {
+      defaultProps: {
+        radius: "xl",
+      },
+    },
+    Radio: {
+      defaultProps: {
+        radius: "xl",
+      },
+    },
+    SegmentedControl: {
+      defaultProps: (theme) => ({
+        color: theme.primaryColor,
+      }),
+    },
   },
+
   globalStyles: (theme) => ({
     "::selection": {
       background: theme.colors[theme.primaryColor][1],
