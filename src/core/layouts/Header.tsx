@@ -35,7 +35,7 @@ const Header = (props: Omit<HeaderProps, "children" | "height">) => {
     <MantineHeader height={64} px={theme.spacing.md} {...props}>
       <Group h="100%" position="apart" noWrap>
         <Group noWrap h="100%" spacing="lg">
-          <LogoText height="48px" />
+          <LogoText height={40} />
           <Select
             withinPortal
             value={appDesignThemeValue}
