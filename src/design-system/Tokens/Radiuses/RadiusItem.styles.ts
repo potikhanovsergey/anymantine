@@ -13,7 +13,12 @@ export default createStyles((theme: MantineTheme, { radius }: RadiusItemStylesPa
     maxWidth: rem(radiusItemSize),
     aspectRatio: "1/1",
     backgroundColor:
-      radius === theme.defaultRadius ? theme.fn.primaryColor() : theme.colors.gray[2],
-    color: radius === theme.defaultRadius ? theme.white : theme.black,
+      radius === theme.defaultRadius
+        ? theme.fn.primaryColor()
+        : theme.colorScheme === "dark"
+        ? theme.colors.dark[7]
+        : theme.colors.gray[2],
+    color:
+      radius === theme.defaultRadius || theme.colorScheme === "dark" ? theme.white : theme.black,
   },
 }))

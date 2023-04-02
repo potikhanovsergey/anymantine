@@ -28,7 +28,10 @@ const ItemPreview = ({ children, configurator }: ItemPreviewProps) => {
           }
         >
           <ActionIcon variant="transparent" onClick={configuratorOpened.toggle}>
-            <IconSettings stroke={1} color={theme.black} />
+            <IconSettings
+              stroke={1}
+              color={theme.colorScheme === "dark" ? theme.white : theme.black}
+            />
           </ActionIcon>
         </Tooltip>
       </Group>

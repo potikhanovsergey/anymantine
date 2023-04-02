@@ -8,8 +8,8 @@ import {
 } from "@mantine/core"
 import { Karla } from "next/font/google"
 
-export const bubbleFont = Karla({
-  variable: "--bubble-font",
+export const inkFont = Karla({
+  variable: "--ink-font",
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   preload: false,
@@ -17,17 +17,18 @@ export const bubbleFont = Karla({
 
 const defaultFonts = `-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji`
 
-const BubbleTheme: MantineThemeOverride = {
+const inkTheme: MantineThemeOverride = {
   cursorType: "pointer",
   primaryColor: "blue",
-  defaultRadius: "md",
+  colorScheme: "dark",
+  defaultRadius: "sm",
   primaryShade: 5,
-  fontFamily: `var(--bubble-font), ${defaultFonts}`,
+  fontFamily: `var(--ink-font), ${defaultFonts}`,
   headings: {
-    fontFamily: `var(--bubble-font), ${defaultFonts}`,
+    fontFamily: `var(--ink-font), ${defaultFonts}`,
   },
   other: {
-    transition: ".15s ease",
+    transition: "200ms ease",
   },
   colors: {
     gray: [
@@ -85,14 +86,14 @@ const BubbleTheme: MantineThemeOverride = {
         }),
         secondary: (theme, params: ButtonStylesParams) => ({
           root: {
-            backgroundColor: theme.white,
+            backgroundColor: theme.black,
             color: theme.colors.dark[3],
             border: "1px solid",
             borderColor: theme.colors.dark[3],
             "&:not([data-disabled])": theme.fn.hover({
-              borderColor: theme.colors[params.color || theme.primaryColor][5],
-              background: theme.colors[params.color || theme.primaryColor][0],
-              color: theme.colors[params.color || theme.primaryColor][5],
+              borderColor: theme.white,
+              background: theme.black,
+              color: theme.white,
             }),
           },
         }),
@@ -195,24 +196,6 @@ const BubbleTheme: MantineThemeOverride = {
             marginBottom: rem(4),
           },
         },
-        // dropdown: {
-        //   border: 0,
-        //   borderRadius: 0,
-        //   boxShadow: theme.shadows.md,
-        // },
-        // itemsWrapper: {
-        //   padding: 0,
-        // },
-        // item: {
-        //   borderRadius: 0,
-        //   "&[data-selected]": {
-        //     backgroundColor: theme.white,
-        //     color: theme.black,
-        //     "&:hover": {
-        //       backgroundColor: theme.colors.gray[0],
-        //     },
-        //   },
-        // },
       }),
     },
     Popover: {
@@ -243,52 +226,40 @@ const BubbleTheme: MantineThemeOverride = {
       },
     },
     Navbar: {
-      styles: {
+      styles: (theme) => ({
         root: {
-          border: 0,
+          background: theme.black,
         },
-      },
+      }),
     },
     Header: {
-      styles: {
-        root: {
-          borderBottom: 0,
-        },
-      },
-    },
-
-    Accordion: {
-      defaultProps: {
-        radius: "lg",
-      },
       styles: (theme) => ({
-        content: {
-          paddingTop: 0,
-        },
-        item: {
-          border: 0,
-        },
-        label: {
-          fontWeight: 500,
-          color: theme.colors.gray[9],
-        },
-        control: {
-          marginBottom: rem(4),
-          "&:hover": {
-            backgroundColor: theme.colors.gray[0],
-          },
+        root: {
+          background: theme.black,
         },
       }),
     },
     Input: {
-      styles: (theme) => ({
-        input: {
-          transition: `border-color ${theme.other.transition}`,
-          "&:not(:disabled, :focus-within, [data-invalid])": {
-            "&:hover": {
-              borderColor: theme.colors.gray[6],
+      defaultProps: {
+        variant: "filled",
+      },
+      variants: {
+        filled: (theme) => ({
+          input: {
+            background: theme.colors.dark[7],
+            borderColor: "transparent",
+            "&:not(:disabled, [data-invalid])": {
+              "&:hover, &:focus-within": {
+                background: theme.colors.dark[8],
+              },
             },
           },
+        }),
+      },
+      styles: (theme) => ({
+        input: {
+          borderWidth: rem(2),
+          transition: `all ${theme.other.transition}`,
         },
       }),
     },
@@ -297,18 +268,18 @@ const BubbleTheme: MantineThemeOverride = {
         root: {
           fontWeight: 500,
           borderRadius: theme.radius[theme.defaultRadius],
-          color: theme.colors.gray[9],
-          backgroundColor: theme.white,
+          color: theme.white,
+          backgroundColor: theme.colors.dark[9],
           "&[data-active=true]": {
-            background: theme.colors[theme.primaryColor][0],
+            background: theme.colors.dark[7],
             color: theme.colors[theme.primaryColor][5],
             "&:hover": {
-              background: theme.colors[theme.primaryColor][0],
+              background: theme.colors.dark[7],
             },
           },
           "&:not([data-active=true])": {
             "&:hover": {
-              background: theme.colors.gray[0],
+              background: theme.colors.dark[8],
             },
           },
           "&:not(:last-child)": {
@@ -351,12 +322,14 @@ const BubbleTheme: MantineThemeOverride = {
 
   globalStyles: (theme) => ({
     "::selection": {
-      background: theme.colors[theme.primaryColor][1],
+      background: theme.colors[theme.primaryColor][5],
     },
     body: {
       WebkitFontSmoothing: "antialiased",
+      background: theme.black,
+      color: theme.white,
     },
   }),
 }
 
-export default BubbleTheme
+export default inkTheme

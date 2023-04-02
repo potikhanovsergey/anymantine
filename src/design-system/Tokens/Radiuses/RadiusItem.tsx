@@ -1,4 +1,4 @@
-import { Center, MantineNumberSize, Stack, Text } from "@mantine/core"
+import { Center, MantineNumberSize, Stack, Text, useMantineTheme } from "@mantine/core"
 import createStyles from "./RadiusItem.styles"
 import Link from "src/core/components/atoms/Link"
 import { useRouter } from "next/router"
@@ -16,9 +16,10 @@ interface RadiusBoxProps {
 
 const RadiusBox = ({ radius }: RadiusBoxProps) => {
   const { classes } = createStyles({ radius })
+  const theme = useMantineTheme()
   return (
     <Center className={classes.box} mb="md">
-      <Text size="md">{radius}</Text>
+      <Text size="sm">{theme.radius[radius]}</Text>
     </Center>
   )
 }

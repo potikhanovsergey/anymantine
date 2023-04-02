@@ -78,7 +78,7 @@ const RadiusesPage = () => {
         The same border-radius value looks different on elements of different size. That&apos;s why
         it&apos;s better not to use the same radius for all the elements on the page. Below the
         boxes, you&apos;ll see which elements use which radius{" "}
-        <strong>by default in this theme</strong>. You can click the link to open the element docs.
+        <strong>by default in this theme</strong>. Click the link to see the preview.
       </Text>
       <Radiuses />
     </>

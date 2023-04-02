@@ -4,16 +4,17 @@ import Link from "next/link"
 
 const useStyles = createStyles((theme) => ({
   card: {
-    border: `1px solid ${theme.black}`,
+    border: `1px solid ${theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.black}`,
     borderRadius: theme.radius.md,
     display: "flex",
     flexDirection: "column",
     padding: 0,
     textDecoration: "none",
-    color: theme.black,
+    color: theme.colorScheme === "dark" ? theme.white : theme.black,
     position: "relative",
     "&:hover": {
-      background: theme.colors[theme.primaryColor][0],
+      background:
+        theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.colors[theme.primaryColor][0],
     },
   },
   description: {
@@ -66,7 +67,7 @@ const Card = ({ title, imageUrl, slug }: CardProps) => {
         </Text>
         <Group spacing="xs" mb="xs">
           {["with Figma", "calm", "colorful"].map((tag) => (
-            <Badge variant="outline" bg="white" size="sm" key={tag}>
+            <Badge variant="outline" size="sm" key={tag}>
               with Figma
             </Badge>
           ))}

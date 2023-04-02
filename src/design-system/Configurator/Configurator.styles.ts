@@ -31,11 +31,12 @@ export default createStyles(
     copy: {
       backgroundColor: "transparent !important",
       border: 0,
-      color: theme.black,
+      color: theme.colorScheme === "dark" ? theme.white : theme.black,
     },
     preview: {
       flex: 1,
       padding: theme.spacing.md,
+      background: theme.colorScheme === "dark" ? theme.black : theme.white,
       display: "flex",
       flexDirection: "column",
     },

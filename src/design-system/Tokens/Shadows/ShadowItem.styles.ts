@@ -12,7 +12,7 @@ export default createStyles((theme: MantineTheme, { shadow }: ShadowItemStylesPa
     width: rem(size),
     maxWidth: rem(size),
     aspectRatio: "1/1",
-    background: theme.colors.gray[2],
-    marginBottom: theme.spacing.md
+    background: theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.colors.gray[2],
+    marginBottom: theme.spacing.md,
   },
 }))

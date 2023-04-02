@@ -34,7 +34,7 @@ const CreatableSelect = () => {
 
   return (
     <MultiSelect
-      label="Creatable MultiSelect"
+      label="Creatable Multi Select"
       data={data}
       placeholder="Select items"
       nothingFound="Nothing found"
@@ -47,8 +47,8 @@ const CreatableSelect = () => {
 }
 
 const multiSelectComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
-  title: "MultiSelect",
-  description: `MultiSelect component allows user to pick any amount of option from the given list of options `,
+  title: "Multi Select",
+  description: `Multi Select component allows user to pick any amount of option from the given list of options `,
   mantineLink: "https://mantine.dev/core/multi-select",
   examples: [
     {

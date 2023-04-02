@@ -78,9 +78,6 @@ export default function Configurator({
           className={classes.preview}
           style={{
             justifyContent: center ? "center" : "flex-start",
-            background:
-              previewBackground ||
-              (theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white),
           }}
         >
           <div>

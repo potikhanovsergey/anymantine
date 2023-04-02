@@ -1,6 +1,7 @@
 import Marshmallow, { marshmallowFont } from "./marshmallow"
 import Ghost, { ghostFont } from "./ghost"
 import Bubble, { bubbleFont } from "./bubble"
+import Ink, { inkFont } from "./ink"
 import { MantineThemeOverride } from "@mantine/core"
 import { NextFontWithVariable } from "next/dist/compiled/@next/font"
 import getHyphenCase from "src/helpers/getHyphenCase"
@@ -76,6 +77,14 @@ export const themes = {
       source: "https://fonts.google.com/specimen/Inter?query=inter",
     },
   },
+  ink: {
+    theme: Ink,
+    font: {
+      nextFont: inkFont,
+      label: "Karla",
+      source: "https://fonts.google.com/specimen/Karla?query=karla",
+    },
+  },
 }
 
 const designSystems = [
@@ -84,6 +93,12 @@ const designSystems = [
     title: "Bubble",
     colors: ["blue", "gray", "dark"],
     imageUrl: "https://paradigm.mail.ru/notionStatic/d6b09a0e-f167-4b18-92a0-b62611c6b536.png",
+  },
+  {
+    slug: "ink",
+    title: "Ink",
+    colors: ["blue", "gray", "dark"],
+    imageUrl: "https://i.pinimg.com/originals/cc/0b/1f/cc0b1f790e16289dd4b605494e5733be.jpg",
   },
   {
     slug: "marshmallow",
