@@ -2,6 +2,7 @@ import { Center, MantineNumberSize, Stack, Text } from "@mantine/core"
 import createStyles from "./RadiusItem.styles"
 import Link from "src/core/components/atoms/Link"
 import { useRouter } from "next/router"
+import getHyphenCase from "src/helpers/getHyphenCase"
 
 interface RadiusItemProps {
   radius: MantineNumberSize
@@ -36,7 +37,7 @@ const RadiusItem = ({ radius, title, useCases }: RadiusItemProps) => {
             tt="capitalize"
             w="fit-content"
             target="_blank"
-            href={`/${router.query.slug}/${useCase}`}
+            href={`/${router.query.slug}/${getHyphenCase(useCase)}`}
             key={useCase}
           >
             {useCase}

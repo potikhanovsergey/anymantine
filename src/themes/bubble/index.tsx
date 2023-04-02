@@ -337,6 +337,11 @@ const BubbleTheme: MantineThemeOverride = {
         radius: "xl",
       },
     },
+    SegmentedControl: {
+      defaultProps: (theme) => ({
+        color: theme.primaryColor,
+      }),
+    },
   },
 
   globalStyles: (theme) => ({

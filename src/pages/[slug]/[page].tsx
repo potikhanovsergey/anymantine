@@ -14,6 +14,7 @@ import designSystems, {
 
 import dynamic from "next/dynamic"
 import { Switch } from "@legendapp/state/react"
+import getHyphenCase from "src/helpers/getHyphenCase"
 
 const UsagePage = dynamic(() => import("src/design-system/Usage/UsagePage"))
 const RadiusesPage = dynamic(() => import("src/design-system/Tokens/Radiuses/RadiusesPage"))
@@ -76,7 +77,7 @@ const DesignSystemSubpage: BlitzPage = ({
             skeleton: () => <AtomSkeletons />,
             switch: () => <AtomSwitches />,
             textarea: () => <AtomTextareas />,
-            input: () => <AtomTextInputs />,
+            "text-input": () => <AtomTextInputs />,
             tooltip: () => <AtomTooltips />,
             paper: () => <AtomPapers />,
             anchor: () => <AtomAnchor />,
@@ -102,15 +103,15 @@ export async function getStaticPaths() {
   for (let i = 0; i < slugs.length; i++) {
     // Usage
     for (let j = 0; j < usage.length; j++) {
-      paths.push({ params: { slug: slugs[i], page: usage[j].slug } })
+      paths.push({ params: { slug: slugs[i], page: getHyphenCase(usage[j]) } })
     }
     // Tokens
     for (let j = 0; j < tokens.length; j++) {
-      paths.push({ params: { slug: slugs[i], page: tokens[j].slug } })
+      paths.push({ params: { slug: slugs[i], page: getHyphenCase(tokens[j]) } })
     }
     // Atoms
     for (let j = 0; j < atoms.length; j++) {
-      paths.push({ params: { slug: slugs[i], page: atoms[j].slug } })
+      paths.push({ params: { slug: slugs[i], page: getHyphenCase(atoms[j]) } })
     }
   }
 

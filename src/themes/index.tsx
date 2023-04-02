@@ -3,116 +3,41 @@ import Ghost, { ghostFont } from "./ghost"
 import Bubble, { bubbleFont } from "./bubble"
 import { MantineThemeOverride } from "@mantine/core"
 import { NextFontWithVariable } from "next/dist/compiled/@next/font"
+import getHyphenCase from "src/helpers/getHyphenCase"
 
-export const tokens = [
-  {
-    slug: "colors",
-    label: "Colors",
-  },
-  {
-    slug: "typography",
-    label: "Typography",
-  },
-  {
-    slug: "radiuses",
-    label: "Radiuses",
-  },
-  {
-    slug: "shadows",
-    label: "Shadows",
-  },
-  {
-    slug: "states",
-    label: "States",
-  },
-  {
-    slug: "icons",
-    label: "Icons",
-  },
-]
+export const tokens = ["Colors", "Typography", "Radiuses", "Shadows", "States", "Icons"]
 
 export const atoms = [
-  {
-    slug: "button",
-    label: "Button",
-  },
-  {
-    slug: "anchor",
-    label: "Anchor",
-  },
-  {
-    slug: "action-icon",
-    label: "Action Icon",
-  },
-  {
-    slug: "badge",
-    label: "Badge",
-  },
-  {
-    slug: "checkbox",
-    label: "Checkbox",
-  },
-  {
-    slug: "radio",
-    label: "Radio Button",
-  },
-  {
-    slug: "switch",
-    label: "Switch",
-  },
-  {
-    slug: "select",
-    label: "Select",
-  },
-  {
-    slug: "input",
-    label: "Input",
-  },
-  {
-    slug: "textarea",
-    label: "Textarea",
-  },
-  {
-    slug: "skeleton",
-    label: "Skeleton",
-  },
-  {
-    slug: "tooltip",
-    label: "Tooltip",
-  },
-  {
-    slug: "paper",
-    label: "Paper",
-  },
-  {
-    slug: "avatar",
-    label: "Avatar",
-  },
-  {
-    slug: "slider",
-    label: "Slider",
-  },
-  {
-    slug: "chip",
-    label: "Chip",
-  },
-  {
-    slug: "accordion",
-    label: "Accordion",
-  },
+  "Button",
+  "Anchor",
+  "Action Icon",
+  "Badge",
+  "Checkbox",
+  "Radio",
+  "Switch",
+  "Select",
+  "Text Input",
+  "Textarea",
+  "Skeleton",
+  "Tooltip",
+  "Paper",
+  "Avatar",
+  "Slider",
+  "Chip",
+  "Accordion",
+  "Multi Select",
+  "Segmented Control",
+  "Stepper",
 ]
 
-export const usage = [
-  {
-    slug: "usage",
-    label: "Usage",
-  },
-]
+export const usage = ["Usage"]
+
+const getDsSubPage = (label: string, type: string) => ({ label, slug: getHyphenCase(label), type })
 
 export const dsSubPages = [
-  ...atoms.map((item) => ({ ...item, type: "atoms" })),
-  ...tokens.map((item) => ({ ...item, type: "tokens" })),
-  ...usage.map((item) => ({ ...item, type: "usage" })),
+  ...atoms.map((label) => getDsSubPage(label, "atoms")),
+  ...tokens.map((label) => getDsSubPage(label, "tokens")),
+  ...usage.map((label) => getDsSubPage(label, "usage")),
 ]
 
 export type DesignSystemSubPage = (typeof dsSubPages)[number]
