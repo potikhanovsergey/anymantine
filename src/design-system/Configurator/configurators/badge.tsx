@@ -22,8 +22,9 @@ function Wrapper(props: BadgeProps) {
   )
 }
 
-const getBadgeConfigurator = (theme: MantineThemeOverride) =>
-  ({
+const getBadgeConfigurator = (theme: MantineThemeOverride) => {
+  console.log("THEME", theme.components, theme.components?.Badge?.defaultProps?.["radius"])
+  return {
     type: "configurator",
     component: Wrapper,
     codeTemplate,
@@ -46,7 +47,7 @@ const getBadgeConfigurator = (theme: MantineThemeOverride) =>
       {
         name: "radius",
         type: "size",
-        initialValue: theme.components?.Badge?.defaultProps?.["raidus"] || theme.defaultRadius,
+        initialValue: theme.components?.Badge?.defaultProps?.["radius"] || theme.defaultRadius,
       },
       {
         name: "size",
@@ -55,6 +56,7 @@ const getBadgeConfigurator = (theme: MantineThemeOverride) =>
       },
       { name: "children", type: "string", initialValue: "Tag example" },
     ],
-  } as MantineDemo)
+  } as MantineDemo
+}
 
 export default getBadgeConfigurator

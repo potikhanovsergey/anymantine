@@ -1,4 +1,15 @@
-import { Group, Badge, Text, Box, Flex, ActionIcon, rem, Avatar, Stack } from "@mantine/core"
+import {
+  Group,
+  Badge,
+  Text,
+  Box,
+  Flex,
+  ActionIcon,
+  rem,
+  Avatar,
+  Stack,
+  useMantineTheme,
+} from "@mantine/core"
 import { IconHeart, IconX } from "@tabler/icons-react"
 import getBadgeConfigurator from "src/design-system/Configurator/configurators/badge"
 import { DesignTheme } from "src/state/design-system"
@@ -75,7 +86,8 @@ const badgeComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
 }
 
 const AtomBadges = () => {
-  const badgeConfigurator = getBadgeConfigurator(DesignTheme.peek())
+  const theme = useMantineTheme()
+  const badgeConfigurator = getBadgeConfigurator(theme)
   return (
     <ComponentDocs
       {...badgeComponentDocsProps}

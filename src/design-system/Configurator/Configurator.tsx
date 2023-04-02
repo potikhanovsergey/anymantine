@@ -91,7 +91,11 @@ export default function Configurator({
       </div>
 
       {includeCode && (
-        <Prism language="tsx" className={classes.prism} classNames={{ code: classes.code }}>
+        <Prism
+          language="tsx"
+          className={classes.prism}
+          classNames={{ code: classes.code, copy: classes.copy }}
+        >
           {code}
         </Prism>
       )}
