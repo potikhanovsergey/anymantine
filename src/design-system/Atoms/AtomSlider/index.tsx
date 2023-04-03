@@ -1,7 +1,7 @@
 import { Group, Text, Stack, Slider, useMantineTheme } from "@mantine/core"
-import { DesignTheme } from "src/state/design-system"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
-import getSliderConfigurator from "../Configurator/configurators/slider"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
+import getSliderConfigurator from "src/design-system/Configurator/configurators/slider"
+import SliderPreview from "./SliderPreview"
 
 const sliderComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Slider",
@@ -52,9 +52,7 @@ const AtomSlider = () => {
       {...sliderComponentDocsProps}
       preview={{
         configurator: sliderConfigurator,
-        children: (
-          <Slider marks={[{ value: 20 }, { value: 50 }, { value: 80 }]} w="100%" maw={400} />
-        ),
+        children: <SliderPreview />,
       }}
     />
   )

@@ -1,8 +1,9 @@
 import { SimpleGrid, Select, Text, useMantineTheme } from "@mantine/core"
 import getSelectConfigurator from "src/design-system/Configurator/configurators/select"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 import { useState } from "react"
-import ExampleIcon from "../ExampleIcon"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
+import ExampleIcon from "src/design-system/ExampleIcon"
+import SelectPreview from "./SelectPreview"
 
 export const selectDataMock = ["Orange", "Banana", "Mango", "Apple", "Lemon", "Kiwi"]
 
@@ -164,7 +165,7 @@ const selectDocsProps: Omit<ComponentDocsProps, "preview"> = {
   ],
 }
 
-const AtomSelects = () => {
+const AtomSelect = () => {
   const theme = useMantineTheme()
   const selectConfigurator = getSelectConfigurator(theme)
   return (
@@ -172,20 +173,10 @@ const AtomSelects = () => {
       {...selectDocsProps}
       preview={{
         configurator: selectConfigurator,
-        children: (
-          <SimpleGrid cols={2}>
-            <Select data={selectDataMock} label="Label" placeholder="Placeholder..." />
-            <Select
-              data={selectDataMock}
-              icon={<ExampleIcon />}
-              label="Label"
-              placeholder="Left icon"
-            />
-          </SimpleGrid>
-        ),
+        children: <SelectPreview />,
       }}
     />
   )
 }
 
-export default AtomSelects
+export default AtomSelect

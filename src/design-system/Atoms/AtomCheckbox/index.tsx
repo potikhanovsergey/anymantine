@@ -1,7 +1,7 @@
 import { Group, Checkbox, Stack, Text, Center, useMantineTheme } from "@mantine/core"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
 import getCheckboxConfigurator from "src/design-system/Configurator/configurators/checkbox"
-import { DesignTheme } from "src/state/design-system"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
+import CheckboxPreview from "./CheckboxPreview"
 
 const checkboxComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Checkbox",
@@ -130,7 +130,7 @@ const checkboxComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   ],
 }
 
-const AtomCheckboxes = () => {
+const AtomCheckbox = () => {
   const theme = useMantineTheme()
   const checkboxConfigurator = getCheckboxConfigurator(theme)
   return (
@@ -138,34 +138,10 @@ const AtomCheckboxes = () => {
       {...checkboxComponentDocsProps}
       preview={{
         configurator: checkboxConfigurator,
-        children: (
-          <>
-            <Stack mb="xs">
-              <Checkbox label="Default checkbox" />
-              <Checkbox indeterminate label="Indeterminate checkbox" />
-              <Checkbox defaultChecked indeterminate label="Indeterminate checked checkbox" />
-              <Checkbox defaultChecked label="Checked checkbox" />
-              <Checkbox disabled label="Disabled checkbox" />
-              <Checkbox disabled defaultChecked label="Disabled checked checkbox" />
-              <Checkbox disabled indeterminate label="Disabled indeterminate checkbox" />
-            </Stack>
-            <Checkbox.Group
-              label="Select your favorite fruits"
-              description="This is anonymous"
-              withAsterisk
-            >
-              <Group mt="xs">
-                <Checkbox value="kiwi" label="Kiwi" />
-                <Checkbox value="mango" label="Mango" />
-                <Checkbox value="apple" label="Apple" />
-                <Checkbox value="banana" label="Banana" />
-              </Group>
-            </Checkbox.Group>
-          </>
-        ),
+        children: <CheckboxPreview />,
       }}
     />
   )
 }
 
-export default AtomCheckboxes
+export default AtomCheckbox
