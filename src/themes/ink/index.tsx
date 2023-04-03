@@ -6,11 +6,11 @@ import {
   ButtonStylesParams,
   ActionIconStylesParams,
 } from "@mantine/core"
-import { Karla } from "next/font/google"
+import { Ubuntu } from "next/font/google"
 
-export const inkFont = Karla({
+export const inkFont = Ubuntu({
   variable: "--ink-font",
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
   preload: false,
 })
@@ -322,6 +322,11 @@ const inkTheme: MantineThemeOverride = {
       defaultProps: {
         color: "dark",
         withArrow: true,
+      },
+    },
+    TooltipFloating: {
+      defaultProps: {
+        color: "dark",
       },
     },
   },

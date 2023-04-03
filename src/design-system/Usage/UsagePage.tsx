@@ -1,13 +1,13 @@
 import Link from "src/core/components/atoms/Link"
 import PageTitle from "../layout/PageTitle"
-import { Button, Stack, Text } from "@mantine/core"
+import { Button, ButtonProps, Stack, Text } from "@mantine/core"
 import { IconDownload } from "@tabler/icons-react"
 import PageSubtitle from "../layout/PageSubtitle"
 import { Prism } from "@mantine/prism"
 import { DesignSystem } from "src/state/design-system"
 import { useSelector } from "@legendapp/state/react"
 
-const DownloadButton = () => {
+const DownloadButton = (props: ButtonProps) => {
   const DesignSystemLabel = useSelector(DesignSystem.label)
   const fileName = `${DesignSystemLabel}Theme.ts`
   return (
@@ -15,8 +15,8 @@ const DownloadButton = () => {
       component="a"
       download={fileName}
       href={`/api/theme?theme=${DesignSystemLabel}`}
-      mb="xs"
       leftIcon={<IconDownload size={16} />}
+      {...props}
     >
       Download {fileName}
     </Button>
@@ -35,7 +35,7 @@ const UsagePage = () => {
             install the Mantine library.
           </Link>
         </Text>
-        <Text maw={700}>
+        <Text maw={700} mb="xl">
           Mantine comes with a great design by default. However, if you want your theme to look
           different, but still want to use all the features of the library, you can customize the
           theme by{" "}
@@ -48,12 +48,12 @@ const UsagePage = () => {
           <Text maw={700} mb="xs">
             Theme is stored in a single file which exports the theme object for MantineProvider.
           </Text>
-          <DownloadButton />
+          <DownloadButton mb="md" />
           <Text mb="xs">You can later use it like this:</Text>
           <Prism language="tsx">
             {`import { MantineProvider } from "@mantine/core";
 import bubbleTheme from "[path-to-downloaded-file]/bubbleTheme.ts";
- 
+
 const ThemeUsageSnippet = () => {
   return (
     <MantineProvider withGlobalStyles withNormalizeCSS theme={bubbleTheme}>
