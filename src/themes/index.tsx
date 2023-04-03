@@ -97,7 +97,7 @@ const designSystems = [
   {
     slug: "ink",
     title: "Ink",
-    colors: ["blue", "gray", "dark"],
+    colors: ["pink", "gray", "dark"],
     imageUrl: "https://i.pinimg.com/originals/cc/0b/1f/cc0b1f790e16289dd4b605494e5733be.jpg",
   },
   {
