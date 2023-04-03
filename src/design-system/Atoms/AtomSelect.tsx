@@ -1,7 +1,5 @@
 import { SimpleGrid, Select, Text, useMantineTheme } from "@mantine/core"
-import { IconInfoCircle, IconPassword } from "@tabler/icons-react"
 import getSelectConfigurator from "src/design-system/Configurator/configurators/select"
-import { DesignTheme } from "src/state/design-system"
 import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
 import { useState } from "react"
 import ExampleIcon from "../ExampleIcon"
