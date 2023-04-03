@@ -55,17 +55,17 @@ const inkTheme: MantineThemeOverride = {
       "#0f0f0f",
       "#050505",
     ],
-    blue: [
-      "#edf2ff",
-      "#99bffd",
-      "#669ffb",
-      "#4d8ffb",
-      "#1a6ffa",
-      "#005FF9", // [5]
-      "#0056e0",
-      "#0043ae",
-      "#00307d",
-      "#001c4b",
+    pink: [
+      "#fcf1ff",
+      "#f6d5ff",
+      "#f0b9ff",
+      "#ea9dff",
+      "#e481ff",
+      "#E173FF", // [5]
+      "#cb68e6",
+      "#9e51b3",
+      "#713a80",
+      "#2d1733",
     ],
   },
   components: {
@@ -119,6 +119,9 @@ const inkTheme: MantineThemeOverride = {
               opacity: 0,
             },
           },
+        },
+        label: {
+          fontWeight: 500,
         },
       }),
     },
