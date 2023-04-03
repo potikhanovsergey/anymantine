@@ -1,7 +1,7 @@
 import { Group, Stack, Text, Anchor, useMantineTheme } from "@mantine/core"
-import { DesignTheme } from "src/state/design-system"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
-import getAnchorConfigurator from "../Configurator/configurators/anchor"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
+import getAnchorConfigurator from "src/design-system/Configurator/configurators/anchor"
+import AnchorPreview from "./AnchorPreview"
 
 const anchorComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Anchor",
@@ -50,12 +50,7 @@ const AtomAnchor = () => {
       {...anchorComponentDocsProps}
       preview={{
         configurator: anchorConfigurator,
-        children: (
-          <Group>
-            <Anchor>Link with underline</Anchor>
-            <Anchor underline={false}>Link without underline</Anchor>
-          </Group>
-        ),
+        children: <AnchorPreview />,
       }}
     />
   )

@@ -1,9 +1,8 @@
 import { Group, ActionIcon, Stack, Text, Tooltip, useMantineTheme } from "@mantine/core"
-import { IconHeart } from "@tabler/icons-react"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
 import getActionIconConfigurator from "src/design-system/Configurator/configurators/action-icon"
-import { DesignTheme } from "src/state/design-system"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
-import ExampleIcon from "../ExampleIcon"
+import ExampleIcon from "src/design-system/ExampleIcon"
+import ActionIconPreview from "./ActionIconPreview"
 
 const actionIconComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Action Icon",
@@ -107,7 +106,7 @@ const actionIconComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   ],
 }
 
-const AtomActionIcons = () => {
+const AtomActionIcon = () => {
   const theme = useMantineTheme()
   const actionIconConfigurator = getActionIconConfigurator(theme)
   return (
@@ -115,18 +114,10 @@ const AtomActionIcons = () => {
       {...actionIconComponentDocsProps}
       preview={{
         configurator: actionIconConfigurator,
-        children: (
-          <Group>
-            {["primary", "secondary", "transparent"].map((variant) => (
-              <ActionIcon key={variant} variant={variant}>
-                <ExampleIcon />
-              </ActionIcon>
-            ))}
-          </Group>
-        ),
+        children: <ActionIconPreview />,
       }}
     />
   )
 }
 
-export default AtomActionIcons
+export default AtomActionIcon

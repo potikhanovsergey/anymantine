@@ -16,6 +16,7 @@ import {
   NavLink,
   Accordion,
   Title,
+  useMantineTheme,
 } from "@mantine/core"
 import PageTitle from "../layout/PageTitle"
 import ExampleIcon from "../ExampleIcon"
@@ -23,6 +24,13 @@ import PageSubtitle from "../layout/PageSubtitle"
 import { selectDataMock } from "../Atoms/AtomSelect"
 import { ReactNode } from "react"
 import AvatarPreview from "../Atoms/AtomAvatar/AvatarPreview"
+import ButtonPreview from "../Atoms/AtomButton/ButtonPreview"
+import ActionIconPreview from "../Atoms/AtomActionIcon/ActionIconPreview"
+import AnchorPreview from "../Atoms/AtomAnchor/AnchorPreview"
+import { IconLink } from "@tabler/icons-react"
+import { useRouter } from "next/router"
+import getHyphenCase from "src/helpers/getHyphenCase"
+import Link from "next/link"
 
 const LABEL = "Label"
 const PLACEHOLDER = "Placeholder"
@@ -43,11 +51,25 @@ const PreviewItems = ({ children, title }: { children: ReactNode; title: string 
 }
 
 const PreviewItem = ({ title, children }: PreviewItemProps) => {
+  const router = useRouter()
+  const theme = useMantineTheme()
   return (
     <div>
-      <Title color="dimmed" order={3} mb="md">
-        {title}
-      </Title>
+      <Anchor
+        component={Link}
+        color="dimmed"
+        underline={false}
+        sx={{ "&:hover": { color: theme.fn.primaryColor() } }}
+        href={`/${router.query.slug}/${getHyphenCase(title)}`}
+      >
+        <Title order={3}>
+          <Group spacing="xs" mb="md">
+            {title}
+            <IconLink />
+          </Group>
+        </Title>
+      </Anchor>
+
       {children}
     </div>
   )
@@ -57,42 +79,29 @@ const PreviewPage = () => {
   return (
     <>
       <PageTitle>Preview</PageTitle>
-
       <Stack spacing={40}>
         <PreviewItems title="Actions">
-          <PreviewItem title="Buttons">
-            <Group>
-              {["primary", "secondary"].map((variant) => (
-                <Button tt="capitalize" key={variant} variant={variant}>
-                  {variant}
-                </Button>
-              ))}
-            </Group>
+          <PreviewItem title="Button">
+            <ButtonPreview />
           </PreviewItem>
-          <PreviewItem title="Action Icons">
-            <Group>
-              {["primary", "secondary", "transparent"].map((variant) => (
-                <ActionIcon key={variant} variant={variant}>
-                  <ExampleIcon />
-                </ActionIcon>
-              ))}
-            </Group>
+          <PreviewItem title="Action Icon">
+            <ActionIconPreview />
           </PreviewItem>
         </PreviewItems>
         <PreviewItems title="Inputs">
-          <PreviewItem title="Text input">
+          <PreviewItem title="Text Input">
             <TextInput label={LABEL} placeholder={PLACEHOLDER} description={DESCRIPTION} />
           </PreviewItem>
           <PreviewItem title="Textarea">
             <Textarea label={LABEL} placeholder={PLACEHOLDER} description={DESCRIPTION} />
           </PreviewItem>
-          <PreviewItem title="Selects">
+          <PreviewItem title="Select">
             <Stack>
               <Select label={LABEL} description={DESCRIPTION} data={selectDataMock} />
               <MultiSelect label={LABEL} description={DESCRIPTION} data={selectDataMock} />
             </Stack>
           </PreviewItem>
-          <PreviewItem title="Segmented control">
+          <PreviewItem title="Segmented Control">
             <SegmentedControl data={selectDataMock} />
           </PreviewItem>
           <PreviewItem title="Slider">
@@ -104,16 +113,13 @@ const PreviewPage = () => {
           <PreviewItem title="Checkbox">
             <Checkbox label={LABEL} description={DESCRIPTION} />
           </PreviewItem>
-          <PreviewItem title="Checkbox">
+          <PreviewItem title="Radio">
             <Radio label={LABEL} description={DESCRIPTION} />
           </PreviewItem>
         </PreviewItems>
         <PreviewItems title="Navigation">
           <PreviewItem title="Anchor">
-            <Anchor>Anchor</Anchor>
-          </PreviewItem>
-          <PreviewItem title="NavLink">
-            <NavLink label="Nav link" />
+            <AnchorPreview />
           </PreviewItem>
         </PreviewItems>
         <PreviewItems title="Data display">
