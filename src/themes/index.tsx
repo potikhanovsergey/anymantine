@@ -65,8 +65,8 @@ export const themes = {
     theme: Ink,
     font: {
       nextFont: inkFont,
-      label: "Karla",
-      source: "https://fonts.google.com/specimen/Karla?query=karla",
+      label: "Ubuntu",
+      source: "https://fonts.google.com/specimen/Ubuntu",
     },
   },
   marshmallow: {
