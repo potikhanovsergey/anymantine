@@ -19,7 +19,12 @@ const Headings = () => {
           key={heading}
           order={(i + 1) as TitleOrder}
         >
-          <Text inherit color="black" tt="uppercase" span>
+          <Text
+            inherit
+            color={theme.colorScheme === "dark" ? theme.white : theme.black}
+            tt="uppercase"
+            span
+          >
             {heading}
           </Text>{" "}
           Lorem ipsum dolor sit amet.
@@ -35,9 +40,14 @@ const Paragraphs = () => {
     <Stack>
       {Object.keys(theme.fontSizes)
         .reverse()
-        .map((fontSize, i) => (
+        .map((fontSize) => (
           <Text span color="dimmed" size={fontSize} key={fontSize}>
-            <Text inherit color="black" tt="uppercase" span>
+            <Text
+              inherit
+              color={theme.colorScheme === "dark" ? theme.white : theme.black}
+              tt="uppercase"
+              span
+            >
               {fontSize}
             </Text>{" "}
             Lorem ipsum dolor sit amet consectetur adipisicing.

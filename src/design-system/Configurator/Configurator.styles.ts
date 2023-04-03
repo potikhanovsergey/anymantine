@@ -12,7 +12,9 @@ export default createStyles(
     configurator: {
       display: "flex",
       maxWidth: "100%",
-      border: `${rem(1)} solid ${theme.black}`,
+      border: `${rem(1)} solid ${
+        theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.black
+      }`,
       overflow: "hidden",
       borderTopLeftRadius: theme.fn.radius(radius),
       borderTopRightRadius: theme.fn.radius(radius),
@@ -25,7 +27,9 @@ export default createStyles(
 
     noCode: {
       borderRadius: theme.fn.radius(radius),
-      borderBottom: `${rem(1)} solid ${theme.black}`,
+      borderBottom: `${rem(1)} solid ${
+        theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.black
+      }`,
     },
 
     copy: {
@@ -45,14 +49,17 @@ export default createStyles(
       boxSizing: "border-box",
       width: rem(250),
       padding: theme.spacing.md,
-      backgroundColor:
-        background || (theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white),
-      borderLeft: `${rem(1)} solid ${theme.black}`,
+      backgroundColor: background || (theme.colorScheme === "dark" ? theme.black : theme.white),
+      borderLeft: `${rem(1)} solid ${
+        theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.black
+      }`,
 
       [`@media (max-width: ${BREAKPOINT})`]: {
         width: "100%",
         borderLeft: 0,
-        borderTop: `${rem(1)} solid ${theme.black}`,
+        borderTop: `${rem(1)} solid ${
+          theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.black
+        }`,
       },
     },
 
@@ -60,7 +67,9 @@ export default createStyles(
       marginTop: 0,
       borderBottomRightRadius: theme.fn.radius(radius),
       borderBottomLeftRadius: theme.fn.radius(radius),
-      border: `${rem(1)} solid ${theme.black}`,
+      border: `${rem(1)} solid ${
+        theme.colorScheme === "dark" ? theme.colors.dark[5] : theme.black
+      }`,
     },
 
     code: {

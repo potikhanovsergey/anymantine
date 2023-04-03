@@ -19,7 +19,7 @@ const defaultFonts = `-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica
 
 const inkTheme: MantineThemeOverride = {
   cursorType: "pointer",
-  primaryColor: "blue",
+  primaryColor: "pink",
   colorScheme: "dark",
   defaultRadius: "sm",
   primaryShade: 5,
@@ -190,10 +190,20 @@ const inkTheme: MantineThemeOverride = {
       },
     },
     Select: {
-      styles: () => ({
+      styles: (theme) => ({
+        dropdown: {
+          borderRadius: 0,
+        },
+        itemsWrapper: {
+          padding: 0,
+        },
         item: {
-          "&:not(:last-child)": {
-            marginBottom: rem(4),
+          borderRadius: 0,
+          backgroundColor: theme.colors.dark[6],
+          "&:not(&[data-selected])": {
+            "&[data-hovered]": {
+              backgroundColor: theme.colors.dark[7],
+            },
           },
         },
       }),
@@ -214,16 +224,6 @@ const inkTheme: MantineThemeOverride = {
           borderColor: theme.black,
         },
       }),
-    },
-    ScrollArea: {
-      defaultProps: {
-        type: "never",
-      },
-      styles: {
-        scrollbar: {
-          zIndex: 101,
-        },
-      },
     },
     Navbar: {
       styles: (theme) => ({
