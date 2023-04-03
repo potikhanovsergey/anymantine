@@ -61,9 +61,10 @@ const MarshmallowTheme: MantineThemeOverride = {
       },
     },
     ActionIcon: {
-      defaultProps: {
+      defaultProps: (theme) => ({
         variant: "primary",
-      },
+        color: theme.primaryColor,
+      }),
       variants: {
         primary: (theme, params: ActionIconStylesParams) => ({
           root: {
@@ -71,21 +72,47 @@ const MarshmallowTheme: MantineThemeOverride = {
             border: `1px solid ${theme.black}`,
             color: theme.black,
             "&:not([data-disabled])": theme.fn.hover({
-              background: theme.colors[theme.primaryColor][2],
+              background: theme.colors[params.color || theme.primaryColor][2],
             }),
           },
         }),
-        secondary: (theme) => ({
+        secondary: (theme, params: ActionIconStylesParams) => ({
           root: {
             backgroundColor: theme.white,
-            border: `1px solid ${theme.black}`,
-            color: theme.black,
+            border: `1px solid ${theme.colors[params.color || theme.primaryColor][4]}`,
+            color: theme.colors[params.color || theme.primaryColor][4],
             "&:not([data-disabled])": theme.fn.hover({
-              background: theme.colors[theme.primaryColor][2],
+              color: theme.black,
+              background: theme.colors[params.color || theme.primaryColor][2],
             }),
           },
         }),
       },
+      styles: (theme, params: ActionIconStylesParams, { variant }) => ({
+        root: {
+          "&[data-loading]": {
+            color: "transparent",
+            svg: {
+              "&[data-action-icon-loader]": {
+                maxWidth: "60%",
+                stroke:
+                  variant === "transparent" || variant === "secondary"
+                    ? theme.colors[params.color || theme.primaryColor][5]
+                    : theme.white,
+              },
+            },
+            "&:before": {
+              display: "none",
+            },
+            ".mantine-Button-centerLoader": {
+              opacity: 1,
+            },
+            [`& .${getStylesRef("rightIcon")}, .${getStylesRef("leftIcon")}`]: {
+              opacity: 0,
+            },
+          },
+        },
+      }),
     },
     Checkbox: {
       styles: (theme) => ({

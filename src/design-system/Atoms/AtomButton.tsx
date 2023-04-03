@@ -37,7 +37,7 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
     },
     {
       title: "Variants",
-      description: `Buttons are available in either fill or outline styles. A button in the fill style has a solid background, since it’s meant to be intentionally more prominent than a button in the outline style.`,
+      description: `Buttons are available in primary and secondary styles. Use primary buttons for the most important actions on the website and secondary buttons for everything else.`,
       children: (
         <Group position="center" noWrap>
           <Stack>

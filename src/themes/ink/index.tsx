@@ -21,7 +21,7 @@ const inkTheme: MantineThemeOverride = {
   cursorType: "pointer",
   primaryColor: "pink",
   colorScheme: "dark",
-  defaultRadius: "sm",
+  defaultRadius: "xs",
   primaryShade: 5,
   fontFamily: `var(--ink-font), ${defaultFonts}`,
   headings: {
@@ -317,6 +317,12 @@ const inkTheme: MantineThemeOverride = {
       defaultProps: (theme) => ({
         color: theme.primaryColor,
       }),
+    },
+    Tooltip: {
+      defaultProps: {
+        color: "dark",
+        withArrow: true,
+      },
     },
   },
 

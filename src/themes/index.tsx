@@ -61,22 +61,6 @@ export const themes = {
       source: "https://fonts.google.com/specimen/Karla?query=karla",
     },
   },
-  marshmallow: {
-    theme: Marshmallow,
-    font: {
-      nextFont: marshmallowFont,
-      label: "Nunito Sans",
-      source: "https://fonts.google.com/specimen/Nunito+Sans?query=nunito",
-    },
-  },
-  ghost: {
-    theme: Ghost,
-    font: {
-      nextFont: ghostFont,
-      label: "Inter",
-      source: "https://fonts.google.com/specimen/Inter?query=inter",
-    },
-  },
   ink: {
     theme: Ink,
     font: {
@@ -85,6 +69,22 @@ export const themes = {
       source: "https://fonts.google.com/specimen/Karla?query=karla",
     },
   },
+  marshmallow: {
+    theme: Marshmallow,
+    font: {
+      nextFont: marshmallowFont,
+      label: "Nunito Sans",
+      source: "https://fonts.google.com/specimen/Nunito+Sans?query=nunito",
+    },
+  },
+  // ghost: {
+  //   theme: Ghost,
+  //   font: {
+  //     nextFont: ghostFont,
+  //     label: "Inter",
+  //     source: "https://fonts.google.com/specimen/Inter?query=inter",
+  //   },
+  // },
 }
 
 const designSystems = [
@@ -107,13 +107,13 @@ const designSystems = [
     imageUrl:
       "https://messy.com.au/app/uploads/2020/04/Article_Images-Digital_Design_System-Messy_Collective.jpg",
   },
-  {
-    slug: "ghost",
-    title: "Ghost",
-    colors: ["red", "gray", "dark"],
-    imageUrl:
-      "https://cdn.dribbble.com/users/2403087/screenshots/9354743/dashboard_components_dark_4x.png",
-  },
+  // {
+  //   slug: "ghost",
+  //   title: "Ghost",
+  //   colors: ["red", "gray", "dark"],
+  //   imageUrl:
+  //     "https://cdn.dribbble.com/users/2403087/screenshots/9354743/dashboard_components_dark_4x.png",
+  // },
 ]
 
 export type DesignSystem = (typeof designSystems)[number]
