@@ -28,9 +28,19 @@ const Navbar = ({
   return (
     <MantineNavbar {...navbarProps} width={{ base: 256 }}>
       <ScrollArea>
-        <NavLink component={Link} href={`/${router.query.slug}`} label="Preview" />
+        <NavLink
+          active={!router.query.page}
+          component={Link}
+          href={`/${router.query.slug}`}
+          label="Preview"
+        />
 
-        <NavLink component={Link} href={`/${router.query.slug}/usage`} label="Usage" />
+        <NavLink
+          active={router.query.page === "usage"}
+          component={Link}
+          href={`/${router.query.slug}/usage`}
+          label="Usage"
+        />
         {sections.map((section) => (
           <NavLink
             label={section.label}

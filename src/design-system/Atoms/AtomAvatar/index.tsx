@@ -1,8 +1,8 @@
 import { Group, Text, Stack, Avatar, useMantineTheme } from "@mantine/core"
-import { DesignTheme } from "src/state/design-system"
 import { IconHeart } from "@tabler/icons-react"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
-import getAvatarConfigurator from "../Configurator/configurators/avatar"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
+import getAvatarConfigurator from "src/design-system/Configurator/configurators/avatar"
+import AvatarPreview from "./AvatarPreview"
 
 const avatarComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Avatar",
@@ -52,19 +52,7 @@ const AtomAvatar = () => {
       {...avatarComponentDocsProps}
       preview={{
         configurator: avatarConfigurator,
-        children: (
-          <Group>
-            <Avatar
-              src="https://ucarecdn.com/c7a89916-f499-4fb9-90da-cb89f738c59a/"
-              alt="it's me"
-            />
-            <Avatar />
-            <Avatar>MK</Avatar>
-            <Avatar>
-              <IconHeart size="1.5rem" />
-            </Avatar>
-          </Group>
-        ),
+        children: <AvatarPreview />,
       }}
     />
   )

@@ -1,8 +1,8 @@
 import { Group, Button, Text, Stack, Box, useMantineTheme } from "@mantine/core"
 import getButtonConfigurator from "src/design-system/Configurator/configurators/button"
-import { DesignTheme } from "src/state/design-system"
 import { IconDownload } from "@tabler/icons-react"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
+import ButtonPreview from "./ButtonPreview"
 
 const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Button",
@@ -128,7 +128,7 @@ const buttonComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   ],
 }
 
-const AtomButtons = () => {
+const AtomButton = () => {
   const theme = useMantineTheme()
   const buttonConfigurator = getButtonConfigurator(theme)
   return (
@@ -136,15 +136,10 @@ const AtomButtons = () => {
       {...buttonComponentDocsProps}
       preview={{
         configurator: buttonConfigurator,
-        children: (
-          <Group>
-            <Button variant="primary">Primary action</Button>
-            <Button variant="secondary">Secondary action</Button>
-          </Group>
-        ),
+        children: <ButtonPreview />,
       }}
     />
   )
 }
 
-export default AtomButtons
+export default AtomButton

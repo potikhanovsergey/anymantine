@@ -1,8 +1,8 @@
 import { Group, Text, Stack, Accordion, rem, useMantineTheme } from "@mantine/core"
-import { DesignTheme } from "src/state/design-system"
 import { IconCameraSelfie, IconPhoto, IconPrinter } from "@tabler/icons-react"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
-import getAccordionConfigurator from "../Configurator/configurators/accordion"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
+import getAccordionConfigurator from "src/design-system/Configurator/configurators/accordion"
+import AccordionPreview from "./AccordionPreview"
 
 const accordionComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Accordion",
@@ -114,41 +114,13 @@ const accordionComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
 const AtomAccordion = () => {
   const theme = useMantineTheme()
   const accordionConfigurator = getAccordionConfigurator(theme)
-  const items = [
-    {
-      value: "customization",
-      label: "Customization",
-      panel: `Colors, fonts, shadows and many other parts are customizable to fit your design
-    needs`,
-    },
-    {
-      value: "flexibility",
-      label: "Flexibility",
-      panel: `Configure components appearance and behavior with vast amount of settings or
-      overwrite any part of component styles`,
-    },
-    {
-      value: "focus-ring",
-      label: "No annoying focus ring",
-      panel: `With new :focus-visible pseudo-class focus ring appears only when user navigates
-      with keyboard`,
-    },
-  ]
+
   return (
     <ComponentDocs
       {...accordionComponentDocsProps}
       preview={{
         configurator: accordionConfigurator,
-        children: (
-          <Accordion defaultValue="customization">
-            {items.map((item) => (
-              <Accordion.Item value={item.value} key={item.value}>
-                <Accordion.Control>{item.label}</Accordion.Control>
-                <Accordion.Panel>{item.panel}</Accordion.Panel>
-              </Accordion.Item>
-            ))}
-          </Accordion>
-        ),
+        children: <AccordionPreview />,
       }}
     />
   )

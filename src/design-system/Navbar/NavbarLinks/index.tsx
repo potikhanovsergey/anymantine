@@ -12,7 +12,7 @@ const NavbarLink = ({ label, ...props }: NavLinkProps & { label: string }) => {
   const slug = getHyphenCase(label)
   return (
     <NavLink
-      {...(router.query.page === slug && { "data-active": true })}
+      active={router.query.page === slug}
       component={Link}
       {...props}
       label={label}

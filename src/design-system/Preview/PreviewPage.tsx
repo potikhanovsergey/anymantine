@@ -1,9 +1,103 @@
+import { Group, Stack, Anchor, Title, useMantineTheme } from "@mantine/core"
 import PageTitle from "../layout/PageTitle"
+import PageSubtitle from "../layout/PageSubtitle"
+import { ReactNode } from "react"
+import AvatarPreview from "../Atoms/AtomAvatar/AvatarPreview"
+import ButtonPreview from "../Atoms/AtomButton/ButtonPreview"
+import ActionIconPreview from "../Atoms/AtomActionIcon/ActionIconPreview"
+import AnchorPreview from "../Atoms/AtomAnchor/AnchorPreview"
+import { IconLink } from "@tabler/icons-react"
+import { useRouter } from "next/router"
+import getHyphenCase from "src/helpers/getHyphenCase"
+import Link from "next/link"
+import TextInputPreview from "../Atoms/AtomTextInput/TextInputPreview"
+import TextareaPreview from "../Atoms/AtomTextarea/TextareaPreview"
+import SelectPreview from "../Atoms/AtomSelect/SelectPreview"
+import SegmentedControlPreview from "../Atoms/AtomSegmentedControl/SegmentedControlPreview"
+import SliderPreview from "../Atoms/AtomSlider/SliderPreview"
+import SwitchPreview from "../Atoms/AtomSwitch/SwitchPreview"
+import CheckboxPreview from "../Atoms/AtomCheckbox/CheckboxPreview"
+import RadioPreview from "../Atoms/AtomRadio/RadioPreview"
+import AccordionPreview from "../Atoms/AtomAccordion/AccordionPreview"
+
+const previews = {
+  Actions: {
+    Button: <ButtonPreview />,
+    "Action Icon": <ActionIconPreview />,
+  },
+  Inputs: {
+    "Text Input": <TextInputPreview />,
+    Textarea: <TextareaPreview />,
+    Select: <SelectPreview />,
+    "Segmented Control": <SegmentedControlPreview />,
+    Slider: <SliderPreview />,
+    Switch: <SwitchPreview />,
+    Checkbox: <CheckboxPreview />,
+    Radio: <RadioPreview />,
+  },
+  Navigation: {
+    Anchor: <AnchorPreview />,
+  },
+  "Data Display": {
+    Accordion: <AccordionPreview />,
+    Avatar: <AvatarPreview />,
+  },
+}
+
+interface PreviewItemProps {
+  title: string
+  children: ReactNode
+}
+
+const PreviewItems = ({ children, title }: { children: ReactNode; title: string }) => {
+  return (
+    <div>
+      <PageSubtitle mb="xl">{title}</PageSubtitle>
+      <Stack spacing={48}>{children}</Stack>
+    </div>
+  )
+}
+
+const PreviewItem = ({ title, children }: PreviewItemProps) => {
+  const router = useRouter()
+  const theme = useMantineTheme()
+  return (
+    <div>
+      <Anchor
+        component={Link}
+        color="dimmed"
+        underline={false}
+        sx={{ "&:hover": { color: theme.fn.primaryColor() } }}
+        href={`/${router.query.slug}/${getHyphenCase(title)}`}
+      >
+        <Title order={3}>
+          <Group spacing="xs" mb="md">
+            {title}
+            <IconLink />
+          </Group>
+        </Title>
+      </Anchor>
+
+      {children}
+    </div>
+  )
+}
 
 const PreviewPage = () => {
   return (
     <>
       <PageTitle>Preview</PageTitle>
+      <Stack spacing={80}>
+        {Object.keys(previews).map((category) => (
+          <PreviewItems key={category} title={category}>
+            {Object.keys(previews[category]).map((atom) => (
+              <PreviewItem key={atom} title={atom}>
+                {previews[category][atom]}
+              </PreviewItem>
+            ))}
+          </PreviewItems>
+        ))}
+      </Stack>
     </>
   )
 }

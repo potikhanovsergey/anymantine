@@ -1,9 +1,10 @@
 import { Center, Group, Stack, Switch, useMantineTheme } from "@mantine/core"
 import getSwitchConfigurator from "src/design-system/Configurator/configurators/switch"
-import { DesignTheme } from "src/state/design-system"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
+
 import { IconSun, IconMoonStars, IconCheck, IconX } from "@tabler/icons-react"
 import { useState } from "react"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
+import SwitchPreview from "./SwitchPreview"
 
 const ThumbSwitch = () => {
   const theme = useMantineTheme()
@@ -105,7 +106,7 @@ const switchComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   ],
 }
 
-const AtomSwitches = () => {
+const AtomSwitch = () => {
   const theme = useMantineTheme()
   const switchConfigurator = getSwitchConfigurator(theme)
   return (
@@ -113,30 +114,10 @@ const AtomSwitches = () => {
       {...switchComponentDocsProps}
       preview={{
         configurator: switchConfigurator,
-        children: (
-          <Stack>
-            <Switch label="Label" />
-            <Switch label="Label" description="Description" labelPosition="right" />
-            <Switch label="Label" description="Description" error="Error" labelPosition="right" />
-            <Switch label="Label" description="Description" labelPosition="right" disabled />
-            <Switch.Group
-              defaultValue={["mango"]}
-              label="Select your favorite fruits"
-              description="This is anonymous"
-              withAsterisk
-            >
-              <Group mt="xs">
-                <Switch value="kiwi" label="Kiwi" />
-                <Switch value="mango" label="Mango" />
-                <Switch value="apple" label="Apple" />
-                <Switch value="banana" label="Banana" />
-              </Group>
-            </Switch.Group>
-          </Stack>
-        ),
+        children: <SwitchPreview />,
       }}
     />
   )
 }
 
-export default AtomSwitches
+export default AtomSwitch

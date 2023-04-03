@@ -1,7 +1,7 @@
 import { Text, Stack, SegmentedControl, useMantineTheme } from "@mantine/core"
-import { DesignTheme } from "src/state/design-system"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
-import getSegmentedControlConfigurator from "../Configurator/configurators/segmented-control"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
+import getSegmentedControlConfigurator from "src/design-system/Configurator/configurators/segmented-control"
+import SegmentedControlPreview from "./SegmentedControlPreview"
 
 export const segmentedControlDataMock = [
   { label: "React", value: "react" },
@@ -68,7 +68,7 @@ const AtomSegmentedControl = () => {
       {...segmentedControlComponentDocsProps}
       preview={{
         configurator: segmentedControlConfigurator,
-        children: <SegmentedControl data={segmentedControlDataMock} />,
+        children: <SegmentedControlPreview />,
       }}
     />
   )

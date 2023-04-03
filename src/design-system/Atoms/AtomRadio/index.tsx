@@ -1,7 +1,7 @@
 import { Group, Stack, Radio, Text, Center, useMantineTheme } from "@mantine/core"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
 import getRadioConfigurator from "src/design-system/Configurator/configurators/radio"
-import { DesignTheme } from "src/state/design-system"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
+import RadioPreview from "./RadioPreview"
 
 const radioComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Radio Button",
@@ -101,7 +101,7 @@ const radioComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   ],
 }
 
-const AtomRadios = () => {
+const AtomRadio = () => {
   const theme = useMantineTheme()
   const radioConfigurator = getRadioConfigurator(theme)
   return (
@@ -109,25 +109,10 @@ const AtomRadios = () => {
       {...radioComponentDocsProps}
       preview={{
         configurator: radioConfigurator,
-        children: (
-          <Radio.Group
-            name="favoriteFruit"
-            label="Select your favorite fruit"
-            description="This is anonymous"
-            withAsterisk
-            defaultValue="kiwi"
-          >
-            <Group mt="xs">
-              <Radio value="kiwi" label="Kiwi" />
-              <Radio value="mango" label="Mango" />
-              <Radio value="apple" label="Apple" />
-              <Radio value="banana" label="Banana" />
-            </Group>
-          </Radio.Group>
-        ),
+        children: <RadioPreview />,
       }}
     />
   )
 }
 
-export default AtomRadios
+export default AtomRadio

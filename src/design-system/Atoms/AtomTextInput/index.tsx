@@ -1,8 +1,8 @@
 import { Group, Stack, TextInput, Text, Loader, useMantineTheme } from "@mantine/core"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
 import getTextInputConfigurator from "src/design-system/Configurator/configurators/text-input"
-import { DesignTheme } from "src/state/design-system"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
-import ExampleIcon from "../ExampleIcon"
+import ExampleIcon from "src/design-system/ExampleIcon"
+import TextInputPreview from "./TextInputPreview"
 
 const textInputComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Text Input",
@@ -106,14 +106,7 @@ const AtomTextInputs = () => {
       {...textInputComponentDocsProps}
       preview={{
         configurator: textInputConfigurator,
-        children: (
-          <Stack>
-            <TextInput label="Label" placeholder="Placeholder..." />
-            <TextInput label="Label" defaultValue="Wrong value..." error="Error..." />
-            <TextInput icon={<ExampleIcon />} label="Label" placeholder="Иконка слева" />
-            <TextInput label="Label" description="Description..." placeholder="Placeholder..." />
-          </Stack>
-        ),
+        children: <TextInputPreview />,
       }}
     />
   )
