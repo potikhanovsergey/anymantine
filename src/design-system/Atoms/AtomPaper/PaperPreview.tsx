@@ -1,5 +1,5 @@
 import { SimpleGrid, Paper } from "@mantine/core"
-import { paperDataLongMock } from "."
+import { paperDataLongMock } from "./paperDocsProps"
 
 const PaperPreview = () => {
   return (

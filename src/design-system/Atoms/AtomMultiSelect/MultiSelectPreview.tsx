@@ -1,5 +1,5 @@
 import { Group, MultiSelect } from "@mantine/core"
-import { multiSelectDataMock } from "."
+import { multiSelectDataMock } from "./multiSelectDocsProps"
 
 const MultiSelectPreview = () => {
   return (
