@@ -1,7 +1,8 @@
 import { Group, Text, Stack, Chip, useMantineTheme } from "@mantine/core"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
+import getChipConfigurator from "src/design-system/Configurator/configurators/chip"
 import { DesignTheme } from "src/state/design-system"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
-import getChipConfigurator from "../Configurator/configurators/chip"
+import ChipPreview from "./ChipPreview"
 
 const chipComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Chip",
@@ -83,13 +84,7 @@ const AtomChip = () => {
       {...chipComponentDocsProps}
       preview={{
         configurator: chipConfigurator,
-        children: (
-          <Group>
-            <Chip variant="outline">Awesome chip</Chip>
-            <Chip variant="light">Awesome chip</Chip>
-            <Chip variant="filled">Awesome chip</Chip>
-          </Group>
-        ),
+        children: <ChipPreview />,
       }}
     />
   )

@@ -101,6 +101,7 @@ const textInputComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
 const AtomTextInputs = () => {
   const theme = useMantineTheme()
   const textInputConfigurator = getTextInputConfigurator(theme)
+
   return (
     <ComponentDocs
       {...textInputComponentDocsProps}

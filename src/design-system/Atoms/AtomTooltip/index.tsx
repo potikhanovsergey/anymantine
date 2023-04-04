@@ -1,20 +1,8 @@
-import {
-  ActionIcon,
-  Group,
-  Tooltip,
-  Text,
-  Mark,
-  Button,
-  Box,
-  Stack,
-  Center,
-  useMantineTheme,
-} from "@mantine/core"
-import { IconHeart } from "@tabler/icons-react"
+import { Group, Tooltip, Button, Box, Center, useMantineTheme } from "@mantine/core"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
 import getTooltipConfigurator from "src/design-system/Configurator/configurators/tooltip"
-import { DesignTheme } from "src/state/design-system"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
-import ExampleIcon from "../ExampleIcon"
+
+import TooltipPreview from "./TooltipPreview"
 
 const tooltipDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Tooltip",
@@ -110,34 +98,19 @@ const tooltipDocsProps: Omit<ComponentDocsProps, "preview"> = {
   ],
 }
 
-const AtomTooltips = () => {
+const AtomTooltip = () => {
   const theme = useMantineTheme()
   const tooltipConfigurator = getTooltipConfigurator(theme)
+
   return (
     <ComponentDocs
       {...tooltipDocsProps}
       preview={{
         configurator: tooltipConfigurator,
-        children: (
-          <Stack>
-            <Tooltip label="Make love">
-              <ActionIcon>
-                <ExampleIcon />
-              </ActionIcon>
-            </Tooltip>
-            <Text maw={400}>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quasi deleniti neque amet,
-              eius totam inventore{" "}
-              <Tooltip inline label="Ipsum is ...">
-                <Mark>ipsum</Mark>
-              </Tooltip>
-              , dolor sit amet consectetur adipisicing elit. Maiores, aut.
-            </Text>
-          </Stack>
-        ),
+        children: <TooltipPreview />,
       }}
     />
   )
 }
 
-export default AtomTooltips
+export default AtomTooltip

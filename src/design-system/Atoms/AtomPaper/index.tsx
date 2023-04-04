@@ -1,7 +1,7 @@
-import { SimpleGrid, Paper, Anchor, Group, Stack, Text, useMantineTheme } from "@mantine/core"
-import { DesignTheme } from "src/state/design-system"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
-import getPaperConfigurator from "../Configurator/configurators/paper"
+import { Paper, Group, Stack, Text, useMantineTheme } from "@mantine/core"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
+import getPaperConfigurator from "src/design-system/Configurator/configurators/paper"
+import PaperPreview from "./PaperPreview"
 
 export const paperDataLongMock =
   "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem aliquid dolore dolorum a minus? Accusamus aperiam fugiat totam optio enim?"
@@ -58,14 +58,7 @@ const AtomPapers = () => {
       {...paperComponentDocsProps}
       preview={{
         configurator: paperConfigurator,
-        children: (
-          <SimpleGrid cols={2}>
-            <Paper withBorder={false} shadow="md">
-              {paperDataLongMock}
-            </Paper>
-            <Paper withBorder>{paperDataLongMock}</Paper>
-          </SimpleGrid>
-        ),
+        children: <PaperPreview />,
       }}
     />
   )
