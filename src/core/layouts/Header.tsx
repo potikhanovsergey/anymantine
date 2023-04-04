@@ -23,7 +23,7 @@ const Header = (props: Omit<HeaderProps, "children" | "height">) => {
   const onSelectTheme = (value) => {
     const slug = router.query.slug?.toString?.()
     if (slug && slug !== value) {
-      void router.push(router.asPath.split(slug).join(value))
+      void router.push(router.asPath.split(slug).join(value), undefined, { scroll: false })
     } else {
       appDesignThemeSlug.set(value)
     }
