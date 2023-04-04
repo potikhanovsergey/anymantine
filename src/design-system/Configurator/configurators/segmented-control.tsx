@@ -1,6 +1,6 @@
 import { Group, SegmentedControlProps, SegmentedControl, MantineTheme } from "@mantine/core"
 import React from "react"
-import { segmentedControlDataMock } from "src/design-system/Atoms/AtomSegmentedControl"
+import { segmentedControlDataMock } from "src/design-system/Atoms/AtomSegmentedControl/mocks"
 import { MantineDemo } from "src/design-system/Demo/types"
 import getDefaultProps from "src/helpers/getDefaultProps"
 

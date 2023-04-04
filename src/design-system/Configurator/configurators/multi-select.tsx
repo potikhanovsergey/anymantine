@@ -1,12 +1,6 @@
-import {
-  Group,
-  MantineThemeOverride,
-  MultiSelectProps,
-  MultiSelect,
-  MantineTheme,
-} from "@mantine/core"
+import { Group, MultiSelectProps, MultiSelect, MantineTheme } from "@mantine/core"
 import React from "react"
-import { multiSelectDataMock } from "src/design-system/Atoms/AtomMultiSelect"
+import { multiSelectDataMock } from "src/design-system/Atoms/AtomMultiSelect/mocks"
 import { MantineDemo } from "src/design-system/Demo/types"
 import getDefaultProps from "src/helpers/getDefaultProps"
 

@@ -1,16 +1,7 @@
 import { MultiSelect, Text } from "@mantine/core"
 import { useState } from "react"
 import { ComponentDocsProps } from "src/design-system/ComponentDocs"
-
-export const multiSelectDataMock = [
-  { value: "react", label: "React" },
-  { value: "ng", label: "Angular" },
-  { value: "svelte", label: "Svelte" },
-  { value: "vue", label: "Vue" },
-  { value: "riot", label: "Riot" },
-  { value: "next", label: "Next.js" },
-  { value: "blitz", label: "Blitz.js" },
-]
+import { multiSelectDataMock } from "./mocks"
 
 const dropdownHeightData = Array(50)
   .fill(0)
