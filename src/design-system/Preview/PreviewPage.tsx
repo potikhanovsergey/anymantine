@@ -39,7 +39,7 @@ const previews = {
   Navigation: {
     Anchor: <AnchorPreview />,
   },
-  "Data Display": {
+  "Data display": {
     Accordion: <AccordionPreview />,
     Avatar: <AvatarPreview />,
     Badge: <BadgePreview />,
