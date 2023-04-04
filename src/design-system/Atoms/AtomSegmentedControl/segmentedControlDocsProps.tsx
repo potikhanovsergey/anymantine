@@ -1,11 +1,6 @@
 import { Stack, SegmentedControl, Text } from "@mantine/core"
 import { ComponentDocsProps } from "src/design-system/ComponentDocs"
-
-export const segmentedControlDataMock = [
-  { label: "React", value: "react" },
-  { label: "Angular", value: "ng" },
-  { label: "Vue", value: "vue" },
-]
+import { segmentedControlDataMock } from "."
 
 const segmentedControlDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Segmented Control",

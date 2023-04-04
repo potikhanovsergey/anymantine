@@ -4,6 +4,12 @@ import getSegmentedControlConfigurator from "src/design-system/Configurator/conf
 import segmentedControlDocsProps from "./segmentedControlDocsProps"
 import SegmentedControlPreview from "./SegmentedControlPreview"
 
+export const segmentedControlDataMock = [
+  { label: "React", value: "react" },
+  { label: "Angular", value: "ng" },
+  { label: "Vue", value: "vue" },
+]
+
 const AtomSegmentedControl = () => {
   const theme = useMantineTheme()
   const segmentedControlConfigurator = getSegmentedControlConfigurator(theme)
