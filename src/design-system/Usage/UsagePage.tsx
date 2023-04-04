@@ -24,6 +24,7 @@ const DownloadButton = (props: ButtonProps) => {
 }
 
 const UsagePage = () => {
+  const DesignSystemLabel = useSelector(DesignSystem.label)
   return (
     <>
       <PageTitle>Usage</PageTitle>
@@ -52,7 +53,7 @@ const UsagePage = () => {
           <Text mb="xs">You can later use it like this:</Text>
           <Prism language="tsx">
             {`import { MantineProvider } from "@mantine/core";
-import bubbleTheme from "[path-to-downloaded-file]/bubbleTheme.ts";
+import bubbleTheme from "[path-to-downloaded-file]/${DesignSystemLabel}Theme";
 
 const ThemeUsageSnippet = () => {
   return (

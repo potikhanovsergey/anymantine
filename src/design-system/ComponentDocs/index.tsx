@@ -9,7 +9,7 @@ export interface ComponentDocsProps {
   title: string
   mantineLink?: string
   description: string
-  preview: ItemPreviewProps
+  preview?: ItemPreviewProps
   examples: ExampleProps[]
 }
 
@@ -26,9 +26,9 @@ const ComponentDocs = ({
         <PageTitle mantineLink={mantineLink}>{title}</PageTitle>
         <Text maw="75%">{description}</Text>
       </div>
-      <ItemPreview {...preview} />
+      {preview && <ItemPreview {...preview} />}
       <div>
-        <PageSubtitle>Examples</PageSubtitle>
+        <PageSubtitle mb={64}>Examples</PageSubtitle>
         <Examples examples={examples} />
       </div>
     </Stack>

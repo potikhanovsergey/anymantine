@@ -4,6 +4,12 @@ import getPaperConfigurator from "src/design-system/Configurator/configurators/p
 import paperDocsProps from "./paperDocsProps"
 import PaperPreview from "./PaperPreview"
 
+export const paperDataLongMock =
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem aliquid dolore dolorum a minus? Accusamus aperiam fugiat totam optio enim?"
+
+export const paperDataShortMock =
+  "Lorem ipsum dolor sit amet consectetur adipisicing elit. A, repellat."
+
 const AtomPapers = () => {
   const theme = useMantineTheme()
   const paperConfigurator = getPaperConfigurator(theme)

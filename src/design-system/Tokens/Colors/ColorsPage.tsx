@@ -17,7 +17,7 @@ const ColorsPage = ({ colors }: ColorsPageProps) => {
       <Stack spacing={64}>
         <div>
           <PageSubtitle mb="sm">Pallete</PageSubtitle>
-          <Text mb="md">
+          <Text mb="md" maw={700}>
             Usually, Animantine themes rewrite several colors from the standard Mantine palette. A
             list of all the colors available can be found at{" "}
             <Link href="https://mantine.dev/theming/colors/" target="_blank">
