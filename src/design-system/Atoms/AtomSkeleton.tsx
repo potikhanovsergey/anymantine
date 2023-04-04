@@ -16,7 +16,7 @@ const skeletonDocsProps: Omit<ComponentDocsProps, "preview"> = {
           {[false, true].map((animate) => (
             <div key={animate + ""}>
               <Text color="dimmed" mb="xs">
-                {animate ? "Circle prop is true" : "No circle prop"}
+                {animate ? "Animate prop is true" : "No animate prop"}
               </Text>
               <Skeleton height={80} width={80} animate={animate} />
             </div>
