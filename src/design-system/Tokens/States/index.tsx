@@ -1,9 +1,7 @@
-import { observer } from "@legendapp/state/react"
 import {
   Stack,
   Text,
   Button,
-  Title,
   useMantineTheme,
   Checkbox,
   Radio,
@@ -12,15 +10,14 @@ import {
   Group,
   Center,
 } from "@mantine/core"
-import { DesignTheme } from "src/state/design-system"
 import PageTitle from "src/design-system/layout/PageTitle"
 import { ExampleProps } from "src/design-system/Examples/Example"
 import Examples from "src/design-system/Examples/Examples"
 import PageSubtitle from "src/design-system/layout/PageSubtitle"
 
 const HoveredState = ({ variant }: { variant: string }) => {
-  const buttonStyles = DesignTheme.get?.()?.components?.Button
   const theme = useMantineTheme()
+  const buttonStyles = theme.components?.Button
 
   const hoverStyles = buttonStyles?.variants?.[variant]?.(theme, {}, {})?.root?.[
     "&:not([data-disabled])"
@@ -48,7 +45,8 @@ const FocusedState = ({ variant }: { variant: string }) => {
 }
 
 const States = () => {
-  const buttonStyles = DesignTheme.peek?.()?.components?.Button
+  const theme = useMantineTheme()
+  const buttonStyles = theme.components?.Button
   const variants = Object.keys(buttonStyles?.variants!)
 
   const examples: ExampleProps[] = [

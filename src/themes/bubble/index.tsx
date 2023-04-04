@@ -347,6 +347,14 @@ const BubbleTheme: MantineThemeOverride = {
         color: theme.primaryColor,
       }),
     },
+    Prism: {
+      styles: (theme) => ({
+        copy: {
+          background: "transparent !important",
+          color: theme.colorScheme === "dark" ? theme.white : theme.black,
+        },
+      }),
+    },
   },
 
   globalStyles: (theme) => ({

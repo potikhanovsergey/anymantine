@@ -1,7 +1,6 @@
 import { Group, Text, Stack, Chip, useMantineTheme } from "@mantine/core"
 import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
 import getChipConfigurator from "src/design-system/Configurator/configurators/chip"
-import { DesignTheme } from "src/state/design-system"
 import ChipPreview from "./ChipPreview"
 
 const chipComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {

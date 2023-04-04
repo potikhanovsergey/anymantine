@@ -4,8 +4,6 @@ import {
   HeaderProps,
   Header as MantineHeader,
   Select,
-  Stack,
-  Text,
   useMantineTheme,
 } from "@mantine/core"
 import NextLink from "next/link"
@@ -13,7 +11,6 @@ import { useSelector } from "@legendapp/state/react"
 import designSystems from "src/themes"
 import { appDesignThemeSlug } from "src/state"
 import { useRouter } from "next/router"
-import Logo from "./Logo"
 import LogoText from "./LogoText"
 
 // const ProfileMenuOrAuth = dynamic(() => import("./ProfileMenuOrAuth"), { ssr: false })
