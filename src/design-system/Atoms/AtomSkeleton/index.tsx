@@ -1,7 +1,7 @@
 import { Group, Skeleton, Text, useMantineTheme } from "@mantine/core"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
 import getSkeletonConfigurator from "src/design-system/Configurator/configurators/skeleton"
-import { DesignTheme } from "src/state/design-system"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
+import SkeletonPreview from "./SkeletonPreview"
 
 const skeletonDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Skeleton",
@@ -43,7 +43,7 @@ const skeletonDocsProps: Omit<ComponentDocsProps, "preview"> = {
   ],
 }
 
-const AtomSkeletons = () => {
+const AtomSkeleton = () => {
   const theme = useMantineTheme()
   const skeletonConfigurator = getSkeletonConfigurator(theme)
   return (
@@ -51,17 +51,10 @@ const AtomSkeletons = () => {
       {...skeletonDocsProps}
       preview={{
         configurator: skeletonConfigurator,
-        children: (
-          <Group w="100%">
-            <Skeleton height={50} circle mb="xl" />
-            <Skeleton height={16} radius="xl" />
-            <Skeleton height={16} mt={3} radius="xl" />
-            <Skeleton height={16} mt={3} width="70%" radius="xl" />
-          </Group>
-        ),
+        children: <SkeletonPreview />,
       }}
     />
   )
 }
 
-export default AtomSkeletons
+export default AtomSkeleton

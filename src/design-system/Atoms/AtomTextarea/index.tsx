@@ -70,6 +70,7 @@ const textareaDocsProps: Omit<ComponentDocsProps, "preview"> = {
 const AtomTextarea = () => {
   const theme = useMantineTheme()
   const textareaConfigurator = getTextareaConfigurator(theme)
+
   return (
     <ComponentDocs
       {...textareaDocsProps}

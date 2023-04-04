@@ -20,6 +20,12 @@ import CheckboxPreview from "../Atoms/AtomCheckbox/CheckboxPreview"
 import RadioPreview from "../Atoms/AtomRadio/RadioPreview"
 import AccordionPreview from "../Atoms/AtomAccordion/AccordionPreview"
 import BadgePreview from "../Atoms/AtomBadge/BadgePreview"
+import ChipPreview from "../Atoms/AtomChip/ChipPreview"
+import MultiSelectPreview from "../Atoms/AtomMultiSelect/MultiSelectPreview"
+import PaperPreview from "../Atoms/AtomPaper/PaperPreview"
+import SkeletonPreview from "../Atoms/AtomSkeleton/SkeletonPreview"
+import StepperPreview from "../Atoms/AtomStepper/StepperPreview"
+import TooltipPreview from "../Atoms/AtomTooltip/TooltipPreview"
 
 const previews = {
   Actions: {
@@ -35,14 +41,26 @@ const previews = {
     Switch: <SwitchPreview />,
     Checkbox: <CheckboxPreview />,
     Radio: <RadioPreview />,
+    Chip: <ChipPreview />,
+    "Multi Select": <MultiSelectPreview />,
   },
   Navigation: {
     Anchor: <AnchorPreview />,
+    Stepper: <StepperPreview />,
   },
   "Data display": {
     Accordion: <AccordionPreview />,
     Avatar: <AvatarPreview />,
     Badge: <BadgePreview />,
+  },
+  Overlays: {
+    Tooltip: <TooltipPreview />,
+  },
+  Feedback: {
+    Skeleton: <SkeletonPreview />,
+  },
+  Miscellaneous: {
+    Paper: <PaperPreview />,
   },
 }
 

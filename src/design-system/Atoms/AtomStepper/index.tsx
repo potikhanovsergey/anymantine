@@ -1,13 +1,4 @@
-import {
-  Group,
-  Stack,
-  Text,
-  Button,
-  Stepper,
-  StepperProps,
-  Center,
-  useMantineTheme,
-} from "@mantine/core"
+import { Stack, Text, Stepper, StepperProps, Center, useMantineTheme } from "@mantine/core"
 import {
   IconCircleCheck,
   IconUserCheck,
@@ -15,9 +6,10 @@ import {
   IconShieldCheck,
 } from "@tabler/icons-react"
 import { useState } from "react"
-import { DesignTheme } from "src/state/design-system"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
-import getStepperConfigurator from "../Configurator/configurators/stepper"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
+import getStepperConfigurator from "src/design-system/Configurator/configurators/stepper"
+
+import StepperPreview from "./StepperPreview"
 
 type SteperExampleProps = Pick<StepperProps, "orientation" | "iconPosition"> & {
   loading?: boolean
@@ -109,40 +101,12 @@ const AtomStepper = () => {
   const theme = useMantineTheme()
   const stepperConfigurator = getStepperConfigurator(theme)
 
-  const [active, setActive] = useState(1)
-  const nextStep = () => setActive((current) => (current < 3 ? current + 1 : current))
-  const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current))
-
   return (
     <ComponentDocs
       {...stepperComponentDocsProps}
       preview={{
         configurator: stepperConfigurator,
-        children: (
-          <Stack>
-            <Stepper active={active} onStepClick={setActive} breakpoint="sm">
-              <Stepper.Step label="First step" description="Create an account">
-                Step 1 content: Create an account
-              </Stepper.Step>
-              <Stepper.Step label="Second step" description="Verify email">
-                Step 2 content: Verify email
-              </Stepper.Step>
-              <Stepper.Step label="Final step" description="Get full access">
-                Step 3 content: Get full access
-              </Stepper.Step>
-              <Stepper.Completed>
-                Completed, click back button to get to previous step
-              </Stepper.Completed>
-            </Stepper>
-
-            <Group position="center" mt="xl">
-              <Button variant="default" onClick={prevStep}>
-                Back
-              </Button>
-              <Button onClick={nextStep}>Next step</Button>
-            </Group>
-          </Stack>
-        ),
+        children: <StepperPreview />,
       }}
     />
   )

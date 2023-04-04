@@ -1,8 +1,8 @@
-import { Group, Text, Stack, Avatar, MultiSelect, useMantineTheme } from "@mantine/core"
+import { Text, MultiSelect, useMantineTheme } from "@mantine/core"
 import { useState } from "react"
-import { DesignTheme } from "src/state/design-system"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
-import getMultiSelectConfigurator from "../Configurator/configurators/multi-select"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
+import getMultiSelectConfigurator from "src/design-system/Configurator/configurators/multi-select"
+import MultiSelectPreview from "./MultiSelectPreview"
 
 export const multiSelectDataMock = [
   { value: "react", label: "React" },
@@ -172,15 +172,7 @@ const AtomMultiSelect = () => {
       {...multiSelectComponentDocsProps}
       preview={{
         configurator: multiSelectConfigurator,
-        children: (
-          <Group>
-            <MultiSelect
-              data={multiSelectDataMock}
-              label="Your favorite frameworks/libraries"
-              placeholder="Pick all that you like"
-            />
-          </Group>
-        ),
+        children: <MultiSelectPreview />,
       }}
     />
   )
