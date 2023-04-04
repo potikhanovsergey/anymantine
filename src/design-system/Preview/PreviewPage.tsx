@@ -19,6 +19,7 @@ import SwitchPreview from "../Atoms/AtomSwitch/SwitchPreview"
 import CheckboxPreview from "../Atoms/AtomCheckbox/CheckboxPreview"
 import RadioPreview from "../Atoms/AtomRadio/RadioPreview"
 import AccordionPreview from "../Atoms/AtomAccordion/AccordionPreview"
+import BadgePreview from "../Atoms/AtomBadge/BadgePreview"
 
 const previews = {
   Actions: {
@@ -41,6 +42,7 @@ const previews = {
   "Data Display": {
     Accordion: <AccordionPreview />,
     Avatar: <AvatarPreview />,
+    Badge: <BadgePreview />,
   },
 }
 

@@ -10,10 +10,10 @@ import {
   Stack,
   useMantineTheme,
 } from "@mantine/core"
-import { IconHeart, IconX } from "@tabler/icons-react"
+import { IconX } from "@tabler/icons-react"
 import getBadgeConfigurator from "src/design-system/Configurator/configurators/badge"
-import { DesignTheme } from "src/state/design-system"
-import ComponentDocs, { ComponentDocsProps } from "../ComponentDocs"
+import BadgePreview from "./BadgePreview"
+import ComponentDocs, { ComponentDocsProps } from "src/design-system/ComponentDocs"
 
 const removeButton = (
   <ActionIcon size="xs" variant="transparent">
@@ -85,7 +85,7 @@ const badgeComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   ],
 }
 
-const AtomBadges = () => {
+const AtomBadge = () => {
   const theme = useMantineTheme()
   const badgeConfigurator = getBadgeConfigurator(theme)
   return (
@@ -93,15 +93,10 @@ const AtomBadges = () => {
       {...badgeComponentDocsProps}
       preview={{
         configurator: badgeConfigurator,
-        children: (
-          <Group>
-            <Badge>Badge</Badge>
-            <Badge leftSection={<IconHeart size={10} />}>Badge with left icon</Badge>
-          </Group>
-        ),
+        children: <BadgePreview />,
       }}
     />
   )
 }
 
-export default AtomBadges
+export default AtomBadge
