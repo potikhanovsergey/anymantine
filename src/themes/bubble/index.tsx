@@ -355,6 +355,11 @@ const BubbleTheme: MantineThemeOverride = {
         },
       }),
     },
+    Card: {
+      defaultProps: {
+        withBorder: true,
+      },
+    },
   },
 
   globalStyles: (theme) => ({

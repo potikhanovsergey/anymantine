@@ -31,6 +31,8 @@ export const atoms = [
   "Stepper",
 ]
 
+export const molecules = ["Card"]
+
 export const usage = ["Usage"]
 
 const getDsSubPage = (label: string, type: string) => ({ label, slug: getHyphenCase(label), type })
@@ -39,6 +41,7 @@ export const dsSubPages = [
   ...atoms.map((label) => getDsSubPage(label, "atoms")),
   ...tokens.map((label) => getDsSubPage(label, "tokens")),
   ...usage.map((label) => getDsSubPage(label, "usage")),
+  ...molecules.map((label) => getDsSubPage(label, "molecules")),
 ]
 
 export type DesignSystemSubPage = (typeof dsSubPages)[number]

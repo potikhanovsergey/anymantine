@@ -1,7 +1,7 @@
 import { Navbar as MantineNavbar, NavbarProps, NavLink, ScrollArea } from "@mantine/core"
 import React from "react"
 import NavbarLinks from "./NavbarLinks"
-import { DesignSystemSubPage, atoms, tokens } from "src/themes"
+import { DesignSystemSubPage, atoms, molecules, tokens } from "src/themes"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
@@ -16,7 +16,7 @@ const sections = [
   },
   {
     label: "Molecules",
-    links: [],
+    links: molecules,
   },
 ]
 

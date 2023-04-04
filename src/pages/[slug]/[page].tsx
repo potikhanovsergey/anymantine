@@ -10,6 +10,7 @@ import designSystems, {
   dsSubPages,
   tokens,
   usage,
+  molecules,
 } from "src/themes"
 
 import dynamic from "next/dynamic"
@@ -44,6 +45,8 @@ const AtomAccordion = dynamic(() => import("src/design-system/Atoms/AtomAccordio
 const AtomMultiSelect = dynamic(() => import("src/design-system/Atoms/AtomMultiSelect"))
 const AtomSegmentedControl = dynamic(() => import("src/design-system/Atoms/AtomSegmentedControl"))
 const AtomStepper = dynamic(() => import("src/design-system/Atoms/AtomStepper"))
+
+const MoleculeCard = dynamic(() => import("src/design-system/Molecules/MoleculeCard"))
 
 const DesignSystemSubpage: BlitzPage = ({
   slug,
@@ -88,6 +91,7 @@ const DesignSystemSubpage: BlitzPage = ({
             "segmented-control": () => <AtomSegmentedControl />,
             accordion: () => <AtomAccordion />,
             stepper: () => <AtomStepper />,
+            card: () => <MoleculeCard />,
             default: () => <></>,
           }}
         </Switch>
@@ -112,6 +116,10 @@ export async function getStaticPaths() {
     // Atoms
     for (let j = 0; j < atoms.length; j++) {
       paths.push({ params: { slug: slugs[i], page: getHyphenCase(atoms[j]) } })
+    }
+    // Molecules
+    for (let j = 0; j < molecules.length; j++) {
+      paths.push({ params: { slug: slugs[i], page: getHyphenCase(molecules[j]) } })
     }
   }
 
