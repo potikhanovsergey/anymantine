@@ -38,6 +38,7 @@
     "@mantine/prism": "6.0.2",
     "@prisma/client": "4.6.0",
     "@tabler/icons-react": "2.8.0",
+    "@vercel/analytics": "0.1.11",
     "blitz": "2.0.0-beta.15",
     "js-beautify": "1.14.7",
     "json-fn": "1.1.1",
