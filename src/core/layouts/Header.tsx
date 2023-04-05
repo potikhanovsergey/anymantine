@@ -8,7 +8,7 @@ import {
 } from "@mantine/core"
 import NextLink from "next/link"
 import { useSelector } from "@legendapp/state/react"
-import designSystems from "src/themes"
+import designSystems from "public/themes"
 import { appDesignThemeSlug } from "src/state"
 import { useRouter } from "next/router"
 import LogoText from "./LogoText"

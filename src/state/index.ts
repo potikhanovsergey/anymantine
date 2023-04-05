@@ -1,5 +1,5 @@
 import { computed, observable } from "@legendapp/state"
-import { Theme, themes } from "src/themes"
+import { Theme, themes } from "public/themes"
 
 export const appDesignThemeSlug = observable(Object.keys(themes)[0])
 

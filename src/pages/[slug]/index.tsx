@@ -4,7 +4,7 @@ import { GetStaticPropsContext } from "next"
 
 import DesignSystemLayout from "src/core/layouts/DesignSystemLayout"
 import PreviewPage from "src/design-system/Preview/PreviewPage"
-import designSystems, { DesignSystemSubPage, themes } from "src/themes"
+import designSystems, { DesignSystemSubPage, themes } from "public/themes"
 
 const DesignSystemPage: BlitzPage = ({
   slug,

@@ -5,7 +5,7 @@ import { AppShell, Center, Loader, rem } from "@mantine/core"
 import Header from "./Header"
 import Navbar from "src/design-system/Navbar"
 import { DesignSystem, DesignTheme } from "src/state/design-system"
-import { DesignSystemSubPage, themes } from "src/themes"
+import { DesignSystemSubPage, themes } from "public/themes"
 import { Show, useSelector } from "@legendapp/state/react"
 import { appDesignTheme } from "src/state"
 

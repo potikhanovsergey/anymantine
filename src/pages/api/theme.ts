@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import path from "path"
 import { createReadStream, existsSync } from "fs"
-import { themes } from "src/themes"
+import { themes } from "public/themes"
 
 export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method !== "GET") {

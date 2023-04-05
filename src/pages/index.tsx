@@ -3,7 +3,7 @@ import { Container, Title, useMantineTheme } from "@mantine/core"
 import Layout from "src/core/layouts/Layout"
 import Card from "src/design-systems/Card"
 import Grid from "src/design-systems/Grid"
-import { themeCards } from "src/themes"
+import { themeCards } from "public/themes"
 
 const DesignSystemsPage: BlitzPage = () => {
   const theme = useMantineTheme()

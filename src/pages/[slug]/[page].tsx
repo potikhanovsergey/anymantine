@@ -11,7 +11,7 @@ import designSystems, {
   tokens,
   usage,
   molecules,
-} from "src/themes"
+} from "public/themes"
 
 import dynamic from "next/dynamic"
 import { Switch } from "@legendapp/state/react"

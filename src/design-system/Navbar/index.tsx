@@ -1,7 +1,7 @@
 import { Navbar as MantineNavbar, NavbarProps, NavLink, ScrollArea, Tooltip } from "@mantine/core"
 import React from "react"
 import NavbarLinks from "./NavbarLinks"
-import { DesignSystemSubPage, atoms, molecules, tokens } from "src/themes"
+import { DesignSystemSubPage, atoms, molecules, tokens } from "public/themes"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
