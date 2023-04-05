@@ -6,6 +6,17 @@ import SwitchesCard from "./SwitchesCard"
 import UserCard from "./UserCard"
 import { switchesCardMockData, userCardMockData } from "./mocks"
 import TasksCard from "./TasksCard"
+import { ReactNode } from "react"
+
+const Wrapper = ({ children }: { children: ReactNode }) => {
+  return (
+    <Center>
+      <Box maw={360} w="100%">
+        {children}
+      </Box>
+    </Center>
+  )
+}
 
 export const cardComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Card",
@@ -15,55 +26,45 @@ export const cardComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Card",
       description: "Card description",
       children: (
-        <Center>
-          <Box maw={360}>
-            <ImageTitleDescriptionCard />
-          </Box>
-        </Center>
+        <Wrapper>
+          <ImageTitleDescriptionCard />
+        </Wrapper>
       ),
     },
     {
       title: "Gallery card",
       description: "Gallery card description",
       children: (
-        <Center>
-          <Box maw={360}>
-            <GalleryCard />
-          </Box>
-        </Center>
+        <Wrapper>
+          <GalleryCard />
+        </Wrapper>
       ),
     },
     {
       title: "Switches card",
       description: "Switches card description",
       children: (
-        <Center>
-          <Box maw={360}>
-            <SwitchesCard {...switchesCardMockData} />
-          </Box>
-        </Center>
+        <Wrapper>
+          <SwitchesCard {...switchesCardMockData} />
+        </Wrapper>
       ),
     },
     {
       title: "User card",
       description: "User card description",
       children: (
-        <Center>
-          <Box maw={360} w="100%">
-            <UserCard {...userCardMockData} />
-          </Box>
-        </Center>
+        <Wrapper>
+          <UserCard {...userCardMockData} />
+        </Wrapper>
       ),
     },
     {
       title: "Tasks card",
       description: "Tasks card description",
       children: (
-        <Center>
-          <Box maw={360} w="100%">
-            <TasksCard />
-          </Box>
-        </Center>
+        <Wrapper>
+          <TasksCard />
+        </Wrapper>
       ),
     },
   ],
