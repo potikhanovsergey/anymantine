@@ -9,12 +9,12 @@ import { useSelector } from "@legendapp/state/react"
 
 const DownloadButton = (props: ButtonProps) => {
   const DesignSystemLabel = useSelector(DesignSystem.label)
-  const fileName = `${DesignSystemLabel}Theme.ts`
+  const fileName = `${DesignSystemLabel}Theme.tsx`
   return (
     <Button
       component="a"
       download={fileName}
-      href={`/api/theme?theme=${DesignSystemLabel}`}
+      href={`/themes/${DesignSystemLabel}/index.tsx`}
       leftIcon={<IconDownload size={16} />}
       {...props}
     >
