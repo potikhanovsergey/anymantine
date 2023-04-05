@@ -5,6 +5,7 @@ import ImageTitleDescriptionCard from "./ImageTitleDescriptionCard"
 import SwitchesCard from "./SwitchesCard"
 import UserCard from "./UserCard"
 import { switchesCardMockData, userCardMockData } from "./mocks"
+import TasksCard from "./TasksCard"
 
 export const cardComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Card",
@@ -50,6 +51,17 @@ export const cardComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
         <Center>
           <Box maw={360} w="100%">
             <UserCard {...userCardMockData} />
+          </Box>
+        </Center>
+      ),
+    },
+    {
+      title: "Tasks card",
+      description: "Tasks card description",
+      children: (
+        <Center>
+          <Box maw={360} w="100%">
+            <TasksCard />
           </Box>
         </Center>
       ),
