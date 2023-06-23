@@ -26,7 +26,7 @@ const DesignSystemLayout: BlitzLayout<{
 
   return (
     <AppShell
-      className={appFont.nextFont.variable}
+      className={appFont?.nextFont.variable}
       header={<Header subPage={subPage} />}
       navbarOffsetBreakpoint="sm"
       navbar={<Navbar subPage={subPage} hiddenBreakpoint="sm" hidden={!opened} />}

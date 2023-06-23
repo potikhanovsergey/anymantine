@@ -98,16 +98,18 @@ const Typography = () => {
     <>
       <PageTitle>Typography</PageTitle>
       <Stack spacing={40}>
-        <div>
-          <PageSubtitle>Font family</PageSubtitle>
-          <Text>
-            This theme uses <strong>{font.label}</strong> font-family. It&apos;s free and can be
-            downloaded from{" "}
-            <Link target="_blank" href={font.source}>
-              Google Fonts.
-            </Link>
-          </Text>
-        </div>
+        {font && (
+          <div>
+            <PageSubtitle>Font family</PageSubtitle>
+            <Text>
+              This theme uses <strong>{font.label}</strong> font-family. It&apos;s free and can be
+              downloaded from{" "}
+              <Link target="_blank" href={font.source}>
+                Google Fonts.
+              </Link>
+            </Text>
+          </div>
+        )}
         <div>
           <PageSubtitle>Heading sizes</PageSubtitle>
           <Headings />
