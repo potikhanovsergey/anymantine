@@ -1,5 +1,5 @@
 import Head from "next/head"
-import React, { FC, useEffect } from "react"
+import React, { FC, useEffect, useState } from "react"
 import { BlitzLayout } from "@blitzjs/next"
 import { AppShell, Center, Loader, rem } from "@mantine/core"
 import Header from "./Header"
@@ -21,11 +21,15 @@ const DesignSystemLayout: BlitzLayout<{
   }, [slug])
 
   const appFont = useSelector(appDesignTheme.font)
+
+  const [opened, setOpened] = useState(false)
+
   return (
     <AppShell
-      className={appFont?.nextFont?.variable}
-      header={<Header />}
-      navbar={<Navbar subPage={subPage} />}
+      className={appFont?.nextFont.variable}
+      header={<Header subPage={subPage} />}
+      navbarOffsetBreakpoint="sm"
+      navbar={<Navbar subPage={subPage} hiddenBreakpoint="sm" hidden={!opened} />}
       styles={{
         main: {
           paddingRight: 0,
