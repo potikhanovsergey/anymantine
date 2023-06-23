@@ -23,7 +23,7 @@ const DesignSystemLayout: BlitzLayout<{
   const appFont = useSelector(appDesignTheme.font)
   return (
     <AppShell
-      className={appFont.nextFont.variable}
+      className={appFont?.nextFont?.variable}
       header={<Header />}
       navbar={<Navbar subPage={subPage} />}
       styles={{
