@@ -21,12 +21,12 @@ import { IconDownload } from "@tabler/icons-react"
 const Example = () => {
   return (
     <Stack align="center">
-    <Button
-      leftIcon={<IconDownload size={16} />}
-    >
-      With icon
-    </Button>
-    <Button>Without icon</Button>
+      <Button
+        leftIcon={<IconDownload size={16} />}
+      >
+        With icon
+      </Button>
+      <Button>Without icon</Button>
   </Stack>
   )
 }`,
@@ -40,6 +40,21 @@ const Example = () => {
     {
       title: "Negative button",
       description: `The negative button is for emphasizing actions that can be destructive or have negative consequences if taken. Use it sparingly.`,
+      code: `
+import { Button, Stack } from "@mantine/core";
+
+const Example = () => {
+  return (
+    <Stack align="center">
+      <Button color="red" variant="primary">
+        Destructive action
+      </Button>
+      <Button color="red" variant="secondary">
+        Destructive action
+      </Button>
+  </Stack>
+  )
+}`,
       children: (
         <Stack align="center">
           <Button color="red" variant="primary">
@@ -54,6 +69,30 @@ const Example = () => {
     {
       title: "Variants",
       description: `Buttons are available in primary and secondary styles. Use primary buttons for the most important actions on the website and secondary buttons for everything else.`,
+      code: `
+import { Button, Stack, Group } from "@mantine/core";
+
+const Example = () => {
+  return (
+    <Group position="center" noWrap>
+      <Stack align="center">
+        {[undefined, "green", "red", "gray"].map((color) => (
+          <Button color={color} variant="primary" key={color || ""}>
+            Action
+          </Button>
+        ))}
+      </Stack>
+
+      <Stack align="center">
+        {[undefined, "green", "red", "gray"].map((color) => (
+          <Button color={color} variant="secondary" key={color || ""}>
+            Action
+          </Button>
+        ))}
+      </Stack>
+    </Group>
+  )
+}`,
       children: (
         <Group position="center" noWrap>
           <Stack>
@@ -82,6 +121,18 @@ const Example = () => {
     {
       title: "Size",
       description: `Buttons come in five different sizes: extra-small, small, medium, large, and extra-large. Use the sizes sparingly; they should be used to create a hierarchy of importance within the page.`,
+      code: `
+import { Button, Stack } from "@mantine/core";
+
+const Example = () => {
+  return (
+    <Stack align="center">
+      {["xs", "sm", "md", "lg", "xl"].map((size) => (
+        <Button size={size} key={size}>Action</Button>
+      ))}
+  </Stack>
+  )
+}`,
       children: (
         <Stack>
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
@@ -96,6 +147,21 @@ const Example = () => {
     {
       title: "Full width",
       description: `By default, the button size depends on the label and/or icon inside of each button. When a button is justified, it takes up the entire available container width.`,
+      code: `
+import { Button, Stack } from "@mantine/core";
+
+const Example = () => {
+  return (
+    <Stack align="center">
+      <Button fullWidth variant="primary">
+        Action
+      </Button>
+      <Button fullWidth variant="secondary">
+        Action
+      </Button>
+  </Stack>
+  )
+}`,
       children: (
         <Stack align="center">
           {["primary", "secondary"].map((variant) => (
@@ -112,6 +178,21 @@ const Example = () => {
     {
       title: "Loading",
       description: `Buttons can indicate that a quick progress taking place (e.g., saving settings on a server). In this case, the label and optional icon disappear and a progress circle appears. The progress circle always shows an indeterminate progress.`,
+      code: `
+import { Button, Stack } from "@mantine/core";
+
+const Example = () => {
+  return (
+    <Stack align="center">
+      <Button loading variant="primary">
+        Action
+      </Button>
+      <Button loading variant="secondary">
+        Action
+      </Button>
+  </Stack>
+  )
+}`,
       children: (
         <Group position="center">
           {["primary", "secondary"].map((variant) => (
@@ -128,6 +209,21 @@ const Example = () => {
     {
       title: "Disabled",
       description: `A button in a disabled state shows that an action exists, but is not available in that circumstance. This state can be used to maintain layout continuity and to communicate that an action may become available later.`,
+      code: `
+import { Button, Stack } from "@mantine/core";
+
+const Example = () => {
+  return (
+    <Stack align="center">
+      <Button disabled variant="primary">
+        Action
+      </Button>
+      <Button disabled variant="secondary">
+        Action
+      </Button>
+  </Stack>
+  )
+}`,
       children: (
         <Group position="center">
           {["primary", "secondary"].map((variant) => (
