@@ -26,7 +26,7 @@ const CreatableSelect = () => {
       label="Creatable Multi Select"
       data={data}
       placeholder="Select items"
-      nothingFound="Nothing found"
+      nothingFoundMessage="Nothing found"
       searchable
       creatable
       getCreateLabel={getCreateLabel}
@@ -55,24 +55,7 @@ const multiSelectDocsProps: Omit<ComponentDocsProps, "preview"> = {
           label="Your favorite framework"
           placeholder="Pick one"
           searchable
-          nothingFound="No options"
-          data={multiSelectDataMock}
-        />
-      ),
-    },
-    {
-      title: "Clearable",
-      description: (
-        <Text>
-          Set <strong>clearable</strong> prop to true to enable clearing select value. When prop is
-          true and value is selected clear button will replace chevron in right section.
-        </Text>
-      ),
-      children: (
-        <MultiSelect
-          label="Your favorite framework"
-          placeholder="Pick one"
-          clearable
+          nothingFoundMessage="No options"
           data={multiSelectDataMock}
         />
       ),
@@ -144,7 +127,7 @@ const multiSelectDocsProps: Omit<ComponentDocsProps, "preview"> = {
           label="What item is the best?"
           placeholder="Pick one"
           searchable
-          nothingFound="No options"
+          nothingFoundMessage="No options"
           maxDropdownHeight={280}
           data={dropdownHeightData}
         />

@@ -15,9 +15,9 @@ const ThumbSwitch = () => {
       label="Switch with thumb icon"
       thumbIcon={
         checked ? (
-          <IconCheck size="0.8rem" color={theme.colors.teal[theme.fn.primaryShade()]} stroke={3} />
+          <IconCheck size="0.8rem" color={theme.colors.teal[5]} stroke={3} />
         ) : (
-          <IconX size="0.8rem" color={theme.colors.red[theme.fn.primaryShade()]} stroke={3} />
+          <IconX size="0.8rem" color={theme.colors.red[5]} stroke={3} />
         )
       }
     />

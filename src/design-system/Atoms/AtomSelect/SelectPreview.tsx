@@ -6,7 +6,12 @@ const SelectPreview = () => {
   return (
     <SimpleGrid cols={2}>
       <Select data={selectDataMock} label="Label" placeholder="Placeholder..." />
-      <Select data={selectDataMock} icon={<ExampleIcon />} label="Label" placeholder="Left icon" />
+      <Select
+        data={selectDataMock}
+        leftSection={<ExampleIcon />}
+        label="Label"
+        placeholder="Left icon"
+      />
     </SimpleGrid>
   )
 }

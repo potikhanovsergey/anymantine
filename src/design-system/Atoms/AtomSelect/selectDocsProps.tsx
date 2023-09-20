@@ -27,7 +27,7 @@ const CreatableSelect = () => {
       label="Creatable Select"
       data={data}
       placeholder="Select items"
-      nothingFound="Nothing found"
+      nothingFoundMessage="Nothing found"
       searchable
       creatable
       getCreateLabel={getCreateLabel}
@@ -56,7 +56,7 @@ const selectDocsProps: Omit<ComponentDocsProps, "preview"> = {
           label="Your favorite fruit"
           placeholder="Pick one"
           searchable
-          nothingFound="No options"
+          nothingFoundMessage="No options"
           data={[
             ...selectDataMock,
             "Dragonfruit",
@@ -70,23 +70,6 @@ const selectDocsProps: Omit<ComponentDocsProps, "preview"> = {
       ),
     },
     {
-      title: "Clearable",
-      description: (
-        <Text>
-          Set <strong>clearable</strong> prop to true to enable clearing select value. When prop is
-          true and value is selected clear button will replace chevron in right section.
-        </Text>
-      ),
-      children: (
-        <Select
-          label="Your favorite fruit"
-          placeholder="Pick one"
-          clearable
-          data={selectDataMock}
-        />
-      ),
-    },
-    {
       title: "Grouping items",
       description: (
         <Text>
@@ -96,13 +79,11 @@ const selectDocsProps: Omit<ComponentDocsProps, "preview"> = {
       ),
       children: (
         <Select
-          label="Your favorite Rick and Morty character"
+          label="Your favorite library"
           placeholder="Pick one"
           data={[
-            { value: "rick", label: "Rick", group: "Used to be a pickle" },
-            { value: "morty", label: "Morty", group: "Never was a pickle" },
-            { value: "beth", label: "Beth", group: "Never was a pickle" },
-            { value: "summer", label: "Summer", group: "Never was a pickle" },
+            { group: "Frontend", items: ["React", "Angular"] },
+            { group: "Backend", items: ["Express", "Django"] },
           ]}
         />
       ),
@@ -130,17 +111,6 @@ const selectDocsProps: Omit<ComponentDocsProps, "preview"> = {
       ),
     },
     {
-      title: "Creatable items",
-      description: (
-        <Text>
-          Set <strong>creatable</strong> and <strong>getCreateLabel</strong> props to enable
-          creating new select item. Note that you will need to handle data state to manage item
-          creation correctly.
-        </Text>
-      ),
-      children: <CreatableSelect />,
-    },
-    {
       title: "Dropdown height",
       description: (
         <Text>
@@ -153,7 +123,7 @@ const selectDocsProps: Omit<ComponentDocsProps, "preview"> = {
           label="What item is the best?"
           placeholder="Pick one"
           searchable
-          nothingFound="No options"
+          nothingFoundMessage="No options"
           maxDropdownHeight={280}
           data={dropdownHeightData}
         />

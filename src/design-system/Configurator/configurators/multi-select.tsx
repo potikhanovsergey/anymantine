@@ -53,7 +53,6 @@ const getMultiSelectConfigurator = (theme: MantineTheme) => {
         initialValue: defaultProps?.["size"] || "md",
       },
       { name: "disabled", type: "boolean", initialValue: false },
-      { name: "clearable", type: "boolean", initialValue: false },
       { name: "searchable", type: "boolean", initialValue: false },
       { name: "required", type: "boolean", initialValue: false },
     ],
