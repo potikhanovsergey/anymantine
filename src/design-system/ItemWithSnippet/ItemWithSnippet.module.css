@@ -1,0 +1,25 @@
+.wrapper {
+  border: 1px solid var(--mantine-color-black);
+}
+
+.body {
+  padding: 1.5rem;
+}
+
+.footer {
+  background: var(--mantine-color-gray-1);
+  height: 2.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rme;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.accordionContent {
+  padding: 0;
+}
+
+.accordionControl {
+  background-color: var(--mantine-color-gray-0);
+}

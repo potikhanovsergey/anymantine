@@ -9,12 +9,16 @@ const Layout: BlitzLayout<{ children: React.ReactNode }> = ({ children }) => {
   const appFont = useSelector(appDesignTheme.font)
   return (
     <AppShell
+      header={{
+        height: 64,
+      }}
       className={appFont?.nextFont?.variable}
-      header={<Header />}
-      styles={{ main: { paddingLeft: 0, paddingRight: 0, paddingTop: 0 } }}
-      fixed={false}
+      styles={{
+        main: { paddingLeft: 0, paddingRight: 0 },
+      }}
     >
-      {children}
+      <Header />
+      <AppShell.Main>{children}</AppShell.Main>
     </AppShell>
   )
 }

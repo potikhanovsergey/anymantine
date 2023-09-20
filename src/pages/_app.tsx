@@ -4,10 +4,11 @@ import { withBlitz } from "src/blitz-client"
 import { MantineProvider } from "@mantine/core"
 import { enableLegendStateReact, useSelector } from "@legendapp/state/react"
 import { appDesignTheme } from "src/state"
-import RouterTransition from "src/core/layouts/RouterTransition"
 import { Analytics } from "@vercel/analytics/react"
 import ThemeRouteListener from "src/core/layouts/ThemeRouteListener"
 import RootErrorFallback from "src/core/layouts/RootErrorFallback"
+
+import "@mantine/core/styles.css"
 
 enableLegendStateReact()
 
@@ -17,8 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   const AppDesignTheme = useSelector(appDesignTheme.theme)
 
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS theme={AppDesignTheme}>
-      <RouterTransition />
+    <MantineProvider theme={AppDesignTheme}>
       <ThemeRouteListener />
       <Analytics />
       <ErrorBoundary FallbackComponent={RootErrorFallback}>

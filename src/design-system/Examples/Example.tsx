@@ -1,8 +1,25 @@
 import { Show, useObservable } from "@legendapp/state/react"
-import { Group, Title, Text, ActionIcon, Tooltip, useMantineTheme } from "@mantine/core"
-import { Prism } from "@mantine/prism"
+import {
+  Group,
+  Title,
+  Text,
+  ActionIcon,
+  Tooltip,
+  useMantineTheme,
+  useMantineColorScheme,
+  Loader,
+} from "@mantine/core"
 import { IconCode, IconCodeOff } from "@tabler/icons-react"
+import dynamic from "next/dynamic"
 import { ReactNode } from "react"
+
+const CodeHighlight = dynamic(
+  () => import("@mantine/code-highlight").then((m) => m.CodeHighlight),
+  {
+    ssr: false,
+    loading: () => <Loader size="sm" p={24} />,
+  }
+)
 
 export interface ExampleProps {
   title: string
@@ -12,18 +29,19 @@ export interface ExampleProps {
 }
 
 const Example = ({ title, description, code, children }: ExampleProps) => {
+  const { colorScheme } = useMantineColorScheme()
   const theme = useMantineTheme()
-  const dark = theme.colorScheme === "dark"
+  const dark = colorScheme === "dark"
 
   const configuratorOpened = useObservable(false)
 
   return (
-    <Group noWrap grow align="flex-start" spacing={64}>
+    <Group wrap="nowrap" grow align="flex-start" gap={64}>
       <Show if={!!code && configuratorOpened} else={children}>
-        <Prism language="tsx">{code!}</Prism>
+        <CodeHighlight code={code!} language="tsx" />
       </Show>
       <div>
-        <Group noWrap spacing="xs" mb="lg">
+        <Group wrap="nowrap" gap="xs" mb="lg">
           <Title order={3}>{title}</Title>
           {code && (
             <Tooltip

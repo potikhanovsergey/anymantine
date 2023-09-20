@@ -19,12 +19,13 @@ const HoveredState = ({ variant }: { variant: string }) => {
   const theme = useMantineTheme()
   const buttonStyles = theme.components?.Button
 
-  const hoverStyles = buttonStyles?.variants?.[variant]?.(theme, {}, {})?.root?.[
-    "&:not([data-disabled])"
-  ]?.["@media (hover: hover)"]?.["&:hover"]
+  // const hoverStyles = buttonStyles?.variants?.[variant]?.(theme, {}, {})?.root?.[
+  //   "&:not([data-disabled])"
+  // ]?.["@media (hover: hover)"]?.["&:hover"]
+  const hoverStyles = {}
 
   return (
-    <Button variant={variant} sx={hoverStyles}>
+    <Button variant={variant} style={hoverStyles}>
       Action
     </Button>
   )
@@ -35,9 +36,11 @@ const FocusedState = ({ variant }: { variant: string }) => {
   return (
     <Button
       variant={variant}
-      sx={{
-        ...theme.fn.focusStyles()["&:focus"],
-      }}
+      style={
+        {
+          // ...theme.fn.focusStyles()["&:focus"],
+        }
+      }
     >
       Action
     </Button>
@@ -54,7 +57,7 @@ const States = () => {
       title: "Default",
       description: "This is the default state of a component or item when not interacted with.",
       children: (
-        <Group position="center">
+        <Group justify="center">
           {variants.map((variant) => (
             <Button key={variant} variant={variant}>
               Action
@@ -68,7 +71,7 @@ const States = () => {
       description: `A hover state is initiated by the user and appears when the user places their cursor
       over an interactive item.`,
       children: (
-        <Group position="center">
+        <Group justify="center">
           {variants.map((variant) => (
             <HoveredState variant={variant} key={variant} />
           ))}
@@ -81,7 +84,7 @@ const States = () => {
       keyboard. The keyboard focus state typically takes the component’s visual hover state
       and adds an additional indication, most commonly a 2px blue ring around the component.`,
       children: (
-        <Group position="center">
+        <Group justify="center">
           {variants.map((variant) => (
             <FocusedState variant={variant} key={variant} />
           ))}

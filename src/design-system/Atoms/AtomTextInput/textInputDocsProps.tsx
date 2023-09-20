@@ -40,7 +40,7 @@ const textInputDocsProps: Omit<ComponentDocsProps, "preview"> = {
       children: (
         <Stack>
           {["filled", "default"].map((variant) => (
-            <Stack spacing="xs" key={variant}>
+            <Stack gap="xs" key={variant}>
               <Text color="dimmed" tt="capitalize">
                 {variant}
               </Text>
@@ -56,7 +56,7 @@ const textInputDocsProps: Omit<ComponentDocsProps, "preview"> = {
       children: (
         <Stack align="center">
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
-            <Group w="100%" position="apart" key={size}>
+            <Group w="100%" justify="space-between" key={size}>
               <Text color="dimmed">{size}</Text>
               <TextInput label="Label" placeholder="Placeholder..." size={size} />
             </Group>

@@ -17,8 +17,8 @@ const ItemPreview = ({ children, configurator }: ItemPreviewProps) => {
   const configuratorOpened = useObservable(false)
 
   return (
-    <Stack spacing="xs">
-      <Group noWrap spacing="xs">
+    <Stack gap="xs">
+      <Group wrap="nowrap" gap="xs">
         <PageSubtitle mb={0}>Quick preview</PageSubtitle>
         <Tooltip
           label={

@@ -21,7 +21,7 @@ const ComponentDocs = ({
   examples,
 }: ComponentDocsProps) => {
   return (
-    <Stack spacing={40}>
+    <Stack gap={40}>
       <div>
         <PageTitle mantineLink={mantineLink}>{title}</PageTitle>
         <Text maw="75%">{description}</Text>

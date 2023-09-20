@@ -13,17 +13,18 @@ const ColorSwatches = ({ value, onChange }: Omit<ColorControlProps, "label">) =>
 
   const colors = Object.keys(theme.colors).map((color) => (
     <ColorSwatch
-      color={theme.colorScheme === "dark" ? theme.colors[color][7] : theme.colors[color][5]}
+      color="black"
+      // color={theme.colorScheme === "dark" ? theme.colors[color][7] : theme.colors[color][5]}
       component="button"
       key={color}
       onClick={() => onChange(color)}
       radius="sm"
-      sx={{
+      style={{
         cursor: "pointer",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        color: theme.colorScheme === "dark" ? theme.colors[color][2] : theme.white,
+        // color: theme.colorScheme === "dark" ? theme.colors[color][2] : theme.white,
         flex: `1 0 calc(15% - ${rem(4)})`,
       }}
     >
@@ -36,7 +37,7 @@ const ColorSwatches = ({ value, onChange }: Omit<ColorControlProps, "label">) =>
 export function ColorControl({ value, label, onChange, ...others }: ColorControlProps) {
   return (
     <Input.Wrapper labelElement="div" label={upperFirst(label)} {...others}>
-      <Group spacing={2} mt={5}>
+      <Group gap={2} mt={5}>
         <ColorSwatches value={value} onChange={onChange} />
       </Group>
     </Input.Wrapper>

@@ -28,7 +28,7 @@ const avatarDocsProps: Omit<ComponentDocsProps, "preview"> = {
       children: (
         <Stack>
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
-            <Group w="100%" position="apart" key={size}>
+            <Group w="100%" justify="space-between" key={size}>
               <Text color="dimmed">{size}</Text>
               <Avatar radius={1000} size={size}>
                 DS

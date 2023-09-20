@@ -1,11 +1,11 @@
 import React, { useState } from "react"
-import { MantineNumberSize, useMantineTheme, rem } from "@mantine/core"
+import { useMantineTheme, rem } from "@mantine/core"
 import controls, { ControlProps } from "./controls"
 import { propsToString } from "./props-to-string"
-import useStyles from "./Configurator.styles"
+// import useStyles from "./Configurator.styles"
 import dynamic from "next/dynamic"
 
-const Prism = dynamic(() => import("@mantine/prism").then((m) => m.Prism))
+// const Prism = dynamic(() => import("@mantine/prism").then((m) => m.Prism))
 
 interface ConfiguratorProps {
   component: any
@@ -16,7 +16,8 @@ interface ConfiguratorProps {
   center?: boolean
   props: ControlProps[]
   filter?: string[]
-  radius?: MantineNumberSize
+  // radius?: MantineNumberSize
+  radius?: any
   background?: string
 }
 
@@ -33,7 +34,7 @@ export default function Configurator({
   background,
 }: ConfiguratorProps) {
   const theme = useMantineTheme()
-  const { classes, cx } = useStyles({ radius: radius || theme.defaultRadius, background })
+  // const { classes, cx } = useStyles({ radius: radius || theme.defaultRadius, background })
   const initialState = componentProps.reduce((acc, prop) => {
     acc[prop.name] = prop.initialValue || controls[prop.type].initialValue
     return acc
@@ -73,7 +74,7 @@ export default function Configurator({
 
   return (
     <div>
-      <div className={cx(classes.configurator, { [classes.noCode]: !includeCode })}>
+      {/* <div className={cx(classes.configurator, { [classes.noCode]: !includeCode })}>
         <div
           className={classes.preview}
           style={{
@@ -95,7 +96,7 @@ export default function Configurator({
         >
           {code}
         </Prism>
-      )}
+      )} */}
     </div>
   )
 }

@@ -13,7 +13,7 @@ const sliderDocsProps: Omit<ComponentDocsProps, "preview"> = {
       children: (
         <Stack align="center">
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
-            <Group w="100%" position="apart" key={size}>
+            <Group w="100%" justify="space-between" key={size}>
               <Text color="dimmed">{size}</Text>
               <Slider
                 marks={[{ value: 20 }, { value: 50 }, { value: 80 }]}

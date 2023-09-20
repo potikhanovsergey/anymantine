@@ -5,7 +5,7 @@ import ShadowItem from "./ShadowItem"
 const Shadows = () => {
   const theme = useMantineTheme()
   return (
-    <Group spacing={64}>
+    <Group gap={64}>
       {Object.keys(theme.shadows).map((shadow) => (
         <ShadowItem useCases={[]} key={shadow} shadow={shadow} title={shadow} />
       ))}

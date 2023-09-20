@@ -11,7 +11,7 @@ const chipDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Variants",
       description: `Chips are available in either light, fill or outline styles. An avatar in the fill style has a solid background, since it’s meant to be intentionally more prominent than an avatar in the outline style. Light style simular to filled, but it is not so bright.`,
       children: (
-        <Group position="apart">
+        <Group justify="space-between">
           {["light", "filled", "outline"].map((variant) => (
             <Stack key={variant}>
               <Text mb="xs" color="dimmed" tt="capitalize">
@@ -29,7 +29,7 @@ const chipDocsProps: Omit<ComponentDocsProps, "preview"> = {
       children: (
         <Stack align="center">
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
-            <Group w="100%" position="apart" key={size}>
+            <Group w="100%" justify="space-between" key={size}>
               <Text color="dimmed">{size}</Text>
               <Chip size={size}>Chip</Chip>
             </Group>

@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import { Language } from "prism-react-renderer"
 import { IconCode } from "@tabler/icons-react"
-import { Paper, Stack, ActionIcon, Tooltip, Box, MantineNumberSize } from "@mantine/core"
+import { Paper, Stack, ActionIcon, Tooltip } from "@mantine/core"
 import { Prism } from "@mantine/prism"
-import useStyles from "./CodeDemo.styles"
+// import useStyles from "./CodeDemo.styles"
 
 interface CodeDemoProps {
   code?: string
@@ -14,7 +14,8 @@ interface CodeDemoProps {
   toggle?: boolean
   inline?: boolean
   spacing?: boolean
-  radius?: MantineNumberSize
+  // radius?: MantineNumberSize
+  radius?: any
   zIndex?: React.CSSProperties["zIndex"]
 }
 
@@ -30,54 +31,56 @@ export default function CodeDemo({
   zIndex = 3,
   radius = 0,
 }: CodeDemoProps) {
-  const { classes, cx, theme } = useStyles({ radius }, { name: "CodeDemo" })
+  // const { classes, cx, theme } = useStyles({ radius }, { name: "CodeDemo" })
   const [visible, setVisible] = useState(!toggle)
 
   if (inline) {
     return <div>{children}</div>
   }
 
-  return (
-    <div className={classes.root}>
-      <Paper
-        p={spacing ? "md" : 0}
-        className={cx(classes.demo, { [classes.withToggle]: toggle })}
-        radius={radius}
-        style={{
-          backgroundColor: demoBackground || theme.black,
-          borderColor: demoBorder ? undefined : "transparent",
-          zIndex,
-        }}
-      >
-        {children}
+  return null
 
-        {!!code && toggle && (
-          <Stack justify="center" spacing={5} className={classes.controls}>
-            <Tooltip
-              label={`${visible ? "Hide" : "Show"} code`}
-              position="left"
-              arrowSize={6}
-              offset={6}
-              positionDependencies={[visible]}
-            >
-              <ActionIcon onClick={() => setVisible((v) => !v)} aria-label="Toggle code">
-                <IconCode size={16} />
-              </ActionIcon>
-            </Tooltip>
-          </Stack>
-        )}
-      </Paper>
+  // return (
+  //   <div className={classes.root}>
+  //     <Paper
+  //       p={spacing ? "md" : 0}
+  //       className={cx(classes.demo, { [classes.withToggle]: toggle })}
+  //       radius={radius}
+  //       style={{
+  //         backgroundColor: demoBackground || theme.black,
+  //         borderColor: demoBorder ? undefined : "transparent",
+  //         zIndex,
+  //       }}
+  //     >
+  //       {children}
 
-      {code && visible && (
-        <Prism
-          language={language}
-          className={classes.prism}
-          classNames={{ code: classes.code }}
-          radius={radius}
-        >
-          {code}
-        </Prism>
-      )}
-    </div>
-  )
+  //       {!!code && toggle && (
+  //         <Stack justify="center" gap={5} className={classes.controls}>
+  //           <Tooltip
+  //             label={`${visible ? "Hide" : "Show"} code`}
+  //             position="left"
+  //             arrowSize={6}
+  //             offset={6}
+  //             positionDependencies={[visible]}
+  //           >
+  //             <ActionIcon onClick={() => setVisible((v) => !v)} aria-label="Toggle code">
+  //               <IconCode size={16} />
+  //             </ActionIcon>
+  //           </Tooltip>
+  //         </Stack>
+  //       )}
+  //     </Paper>
+
+  //     {code && visible && (
+  //       <Prism
+  //         language={language}
+  //         className={classes.prism}
+  //         classNames={{ code: classes.code }}
+  //         radius={radius}
+  //       >
+  //         {code}
+  //       </Prism>
+  //     )}
+  //   </div>
+  // )
 }

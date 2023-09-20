@@ -11,7 +11,7 @@ const avatars = [
 const TasksCard = () => {
   return (
     <Card padding="lg">
-      <Group position="apart">
+      <Group justify="space-between">
         <Mantine width="2rem" />
         <Badge>12 days left</Badge>
       </Group>
@@ -33,8 +33,8 @@ const TasksCard = () => {
 
       <Progress value={(23 / 36) * 100} mt={5} />
 
-      <Group position="apart" mt="md">
-        <Avatar.Group spacing="sm">
+      <Group justify="space-between" mt="md">
+        <Avatar.Group gap="sm">
           {avatars.map((avatar) => (
             <Avatar src={avatar} radius="xl" key={avatar} />
           ))}

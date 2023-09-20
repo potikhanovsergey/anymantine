@@ -22,7 +22,7 @@ const GalleryCard = () => {
   return (
     <Card>
       <Card.Section withBorder inheritPadding py="xs">
-        <Group position="apart">
+        <Group justify="space-between">
           <Text weight={500}>Review pictures</Text>
           <Menu withinPortal position="bottom-end">
             <Menu.Target>

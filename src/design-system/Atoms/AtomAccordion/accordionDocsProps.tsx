@@ -38,7 +38,7 @@ const accordionDocsProps: Omit<ComponentDocsProps, "preview"> = {
       description: `You can set the default opened item or items in the so chosen items will be opened by default.
       If you want to set a few items default opened you need to pass accordion component prop multiple.`,
       children: (
-        <Group position="center" noWrap align="flex-start">
+        <Group position="center" wrap="nowrap" align="flex-start">
           <Stack>
             <Text mb="sm" color="dimmed">
               One default opened item

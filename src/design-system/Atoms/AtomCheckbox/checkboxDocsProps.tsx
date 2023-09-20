@@ -41,9 +41,9 @@ const checkboxDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "State",
       description: `Checkboxes can be selected, not selected, or in an indeterminate state. They are in an indeterminate state when they represent both selected and not selected values. Learn more about representing mixed values.`,
       children: (
-        <Stack spacing="lg" align="center">
+        <Stack gap="lg" align="center">
           {["not selected", "selected", "indeterminate"].map((variant) => (
-            <Stack spacing="xs" key={variant}>
+            <Stack gap="xs" key={variant}>
               <Text color="dimmed">{variant}</Text>
               <Checkbox
                 label="Default checkbox"
@@ -62,7 +62,7 @@ const checkboxDocsProps: Omit<ComponentDocsProps, "preview"> = {
       children: (
         <Stack>
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
-            <Group w="100%" position="apart" key={size}>
+            <Group w="100%" justify="space-between" key={size}>
               <Text color="dimmed">{size}</Text>
               <Checkbox label="Default checkbox" size={size} />
             </Group>

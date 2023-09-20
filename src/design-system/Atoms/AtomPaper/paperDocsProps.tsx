@@ -18,7 +18,7 @@ const paperDocsProps: Omit<ComponentDocsProps, "preview"> = {
       children: (
         <Stack align="center">
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
-            <Group w="100%" position="apart" key={size} noWrap>
+            <Group w="100%" justify="space-between" key={size} wrap="nowrap">
               <Text color="dimmed">{size}</Text>
               <Paper withBorder={false} shadow={size}>
                 {paperDataShortMock}

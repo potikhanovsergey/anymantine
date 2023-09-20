@@ -1,7 +1,22 @@
-import { Text } from "@mantine/core"
-import { Prism } from "@mantine/prism"
-import Link from "src/core/components/atoms/Link"
+import { Anchor, Loader, Text } from "@mantine/core"
+import dynamic from "next/dynamic"
 import PageTitle from "src/design-system/layout/PageTitle"
+
+const CodeHighlightTabs = dynamic(
+  () => import("@mantine/code-highlight").then((m) => m.CodeHighlightTabs),
+  {
+    ssr: false,
+    loading: () => <Loader size="sm" p={24} />,
+  }
+)
+
+const CodeHighlight = dynamic(
+  () => import("@mantine/code-highlight").then((m) => m.CodeHighlight),
+  {
+    ssr: false,
+    loading: () => <Loader size="sm" p={24} />,
+  }
+)
 
 const Icons = () => {
   return (
@@ -9,34 +24,32 @@ const Icons = () => {
       <PageTitle>Icons</PageTitle>
       <Text mb="sm">
         Design-system uses icons from{" "}
-        <Link href="https://tabler-icons.io/" target="_blank">
+        <Anchor href="https://tabler-icons.io/" target="_blank">
           Tabler Icons
-        </Link>
+        </Anchor>
       </Text>
       <Text mb="xs">Installation of React library</Text>
-      <Prism.Tabs defaultValue="npm" mb="md">
-        <Prism.TabsList>
-          <Prism.Tab value="npm">npm</Prism.Tab>
-          <Prism.Tab value="yarn">yarn</Prism.Tab>
-        </Prism.TabsList>
-        <Prism.Panel value="npm" language="bash">
-          npm i @tabler/icons-react --save
-        </Prism.Panel>
-        <Prism.Panel value="yarn" language="bash">
-          yarn add @tabler/icons-react
-        </Prism.Panel>
-      </Prism.Tabs>
+      <CodeHighlightTabs
+        code={[
+          { fileName: "npm", code: `npm i @tabler/icons-react --save`, language: "bash" },
+          { fileName: "yarn", code: `yarn add @tabler/icons-react`, language: "bash" },
+        ]}
+        mb="md"
+      />
+
       <Text mb="xs">Icon usage</Text>
-      <Prism language="jsx">
-        {`import { IconHeart } from "@tabler/icons-react"
+      <CodeHighlight
+        language="jsx"
+        code={`import { IconHeart } from "@tabler/icons-react"
 
 function IconDemo() {
   return (
     <IconHeart />
   )
-}
-        `}
-      </Prism>
+}`}
+      >
+        {}
+      </CodeHighlight>
     </>
   )
 }

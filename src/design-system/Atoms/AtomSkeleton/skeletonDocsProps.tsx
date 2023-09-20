@@ -10,7 +10,7 @@ const skeletonDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Animate prop",
       description: `You can either use static skeleton or animated one with the "animate" boolean prop`,
       children: (
-        <Group spacing="xl" position="center">
+        <Group gap="xl" position="center">
           {[false, true].map((animate) => (
             <div key={animate + ""}>
               <Text color="dimmed" mb="xs">
@@ -26,7 +26,7 @@ const skeletonDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Circle prop",
       description: `If true width, height and border-radius will equal to value specified in height prop`,
       children: (
-        <Group spacing="xl" position="center">
+        <Group gap="xl" position="center">
           {[false, true].map((circle) => (
             <div key={circle + ""}>
               <Text color="dimmed" mb="xs">

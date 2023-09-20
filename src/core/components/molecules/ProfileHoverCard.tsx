@@ -13,7 +13,7 @@ const ProfileHoverCard = ({ avatar, name, caption }: ProfileHoverCardProps) => {
         <Avatar src={avatar} />
       </HoverCard.Target>
       <HoverCard.Dropdown>
-        <Group w="100%" noWrap spacing={4} mb="xs">
+        <Group w="100%" wrap="nowrap" gap={4} mb="xs">
           <Avatar ml={0} src={avatar} />
           <div>
             <Text lh={1} weight="bold" size="xs">

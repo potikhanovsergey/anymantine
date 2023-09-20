@@ -7,7 +7,7 @@ interface ExamplesProps {
 
 const Examples = ({ examples }: ExamplesProps) => {
   return (
-    <Stack spacing={64}>
+    <Stack gap={64}>
       {examples.map((example) => (
         <Example key={example.title} {...example} />
       ))}

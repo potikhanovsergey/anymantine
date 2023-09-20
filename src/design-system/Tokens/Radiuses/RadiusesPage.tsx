@@ -51,7 +51,7 @@ const Radiuses = () => {
   }, [theme])
 
   return (
-    <Group spacing={64} align="flex-start">
+    <Group gap={64} align="flex-start">
       {Object.keys(theme.radius).map((radius) => (
         <RadiusItem useCases={useCases[radius]} key={radius} radius={radius} title={radius} />
       ))}

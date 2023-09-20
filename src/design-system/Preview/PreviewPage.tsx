@@ -73,7 +73,7 @@ const PreviewItems = ({ children, title }: { children: ReactNode; title: string 
   return (
     <div>
       <PageSubtitle mb="xl">{title}</PageSubtitle>
-      <Stack spacing={48}>{children}</Stack>
+      <Stack gap={48}>{children}</Stack>
     </div>
   )
 }
@@ -86,12 +86,12 @@ const PreviewItem = ({ title, children }: PreviewItemProps) => {
       <Anchor
         component={Link}
         color="dimmed"
-        underline={false}
-        sx={{ "&:hover": { color: theme.fn.primaryColor() } }}
+        // underline={false}
+        // sx={{ "&:hover": { color: theme.fn.primaryColor() } }}
         href={`/${router.query.slug}/${getHyphenCase(title)}`}
       >
         <Title order={3}>
-          <Group spacing="xs" mb="md">
+          <Group gap="xs" mb="md">
             {title}
             <IconLink />
           </Group>
@@ -107,7 +107,7 @@ const PreviewPage = () => {
   return (
     <>
       <PageTitle>Preview</PageTitle>
-      <Stack spacing={80}>
+      <Stack gap={80}>
         {Object.keys(previews).map((category) => (
           <PreviewItems key={category} title={category}>
             {Object.keys(previews[category]).map((atom) => (

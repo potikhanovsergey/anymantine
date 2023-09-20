@@ -59,7 +59,7 @@ const actionIconDocsProps: Omit<ComponentDocsProps, "preview"> = {
       children: (
         <Stack>
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
-            <Group w="100%" position="apart" key={size}>
+            <Group w="100%" justify="space-between" key={size}>
               <Text color="dimmed">{size}</Text>
               <ActionIcon size={size}>
                 <ExampleIcon />

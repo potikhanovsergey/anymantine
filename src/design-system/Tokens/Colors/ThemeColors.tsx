@@ -40,14 +40,14 @@ const ThemeColors = ({ colors }: ColorsPageProps) => {
 
   return (
     <Tooltip.Floating
-      sx={{
+      style={{
         display: tooltipHidden.get() ? "none !important" : undefined,
       }}
       label={hoveredColor}
       position="top"
     >
       <div>
-        <SimpleGrid spacing={0} maw={560} cols={11}>
+        <SimpleGrid gap={0} maw={560} cols={11}>
           {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
             <Text key={n} color="dimmed" ta="center">
               {n}

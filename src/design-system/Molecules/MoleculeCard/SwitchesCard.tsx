@@ -11,7 +11,7 @@ interface SwitchesCardProps {
 
 const SwitchesCard = ({ title, description, data }: SwitchesCardProps) => {
   const items = data.map((item) => (
-    <Group key={item.title} position="apart" pt="sm" mt="sm" noWrap spacing="xl">
+    <Group key={item.title} justify="space-between" pt="sm" mt="sm" wrap="nowrap" gap="xl">
       <div>
         <Text>{item.title}</Text>
         <Text size="xs" color="dimmed">

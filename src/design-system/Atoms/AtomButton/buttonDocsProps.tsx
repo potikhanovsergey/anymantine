@@ -55,7 +55,7 @@ const Example = () => {
       title: "Variants",
       description: `Buttons are available in primary and secondary styles. Use primary buttons for the most important actions on the website and secondary buttons for everything else.`,
       children: (
-        <Group position="center" noWrap>
+        <Group position="center" wrap="nowrap">
           <Stack>
             <Text mb="sm" color="dimmed">
               Primary
@@ -85,7 +85,7 @@ const Example = () => {
       children: (
         <Stack>
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
-            <Group position="apart" key={size}>
+            <Group justify="space-between" key={size}>
               <Text color="dimmed">{size}</Text>
               <Button size={size}>Action</Button>
             </Group>

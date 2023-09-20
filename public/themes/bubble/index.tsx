@@ -2,9 +2,9 @@ import {
   MantineThemeOverride,
   Text,
   rem,
-  getStylesRef,
-  ButtonStylesParams,
-  ActionIconStylesParams,
+  // getStylesRef,
+  // ButtonStylesParams,
+  // ActionIconStylesParams,
 } from "@mantine/core"
 import { Karla } from "next/font/google"
 
@@ -22,9 +22,9 @@ const BubbleTheme: MantineThemeOverride = {
   primaryColor: "blue",
   defaultRadius: "md",
   primaryShade: 5,
-  fontFamily: `var(--bubble-font), ${defaultFonts}`,
+  fontFamily: `${bubbleFont.style.fontFamily}, ${defaultFonts}`,
   headings: {
-    fontFamily: `var(--bubble-font), ${defaultFonts}`,
+    fontFamily: `${bubbleFont.style.fontFamily}, ${defaultFonts}`,
   },
   other: {
     transition: ".15s ease",
@@ -73,109 +73,109 @@ const BubbleTheme: MantineThemeOverride = {
         loaderPosition: "center",
         variant: "primary",
       },
-      variants: {
-        primary: (theme, params: ButtonStylesParams) => ({
-          root: {
-            background: theme.colors[params.color || theme.primaryColor][5],
-            color: theme.white,
-            "&:not([data-disabled])": theme.fn.hover({
-              background: theme.colors[params.color || theme.primaryColor][6],
-            }),
-          },
-        }),
-        secondary: (theme, params: ButtonStylesParams) => ({
-          root: {
-            backgroundColor: theme.white,
-            color: theme.colors.dark[3],
-            border: "1px solid",
-            borderColor: theme.colors.dark[3],
-            "&:not([data-disabled])": theme.fn.hover({
-              borderColor: theme.colors[params.color || theme.primaryColor][5],
-              background: theme.colors[params.color || theme.primaryColor][0],
-              color: theme.colors[params.color || theme.primaryColor][5],
-            }),
-          },
-        }),
-      },
-      styles: (theme, params: ButtonStylesParams, { variant }) => ({
-        root: {
-          transition: `all ${theme.other.transition}`,
-          "&[data-loading]": {
-            color: "transparent",
-            svg: {
-              stroke:
-                variant === "transparent" || variant === "secondary"
-                  ? theme.colors[params.color || theme.primaryColor][5]
-                  : theme.white,
-            },
-            "&:before": {
-              display: "none",
-            },
-            ".mantine-Button-centerLoader": {
-              opacity: 1,
-            },
-            [`& .${getStylesRef("rightIcon")}, .${getStylesRef("leftIcon")}`]: {
-              opacity: 0,
-            },
-          },
-        },
-      }),
+      // variants: {
+      //   primary: (theme, params: ButtonStylesParams) => ({
+      //     root: {
+      //       background: theme.colors[params.color || theme.primaryColor][5],
+      //       color: theme.white,
+      //       "&:not([data-disabled])": theme.fn.hover({
+      //         background: theme.colors[params.color || theme.primaryColor][6],
+      //       }),
+      //     },
+      //   }),
+      //   secondary: (theme, params: ButtonStylesParams) => ({
+      //     root: {
+      //       backgroundColor: theme.white,
+      //       color: theme.colors.dark[3],
+      //       border: "1px solid",
+      //       borderColor: theme.colors.dark[3],
+      //       "&:not([data-disabled])": theme.fn.hover({
+      //         borderColor: theme.colors[params.color || theme.primaryColor][5],
+      //         background: theme.colors[params.color || theme.primaryColor][0],
+      //         color: theme.colors[params.color || theme.primaryColor][5],
+      //       }),
+      //     },
+      //   }),
+      // },
+      // styles: (theme, params) => ({
+      //   root: {
+      //     transition: `all ${theme.other.transition}`,
+      //     "&[data-loading]": {
+      //       color: "transparent",
+      //       svg: {
+      //         // stroke:
+      //         //   variant === "transparent" || variant === "secondary"
+      //         //     ? theme.colors[params.color || theme.primaryColor][5]
+      //         //     : theme.white,
+      //       },
+      //       "&:before": {
+      //         display: "none",
+      //       },
+      //       ".mantine-Button-centerLoader": {
+      //         opacity: 1,
+      //       },
+      //       // [`& .${getStylesRef("rightIcon")}, .${getStylesRef("leftIcon")}`]: {
+      //       //   opacity: 0,
+      //       // },
+      //     },
+      //   },
+      // }),
     },
     ActionIcon: {
       defaultProps: (theme) => ({
         variant: "primary",
         color: theme.primaryColor,
       }),
-      variants: {
-        primary: (theme, params: ButtonStylesParams) => ({
-          root: {
-            background: theme.colors[params.color || theme.primaryColor][5],
-            color: theme.white,
-            "&:not([data-disabled])": theme.fn.hover({
-              background: theme.colors[params.color || theme.primaryColor][6],
-            }),
-          },
-        }),
-        secondary: (theme, params: ButtonStylesParams) => ({
-          root: {
-            backgroundColor: theme.white,
-            color: theme.colors.dark[3],
-            border: "1px solid",
-            borderColor: theme.colors.dark[3],
-            "&:not([data-disabled])": theme.fn.hover({
-              borderColor: theme.colors[params.color || theme.primaryColor][3],
-              background: theme.colors[params.color || theme.primaryColor][0],
-              color: theme.colors[params.color || theme.primaryColor][3],
-            }),
-          },
-        }),
-      },
-      styles: (theme, params: ActionIconStylesParams, { variant }) => ({
-        root: {
-          transition: `all ${theme.other.transition}`,
-          "&[data-loading]": {
-            color: "transparent",
-            svg: {
-              "&[data-action-icon-loader]": {
-                maxWidth: "60%",
-                stroke:
-                  variant === "transparent" || variant === "secondary"
-                    ? theme.colors[params.color || theme.primaryColor][5]
-                    : theme.white,
-              },
-            },
-            "&:before": {
-              display: "none",
-            },
-            ".mantine-Button-centerLoader": {
-              opacity: 1,
-            },
-            [`& .${getStylesRef("rightIcon")}, .${getStylesRef("leftIcon")}`]: {
-              opacity: 0,
-            },
-          },
-        },
-      }),
+      // variants: {
+      //   primary: (theme, params: ButtonStylesParams) => ({
+      //     root: {
+      //       background: theme.colors[params.color || theme.primaryColor][5],
+      //       color: theme.white,
+      //       "&:not([data-disabled])": theme.fn.hover({
+      //         background: theme.colors[params.color || theme.primaryColor][6],
+      //       }),
+      //     },
+      //   }),
+      //   secondary: (theme, params: ButtonStylesParams) => ({
+      //     root: {
+      //       backgroundColor: theme.white,
+      //       color: theme.colors.dark[3],
+      //       border: "1px solid",
+      //       borderColor: theme.colors.dark[3],
+      //       "&:not([data-disabled])": theme.fn.hover({
+      //         borderColor: theme.colors[params.color || theme.primaryColor][3],
+      //         background: theme.colors[params.color || theme.primaryColor][0],
+      //         color: theme.colors[params.color || theme.primaryColor][3],
+      //       }),
+      //     },
+      //   }),
+      // },
+      // styles: (theme, params) => ({
+      //   root: {
+      //     transition: `all ${theme.other.transition}`,
+      //     "&[data-loading]": {
+      //       color: "transparent",
+      //       svg: {
+      //         "&[data-action-icon-loader]": {
+      //           maxWidth: "60%",
+      //           // stroke:
+      //           //   variant === "transparent" || variant === "secondary"
+      //           //     ? theme.colors[params.color || theme.primaryColor][5]
+      //           //     : theme.white,
+      //         },
+      //       },
+      //       "&:before": {
+      //         display: "none",
+      //       },
+      //       ".mantine-Button-centerLoader": {
+      //         opacity: 1,
+      //       },
+      //       // [`& .${getStylesRef("rightIcon")}, .${getStylesRef("leftIcon")}`]: {
+      //       //   opacity: 0,
+      //       // },
+      //     },
+      //   },
+      // }),
     },
     Avatar: {
       defaultProps: {
@@ -189,133 +189,133 @@ const BubbleTheme: MantineThemeOverride = {
       },
     },
     Select: {
-      styles: () => ({
-        item: {
-          "&:not(:last-child)": {
-            marginBottom: rem(4),
-          },
-        },
-        // dropdown: {
-        //   border: 0,
-        //   borderRadius: 0,
-        //   boxShadow: theme.shadows.md,
-        // },
-        // itemsWrapper: {
-        //   padding: 0,
-        // },
-        // item: {
-        //   borderRadius: 0,
-        //   "&[data-selected]": {
-        //     backgroundColor: theme.white,
-        //     color: theme.black,
-        //     "&:hover": {
-        //       backgroundColor: theme.colors.gray[0],
-        //     },
-        //   },
-        // },
-      }),
+      // styles: () => ({
+      //   item: {
+      //     "&:not(:last-child)": {
+      //       marginBottom: rem(4),
+      //     },
+      //   },
+      //   dropdown: {
+      //     border: 0,
+      //     borderRadius: 0,
+      //     boxShadow: theme.shadows.md,
+      //   },
+      //   itemsWrapper: {
+      //     padding: 0,
+      //   },
+      //   item: {
+      //     borderRadius: 0,
+      //     "&[data-selected]": {
+      //       backgroundColor: theme.white,
+      //       color: theme.black,
+      //       "&:hover": {
+      //         backgroundColor: theme.colors.gray[0],
+      //       },
+      //     },
+      //   },
+      // }),
     },
     Popover: {
       defaultProps: {
         shadow: "md",
       },
-      styles: {
-        dropdown: {
-          border: "none",
-        },
-      },
+      // styles: {
+      //   dropdown: {
+      //     border: "none",
+      //   },
+      // },
     },
     HoverCard: {
-      styles: (theme) => ({
-        dropdown: {
-          borderColor: theme.black,
-        },
-      }),
+      // styles: (theme) => ({
+      //   dropdown: {
+      //     borderColor: theme.black,
+      //   },
+      // }),
     },
     ScrollArea: {
       defaultProps: {
         type: "never",
       },
-      styles: {
-        scrollbar: {
-          zIndex: 101,
-        },
-      },
+      // styles: {
+      //   scrollbar: {
+      //     zIndex: 101,
+      //   },
+      // },
     },
     Navbar: {
-      styles: {
-        root: {
-          border: 0,
-        },
-      },
+      // styles: {
+      //   root: {
+      //     border: 0,
+      //   },
+      // },
     },
     Header: {
-      styles: {
-        root: {
-          borderBottom: 0,
-        },
-      },
+      // styles: {
+      //   root: {
+      //     borderBottom: 0,
+      //   },
+      // },
     },
 
     Accordion: {
       defaultProps: {
         radius: "lg",
       },
-      styles: (theme) => ({
-        content: {
-          paddingTop: 0,
-        },
-        item: {
-          border: 0,
-        },
-        label: {
-          fontWeight: 500,
-          color: theme.colors.gray[9],
-        },
-        control: {
-          marginBottom: rem(4),
-          "&:hover": {
-            backgroundColor: theme.colors.gray[0],
-          },
-        },
-      }),
+      // styles: (theme) => ({
+      //   content: {
+      //     paddingTop: 0,
+      //   },
+      //   item: {
+      //     border: 0,
+      //   },
+      //   label: {
+      //     fontWeight: 500,
+      //     color: theme.colors.gray[9],
+      //   },
+      //   control: {
+      //     marginBottom: rem(4),
+      //     "&:hover": {
+      //       backgroundColor: theme.colors.gray[0],
+      //     },
+      //   },
+      // }),
     },
     Input: {
-      styles: (theme) => ({
-        input: {
-          transition: `border-color ${theme.other.transition}`,
-          "&:not(:disabled, :focus-within, [data-invalid])": {
-            "&:hover": {
-              borderColor: theme.colors.gray[6],
-            },
-          },
-        },
-      }),
+      // styles: (theme) => ({
+      //   input: {
+      //     transition: `border-color ${theme.other.transition}`,
+      //     "&:not(:disabled, :focus-within, [data-invalid])": {
+      //       "&:hover": {
+      //         borderColor: theme.colors.gray[6],
+      //       },
+      //     },
+      //   },
+      // }),
     },
     NavLink: {
-      styles: (theme) => ({
-        root: {
-          fontWeight: 500,
-          borderRadius: theme.radius[theme.defaultRadius],
-          color: theme.colors.gray[9],
-          backgroundColor: theme.white,
-          "&[data-active=true]": {
-            background: theme.colors[theme.primaryColor][0],
-            color: theme.colors[theme.primaryColor][5],
-            "&:hover": {
-              background: theme.colors[theme.primaryColor][0],
-            },
-          },
-          "&:not([data-active=true])": {
-            "&:hover": {
-              background: theme.colors.gray[0],
-            },
-          },
-          "&:not(:last-child)": {
-            marginBottom: rem(4),
-          },
-        },
-      }),
+      // styles: (theme) => ({
+      //   root: {
+      //     fontWeight: 500,
+      //     borderRadius: theme.radius[theme.defaultRadius],
+      //     color: theme.colors.gray[9],
+      //     backgroundColor: theme.white,
+      //     "&[data-active=true]": {
+      //       background: theme.colors[theme.primaryColor][0],
+      //       color: theme.colors[theme.primaryColor][5],
+      //       "&:hover": {
+      //         background: theme.colors[theme.primaryColor][0],
+      //       },
+      //     },
+      //     "&:not([data-active=true])": {
+      //       "&:hover": {
+      //         background: theme.colors.gray[0],
+      //       },
+      //     },
+      //     "&:not(:last-child)": {
+      //       marginBottom: rem(4),
+      //     },
+      //   },
+      // }),
     },
     Checkbox: {
       defaultProps: {
@@ -348,12 +348,12 @@ const BubbleTheme: MantineThemeOverride = {
       }),
     },
     Prism: {
-      styles: (theme) => ({
-        copy: {
-          background: "transparent !important",
-          color: theme.colorScheme === "dark" ? theme.white : theme.black,
-        },
-      }),
+      // styles: (theme) => ({
+      //   copy: {
+      //     background: "transparent !important",
+      //     color: theme.colorScheme === "dark" ? theme.white : theme.black,
+      //   },
+      // }),
     },
     Card: {
       defaultProps: {
@@ -362,14 +362,14 @@ const BubbleTheme: MantineThemeOverride = {
     },
   },
 
-  globalStyles: (theme) => ({
-    "::selection": {
-      background: theme.colors[theme.primaryColor][1],
-    },
-    body: {
-      WebkitFontSmoothing: "antialiased",
-    },
-  }),
+  // globalStyles: (theme) => ({
+  //   "::selection": {
+  //     background: theme.colors[theme.primaryColor][1],
+  //   },
+  //   body: {
+  //     WebkitFontSmoothing: "antialiased",
+  //   },
+  // }),
 }
 
 export default BubbleTheme

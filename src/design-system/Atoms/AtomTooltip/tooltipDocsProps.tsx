@@ -10,7 +10,7 @@ const tooltipDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "withArrow prop",
       description: `withArrow prop determines whether tooltip should have an arrow.`,
       children: (
-        <Group position="center">
+        <Group justify="center">
           {[false, true].map((withArrow) => (
             <Tooltip
               key={withArrow + ""}
@@ -30,7 +30,7 @@ const tooltipDocsProps: Omit<ComponentDocsProps, "preview"> = {
         <Center>
           <Tooltip
             multiline
-            width={220}
+            w={220}
             withArrow
             transitionProps={{ duration: 200 }}
             label="Use this button to save this information in your profile, after that you will be able to access it any time and share it via email."
@@ -44,7 +44,7 @@ const tooltipDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Close and open delay",
       description: `You can delay tooltip open/close events by setting openDelay and closeDelay props in ms.`,
       children: (
-        <Group position="center">
+        <Group justify="center">
           <Tooltip label="Opened after 500ms" openDelay={500}>
             <Button size="xs">Delay open - 500ms</Button>
           </Tooltip>
@@ -59,9 +59,9 @@ const tooltipDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Tooltip.Group",
       description: `Tooltip.Group component can be used to sync open and close delays for multiple tooltips.`,
       children: (
-        <Group position="center">
+        <Group justify="center">
           <Tooltip.Group openDelay={500} closeDelay={100}>
-            <Group position="center">
+            <Group justify="center">
               {[1, 2, 3].map((tooltip) => (
                 <Tooltip key={tooltip} label={`Tooltip ${tooltip}`}>
                   <Button size="xs">Button {tooltip}</Button>
@@ -76,14 +76,14 @@ const tooltipDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Tooltip.Floating",
       description: `Tooltip.Floating component has the same API as Tooltip component but tooltip will follow mouse.`,
       children: (
-        <Group position="center">
+        <Group justify="center">
           <Tooltip.Floating label="Tooltip" color="blue">
             <Box
-              sx={(theme) => ({
+              style={(theme) => ({
                 padding: theme.spacing.xl,
                 cursor: "default",
-                backgroundColor:
-                  theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
+                // backgroundColor:
+                //   theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
               })}
             >
               Hover over the box to see tooltip

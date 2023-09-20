@@ -27,28 +27,38 @@ const DesignSystemLayout: BlitzLayout<{
   return (
     <AppShell
       className={appFont?.nextFont.variable}
-      header={<Header subPage={subPage} />}
-      navbarOffsetBreakpoint="sm"
-      navbar={<Navbar subPage={subPage} hiddenBreakpoint="sm" hidden={!opened} />}
+      navbar={{
+        breakpoint: "sm",
+        width: 256,
+      }}
+      header={{
+        height: 64,
+      }}
       styles={{
         main: {
           paddingRight: 0,
-          paddingLeft: `calc(var(--mantine-navbar-width) + ${rem(16)})`,
-          paddingTop: `calc(var(--mantine-header-height) + ${rem(16)})`,
+          paddingLeft: `var(--app-shell-navbar-width)`,
+          paddingTop: `calc(var(--app-shell-header-height) + ${rem(16)})`,
+          paddingBottom: rem(32),
           overflowX: "hidden",
         },
       }}
     >
-      <Show
-        if={DesignTheme}
-        else={
-          <Center h="calc(90vh - var(--mantine-header-height))">
-            <Loader variant="bars" size="md" />
-          </Center>
-        }
-      >
-        {children}
-      </Show>
+      <Header subPage={subPage} />
+      <AppShell.Main>
+        <Show
+          if={DesignTheme}
+          else={
+            <Center h="calc(90vh - var(--app-shell-header-height))">
+              <Loader variant="bars" size="md" />
+            </Center>
+          }
+        >
+          {children}
+        </Show>
+      </AppShell.Main>
+
+      <Navbar subPage={subPage} hidden={!opened} />
     </AppShell>
   )
 }
