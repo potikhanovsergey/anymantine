@@ -108,36 +108,31 @@ const designSystems = [
     slug: "bubble",
     title: "Bubble",
     colors: ["blue", "gray", "dark"],
-    imageUrl:
-      "https://static.vecteezy.com/system/resources/thumbnails/007/000/559/original/blue-gradient-motion-graphic-background-free-video.jpg",
+    imageUrl: "/images/bubble.jpeg",
   },
   {
     slug: "ink",
     title: "Ink",
     colors: ["pink", "gray", "dark"],
-    imageUrl:
-      "https://t4.ftcdn.net/jpg/04/57/83/89/360_F_457838914_PjjQlkR0e6FUT6dgISruUpJRcHm5pFsV.jpg",
+    imageUrl: "/images/ink.jpeg",
   },
   {
     slug: "marshmallow",
     title: "Marshmallow",
     colors: ["dark", "gray", "red", "violet"],
-    imageUrl:
-      "https://t3.ftcdn.net/jpg/03/51/50/32/360_F_351503287_Zd1eOQk9BlTzHuw24h8TwBje00onZpdz.jpg",
+    imageUrl: "/images/marshmallow.jpeg",
   },
   {
     slug: "rubick",
     title: "Rubick",
     colors: ["dark", "gray", "green"],
-    imageUrl:
-      "https://img.freepik.com/premium-photo/abstract-grainy-green-gradient-background-bright-stylish-design_573550-689.jpg",
+    imageUrl: "/images/rubick.jpeg",
   },
   {
     slug: "glass",
     title: "Glass",
     colors: ["dark", "gray", "violet"],
-    imageUrl:
-      "https://img.freepik.com/premium-photo/abstract-grainy-green-gradient-background-bright-stylish-design_573550-689.jpg",
+    imageUrl: "/images/glass.jpeg",
   },
   // {
   //   slug: "titan",

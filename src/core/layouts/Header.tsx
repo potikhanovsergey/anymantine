@@ -1,5 +1,4 @@
 import {
-  Button,
   Group,
   HeaderProps,
   Header as MantineHeader,
@@ -8,18 +7,16 @@ import {
   Burger,
   MediaQuery,
   Drawer,
-  Stack,
 } from "@mantine/core"
 import NextLink from "next/link"
-import { useSelector } from "@legendapp/state/react"
+import { Show, useSelector } from "@legendapp/state/react"
 import designSystems, { DesignSystemSubPage } from "public/themes"
 import { appDesignThemeSlug } from "src/state"
 import { useRouter } from "next/router"
 import LogoText from "./LogoText"
-import { useState } from "react"
 import { useDisclosure } from "@mantine/hooks"
-import Navbar from "src/design-system/Navbar"
 import NavbarInner from "src/design-system/Navbar/NavbarInner"
+import { DesignTheme } from "src/state/design-system"
 
 // const ProfileMenuOrAuth = dynamic(() => import("./ProfileMenuOrAuth"), { ssr: false })
 
@@ -31,8 +28,10 @@ const Header = ({
 
   const appDesignThemeValue = useSelector(appDesignThemeSlug)
   const router = useRouter()
+
+  const slug = router.query.slug?.toString?.()
+
   const onSelectTheme = (value) => {
-    const slug = router.query.slug?.toString?.()
     if (slug && slug !== value) {
       void router.push(router.asPath.split(slug).join(value), undefined, { scroll: false })
     } else {
@@ -45,8 +44,10 @@ const Header = ({
   return (
     <MantineHeader height={64} px={theme.spacing.md} {...props}>
       <MediaQuery largerThan="sm" styles={{ display: "none" }}>
-        <Group position="apart" noWrap w="100%">
-          <LogoText height={40} />
+        <Group position="apart" noWrap w="100%" h="100%">
+          <NextLink href="/">
+            <LogoText height={40} />
+          </NextLink>
 
           <Burger opened={openedDrawer} onClick={open} size="sm" color={theme.colors.gray[6]} />
         </Group>
@@ -55,7 +56,9 @@ const Header = ({
       <MediaQuery smallerThan="sm" styles={{ display: "none" }}>
         <Group h="100%" position="apart" noWrap>
           <Group noWrap h="100%" spacing="lg">
-            <LogoText height={40} />
+            <NextLink href="/">
+              <LogoText height={40} />
+            </NextLink>
             <Select
               withinPortal
               value={appDesignThemeValue}
@@ -64,15 +67,15 @@ const Header = ({
               data={designSystems.map((ds) => ({ label: ds.title, value: ds.slug }))}
             />
           </Group>
-          <Group noWrap h="100%" spacing="xs">
+          {/* <Group noWrap h="100%" spacing="xs">
             <Button href="/" component={NextLink} size="xs" variant="secondary">
               About
             </Button>
             <Button size="xs" href="/" component={NextLink}>
               Themes
             </Button>
-            {/* <ProfileMenuOrAuth /> */}
-          </Group>
+            <ProfileMenuOrAuth />
+          </Group> */}
         </Group>
       </MediaQuery>
 
@@ -88,22 +91,17 @@ const Header = ({
           },
         }}
       >
-        <Stack>
-          <Select
-            withinPortal
-            value={appDesignThemeValue}
-            onChange={onSelectTheme}
-            size="xs"
-            data={designSystems.map((ds) => ({ label: ds.title, value: ds.slug }))}
-          />
-          <Button href="/" component={NextLink} size="xs" variant="secondary">
-            About
-          </Button>
-          <Button size="xs" href="/" component={NextLink}>
-            Themes
-          </Button>
-        </Stack>
-        <NavbarInner subPage={subPage} />
+        <Select
+          withinPortal
+          value={appDesignThemeValue}
+          onChange={onSelectTheme}
+          size="xs"
+          data={designSystems.map((ds) => ({ label: ds.title, value: ds.slug }))}
+          mb="md"
+        />
+        <Show if={slug}>
+          <NavbarInner subPage={subPage} />
+        </Show>
       </Drawer>
     </MantineHeader>
   )
