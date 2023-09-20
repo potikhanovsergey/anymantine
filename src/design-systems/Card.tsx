@@ -65,13 +65,6 @@ const Card = ({ title, imageUrl, slug }: CardProps) => {
         <Text size={28} weight="bold" href={`/${slug}`} component={Link} className={classes.title}>
           {title}
         </Text>
-        <Group spacing="xs" mb="xs">
-          {["with Figma", "calm", "colorful"].map((tag) => (
-            <Badge variant="outline" size="sm" key={tag}>
-              {tag}
-            </Badge>
-          ))}
-        </Group>
       </Stack>
     </div>
   )

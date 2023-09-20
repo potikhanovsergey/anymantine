@@ -1,8 +1,7 @@
 import { BlitzPage } from "@blitzjs/next"
-import { Container, Title, useMantineTheme } from "@mantine/core"
+import { Container, SimpleGrid, Title, useMantineTheme } from "@mantine/core"
 import Layout from "src/core/layouts/Layout"
 import Card from "src/design-systems/Card"
-import Grid from "src/design-systems/Grid"
 import { themeCards } from "public/themes"
 
 const DesignSystemsPage: BlitzPage = () => {
@@ -13,11 +12,18 @@ const DesignSystemsPage: BlitzPage = () => {
         <Title order={1} mb="xl">
           Themes
         </Title>
-        <Grid spacing="xs" cols={4}>
+        <SimpleGrid
+          breakpoints={[
+            { maxWidth: "62rem", cols: 3, spacing: "md" },
+            { maxWidth: "48rem", cols: 2, spacing: "sm" },
+            { maxWidth: "36rem", cols: 1, spacing: "sm" },
+            { minWidth: "62rem", cols: 4, spacing: "md" },
+          ]}
+        >
           {themeCards.map((card) => (
             <Card key={card.slug} title={card.title} slug={card.slug} imageUrl={card.imageUrl} />
           ))}
-        </Grid>
+        </SimpleGrid>
       </Container>
     </Layout>
   )
