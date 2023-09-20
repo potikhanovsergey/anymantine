@@ -1,0 +1,37 @@
+.configurator {
+  display: flex;
+  max-width: 100%;
+  border: rem(1px) solid var(--mantine-color-gray-3);
+  overflow: hidden;
+  border-top-left-radius: var(--mantine-radius-default);
+  border-top-right-radius: var(--mantine-radius-default);
+  border-bottom: 0;
+}
+
+.noCode {
+  border-radius: var(--mantine-radius-default);
+  border-bottom: rem(1px) solid var(--mantine-color-black);
+}
+
+.preview {
+  flex: 1;
+  padding: var(--mantine-spacing-md);
+  background: var(--mantine-color-white);
+  display: flex;
+  flex-direction: column;
+}
+
+.controls {
+  box-sizing: border-box;
+  width: rem(250px);
+  padding: var(--mantine-spacing-md);
+  background-color: var(--mantine-color-white);
+  border-left: rem(1px) solid var(--mantine-color-gray-3);
+}
+
+.codeHighlight {
+  margin-top: 0;
+  border-bottom-left-radius: var(--mantine-radius-default);
+  border-bottom-right-radius: var(--mantine-radius-default);
+  border: rem(1px) solid var(--mantine-color-gray-3);
+}

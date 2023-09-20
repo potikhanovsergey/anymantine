@@ -2,10 +2,11 @@ import React, { useState } from "react"
 import { useMantineTheme, rem } from "@mantine/core"
 import controls, { ControlProps } from "./controls"
 import { propsToString } from "./props-to-string"
-// import useStyles from "./Configurator.styles"
 import dynamic from "next/dynamic"
+import classes from "./Configurator.module.css"
+import cx from "clsx"
 
-// const Prism = dynamic(() => import("@mantine/prism").then((m) => m.Prism))
+const CodeHighligt = dynamic(() => import("@mantine/code-highlight").then((m) => m.CodeHighlight))
 
 interface ConfiguratorProps {
   component: any
@@ -74,7 +75,7 @@ export default function Configurator({
 
   return (
     <div>
-      {/* <div className={cx(classes.configurator, { [classes.noCode]: !includeCode })}>
+      <div className={cx(classes.configurator, { [classes.noCode]: !includeCode })}>
         <div
           className={classes.preview}
           style={{
@@ -89,14 +90,13 @@ export default function Configurator({
       </div>
 
       {includeCode && (
-        <Prism
+        <CodeHighligt
           language="tsx"
-          className={classes.prism}
+          className={classes.codeHighlight}
           classNames={{ code: classes.code, copy: classes.copy }}
-        >
-          {code}
-        </Prism>
-      )} */}
+          code={code}
+        />
+      )}
     </div>
   )
 }

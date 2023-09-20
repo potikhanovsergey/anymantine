@@ -1,6 +1,14 @@
 import React from "react"
-import { Group, Input, useMantineTheme, ColorSwatch, CheckIcon, rem } from "@mantine/core"
+import {
+  Group,
+  Input,
+  useMantineTheme,
+  ColorSwatch,
+  rem,
+  useMantineColorScheme,
+} from "@mantine/core"
 import { upperFirst } from "@mantine/hooks"
+import { IconCheck } from "@tabler/icons-react"
 
 interface ColorControlProps {
   value: string
@@ -10,11 +18,11 @@ interface ColorControlProps {
 
 const ColorSwatches = ({ value, onChange }: Omit<ColorControlProps, "label">) => {
   const theme = useMantineTheme()
+  const { colorScheme } = useMantineColorScheme()
 
   const colors = Object.keys(theme.colors).map((color) => (
     <ColorSwatch
-      color="black"
-      // color={theme.colorScheme === "dark" ? theme.colors[color][7] : theme.colors[color][5]}
+      color={colorScheme === "dark" ? theme.colors[color][7] : theme.colors[color][5]}
       component="button"
       key={color}
       onClick={() => onChange(color)}
@@ -24,11 +32,10 @@ const ColorSwatches = ({ value, onChange }: Omit<ColorControlProps, "label">) =>
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        // color: theme.colorScheme === "dark" ? theme.colors[color][2] : theme.white,
         flex: `1 0 calc(15% - ${rem(4)})`,
       }}
     >
-      {value === color && <CheckIcon width={rem(12)} height={rem(12)} />}
+      {value === color && <IconCheck color={theme.white} size={rem(8)} />}
     </ColorSwatch>
   ))
   return <>{colors}</>

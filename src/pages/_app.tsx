@@ -9,6 +9,7 @@ import ThemeRouteListener from "src/core/layouts/ThemeRouteListener"
 import RootErrorFallback from "src/core/layouts/RootErrorFallback"
 
 import "@mantine/core/styles.css"
+import "@mantine/code-highlight/styles.css"
 
 enableLegendStateReact()
 
