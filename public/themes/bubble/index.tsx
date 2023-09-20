@@ -1,6 +1,11 @@
 import {
+  NavLink,
   ActionIcon,
+  AppShellHeader,
+  AppShellNavbar,
   Button,
+  CSSVariablesResolver,
+  Input,
   MantineThemeOverride,
   Text,
   VariantColorsResolver,
@@ -18,6 +23,8 @@ import {
 import { Karla } from "next/font/google"
 
 import ButtonClasses from "./Button/Button.module.css"
+import InputClasses from "./Input/Input.module.css"
+import NavLinkClasses from "./NavLink/NavLink.module.css"
 
 export const bubbleFont = Karla({
   variable: "--bubble-font",
@@ -64,9 +71,6 @@ const BubbleTheme = createTheme({
   fontFamily: `${bubbleFont.style.fontFamily}, ${defaultFonts}`,
   headings: {
     fontFamily: `${bubbleFont.style.fontFamily}, ${defaultFonts}`,
-  },
-  other: {
-    transition: ".15s ease",
   },
   colors: {
     gray: [
@@ -187,81 +191,22 @@ const BubbleTheme = createTheme({
       //   },
       // },
     },
-    Navbar: {
-      // styles: {
-      //   root: {
-      //     border: 0,
-      //   },
-      // },
-    },
-    Header: {
-      // styles: {
-      //   root: {
-      //     borderBottom: 0,
-      //   },
-      // },
-    },
-
-    Accordion: {
+    AppShellNavbar: AppShellNavbar.extend({
       defaultProps: {
-        radius: "lg",
+        withBorder: false,
       },
-      // styles: (theme) => ({
-      //   content: {
-      //     paddingTop: 0,
-      //   },
-      //   item: {
-      //     border: 0,
-      //   },
-      //   label: {
-      //     fontWeight: 500,
-      //     color: theme.colors.gray[9],
-      //   },
-      //   control: {
-      //     marginBottom: rem(4),
-      //     "&:hover": {
-      //       backgroundColor: theme.colors.gray[0],
-      //     },
-      //   },
-      // }),
-    },
-    Input: {
-      // styles: (theme) => ({
-      //   input: {
-      //     transition: `border-color ${theme.other.transition}`,
-      //     "&:not(:disabled, :focus-within, [data-invalid])": {
-      //       "&:hover": {
-      //         borderColor: theme.colors.gray[6],
-      //       },
-      //     },
-      //   },
-      // }),
-    },
-    NavLink: {
-      // styles: (theme) => ({
-      //   root: {
-      //     fontWeight: 500,
-      //     borderRadius: theme.radius[theme.defaultRadius],
-      //     color: theme.colors.gray[9],
-      //     backgroundColor: theme.white,
-      //     "&[data-active=true]": {
-      //       background: theme.colors[theme.primaryColor][0],
-      //       color: theme.colors[theme.primaryColor][5],
-      //       "&:hover": {
-      //         background: theme.colors[theme.primaryColor][0],
-      //       },
-      //     },
-      //     "&:not([data-active=true])": {
-      //       "&:hover": {
-      //         background: theme.colors.gray[0],
-      //       },
-      //     },
-      //     "&:not(:last-child)": {
-      //       marginBottom: rem(4),
-      //     },
-      //   },
-      // }),
-    },
+    }),
+    AppShellHeader: AppShellHeader.extend({
+      defaultProps: {
+        withBorder: false,
+      },
+    }),
+    Input: Input.extend({
+      classNames: InputClasses,
+    }),
+    NavLink: NavLink.extend({
+      classNames: NavLinkClasses,
+    }),
     Checkbox: {
       defaultProps: {
         radius: "sm",

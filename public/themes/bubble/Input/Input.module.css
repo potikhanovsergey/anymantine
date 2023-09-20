@@ -1,0 +1,8 @@
+.input {
+  transition: border-color 0.15s ease;
+  &:not(:disabled, :focus-within, [data-error]) {
+    &:hover {
+      border-color: var(--mantine-color-gray-6);
+    }
+  }
+}
