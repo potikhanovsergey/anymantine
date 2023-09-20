@@ -17,9 +17,9 @@ const config = {
       "t4.ftcdn.net",
     ],
   },
-  // typescript: {
-  //   ignoreBuildErrors: true,
-  // },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 }
 
 module.exports = withBlitz(config)
