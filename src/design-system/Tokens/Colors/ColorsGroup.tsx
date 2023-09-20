@@ -9,7 +9,6 @@ import {
   CopyButton,
   useMantineTheme,
 } from "@mantine/core"
-// import useStyles from "./ColorsGroup.styles"
 
 interface ColorsGroupProps {
   group: string
@@ -20,7 +19,6 @@ interface ColorsGroupProps {
 const getColor = (color, group, i) => `${color} / theme.colors.${group}[${i}]`
 
 export function ColorsGroup({ group, setTooltip, onMouseLeave }: ColorsGroupProps) {
-  // const { classes } = useStyles()
   const theme = useMantineTheme()
 
   return theme.colors[group] ? (
@@ -37,7 +35,11 @@ export function ColorsGroup({ group, setTooltip, onMouseLeave }: ColorsGroupProp
               onMouseLeave={onMouseLeave}
               w="100%"
               bg={`${color} content-box`}
-              // className={classes.color}
+              style={{
+                aspectRatio: "1/1",
+                height: "auto",
+                padding: rem(2),
+              }}
             ></UnstyledButton>
           )}
         </CopyButton>
