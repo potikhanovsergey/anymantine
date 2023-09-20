@@ -1,4 +1,5 @@
 import {
+  ActionIcon,
   Button,
   MantineThemeOverride,
   Text,
@@ -116,65 +117,14 @@ const BubbleTheme = createTheme({
         },
       },
     }),
-    ActionIcon: {
-      defaultProps: (theme) => ({
+    ActionIcon: ActionIcon.extend({
+      classNames: ButtonClasses,
+      defaultProps: {
         variant: "primary",
-        color: theme.primaryColor,
-      }),
-      // variants: {
-      //   primary: (theme, params: ButtonStylesParams) => ({
-      //     root: {
-      //       background: theme.colors[params.color || theme.primaryColor][5],
-      //       color: theme.white,
-      //       "&:not([data-disabled])": theme.fn.hover({
-      //         background: theme.colors[params.color || theme.primaryColor][6],
-      //       }),
-      //     },
-      //   }),
-      //   secondary: (theme, params: ButtonStylesParams) => ({
-      //     root: {
-      //       backgroundColor: theme.white,
-      //       color: theme.colors.dark[3],
-      //       border: "1px solid",
-      //       borderColor: theme.colors.dark[3],
-      //       "&:not([data-disabled])": theme.fn.hover({
-      //         borderColor: theme.colors[params.color || theme.primaryColor][3],
-      //         background: theme.colors[params.color || theme.primaryColor][0],
-      //         color: theme.colors[params.color || theme.primaryColor][3],
-      //       }),
-      //     },
-      //   }),
-      // },
-      // styles: (theme, params) => ({
-      //   root: {
-      //     transition: `all ${theme.other.transition}`,
-      //     "&[data-loading]": {
-      //       color: "transparent",
-      //       svg: {
-      //         "&[data-action-icon-loader]": {
-      //           maxWidth: "60%",
-      //           // stroke:
-      //           //   variant === "transparent" || variant === "secondary"
-      //           //     ? theme.colors[params.color || theme.primaryColor][5]
-      //           //     : theme.white,
-      //         },
-      //       },
-      //       "&:before": {
-      //         display: "none",
-      //       },
-      //       ".mantine-Button-centerLoader": {
-      //         opacity: 1,
-      //       },
-      //       // [`& .${getStylesRef("rightIcon")}, .${getStylesRef("leftIcon")}`]: {
-      //       //   opacity: 0,
-      //       // },
-      //     },
-      //   },
-      // }),
-    },
+      },
+    }),
     Avatar: {
       defaultProps: {
-        children: <Text size="lg">🐶</Text>,
         radius: "xl",
       },
     },
