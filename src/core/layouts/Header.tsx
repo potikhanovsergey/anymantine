@@ -16,7 +16,6 @@ import { useRouter } from "next/router"
 import LogoText from "./LogoText"
 import { useDisclosure } from "@mantine/hooks"
 import NavbarInner from "src/design-system/Navbar/NavbarInner"
-import { DesignTheme } from "src/state/design-system"
 
 // const ProfileMenuOrAuth = dynamic(() => import("./ProfileMenuOrAuth"), { ssr: false })
 
