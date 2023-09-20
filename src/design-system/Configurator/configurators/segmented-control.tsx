@@ -23,7 +23,7 @@ function Demo() {
 
 function Wrapper(props: SegmentedControlProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <SegmentedControl {...props} data={segmentedControlDataMock} />
     </Group>
   )

@@ -17,7 +17,7 @@ function Demo() {
 
 function Wrapper(props: PaperProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <Paper {...props} />
     </Group>
   )

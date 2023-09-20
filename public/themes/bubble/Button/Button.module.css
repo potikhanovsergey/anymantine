@@ -1,0 +1,11 @@
+.root {
+  &[data-loading] {
+    color: transparent;
+    svg {
+      stroke: var(--mantine-color-white);
+    }
+  }
+  &[data-disabled] {
+    border-color: var(--mantine-color-gray-5);
+  }
+}

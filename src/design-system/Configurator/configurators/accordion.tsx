@@ -28,7 +28,7 @@ function Demo() {
 
 function Wrapper(props: AccordionProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <Accordion {...props} w="100%">
         <Accordion.Item value="customization">
           <Accordion.Control>Customization</Accordion.Control>

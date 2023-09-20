@@ -15,7 +15,7 @@ function Demo() {
 
 function Wrapper(props: TextInputProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <TextInput {...props} />
     </Group>
   )

@@ -36,7 +36,7 @@ function Demo() {
 
 function Wrapper(props: TooltipProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <Tooltip {...props}>
         <ActionIcon>
           <ExampleIcon />
@@ -71,7 +71,12 @@ const getTooltipConfigurator = (theme: MantineTheme) => {
         initialValue: defaultProps?.["radius"] || theme.defaultRadius,
       },
       { name: "withArrow", type: "boolean", initialValue: defaultProps?.["withArrow"] || true },
-      { name: "opened", label: "Always opened", type: "boolean", initialValue: defaultProps?.["opened"] || true },
+      {
+        name: "opened",
+        label: "Always opened",
+        type: "boolean",
+        initialValue: defaultProps?.["opened"] || true,
+      },
       {
         name: "label",
         type: "string",

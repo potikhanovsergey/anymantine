@@ -10,7 +10,7 @@ const checkboxDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Label",
       description: `Checkboxes should always have a label. When the label is not defined, a checkbox becomes standalone. Standalone checkboxes are only used when their connection to other components is clear and they give sufficient context — for example, in application panels.`,
       children: (
-        <Group position="center">
+        <Group justify="center">
           {["labeled", "standalone"].map((variant) => (
             <Stack key={variant}>
               <Text color="dimmed" tt="capitalize">

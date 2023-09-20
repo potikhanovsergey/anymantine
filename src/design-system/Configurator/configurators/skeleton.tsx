@@ -15,7 +15,7 @@ function Demo() {
 
 function Wrapper(props: SkeletonProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <Skeleton {...props} />
     </Group>
   )

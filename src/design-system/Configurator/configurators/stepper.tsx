@@ -25,7 +25,7 @@ function Demo() {
 
 function Wrapper(props: StepperProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <Stepper {...props} active={1}>
         <Stepper.Step label="Step 1" description="Create an account" />
         <Stepper.Step label="Step 2" description="Verify email" />

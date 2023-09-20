@@ -25,7 +25,7 @@ function Demo() {
 
 function Wrapper(props: ActionIconProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <ActionIcon {...props}>
         <ExampleIcon />
       </ActionIcon>

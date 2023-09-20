@@ -15,7 +15,7 @@ function Demo() {
 
 function Wrapper(props: TextareaProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <Textarea {...props} />
     </Group>
   )

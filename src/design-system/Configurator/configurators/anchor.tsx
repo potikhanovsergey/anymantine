@@ -26,7 +26,7 @@ function Demo() {
 
 function Wrapper(props: AnchorProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <Anchor {...props} />
     </Group>
   )

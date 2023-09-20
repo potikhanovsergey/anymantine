@@ -15,7 +15,7 @@ function Demo() {
 
 function Wrapper(props: SwitchProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <Switch {...props} />
     </Group>
   )

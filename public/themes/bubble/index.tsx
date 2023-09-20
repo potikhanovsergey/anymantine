@@ -1,12 +1,22 @@
 import {
+  Button,
   MantineThemeOverride,
   Text,
+  VariantColorsResolver,
+  createTheme,
+  darken,
+  defaultVariantColorsResolver,
+  lighten,
+  parseThemeColor,
   rem,
+  rgba,
   // getStylesRef,
   // ButtonStylesParams,
   // ActionIconStylesParams,
 } from "@mantine/core"
 import { Karla } from "next/font/google"
+
+import ButtonClasses from "./Button/Button.module.css"
 
 export const bubbleFont = Karla({
   variable: "--bubble-font",
@@ -17,7 +27,35 @@ export const bubbleFont = Karla({
 
 const defaultFonts = `-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji`
 
-const BubbleTheme: MantineThemeOverride = {
+const variantColorResolver: VariantColorsResolver = (input) => {
+  const defaultResolvedColors = defaultVariantColorsResolver(input)
+  const parsedColor = parseThemeColor({
+    color: input.color || input.theme.primaryColor,
+    theme: input.theme,
+  })
+
+  if (input.variant === "primary") {
+    return {
+      background: parsedColor.value,
+      hover: darken(parsedColor.value, 0.15),
+      border: `${rem(1)} solid ${parsedColor.value}`,
+      color: input.theme.white,
+    }
+  }
+
+  if (input.variant === "secondary") {
+    return {
+      background: input.theme.white,
+      hover: rgba(parsedColor.value, 0.25),
+      border: `${rem(1)} solid ${parsedColor.value}`,
+      color: parsedColor.value,
+    }
+  }
+
+  return defaultResolvedColors
+}
+
+const BubbleTheme = createTheme({
   cursorType: "pointer",
   primaryColor: "blue",
   defaultRadius: "md",
@@ -67,60 +105,17 @@ const BubbleTheme: MantineThemeOverride = {
       "#001c4b",
     ],
   },
+  variantColorResolver,
   components: {
-    Button: {
+    Button: Button.extend({
+      classNames: ButtonClasses,
       defaultProps: {
-        loaderPosition: "center",
         variant: "primary",
+        loaderProps: {
+          size: 16,
+        },
       },
-      // variants: {
-      //   primary: (theme, params: ButtonStylesParams) => ({
-      //     root: {
-      //       background: theme.colors[params.color || theme.primaryColor][5],
-      //       color: theme.white,
-      //       "&:not([data-disabled])": theme.fn.hover({
-      //         background: theme.colors[params.color || theme.primaryColor][6],
-      //       }),
-      //     },
-      //   }),
-      //   secondary: (theme, params: ButtonStylesParams) => ({
-      //     root: {
-      //       backgroundColor: theme.white,
-      //       color: theme.colors.dark[3],
-      //       border: "1px solid",
-      //       borderColor: theme.colors.dark[3],
-      //       "&:not([data-disabled])": theme.fn.hover({
-      //         borderColor: theme.colors[params.color || theme.primaryColor][5],
-      //         background: theme.colors[params.color || theme.primaryColor][0],
-      //         color: theme.colors[params.color || theme.primaryColor][5],
-      //       }),
-      //     },
-      //   }),
-      // },
-      // styles: (theme, params) => ({
-      //   root: {
-      //     transition: `all ${theme.other.transition}`,
-      //     "&[data-loading]": {
-      //       color: "transparent",
-      //       svg: {
-      //         // stroke:
-      //         //   variant === "transparent" || variant === "secondary"
-      //         //     ? theme.colors[params.color || theme.primaryColor][5]
-      //         //     : theme.white,
-      //       },
-      //       "&:before": {
-      //         display: "none",
-      //       },
-      //       ".mantine-Button-centerLoader": {
-      //         opacity: 1,
-      //       },
-      //       // [`& .${getStylesRef("rightIcon")}, .${getStylesRef("leftIcon")}`]: {
-      //       //   opacity: 0,
-      //       // },
-      //     },
-      //   },
-      // }),
-    },
+    }),
     ActionIcon: {
       defaultProps: (theme) => ({
         variant: "primary",
@@ -370,6 +365,6 @@ const BubbleTheme: MantineThemeOverride = {
   //     WebkitFontSmoothing: "antialiased",
   //   },
   // }),
-}
+})
 
 export default BubbleTheme

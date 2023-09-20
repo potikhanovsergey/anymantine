@@ -23,7 +23,7 @@ function Demo() {
 
 function Wrapper(props: CheckboxProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <Checkbox value="Banana" {...props} />
     </Group>
   )

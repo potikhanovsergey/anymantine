@@ -48,7 +48,7 @@ const switchDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Inner labels",
       description: `You can use inner labels to help users understand what's the current state of the switch`,
       children: (
-        <Group position="center">
+        <Group justify="center">
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Switch key={size} size={size} onLabel="ON" offLabel="OFF" />
           ))}
@@ -59,7 +59,7 @@ const switchDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Icon labels",
       description: `Icon labels have the same purpose as text labels, but can be better solution when you can't describe the switch's purpose shortly`,
       children: (
-        <Group position="center">
+        <Group justify="center">
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Switch
               key={size}

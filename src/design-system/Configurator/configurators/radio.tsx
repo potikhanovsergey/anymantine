@@ -15,7 +15,7 @@ function Demo() {
 
 function Wrapper(props: RadioProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <Radio value="Banana" {...props} />
     </Group>
   )

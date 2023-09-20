@@ -17,7 +17,7 @@ function Demo() {
 
 function Wrapper(props: ChipProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <Chip {...props}>Awesome chip</Chip>
     </Group>
   )

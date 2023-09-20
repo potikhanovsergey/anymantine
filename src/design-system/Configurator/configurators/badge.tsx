@@ -17,7 +17,7 @@ function Demo() {
 
 function Wrapper(props: BadgeProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <Badge {...props} />
     </Group>
   )

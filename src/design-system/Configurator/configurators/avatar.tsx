@@ -15,7 +15,7 @@ function Demo() {
 
 function Wrapper(props: AvatarProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <Avatar {...props} />
     </Group>
   )

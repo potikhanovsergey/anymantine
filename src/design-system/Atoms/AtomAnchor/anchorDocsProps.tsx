@@ -25,7 +25,7 @@ const anchorDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Underline",
       description: `Underlined variant should be used to call attention to the link. Its no-underline appearance is optimal for when the underlined variant is too overwhelming, such as in blocks of text with several references linked throughout.`,
       children: (
-        <Group position="center">
+        <Group justify="center">
           {[true, false].map((underline) => (
             <Stack key={underline + ""}>
               <Text color="dimmed">

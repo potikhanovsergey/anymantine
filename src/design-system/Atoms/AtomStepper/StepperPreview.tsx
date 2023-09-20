@@ -21,7 +21,7 @@ const StepperPreview = () => {
         <Stepper.Completed>Completed, click back button to get to previous step</Stepper.Completed>
       </Stepper>
 
-      <Group position="center" mt="xl">
+      <Group justify="center" mt="xl">
         <Button variant="default" onClick={prevStep}>
           Back
         </Button>

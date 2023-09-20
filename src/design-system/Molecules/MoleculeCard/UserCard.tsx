@@ -38,7 +38,7 @@ const UserCard = ({ image, avatar, name, job, stats }: UserCardImageProps) => {
       <Text ta="center" fz="sm" c="dimmed">
         {job}
       </Text>
-      {/* <Group mt="md" position="center" gap={30}>
+      {/* <Group mt="md" justify="center" gap={30}>
         {items}
       </Group> */}
       <Button fullWidth mt="xl" size="md">

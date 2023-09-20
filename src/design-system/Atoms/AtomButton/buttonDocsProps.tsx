@@ -55,7 +55,7 @@ const Example = () => {
       title: "Variants",
       description: `Buttons are available in primary and secondary styles. Use primary buttons for the most important actions on the website and secondary buttons for everything else.`,
       children: (
-        <Group position="center" wrap="nowrap">
+        <Group justify="center" wrap="nowrap">
           <Stack>
             <Text mb="sm" color="dimmed">
               Primary
@@ -113,7 +113,7 @@ const Example = () => {
       title: "Loading",
       description: `Buttons can indicate that a quick progress taking place (e.g., saving settings on a server). In this case, the label and optional icon disappear and a progress circle appears. The progress circle always shows an indeterminate progress.`,
       children: (
-        <Group position="center">
+        <Group justify="center">
           {["primary", "secondary"].map((variant) => (
             <Stack key={variant}>
               <Text color="dimmed">{variant}</Text>
@@ -129,7 +129,7 @@ const Example = () => {
       title: "Disabled",
       description: `A button in a disabled state shows that an action exists, but is not available in that circumstance. This state can be used to maintain layout continuity and to communicate that an action may become available later.`,
       children: (
-        <Group position="center">
+        <Group justify="center">
           {["primary", "secondary"].map((variant) => (
             <Stack key={variant}>
               <Text color="dimmed">{variant}</Text>

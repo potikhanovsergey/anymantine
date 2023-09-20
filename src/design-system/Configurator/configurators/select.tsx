@@ -18,7 +18,7 @@ function Demo() {
 
 function Wrapper(props: SelectProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <Select {...props} data={selectDataMock} />
     </Group>
   )

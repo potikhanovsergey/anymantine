@@ -17,7 +17,7 @@ function Demo() {
 
 function Wrapper(props: ButtonProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <Button {...props} />
     </Group>
   )

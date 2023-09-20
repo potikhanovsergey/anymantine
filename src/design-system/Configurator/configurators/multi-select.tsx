@@ -26,7 +26,7 @@ function Demo() {
 
 function Wrapper(props: MultiSelectProps) {
   return (
-    <Group position="center">
+    <Group justify="center">
       <MultiSelect {...props} data={multiSelectDataMock} />
     </Group>
   )

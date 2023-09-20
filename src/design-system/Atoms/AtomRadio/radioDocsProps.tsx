@@ -11,7 +11,7 @@ const radioDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Label",
       description: `Radio buttons should always have a label. When the label is not defined, a radio button becomes standalone. Standalone radio buttons are only used when their connection to other components is clear and they give sufficient context — for example, in application panels.`,
       children: (
-        <Group position="center">
+        <Group justify="center">
           {["labeled", "standalone"].map((variant) => (
             <Stack key={variant}>
               <Text color="dimmed" tt="capitalize">
@@ -57,7 +57,7 @@ const radioDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Disabled",
       description: `A radio button in a disabled state shows that a selection exists, but is not available in that circumstance. This can be used to maintain layout continuity and communicate that an action may become available later.`,
       children: (
-        <Group position="center">
+        <Group justify="center">
           {[false, true].map((checked) => (
             <Radio key={checked + ""} disabled label="Kiwi" readOnly checked={checked} />
           ))}
@@ -68,7 +68,7 @@ const radioDocsProps: Omit<ComponentDocsProps, "preview"> = {
       title: "Error",
       description: `Radio buttons can be marked as having an error to show that a selection needs to be made in order to move forward, or that a selection that was made is invalid. For example, in a form that requires a user to acknowledge legal terms before proceeding, the checkbox would show an unchecked error to communicate that it needs to be selected.`,
       children: (
-        <Group position="center">
+        <Group justify="center">
           {[false, true].map((checked) => (
             <Radio key={checked + ""} error="Error" label="Kiwi" readOnly checked={checked} />
           ))}
