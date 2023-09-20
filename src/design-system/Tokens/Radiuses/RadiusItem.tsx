@@ -1,27 +1,49 @@
-import { Anchor, Center, Stack, Text, useMantineTheme } from "@mantine/core"
-// import createStyles from "./RadiusItem.styles"
+import {
+  Anchor,
+  Center,
+  MantineRadius,
+  Stack,
+  Text,
+  rem,
+  useMantineColorScheme,
+  useMantineTheme,
+} from "@mantine/core"
 import { useRouter } from "next/router"
 import getHyphenCase from "src/helpers/getHyphenCase"
 
 interface RadiusItemProps {
-  // radius: MantineNumberSize
-  radius: any
+  radius: MantineRadius
   title: string
   useCases?: string[]
 }
 
 interface RadiusBoxProps {
-  // radius: MantineNumberSize
-  radius: any
+  radius: MantineRadius
 }
 
 const RadiusBox = ({ radius }: RadiusBoxProps) => {
-  // const { classes } = createStyles({ radius })
   const theme = useMantineTheme()
+  const { colorScheme } = useMantineColorScheme()
+
   return (
-    // <Center className={classes.box} mb="md">
-    <Text size="sm">{theme.radius[radius]}</Text>
-    // </Center>
+    <Center
+      style={{
+        borderRadius: theme.radius[radius],
+        width: rem(80),
+        maxWidth: rem(80),
+        aspectRatio: "1/1",
+        backgroundColor:
+          radius === theme.defaultRadius
+            ? theme.colors[theme.primaryColor][5]
+            : colorScheme === "dark"
+            ? theme.colors.dark[7]
+            : theme.colors.gray[2],
+        color: radius === theme.defaultRadius || colorScheme === "dark" ? theme.white : theme.black,
+      }}
+      mb="md"
+    >
+      {radius}
+    </Center>
   )
 }
 
@@ -30,22 +52,19 @@ const RadiusItem = ({ radius, title, useCases }: RadiusItemProps) => {
   return (
     <div>
       <RadiusBox radius={radius} />
-      {/* <Text mb="xs" weight={500}>
-        {title}
-      </Text> */}
-      {/* <Stack gap={4}> */}
-      {useCases?.map((useCase) => (
-        <Anchor
-          tt="capitalize"
-          w="fit-content"
-          target="_blank"
-          href={`/${router.query.slug}/${getHyphenCase(useCase)}`}
-          key={useCase}
-        >
-          {useCase}
-        </Anchor>
-      ))}
-      {/* </Stack> */}
+      <Stack gap={4}>
+        {useCases?.map((useCase) => (
+          <Anchor
+            tt="capitalize"
+            w="fit-content"
+            target="_blank"
+            href={`/${router.query.slug}/${getHyphenCase(useCase)}`}
+            key={useCase}
+          >
+            {useCase}
+          </Anchor>
+        ))}
+      </Stack>
     </div>
   )
 }

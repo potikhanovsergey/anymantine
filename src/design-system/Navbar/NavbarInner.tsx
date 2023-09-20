@@ -49,7 +49,7 @@ const NavbarInner: FC<NavbarInnerProps> = ({ subPage }) => {
           multiline
           key={section.label}
           label={section.description}
-          width={320}
+          w={320}
           position="right"
           withinPortal
         >

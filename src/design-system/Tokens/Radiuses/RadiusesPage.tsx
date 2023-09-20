@@ -2,7 +2,6 @@ import { useMantineTheme, Group, Text } from "@mantine/core"
 import RadiusItem from "./RadiusItem"
 import PageTitle from "src/design-system/layout/PageTitle"
 import { useMemo } from "react"
-import { radiusItemSize } from "./RadiusItem.styles"
 import getDefaultProps from "src/helpers/getDefaultProps"
 
 const canHaveRadius = [
@@ -70,8 +69,8 @@ const RadiusesPage = () => {
         medium, large and extra-large.
       </Text>
       <Text maw={700} mb="sm">
-        Below you can see how elements with size of {radiusItemSize}px would look like with current
-        theme radiuses. The default radius for most elements in current theme is{" "}
+        Below you can see how elements with size of 64px would look like with current theme
+        radiuses. The default radius for most elements in current theme is{" "}
         <strong>{theme.defaultRadius}</strong> and its box is colored.
       </Text>
       <Text maw={700} mb="xl">

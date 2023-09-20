@@ -23,7 +23,7 @@ const GalleryCard = () => {
     <Card>
       <Card.Section withBorder inheritPadding py="xs">
         <Group justify="space-between">
-          <Text weight={500}>Review pictures</Text>
+          <Text fw={500}>Review pictures</Text>
           <Menu withinPortal position="bottom-end">
             <Menu.Target>
               <ActionIcon>
@@ -32,9 +32,9 @@ const GalleryCard = () => {
             </Menu.Target>
 
             <Menu.Dropdown>
-              <Menu.Item icon={<IconFileZip size={rem(14)} />}>Download zip</Menu.Item>
-              <Menu.Item icon={<IconEye size={rem(14)} />}>Preview all</Menu.Item>
-              <Menu.Item icon={<IconTrash size={rem(14)} />} color="red">
+              <Menu.Item leftSection={<IconFileZip size={rem(14)} />}>Download zip</Menu.Item>
+              <Menu.Item leftSection={<IconEye size={rem(14)} />}>Preview all</Menu.Item>
+              <Menu.Item leftSection={<IconTrash size={rem(14)} />} color="red">
                 Delete all
               </Menu.Item>
             </Menu.Dropdown>

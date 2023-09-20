@@ -1,5 +1,12 @@
 import { Show, useObservable } from "@legendapp/state/react"
-import { ActionIcon, Group, Stack, Tooltip, useMantineTheme } from "@mantine/core"
+import {
+  ActionIcon,
+  Group,
+  Stack,
+  Tooltip,
+  useMantineColorScheme,
+  useMantineTheme,
+} from "@mantine/core"
 import { IconAdjustments, IconSettings } from "@tabler/icons-react"
 import { ReactNode } from "react"
 import { MantineDemo } from "../Demo/types"
@@ -13,6 +20,7 @@ export interface ItemPreviewProps {
 
 const ItemPreview = ({ children, configurator }: ItemPreviewProps) => {
   const theme = useMantineTheme()
+  const { colorScheme } = useMantineColorScheme()
 
   const configuratorOpened = useObservable(false)
 
@@ -30,7 +38,7 @@ const ItemPreview = ({ children, configurator }: ItemPreviewProps) => {
           <ActionIcon variant="transparent" onClick={configuratorOpened.toggle}>
             <IconAdjustments
               stroke={2}
-              color={theme.colorScheme === "dark" ? theme.white : theme.black}
+              color={colorScheme === "dark" ? theme.white : theme.black}
             />
           </ActionIcon>
         </Tooltip>

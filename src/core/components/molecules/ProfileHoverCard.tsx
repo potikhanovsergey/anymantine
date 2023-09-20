@@ -16,7 +16,7 @@ const ProfileHoverCard = ({ avatar, name, caption }: ProfileHoverCardProps) => {
         <Group w="100%" wrap="nowrap" gap={4} mb="xs">
           <Avatar ml={0} src={avatar} />
           <div>
-            <Text lh={1} weight="bold" size="xs">
+            <Text lh={1} fw="bold" size="xs">
               {name}
             </Text>
             <Text color="dimmed" size="xs">

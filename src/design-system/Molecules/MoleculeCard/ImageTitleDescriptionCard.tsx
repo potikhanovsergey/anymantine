@@ -12,7 +12,7 @@ const ImageTitleDescriptionCard = () => {
       </Card.Section>
 
       <Group justify="space-between" mt="md" mb="xs">
-        <Text weight={500}>Norway Fjord Adventures</Text>
+        <Text fw={500}>Norway Fjord Adventures</Text>
         <Badge>On Sale</Badge>
       </Group>
 
