@@ -1,4 +1,4 @@
-import { Text, AspectRatio, Group, Badge, Stack } from "@mantine/core"
+import { Text, AspectRatio, Stack } from "@mantine/core"
 import Image from "next/image"
 import Link from "next/link"
 import classes from "./Card.module.css"
@@ -19,13 +19,6 @@ const Card = ({ title, imageUrl, slug }: CardProps) => {
         <Text size="lg" fw="bold" href={`/${slug}`} component={Link} className={classes.title}>
           {title}
         </Text>
-        <Group gap="xs" mb="xs">
-          {["with Figma", "calm", "colorful"].map((tag) => (
-            <Badge variant="outline" size="sm" key={tag}>
-              {tag}
-            </Badge>
-          ))}
-        </Group>
       </Stack>
     </div>
   )

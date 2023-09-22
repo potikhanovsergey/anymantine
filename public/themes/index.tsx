@@ -80,8 +80,7 @@ const designSystems = [
     slug: "bubble",
     title: "Bubble",
     colors: ["blue", "gray", "dark"],
-    imageUrl:
-      "https://static.vecteezy.com/system/resources/thumbnails/007/000/559/original/blue-gradient-motion-graphic-background-free-video.jpg",
+    imageUrl: "/images/bubble.jpeg",
   },
   {
     slug: "mobalytics",

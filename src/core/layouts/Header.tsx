@@ -1,16 +1,14 @@
 import {
-  Button,
   Group,
   AppShell,
   Select,
   useMantineTheme,
   Drawer,
-  Stack,
   AppShellHeaderProps,
   Burger,
 } from "@mantine/core"
 import NextLink from "next/link"
-import { useSelector } from "@legendapp/state/react"
+import { Show, useSelector } from "@legendapp/state/react"
 import designSystems, { DesignSystemSubPage } from "public/themes"
 import { appDesignThemeSlug } from "src/state"
 import { useRouter } from "next/router"
@@ -26,8 +24,10 @@ const Header = ({
 
   const appDesignThemeValue = useSelector(appDesignThemeSlug)
   const router = useRouter()
+
+  const slug = router.query.slug?.toString?.()
+
   const onSelectTheme = (value) => {
-    const slug = router.query.slug?.toString?.()
     if (slug && slug !== value) {
       void router.push(router.asPath.split(slug).join(value), undefined, { scroll: false })
     } else {
@@ -39,15 +39,18 @@ const Header = ({
 
   return (
     <AppShell.Header px={theme.spacing.md} {...props}>
+      {/** Mobile */}
       <Group hiddenFrom="sm" justify="space-between" wrap="nowrap" w="100%">
         <LogoText height={40} />
 
         <Burger opened={openedDrawer} onClick={open} size="sm" color={theme.colors.gray[6]} />
       </Group>
-
+      {/** Desktop */}
       <Group visibleFrom="sm" w="100%" h="100%" justify="space-between" wrap="nowrap">
         <Group wrap="nowrap" h="100%" gap="lg">
-          <LogoText height={40} />
+          <NextLink href="/">
+            <LogoText height={40} />
+          </NextLink>
           <Select
             value={appDesignThemeValue}
             onChange={onSelectTheme}
@@ -55,16 +58,7 @@ const Header = ({
             data={designSystems.map((ds) => ({ label: ds.title, value: ds.slug }))}
           />
         </Group>
-        <Group wrap="nowrap" h="100%" gap="xs">
-          <Button href="/" component={NextLink} size="xs" variant="secondary">
-            About
-          </Button>
-          <Button size="xs" href="/" component={NextLink}>
-            Themes
-          </Button>
-        </Group>
       </Group>
-
       <Drawer
         opened={openedDrawer}
         onClose={close}
@@ -77,22 +71,16 @@ const Header = ({
           },
         }}
       >
-        <Stack>
-          <Select
-            // withinPortal
-            value={appDesignThemeValue}
-            onChange={onSelectTheme}
-            size="xs"
-            data={designSystems.map((ds) => ({ label: ds.title, value: ds.slug }))}
-          />
-          <Button href="/" component={NextLink} size="xs" variant="secondary">
-            About
-          </Button>
-          <Button size="xs" href="/" component={NextLink}>
-            Themes
-          </Button>
-        </Stack>
-        <NavbarInner subPage={subPage} />
+        <Select
+          value={appDesignThemeValue}
+          onChange={onSelectTheme}
+          size="xs"
+          data={designSystems.map((ds) => ({ label: ds.title, value: ds.slug }))}
+          mb="md"
+        />
+        <Show if={slug}>
+          <NavbarInner subPage={subPage} />
+        </Show>
       </Drawer>
     </AppShell.Header>
   )

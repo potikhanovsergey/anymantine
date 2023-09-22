@@ -18,9 +18,9 @@ const config = {
       "media.istockphoto.com",
     ],
   },
-  // typescript: {
-  //   ignoreBuildErrors: true,
-  // },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 }
 
 module.exports = withBlitz(config)

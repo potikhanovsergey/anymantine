@@ -1,5 +1,4 @@
-import Head from "next/head"
-import React, { FC, useEffect, useState } from "react"
+import React, { useEffect } from "react"
 import { BlitzLayout } from "@blitzjs/next"
 import { AppShell, Center, Loader, rem } from "@mantine/core"
 import Header from "./Header"
@@ -8,6 +7,7 @@ import { DesignSystem, DesignTheme } from "src/state/design-system"
 import { DesignSystemSubPage, themes } from "public/themes"
 import { Show, useSelector } from "@legendapp/state/react"
 import { appDesignTheme } from "src/state"
+import Footer from "./Footer"
 
 const DesignSystemLayout: BlitzLayout<{
   children: React.ReactNode
@@ -56,6 +56,7 @@ const DesignSystemLayout: BlitzLayout<{
       </AppShell.Main>
 
       <Navbar subPage={subPage} />
+      <Footer />
     </AppShell>
   )
 }
