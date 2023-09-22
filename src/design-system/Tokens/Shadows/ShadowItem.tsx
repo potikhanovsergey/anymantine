@@ -28,8 +28,8 @@ const ShadowBox = ({ shadow }: ShadowBoxProps) => {
         width: rem(80),
         maxWidth: rem(80),
         aspectRatio: "1/1",
-        background: colorScheme === "dark" ? theme.colors.dark[7] : theme.colors.gray[2],
-        marginBottom: theme.spacing.md,
+        background: colorScheme === "dark" ? theme.colors.gray[2] : theme.colors.gray[2],
+        color: theme.black,
       }}
     >
       {shadow}
@@ -42,7 +42,7 @@ const ShadowItem = ({ shadow, title, useCases }: ShadowItemProps) => {
     <Box>
       <ShadowBox shadow={shadow} />
       {useCases.map((useCase) => (
-        <Text size="sm" color="dimmed" key={useCase}>
+        <Text size="sm" key={useCase}>
           {useCase}
         </Text>
       ))}

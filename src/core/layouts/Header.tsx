@@ -28,6 +28,8 @@ const Header = ({
   const slug = router.query.slug?.toString?.()
 
   const onSelectTheme = (value) => {
+    if (!value) return
+
     if (slug && slug !== value) {
       void router.push(router.asPath.split(slug).join(value), undefined, { scroll: false })
     } else {
@@ -41,15 +43,17 @@ const Header = ({
     <AppShell.Header px={theme.spacing.md} {...props}>
       {/** Mobile */}
       <Group hiddenFrom="sm" justify="space-between" wrap="nowrap" w="100%">
-        <LogoText height={40} />
+        <NextLink style={{ lineHeight: 1 }} href="/">
+          <LogoText height={32} />
+        </NextLink>
 
         <Burger opened={openedDrawer} onClick={open} size="sm" color={theme.colors.gray[6]} />
       </Group>
       {/** Desktop */}
       <Group visibleFrom="sm" w="100%" h="100%" justify="space-between" wrap="nowrap">
         <Group wrap="nowrap" h="100%" gap="lg">
-          <NextLink href="/">
-            <LogoText height={40} />
+          <NextLink style={{ lineHeight: 1 }} href="/">
+            <LogoText height={32} />
           </NextLink>
           <Select
             value={appDesignThemeValue}
@@ -75,6 +79,7 @@ const Header = ({
           value={appDesignThemeValue}
           onChange={onSelectTheme}
           size="xs"
+          allowDeselect={false}
           data={designSystems.map((ds) => ({ label: ds.title, value: ds.slug }))}
           mb="md"
         />

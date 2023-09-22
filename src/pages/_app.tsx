@@ -1,3 +1,6 @@
+import "@mantine/core/styles.css"
+import "@mantine/code-highlight/styles.css"
+
 import { ErrorBoundary, AppProps } from "@blitzjs/next"
 import React from "react"
 import { withBlitz } from "src/blitz-client"
@@ -7,9 +10,6 @@ import { appDesignTheme } from "src/state"
 import { Analytics } from "@vercel/analytics/react"
 import ThemeRouteListener from "src/core/layouts/ThemeRouteListener"
 import RootErrorFallback from "src/core/layouts/RootErrorFallback"
-
-import "@mantine/core/styles.css"
-import "@mantine/code-highlight/styles.css"
 
 enableLegendStateReact()
 

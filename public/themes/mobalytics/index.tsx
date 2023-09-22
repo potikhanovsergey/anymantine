@@ -1,8 +1,6 @@
 import {
   NavLink,
   ActionIcon,
-  AppShellHeader,
-  AppShellNavbar,
   Button,
   Input,
   VariantColorsResolver,
@@ -20,19 +18,23 @@ import {
   Radio,
   Card,
   SegmentedControl,
+  AppShell,
+  Tooltip,
 } from "@mantine/core"
 
+// import AppShellClasses from "./AppShell/AppShell.module.css"
 // import ButtonClasses from "./Button/Button.module.css"
-// import InputClasses from "./Input/Input.module.css"
-// import NavLinkClasses from "./NavLink/NavLink.module.css"
+import InputClasses from "./Input/Input.module.css"
+import NavLinkClasses from "./NavLink/NavLink.module.css"
 
-import { Karla } from "next/font/google"
+import { Roboto } from "next/font/google"
+import { colors } from "./colors"
 
 /* The theme can be found here:
-  "https://fonts.google.com/specimen/Karla?query=karla" */
-export const mobalyticsFont = Karla({
-  variable: "--bubble-font",
-  weight: ["400", "500", "600", "700"],
+  "https://fonts.google.com/specimen/Roboto" */
+export const mobalyticsFont = Roboto({
+  variable: "--mobalytics-font",
+  weight: ["400", "500", "700"],
   subsets: ["latin"],
   preload: false,
 })
@@ -69,53 +71,35 @@ const variantColorResolver: VariantColorsResolver = (input) => {
 
 const MobalyticsTheme = createTheme({
   cursorType: "pointer",
-  primaryColor: "violet",
+  primaryColor: "orange",
   defaultRadius: "md",
   primaryShade: 5,
   fontFamily: `${mobalyticsFont.style.fontFamily}, ${defaultFonts}`,
   headings: {
     fontFamily: `${mobalyticsFont.style.fontFamily}, ${defaultFonts}`,
   },
-  colors: {
-    gray: [
-      "#F3F3F5",
-      "#E6E7EB",
-      "#D9DCE0",
-      "#CED1D6",
-      "#B9BCC1",
-      "#A4A7AC",
-      "#909398",
-      "#7E7F84",
-      "#5F6266",
-      "#525357",
-    ],
-    dark: [
-      "#9fa2a7",
-      "#909398",
-      "#797a7f",
-      "#57585c",
-      "#474a4d",
-      "#363638",
-      "#2c2d2e",
-      "#19191a",
-      "#0f0f0f",
-      "#050505",
-    ],
-    blue: [
-      "#edf2ff",
-      "#99bffd",
-      "#669ffb",
-      "#4d8ffb",
-      "#1a6ffa",
-      "#005FF9",
-      "#0056e0",
-      "#0043ae",
-      "#00307d",
-      "#001c4b",
-    ],
-  },
+  colors,
   variantColorResolver,
   components: {
+    AppShell: AppShell.extend({
+      styles: (theme) => ({
+        main: {
+          background: theme.colors.violet[8],
+        },
+        header: {
+          background: theme.colors.violet[9],
+          borderColor: "#251e47",
+        },
+        footer: {
+          background: theme.colors.violet[9],
+          borderColor: "#251e47",
+        },
+        navbar: {
+          background: theme.colors.violet[9],
+          borderColor: "#251e47",
+        },
+      }),
+    }),
     Button: Button.extend({
       // classNames: ButtonClasses,
       defaultProps: {
@@ -141,21 +125,17 @@ const MobalyticsTheme = createTheme({
         color: "blue",
       },
     }),
-    AppShellNavbar: AppShellNavbar.extend({
-      defaultProps: {
-        withBorder: false,
-      },
-    }),
-    AppShellHeader: AppShellHeader.extend({
-      defaultProps: {
-        withBorder: false,
-      },
-    }),
     Input: Input.extend({
-      // classNames: InputClasses,
+      classNames: InputClasses,
+      // styles: (theme) => ({
+      //   input: {
+      //     background: theme.white,
+      //     color: "#443b6b",
+      //   },
+      // }),
     }),
     NavLink: NavLink.extend({
-      // classNames: NavLinkClasses,
+      classNames: NavLinkClasses,
     }),
     Checkbox: Checkbox.extend({
       defaultProps: {
@@ -186,6 +166,15 @@ const MobalyticsTheme = createTheme({
       defaultProps: {
         withBorder: true,
       },
+    }),
+    Tooltip: Tooltip.extend({
+      styles: (theme) => ({
+        tooltip: {
+          background: theme.colors.violet[7],
+          color: theme.white,
+          border: `${rem("1px")} solid ${theme.colors.violet[5]}`,
+        },
+      }),
     }),
   },
 })

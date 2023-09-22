@@ -1,0 +1,40 @@
+import { MantineThemeOverride } from "@mantine/core"
+
+export const colors: MantineThemeOverride["colors"] = {
+  orange: [
+    "#fff4e0",
+    "#ffe6cb",
+    "#ffcd99",
+    "#ffb163",
+    "#ff9936",
+    "#ff8a18",
+    "#ff8305",
+    "#e46f00",
+    "#cb6200",
+    "#b15300",
+  ],
+  violet: [
+    "#f1effa",
+    "#dedcef",
+    "#b9b4e0",
+    "#938ad2",
+    "#382f66",
+    "#2c274f",
+    "#252046",
+    "#1d1546",
+    "#151136",
+    "#140e30",
+  ],
+  yellow: [
+    "#fff9e1",
+    "#fef0cd",
+    "#fadf9f",
+    "#f5ce6c",
+    "#f2bf43",
+    "#f0b527",
+    "#efb115",
+    "#d59b05",
+    "#bd8900",
+    "#a47500",
+  ],
+}

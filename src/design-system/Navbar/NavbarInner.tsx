@@ -30,7 +30,7 @@ interface NavbarInnerProps {
 const NavbarInner: FC<NavbarInnerProps> = ({ subPage }) => {
   const router = useRouter()
   return (
-    <ScrollArea>
+    <ScrollArea type="never">
       <NavLink
         active={!router.query.page}
         component={Link}

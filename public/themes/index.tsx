@@ -69,8 +69,8 @@ export const themes = {
     colorScheme: "dark",
     font: {
       nextFont: bubbleFont,
-      label: "Karla",
-      source: "https://fonts.google.com/specimen/Karla?query=karla",
+      label: "Roboto",
+      source: "https://fonts.google.com/specimen/Roboto",
     },
   },
 }

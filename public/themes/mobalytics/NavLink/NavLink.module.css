@@ -1,0 +1,20 @@
+.root {
+  &[data-active],
+  &:hover {
+    background: var(--mantine-color-violet-6);
+  }
+
+  &:hover {
+    border-right: 2px solid var(--mantine-color-gray-5);
+  }
+
+  &[data-active] {
+    color: var(--mantine-color-yellow-5);
+    border-right: 2px solid var(--mantine-color-yellow-5);
+  }
+}
+
+.label {
+  font-weight: 500;
+  font-size: var(--mantine-font-size-sm);
+}

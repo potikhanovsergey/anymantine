@@ -24,5 +24,5 @@ export default function archiveTheme(req: NextApiRequest, res: NextApiResponse) 
   archive.directory(folderToArchive, false)
 
   // Finalize the archive
-  archive.finalize()
+  void archive.finalize()
 }

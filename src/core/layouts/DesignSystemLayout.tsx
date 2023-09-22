@@ -33,7 +33,7 @@ const DesignSystemLayout: BlitzLayout<{
         height: 64,
       }}
       footer={{
-        height: 40,
+        height: 48,
       }}
       styles={{
         main: {
