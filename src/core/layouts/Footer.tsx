@@ -4,16 +4,18 @@ import NextLink from "next/link"
 const Footer = () => {
   return (
     <AppShell.Footer>
-      <Group gap="sm" m="md" mt="xl" justify="flex-end">
-        <Text>Made by</Text>
-        <NextLink href="https://www.linkedin.com/in/sergey-potikhanov-647b87207/" target="_blank">
-          <Tooltip label="Sergey Potikhanov" transitionProps={{ transition: "pop", duration: 200 }}>
-            <Avatar radius="md" src="/images/potikhanov.jpeg" />
+      <Group px="sm" gap="sm" h="100%" align="center" justify="flex-end">
+        <Text size="sm" fw="bold">
+          Authors
+        </Text>
+        <NextLink href="https://t.me/potikhanovsergey" target="_blank">
+          <Tooltip label="Sergey Potikhanov">
+            <Avatar size={32} src="/images/potikhanov.jpeg" />
           </Tooltip>
         </NextLink>
         <NextLink href="https://t.me/daryasyomina" target="_blank">
-          <Tooltip label="Darya Syomina" transitionProps={{ transition: "pop", duration: 200 }}>
-            <Avatar radius="md" src="/images/syomina.jpeg" />
+          <Tooltip label="Darya Syomina">
+            <Avatar size={32} src="/images/syomina.jpeg" />
           </Tooltip>
         </NextLink>
       </Group>

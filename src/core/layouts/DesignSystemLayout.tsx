@@ -32,11 +32,14 @@ const DesignSystemLayout: BlitzLayout<{
       header={{
         height: 64,
       }}
+      footer={{
+        height: 40,
+      }}
       styles={{
         main: {
           paddingRight: 0,
           paddingTop: `calc(var(--app-shell-header-height) + ${rem(16)})`,
-          paddingBottom: rem(32),
+          paddingBottom: `calc(var(--app-shell-footer-height) + ${rem(32)})`,
           overflowX: "hidden",
         },
       }}
