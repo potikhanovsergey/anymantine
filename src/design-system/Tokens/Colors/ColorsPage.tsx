@@ -17,7 +17,7 @@ const ColorsPage = ({ colors }: ColorsPageProps) => {
         <div>
           <PageSubtitle mb="sm">Pallete</PageSubtitle>
           <Text mb="md" maw={700}>
-            Usually, Animantine themes rewrite several colors from the standard Mantine palette. A
+            Usually, Anymantine themes rewrite several colors from the standard Mantine palette. A
             list of all the colors available can be found at{" "}
             <Anchor href="https://mantine.dev/theming/colors/" target="_blank">
               Mantine Colors

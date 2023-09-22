@@ -1,6 +1,13 @@
 import { useSelector } from "@legendapp/state/react"
-import { Stack, Title, TitleOrder, useMantineTheme, Text, Anchor } from "@mantine/core"
-import Link from "src/core/components/atoms/Link"
+import {
+  Stack,
+  Title,
+  TitleOrder,
+  useMantineTheme,
+  Text,
+  Anchor,
+  useMantineColorScheme,
+} from "@mantine/core"
 import { ExampleProps } from "src/design-system/Examples/Example"
 import Examples from "src/design-system/Examples/Examples"
 import PageSubtitle from "src/design-system/layout/PageSubtitle"
@@ -9,6 +16,8 @@ import { DesignSystem } from "src/state/design-system"
 
 const Headings = () => {
   const theme = useMantineTheme()
+  const { colorScheme } = useMantineColorScheme()
+
   return (
     <Stack>
       {Object.keys(theme.headings.sizes).map((heading, i) => (
@@ -19,12 +28,7 @@ const Headings = () => {
           key={heading}
           order={(i + 1) as TitleOrder}
         >
-          <Text
-            inherit
-            color={theme.colorScheme === "dark" ? theme.white : theme.black}
-            tt="uppercase"
-            span
-          >
+          <Text inherit c={colorScheme === "dark" ? theme.white : theme.black} tt="uppercase" span>
             {heading}
           </Text>{" "}
           Lorem ipsum dolor sit amet.
@@ -36,6 +40,8 @@ const Headings = () => {
 
 const Paragraphs = () => {
   const theme = useMantineTheme()
+  const { colorScheme } = useMantineColorScheme()
+
   return (
     <Stack>
       {Object.keys(theme.fontSizes)
@@ -44,7 +50,7 @@ const Paragraphs = () => {
           <Text span color="dimmed" size={fontSize} key={fontSize}>
             <Text
               inherit
-              color={theme.colorScheme === "dark" ? theme.white : theme.black}
+              c={colorScheme === "dark" ? theme.white : theme.black}
               tt="uppercase"
               span
             >

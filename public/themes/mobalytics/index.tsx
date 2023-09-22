@@ -67,9 +67,9 @@ const variantColorResolver: VariantColorsResolver = (input) => {
   return defaultResolvedColors
 }
 
-const BubbleTheme = createTheme({
+const MobalyticsTheme = createTheme({
   cursorType: "pointer",
-  primaryColor: "blue",
+  primaryColor: "violet",
   defaultRadius: "md",
   primaryShade: 5,
   fontFamily: `${mobalyticsFont.style.fontFamily}, ${defaultFonts}`,
@@ -190,4 +190,4 @@ const BubbleTheme = createTheme({
   },
 })
 
-export default BubbleTheme
+export default MobalyticsTheme

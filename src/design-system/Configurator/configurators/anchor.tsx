@@ -50,7 +50,8 @@ const getAnchorConfigurator = (theme: MantineTheme) => {
         type: "size",
         initialValue: defaultProps?.["size"] || "md",
       },
-      { name: "underline", type: "boolean", initialValue: false },
+      // Todo: заменить на селект
+      // { name: "underline", type: "boolean", initialValue: false },
       { name: "strikethrough", type: "boolean", initialValue: false },
       {
         name: "children",

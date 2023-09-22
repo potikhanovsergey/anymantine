@@ -1,4 +1,4 @@
-import { Accordion, rem, Group, Stack, Text } from "@mantine/core"
+import { Accordion, Group, Stack, Text } from "@mantine/core"
 import { IconPhoto, IconPrinter, IconCameraSelfie } from "@tabler/icons-react"
 import { ComponentDocsProps } from "src/design-system/ComponentDocs"
 
@@ -15,17 +15,17 @@ const accordionDocsProps: Omit<ComponentDocsProps, "preview"> = {
       children: (
         <Accordion variant="contained">
           <Accordion.Item value="photos">
-            <Accordion.Control icon={<IconPhoto size={rem(20)} />}>Recent photos</Accordion.Control>
+            <Accordion.Control icon={<IconPhoto size="1.25rem" />}>Recent photos</Accordion.Control>
             <Accordion.Panel>Content</Accordion.Panel>
           </Accordion.Item>
           <Accordion.Item value="print">
-            <Accordion.Control icon={<IconPrinter size={rem(20)} />}>
+            <Accordion.Control icon={<IconPrinter size="1.25rem" />}>
               Print photos
             </Accordion.Control>
             <Accordion.Panel>Content</Accordion.Panel>
           </Accordion.Item>
           <Accordion.Item value="camera">
-            <Accordion.Control icon={<IconCameraSelfie size={rem(20)} />}>
+            <Accordion.Control icon={<IconCameraSelfie size="1.25rem" />}>
               Camera settings
             </Accordion.Control>
             <Accordion.Panel>Content</Accordion.Panel>

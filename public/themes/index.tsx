@@ -51,11 +51,13 @@ export type Theme = {
     label: string
     source: string
   }
+  colorScheme: "light" | "dark"
 }
 
 export const themes = {
   bubble: {
     theme: Bubble,
+    colorScheme: "light",
     font: {
       nextFont: bubbleFont,
       label: "Karla",
@@ -64,6 +66,7 @@ export const themes = {
   },
   mobalytics: {
     theme: MobalyticsTheme,
+    colorScheme: "dark",
     font: {
       nextFont: bubbleFont,
       label: "Karla",

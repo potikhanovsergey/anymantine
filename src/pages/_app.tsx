@@ -16,10 +16,10 @@ enableLegendStateReact()
 function MyApp({ Component, pageProps }: AppProps) {
   const getLayout = Component.getLayout || ((page) => page)
 
-  const AppDesignTheme = useSelector(appDesignTheme.theme)
+  const { theme, colorScheme } = useSelector(appDesignTheme)
 
   return (
-    <MantineProvider theme={AppDesignTheme}>
+    <MantineProvider forceColorScheme={colorScheme} theme={theme}>
       <ThemeRouteListener />
       <Analytics />
       <ErrorBoundary FallbackComponent={RootErrorFallback}>
