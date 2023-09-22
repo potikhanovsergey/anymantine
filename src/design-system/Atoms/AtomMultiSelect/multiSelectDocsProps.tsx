@@ -7,34 +7,6 @@ const dropdownHeightData = Array(50)
   .fill(0)
   .map((_, index) => `Item ${index}`)
 
-const CreatableSelect = () => {
-  const [data, setData] = useState([
-    { value: "react", label: "React" },
-    { value: "ng", label: "Angular" },
-  ])
-
-  const onCreate = (query) => {
-    const item = { value: query, label: query }
-    setData((current) => [...current, item])
-    return item
-  }
-
-  const getCreateLabel = (query) => `+ Create ${query}`
-
-  return (
-    <MultiSelect
-      label="Creatable Multi Select"
-      data={data}
-      placeholder="Select items"
-      nothingFoundMessage="Nothing found"
-      searchable
-      creatable
-      getCreateLabel={getCreateLabel}
-      onCreate={onCreate}
-    />
-  )
-}
-
 const multiSelectDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Multi Select",
   description: `Multi Select component allows user to pick any amount of option from the given list of options `,
@@ -70,13 +42,11 @@ const multiSelectDocsProps: Omit<ComponentDocsProps, "preview"> = {
       ),
       children: (
         <MultiSelect
-          label="Your favorite Rick and Morty character"
+          label="Your favorite library"
           placeholder="Pick one"
           data={[
-            { value: "rick", label: "Rick", group: "Used to be a pickle" },
-            { value: "morty", label: "Morty", group: "Never was a pickle" },
-            { value: "beth", label: "Beth", group: "Never was a pickle" },
-            { value: "summer", label: "Summer", group: "Never was a pickle" },
+            { group: "Frontend", items: ["React", "Angular"] },
+            { group: "Backend", items: ["Express", "Django"] },
           ]}
         />
       ),
@@ -102,17 +72,6 @@ const multiSelectDocsProps: Omit<ComponentDocsProps, "preview"> = {
           ]}
         />
       ),
-    },
-    {
-      title: "Creatable items",
-      description: (
-        <Text>
-          Set <strong>creatable</strong> and <strong>getCreateLabel</strong> props to enable
-          creating new select item. Note that you will need to handle data state to manage item
-          creation correctly.
-        </Text>
-      ),
-      children: <CreatableSelect />,
     },
     {
       title: "Dropdown height",

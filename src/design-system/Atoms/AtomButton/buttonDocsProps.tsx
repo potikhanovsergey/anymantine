@@ -32,7 +32,7 @@ const Example = () => {
 }`,
       children: (
         <Stack align="center">
-          <Button leftIcon={<IconDownload size={16} />}>With icon</Button>
+          <Button leftSection={<IconDownload size={16} />}>With icon</Button>
           <Button>Without icon</Button>
         </Stack>
       ),

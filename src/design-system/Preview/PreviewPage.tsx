@@ -81,15 +81,10 @@ const PreviewItems = ({ children, title }: { children: ReactNode; title: string 
 const PreviewItem = ({ title, children }: PreviewItemProps) => {
   const router = useRouter()
   const theme = useMantineTheme()
+
   return (
     <div>
-      <Anchor
-        component={Link}
-        color="dimmed"
-        // underline={false}
-        // sx={{ "&:hover": { color: theme.fn.primaryColor() } }}
-        href={`/${router.query.slug}/${getHyphenCase(title)}`}
-      >
+      <Anchor component={Link} href={`/${router.query.slug}/${getHyphenCase(title)}`}>
         <Title order={3}>
           <Group gap="xs" mb="md">
             {title}

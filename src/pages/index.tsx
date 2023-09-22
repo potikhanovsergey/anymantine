@@ -11,7 +11,7 @@ const DesignSystemsPage: BlitzPage = () => {
         <Title order={1} mb="xl">
           Themes
         </Title>
-        <SimpleGrid gap="xs" cols={4}>
+        <SimpleGrid spacing="xs" cols={4}>
           {themeCards.map((card) => (
             <Card key={card.slug} title={card.title} slug={card.slug} imageUrl={card.imageUrl} />
           ))}

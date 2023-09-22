@@ -1,4 +1,4 @@
-import { Stack, Group, Anchor, Text } from "@mantine/core"
+import { Stack, Group, Anchor, Text, AnchorProps } from "@mantine/core"
 import { ComponentDocsProps } from "src/design-system/ComponentDocs"
 
 const anchorDocsProps: Omit<ComponentDocsProps, "preview"> = {
@@ -26,12 +26,12 @@ const anchorDocsProps: Omit<ComponentDocsProps, "preview"> = {
       description: `Underlined variant should be used to call attention to the link. Its no-underline appearance is optimal for when the underlined variant is too overwhelming, such as in blocks of text with several references linked throughout.`,
       children: (
         <Group justify="center">
-          {[true, false].map((underline) => (
+          {["never", "hover"].map((underline) => (
             <Stack key={underline + ""}>
               <Text color="dimmed">
-                {underline ? "Underline on hover" : "No underline on hover"}
+                {underline === "hover" ? "Underline on hover" : "No underline on hover"}
               </Text>
-              <Anchor underline={underline}>Link</Anchor>
+              <Anchor underline={underline as AnchorProps["underline"]}>Link</Anchor>
             </Stack>
           ))}
         </Group>

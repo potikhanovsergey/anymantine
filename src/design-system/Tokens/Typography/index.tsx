@@ -86,7 +86,7 @@ const Typography = () => {
         "Underline is used for text links (either hover state or default state, depending on the style of the link) and is never used as a mechanism for adding emphasis.",
       children: (
         <Text>
-          Lorem ipsum dolor sit amet <Anchor underline>consectetur adipisicing </Anchor>
+          Lorem ipsum dolor sit amet <Anchor underline="hover">consectetur adipisicing </Anchor>
           elit. Delectus, incidunt?
         </Text>
       ),

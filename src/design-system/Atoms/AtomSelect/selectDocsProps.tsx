@@ -8,34 +8,6 @@ const dropdownHeightData = Array(50)
   .fill(0)
   .map((_, index) => `Item ${index}`)
 
-const CreatableSelect = () => {
-  const [data, setData] = useState([
-    { value: "react", label: "React" },
-    { value: "ng", label: "Angular" },
-  ])
-
-  const onCreate = (query) => {
-    const item = { value: query, label: query }
-    setData((current) => [...current, item])
-    return item
-  }
-
-  const getCreateLabel = (query) => `+ Create ${query}`
-
-  return (
-    <Select
-      label="Creatable Select"
-      data={data}
-      placeholder="Select items"
-      nothingFoundMessage="Nothing found"
-      searchable
-      creatable
-      getCreateLabel={getCreateLabel}
-      onCreate={onCreate}
-    />
-  )
-}
-
 const selectDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Select",
   description: `Select allow users to choose from a list of options in a limited space. The list of options can change based on the context.`,

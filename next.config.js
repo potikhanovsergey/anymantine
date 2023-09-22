@@ -15,6 +15,7 @@ const config = {
       "img.freepik.com",
       "static.vecteezy.com",
       "t4.ftcdn.net",
+      "media.istockphoto.com",
     ],
   },
   // typescript: {

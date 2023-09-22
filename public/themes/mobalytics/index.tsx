@@ -22,15 +22,15 @@ import {
   SegmentedControl,
 } from "@mantine/core"
 
-import ButtonClasses from "./Button/Button.module.css"
-import InputClasses from "./Input/Input.module.css"
-import NavLinkClasses from "./NavLink/NavLink.module.css"
+// import ButtonClasses from "./Button/Button.module.css"
+// import InputClasses from "./Input/Input.module.css"
+// import NavLinkClasses from "./NavLink/NavLink.module.css"
 
 import { Karla } from "next/font/google"
 
 /* The theme can be found here:
   "https://fonts.google.com/specimen/Karla?query=karla" */
-export const bubbleFont = Karla({
+export const mobalyticsFont = Karla({
   variable: "--bubble-font",
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
@@ -72,9 +72,9 @@ const BubbleTheme = createTheme({
   primaryColor: "blue",
   defaultRadius: "md",
   primaryShade: 5,
-  fontFamily: `${bubbleFont.style.fontFamily}, ${defaultFonts}`,
+  fontFamily: `${mobalyticsFont.style.fontFamily}, ${defaultFonts}`,
   headings: {
-    fontFamily: `${bubbleFont.style.fontFamily}, ${defaultFonts}`,
+    fontFamily: `${mobalyticsFont.style.fontFamily}, ${defaultFonts}`,
   },
   colors: {
     gray: [
@@ -117,7 +117,7 @@ const BubbleTheme = createTheme({
   variantColorResolver,
   components: {
     Button: Button.extend({
-      classNames: ButtonClasses,
+      // classNames: ButtonClasses,
       defaultProps: {
         variant: "primary",
         loaderProps: {
@@ -126,7 +126,7 @@ const BubbleTheme = createTheme({
       },
     }),
     ActionIcon: ActionIcon.extend({
-      classNames: ButtonClasses,
+      // classNames: ButtonClasses,
       defaultProps: {
         variant: "primary",
       },
@@ -152,10 +152,10 @@ const BubbleTheme = createTheme({
       },
     }),
     Input: Input.extend({
-      classNames: InputClasses,
+      // classNames: InputClasses,
     }),
     NavLink: NavLink.extend({
-      classNames: NavLinkClasses,
+      // classNames: NavLinkClasses,
     }),
     Checkbox: Checkbox.extend({
       defaultProps: {

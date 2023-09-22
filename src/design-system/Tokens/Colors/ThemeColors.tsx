@@ -39,13 +39,7 @@ const ThemeColors = ({ colors }: ColorsPageProps) => {
   const tooltipHidden = useComputed(() => hoveredColor.get() === null)
 
   return (
-    <Tooltip.Floating
-      style={{
-        display: tooltipHidden.get() ? "none !important" : undefined,
-      }}
-      label={hoveredColor}
-      position="top"
-    >
+    <Tooltip.Floating disabled={tooltipHidden.get()} label={hoveredColor} position="top">
       <div>
         <SimpleGrid spacing={0} maw={560} cols={11}>
           {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (

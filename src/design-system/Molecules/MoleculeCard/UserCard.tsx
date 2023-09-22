@@ -1,4 +1,4 @@
-import { Card, Avatar, Text, Group, Button, rem } from "@mantine/core"
+import { Card, Avatar, Text, Group, Button, rem, useMantineTheme } from "@mantine/core"
 
 // const useStyles = createStyles((theme) => ({
 //   avatar: {
@@ -15,7 +15,7 @@ interface UserCardImageProps {
 }
 
 const UserCard = ({ image, avatar, name, job, stats }: UserCardImageProps) => {
-  // const { classes, theme } = useStyles()
+  const theme = useMantineTheme()
 
   const items = stats.map((stat) => (
     <div key={stat.label}>
@@ -30,17 +30,24 @@ const UserCard = ({ image, avatar, name, job, stats }: UserCardImageProps) => {
 
   return (
     <Card padding="xl">
-      {/* <Card.Section sx={{ backgroundImage: `url(${image})`, height: 140 }} />
-      <Avatar src={avatar} size={80} radius={80} mx="auto" mt={-30} className={classes.avatar} /> */}
+      <Card.Section style={{ backgroundImage: `url(${image})`, height: 140 }} />
+      <Avatar
+        src={avatar}
+        size={80}
+        radius={80}
+        mx="auto"
+        mt={-30}
+        style={{ border: `${rem(2)} solid ${theme.white}` }}
+      />
       <Text ta="center" fz="lg" fw={500} mt="sm">
         {name}
       </Text>
       <Text ta="center" fz="sm" c="dimmed">
         {job}
       </Text>
-      {/* <Group mt="md" justify="center" gap={30}>
+      <Group mt="md" justify="center" gap={30}>
         {items}
-      </Group> */}
+      </Group>
       <Button fullWidth mt="xl" size="md">
         Follow
       </Button>

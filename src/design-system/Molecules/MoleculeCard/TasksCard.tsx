@@ -34,7 +34,7 @@ const TasksCard = () => {
       <Progress value={(23 / 36) * 100} mt={5} />
 
       <Group justify="space-between" mt="md">
-        <Avatar.Group gap="sm">
+        <Avatar.Group spacing="sm">
           {avatars.map((avatar) => (
             <Avatar src={avatar} radius="xl" key={avatar} />
           ))}

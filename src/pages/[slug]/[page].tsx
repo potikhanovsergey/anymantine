@@ -22,7 +22,6 @@ const RadiusesPage = dynamic(() => import("src/design-system/Tokens/Radiuses/Rad
 const ShadowsPage = dynamic(() => import("src/design-system/Tokens/Shadows/ShadowsPage"))
 const Typography = dynamic(() => import("src/design-system/Tokens/Typography"))
 const ColorsPage = dynamic(() => import("src/design-system/Tokens/Colors/ColorsPage"))
-const States = dynamic(() => import("src/design-system/Tokens/States"))
 const Icons = dynamic(() => import("src/design-system/Tokens/Icons"))
 
 const AtomButtons = dynamic(() => import("src/design-system/Atoms/AtomButton"))
@@ -69,7 +68,6 @@ const DesignSystemSubpage: BlitzPage = ({
             typography: () => <Typography />,
             radiuses: () => <RadiusesPage />,
             shadows: () => <ShadowsPage />,
-            states: () => <States />,
             icons: () => <Icons />,
             button: () => <AtomButtons />,
             badge: () => <AtomBadges />,
