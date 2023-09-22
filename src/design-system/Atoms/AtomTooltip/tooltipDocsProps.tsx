@@ -82,8 +82,8 @@ const tooltipDocsProps: Omit<ComponentDocsProps, "preview"> = {
               style={(theme) => ({
                 padding: theme.spacing.xl,
                 cursor: "default",
-                // backgroundColor:
-                //   theme.colorScheme === "dark" ? theme.colors.dark[6] : theme.colors.gray[0],
+                backgroundColor: theme.colors.green[4],
+                color: theme.black,
               })}
             >
               Hover over the box to see tooltip

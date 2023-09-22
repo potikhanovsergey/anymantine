@@ -57,8 +57,7 @@ const UsagePage = () => {
       <PageTitle>Usage</PageTitle>
       <Stack gap="sm" align="flex-start">
         <Text maw={700}>
-          Anymantine is a collection of themes for Mantine (a.k.a. the most profound UI components
-          library for React). To start using themes, you must first{" "}
+          Anymantine is a collection of themes for Mantine. To start using themes, you must first{" "}
           <Anchor target="_blank" href="https://mantine.dev/pages/getting-started/">
             install the Mantine library.
           </Anchor>

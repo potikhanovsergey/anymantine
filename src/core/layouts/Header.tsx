@@ -7,6 +7,7 @@ import {
   Drawer,
   Stack,
   AppShellHeaderProps,
+  Burger,
 } from "@mantine/core"
 import NextLink from "next/link"
 import { useSelector } from "@legendapp/state/react"
@@ -38,20 +39,16 @@ const Header = ({
 
   return (
     <AppShell.Header px={theme.spacing.md} {...props}>
-      {/* <MediaQuery largerThan="sm" styles={{ display: "none" }}>
-        <Group justify="space-between" wrap="nowrap" w="100%">
-          <LogoText height={40} />
+      <Group hiddenFrom="sm" justify="space-between" wrap="nowrap" w="100%">
+        <LogoText height={40} />
 
-          <Burger opened={openedDrawer} onClick={open} size="sm" color={theme.colors.gray[6]} />
-        </Group>
-      </MediaQuery> */}
+        <Burger opened={openedDrawer} onClick={open} size="sm" color={theme.colors.gray[6]} />
+      </Group>
 
-      {/* <MediaQuery smallerThan="sm" styles={{ display: "none" }}> */}
-      <Group w="100%" h="100%" justify="space-between" wrap="nowrap">
+      <Group visibleFrom="sm" w="100%" h="100%" justify="space-between" wrap="nowrap">
         <Group wrap="nowrap" h="100%" gap="lg">
           <LogoText height={40} />
           <Select
-            // withinPortal
             value={appDesignThemeValue}
             onChange={onSelectTheme}
             size="xs"
@@ -67,7 +64,6 @@ const Header = ({
           </Button>
         </Group>
       </Group>
-      {/* </MediaQuery> */}
 
       <Drawer
         opened={openedDrawer}

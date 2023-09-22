@@ -21,14 +21,12 @@ const DesignSystemLayout: BlitzLayout<{
   }, [slug])
 
   const appFont = useSelector(appDesignTheme.font)
-
-  const [opened, setOpened] = useState(false)
-
   return (
     <AppShell
       className={appFont?.nextFont.variable}
       navbar={{
         breakpoint: "sm",
+        collapsed: { mobile: true },
         width: 256,
       }}
       header={{
@@ -37,7 +35,6 @@ const DesignSystemLayout: BlitzLayout<{
       styles={{
         main: {
           paddingRight: 0,
-          paddingLeft: `var(--app-shell-navbar-width)`,
           paddingTop: `calc(var(--app-shell-header-height) + ${rem(16)})`,
           paddingBottom: rem(32),
           overflowX: "hidden",
@@ -58,7 +55,7 @@ const DesignSystemLayout: BlitzLayout<{
         </Show>
       </AppShell.Main>
 
-      <Navbar subPage={subPage} hidden={!opened} />
+      <Navbar subPage={subPage} />
     </AppShell>
   )
 }
