@@ -79,13 +79,11 @@ const designSystems = [
   {
     slug: "bubble",
     title: "Bubble",
-    colors: ["blue", "gray", "dark"],
     imageUrl: "/images/bubble.jpeg",
   },
   {
     slug: "mobalytics",
-    title: "Mobalytisc",
-    colors: ["violet", "yellow"],
+    title: "Mobalytics",
     imageUrl:
       "https://media.istockphoto.com/id/1340439185/vector/abstract-geometric-background-mosaic-with-triangle-patterns-purple-gradient.jpg?s=612x612&w=0&k=20&c=VrsH6WHo76uc71l2cDmfE6ihrdM7kzID1FPfDwtK5NU=",
   },

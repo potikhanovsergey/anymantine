@@ -37,7 +37,6 @@ const getSkeletonConfigurator = (theme: MantineTheme) => {
       { name: "height", type: "string", initialValue: "40px" },
       { name: "animate", type: "boolean", initialValue: true },
       { name: "circle", type: "boolean", initialValue: false },
-      { name: "loading", type: "boolean", initialValue: true },
     ],
   } as MantineDemo
 }

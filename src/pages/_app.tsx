@@ -1,5 +1,6 @@
 import "@mantine/core/styles.css"
 import "@mantine/code-highlight/styles.css"
+import "../global.css"
 
 import { ErrorBoundary, AppProps } from "@blitzjs/next"
 import React from "react"

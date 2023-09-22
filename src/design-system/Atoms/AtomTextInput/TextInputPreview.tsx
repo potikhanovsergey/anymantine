@@ -6,7 +6,7 @@ const TextInputPreview = () => {
     <Stack>
       <TextInput label="Label" placeholder="Placeholder..." />
       <TextInput label="Label" defaultValue="Wrong value..." error="Error..." />
-      <TextInput icon={<ExampleIcon />} label="Label" placeholder="Иконка слева" />
+      <TextInput leftSection={<ExampleIcon />} label="Label" placeholder="With icon on the left" />
       <TextInput label="Label" description="Description..." placeholder="Placeholder..." />
     </Stack>
   )

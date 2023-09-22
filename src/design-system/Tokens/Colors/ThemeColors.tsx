@@ -1,21 +1,23 @@
 import React from "react"
 import { SimpleGrid, Tooltip, Text } from "@mantine/core"
 import { ColorsGroup } from "./ColorsGroup"
-import { observer, useComputed, useObservable } from "@legendapp/state/react"
-import { ColorsPageProps } from "./ColorsPage"
+import { observer, useComputed, useObservable, useSelector } from "@legendapp/state/react"
+import { appDesignTheme } from "src/state"
 
 const ThemeSwatches = ({
   onMouseLeave,
   setTooltip,
-  colors,
 }: {
   onMouseLeave: () => void
   setTooltip: (color: string) => void
-  colors: string[]
 }) => {
+  const {
+    theme: { colors },
+  } = useSelector(appDesignTheme)
+
   return (
     <>
-      {colors.map((group) => (
+      {Object.keys(colors || {}).map((group) => (
         <ColorsGroup
           onMouseLeave={onMouseLeave}
           setTooltip={setTooltip}
@@ -27,7 +29,7 @@ const ThemeSwatches = ({
   )
 }
 
-const ThemeColors = ({ colors }: ColorsPageProps) => {
+const ThemeColors = () => {
   const hoveredColor = useObservable(null as string | null)
   const handleSetTooltip = (color: string) => {
     hoveredColor.set(color)
@@ -48,11 +50,7 @@ const ThemeColors = ({ colors }: ColorsPageProps) => {
             </Text>
           ))}
           <span></span>
-          <ThemeSwatches
-            colors={colors}
-            onMouseLeave={handleMouseLeave}
-            setTooltip={handleSetTooltip}
-          />
+          <ThemeSwatches onMouseLeave={handleMouseLeave} setTooltip={handleSetTooltip} />
         </SimpleGrid>
       </div>
     </Tooltip.Floating>

@@ -1,4 +1,15 @@
-import { Group, Stack, Anchor, Title, useMantineTheme } from "@mantine/core"
+import {
+  Group,
+  Stack,
+  Anchor,
+  Title,
+  useMantineTheme,
+  Grid,
+  Paper,
+  Text,
+  NavLink,
+  ScrollArea,
+} from "@mantine/core"
 import PageTitle from "../layout/PageTitle"
 import PageSubtitle from "../layout/PageSubtitle"
 import { ReactNode } from "react"
@@ -80,11 +91,11 @@ const PreviewItems = ({ children, title }: { children: ReactNode; title: string 
 
 const PreviewItem = ({ title, children }: PreviewItemProps) => {
   const router = useRouter()
-  const theme = useMantineTheme()
+  const hyphenCaseTitle = getHyphenCase(title)
 
   return (
-    <div>
-      <Anchor component={Link} href={`/${router.query.slug}/${getHyphenCase(title)}`}>
+    <div id={hyphenCaseTitle}>
+      <Anchor component={Link} href={`/${router.query.slug}/${hyphenCaseTitle}`}>
         <Title order={3}>
           <Group gap="xs" mb="md">
             {title}
@@ -98,21 +109,43 @@ const PreviewItem = ({ title, children }: PreviewItemProps) => {
   )
 }
 
+const previewsKeys = Object.keys(previews)
+
 const PreviewPage = () => {
   return (
     <>
       <PageTitle>Preview</PageTitle>
-      <Stack gap={80}>
-        {Object.keys(previews).map((category) => (
-          <PreviewItems key={category} title={category}>
-            {Object.keys(previews[category]).map((atom) => (
-              <PreviewItem key={atom} title={atom}>
-                {previews[category][atom]}
-              </PreviewItem>
-            ))}
-          </PreviewItems>
-        ))}
-      </Stack>
+      <Group gap={64} wrap="nowrap" align="flex-start">
+        <Stack gap={80}>
+          {previewsKeys.map((category) => (
+            <PreviewItems key={category} title={category}>
+              {Object.keys(previews[category]).map((atom) => (
+                <PreviewItem key={atom} title={atom}>
+                  {previews[category][atom]}
+                </PreviewItem>
+              ))}
+            </PreviewItems>
+          ))}
+        </Stack>
+        <Paper
+          p="sm"
+          w="100%"
+          maw={320}
+          pos="sticky"
+          top="calc(var(--app-shell-header-height) + 2rem)"
+        >
+          <Text fw="bold" size="sm" mb={4}>
+            Components
+          </Text>
+          <ScrollArea.Autosize mah={400} offsetScrollbars>
+            {previewsKeys.map((category) =>
+              Object.keys(previews[category]).map((atom) => (
+                <NavLink key={atom} label={atom} href={`#${getHyphenCase(atom)}`} />
+              ))
+            )}
+          </ScrollArea.Autosize>
+        </Paper>
+      </Group>
     </>
   )
 }

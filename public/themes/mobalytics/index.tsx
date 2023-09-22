@@ -20,6 +20,10 @@ import {
   SegmentedControl,
   AppShell,
   Tooltip,
+  Paper,
+  Stack,
+  Group,
+  lighten,
 } from "@mantine/core"
 
 // import AppShellClasses from "./AppShell/AppShell.module.css"
@@ -51,18 +55,18 @@ const variantColorResolver: VariantColorsResolver = (input) => {
   if (input.variant === "primary") {
     return {
       background: parsedColor.value,
-      hover: darken(parsedColor.value, 0.15),
-      border: `${rem(1)} solid ${parsedColor.value}`,
+      hover: lighten(parsedColor.value, 0.1),
+      border: `1px solid transparent`,
       color: input.theme.white,
     }
   }
 
   if (input.variant === "secondary") {
     return {
-      background: input.theme.white,
-      hover: rgba(parsedColor.value, 0.25),
+      background: "transparent",
+      hover: parsedColor.value,
       border: `${rem(1)} solid ${parsedColor.value}`,
-      color: parsedColor.value,
+      color: input.theme.white,
     }
   }
 
@@ -81,6 +85,16 @@ const MobalyticsTheme = createTheme({
   colors,
   variantColorResolver,
   components: {
+    Stack: Stack.extend({
+      defaultProps: {
+        gap: "sm",
+      },
+    }),
+    Group: Group.extend({
+      defaultProps: {
+        gap: "sm",
+      },
+    }),
     AppShell: AppShell.extend({
       styles: (theme) => ({
         main: {
@@ -173,6 +187,18 @@ const MobalyticsTheme = createTheme({
           background: theme.colors.violet[7],
           color: theme.white,
           border: `${rem("1px")} solid ${theme.colors.violet[5]}`,
+        },
+      }),
+    }),
+    Paper: Paper.extend({
+      defaultProps: {
+        p: "sm",
+        withBorder: true,
+      },
+      styles: (theme) => ({
+        root: {
+          background: theme.colors.violet[9],
+          borderColor: theme.colors.violet[5],
         },
       }),
     }),

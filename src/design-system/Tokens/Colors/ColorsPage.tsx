@@ -8,7 +8,7 @@ export interface ColorsPageProps {
   colors: string[]
 }
 
-const ColorsPage = ({ colors }: ColorsPageProps) => {
+const ColorsPage = () => {
   return (
     <>
       <PageTitle>Colors</PageTitle>
@@ -24,7 +24,7 @@ const ColorsPage = ({ colors }: ColorsPageProps) => {
             </Anchor>
             . You can also always add new colors or rewrite existing ones.
           </Text>
-          <ThemeColors colors={colors} />
+          <ThemeColors />
         </div>
         <div>
           <PageSubtitle>Primary color</PageSubtitle>

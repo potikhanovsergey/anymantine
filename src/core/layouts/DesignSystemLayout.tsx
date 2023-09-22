@@ -40,7 +40,6 @@ const DesignSystemLayout: BlitzLayout<{
           paddingRight: 0,
           paddingTop: `calc(var(--app-shell-header-height) + ${rem(16)})`,
           paddingBottom: `calc(var(--app-shell-footer-height) + ${rem(32)})`,
-          overflowX: "hidden",
         },
       }}
     >

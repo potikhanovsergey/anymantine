@@ -20,6 +20,9 @@ import {
   Radio,
   Card,
   SegmentedControl,
+  Paper,
+  Stack,
+  Group,
 } from "@mantine/core"
 
 import ButtonClasses from "./Button/Button.module.css"
@@ -116,6 +119,16 @@ const BubbleTheme = createTheme({
   },
   variantColorResolver,
   components: {
+    Stack: Stack.extend({
+      defaultProps: {
+        gap: "sm",
+      },
+    }),
+    Group: Group.extend({
+      defaultProps: {
+        gap: "sm",
+      },
+    }),
     Button: Button.extend({
       classNames: ButtonClasses,
       defaultProps: {
@@ -185,6 +198,12 @@ const BubbleTheme = createTheme({
     Card: Card.extend({
       defaultProps: {
         withBorder: true,
+      },
+    }),
+    Paper: Paper.extend({
+      defaultProps: {
+        withBorder: true,
+        p: "sm",
       },
     }),
   },
