@@ -38,6 +38,7 @@
     "@prisma/client": "4.6.0",
     "@tabler/icons-react": "2.8.0",
     "@vercel/analytics": "0.1.11",
+    "archiver": "6.0.1",
     "blitz": "2.0.0-beta.15",
     "js-beautify": "1.14.7",
     "json-fn": "1.1.1",
@@ -49,6 +50,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "12.0.8",
+    "@types/archiver": "5.3.2",
     "@types/js-beautify": "1.13.3",
     "@types/node": "18.11.9",
     "@types/prettier": "2.7.2",

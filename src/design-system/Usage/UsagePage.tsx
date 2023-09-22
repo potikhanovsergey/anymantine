@@ -14,17 +14,37 @@ const CodeHighlight = dynamic(
   }
 )
 
+const themeUsageCode = `import { MantineProvider } from "@mantine/core";
+import theme from "[path-to-theme]";
+
+const ThemeUsageSnippet = () => {
+  return (
+    <MantineProvider theme={theme}>
+      {/* your app here */}
+    </MantineProvider>
+  )
+}
+`
+
 const DownloadButton = (props: ButtonProps) => {
   const DesignSystemLabel = useSelector(DesignSystem.label)
-  const fileName = `${DesignSystemLabel}Theme.tsx`
+  const fileName = `${DesignSystemLabel}-theme.zip`
+
+  const downloadArchive = async () => {
+    const response = await fetch(`/api/theme?theme=${DesignSystemLabel}`, { method: "GET" })
+    const blob = await response.blob()
+    const url = window.URL.createObjectURL(blob)
+    const link = document.createElement("a")
+    link.href = url
+    link.setAttribute("download", `${DesignSystemLabel}.zip`)
+    link.style.display = "none"
+    document.body.appendChild(link)
+    link.click()
+    link.remove()
+  }
+
   return (
-    <Button
-      component="a"
-      download={fileName}
-      href={`/themes/${DesignSystemLabel}/index.tsx`}
-      leftSection={<IconDownload size={16} />}
-      {...props}
-    >
+    <Button onClick={downloadArchive} leftSection={<IconDownload size={16} />} {...props}>
       Download {fileName}
     </Button>
   )
@@ -52,26 +72,14 @@ const UsagePage = () => {
           </Anchor>
         </Text>
         <div>
-          <PageSubtitle mb={0}>Theme file</PageSubtitle>
+          <PageSubtitle mb={0}>Download theme</PageSubtitle>
           <Text maw={700} mb="xs">
-            Theme is stored in a single file which exports the theme object for MantineProvider.
+            The theme is stored in index.tsx file which imports additional files to customize
+            components
           </Text>
           <DownloadButton mb="md" />
           <Text mb="xs">You can later use it like this:</Text>
-          <CodeHighlight
-            code={`import { MantineProvider } from "@mantine/core";
-import bubbleTheme from "[path-to-downloaded-file]/${DesignSystemLabel}Theme";
-
-const ThemeUsageSnippet = () => {
-  return (
-    <MantineProvider withGlobalStyles withNormalizeCSS theme={bubbleTheme}>
-      {/* your app here */}
-    </MantineProvider>
-  )
-}
-`}
-            language="tsx"
-          />
+          <CodeHighlight code={themeUsageCode} language="tsx" />
         </div>
       </Stack>
     </>

@@ -1,52 +1,28 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import path from "path"
-import { createReadStream, existsSync } from "fs"
-import { themes } from "public/themes"
+import archiver from "archiver"
 
-export const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method !== "GET") {
-    res.status(400).json({ message: "Not existing endpoint" })
-    return
-  }
+const publicFolderPath = path.join(process.cwd(), "public")
 
-  //Check if the user is signed in
-  // if (!req.session?.credentials?.userId) {
-  //     res.status(401).json({message: 'Access denied!'})
-  //     return
-  // }
+export default function archiveTheme(req: NextApiRequest, res: NextApiResponse) {
+  const archive = archiver("zip")
+  const theme = req.query.theme as string
 
-  try {
-    const { theme } = req.query
+  // Set the name of the output archive file
+  const outputFileName = `${theme}.zip`
 
-    //If no file name, return 404
-    if (!theme || !process.env.PROTECTED_FILES_FOLDER) {
-      res.status(404).json({ message: "No theme or folder provided" })
-      return
-    }
+  const folderToArchive = path.join(publicFolderPath, `/themes/${theme}`)
 
-    if (!Object.keys(themes).includes(theme as string)) {
-      res.status(404).json({ message: "There is no theme with such name available" })
-      return
-    }
+  // Set the appropriate content type for the response
+  res.setHeader("Content-Type", "application/zip")
+  res.setHeader("Content-Disposition", "attachment;filename=" + outputFileName)
 
-    const filePath = path.join(process.env.PROTECTED_FILES_FOLDER, theme as string, "index.tsx")
+  // Pipe the output stream to the archiver
+  archive.pipe(res)
 
-    if (!existsSync(filePath)) {
-      res.status(404).json({ message: "Filepath not found " + filePath })
-      return
-    }
+  // Append all files and subdirectories from the folder to the archive
+  archive.directory(folderToArchive, false)
 
-    //Set the proper headers
-    res.setHeader("Content-Type", "application/zip")
-    // res.setHeader("Content-Disposition", `attachment; filename=${theme}Theme.tsx`)
-
-    //Create a read stream and pipe to the response
-    createReadStream(filePath).pipe(res)
-  } catch (exception) {
-    //Conceal the exception, but log it
-    console.warn(exception)
-    res.status(500).json({ message: "Internal Server Error" })
-  }
+  // Finalize the archive
+  archive.finalize()
 }
-
-export default handler
