@@ -7,7 +7,6 @@ import {
   AnchorProps,
   Anchor,
 } from "@mantine/core"
-import { IconHeart } from "@tabler/icons-react"
 import React from "react"
 import { MantineDemo } from "src/design-system/Demo/types"
 import getDefaultProps from "src/helpers/getDefaultProps"
@@ -41,7 +40,8 @@ const getAnchorConfigurator = (theme: MantineTheme) => {
     codeTemplate,
     configurator: [
       {
-        name: "color",
+        name: "c",
+        label: "Color",
         type: "color",
         initialValue: defaultProps?.["color"] || theme.primaryColor,
       },
@@ -52,7 +52,7 @@ const getAnchorConfigurator = (theme: MantineTheme) => {
       },
       // Todo: заменить на селект
       // { name: "underline", type: "boolean", initialValue: false },
-      { name: "strikethrough", type: "boolean", initialValue: false },
+      // { name: "strikethrough", type: "boolean", initialValue: false },
       {
         name: "children",
         type: "string",

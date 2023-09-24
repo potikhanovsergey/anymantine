@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { useMantineTheme, rem } from "@mantine/core"
+import React, { useEffect, useState } from "react"
+import { useMantineTheme, rem, MantineRadius } from "@mantine/core"
 import controls, { ControlProps } from "./controls"
 import { propsToString } from "./props-to-string"
 import dynamic from "next/dynamic"
@@ -17,24 +17,19 @@ interface ConfiguratorProps {
   center?: boolean
   props: ControlProps[]
   filter?: string[]
-  // radius?: MantineNumberSize
-  radius?: any
+  radius?: MantineRadius
   background?: string
 }
 
 export default function Configurator({
   component: Component,
   codeTemplate,
-  previewBackground,
   props: componentProps,
   multiline = false,
   includeCode = true,
   center = true,
-  radius,
   filter = [],
-  background,
 }: ConfiguratorProps) {
-  const theme = useMantineTheme()
   // const { classes, cx } = useStyles({ radius: radius || theme.defaultRadius, background })
   const initialState = componentProps.reduce((acc, prop) => {
     acc[prop.name] = prop.initialValue || controls[prop.type].initialValue
@@ -91,6 +86,7 @@ export default function Configurator({
 
       {includeCode && (
         <CodeHighligt
+          key={code}
           language="tsx"
           className={classes.codeHighlight}
           classNames={{ code: classes.code, copy: classes.copy }}

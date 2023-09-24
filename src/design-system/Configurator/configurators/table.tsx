@@ -14,7 +14,7 @@ function Demo() {
     { position: 56, mass: 137.33, symbol: "Ba", name: "Barium" },
     { position: 58, mass: 140.12, symbol: "Ce", name: "Cerium" },
   ]
-        
+
   const rows = elements.map((element) => (
     <Table.Tr key={element.name}>
       <Table.Td>{element.position}</Table.Td>
@@ -23,9 +23,9 @@ function Demo() {
       <Table.Td>{element.mass}</Table.Td>
     </Table.Tr>
   ))
-      
+
   return (
-    <Table${props} >
+    <Table${props}>
         <Table.Thead>
             <Table.Tr>
                 <Table.Th>Element position</Table.Th>

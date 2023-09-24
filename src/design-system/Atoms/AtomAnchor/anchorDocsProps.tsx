@@ -14,7 +14,7 @@ const anchorDocsProps: Omit<ComponentDocsProps, "preview"> = {
         <Stack>
           {["xs", "sm", "md", "lg", "xl"].map((size) => (
             <Group w="100%" justify="space-between" key={size}>
-              <Text color="dimmed">{size}</Text>
+              <Text c="dimmed">{size}</Text>
               <Anchor size={size}>Link</Anchor>
             </Group>
           ))}
@@ -28,7 +28,7 @@ const anchorDocsProps: Omit<ComponentDocsProps, "preview"> = {
         <Group justify="center">
           {["never", "hover"].map((underline) => (
             <Stack key={underline + ""}>
-              <Text color="dimmed">
+              <Text c="dimmed">
                 {underline === "hover" ? "Underline on hover" : "No underline on hover"}
               </Text>
               <Anchor underline={underline as AnchorProps["underline"]}>Link</Anchor>
