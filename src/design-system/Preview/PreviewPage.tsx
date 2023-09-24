@@ -37,6 +37,7 @@ import PaperPreview from "../Atoms/AtomPaper/PaperPreview"
 import SkeletonPreview from "../Atoms/AtomSkeleton/SkeletonPreview"
 import StepperPreview from "../Atoms/AtomStepper/StepperPreview"
 import TooltipPreview from "../Atoms/AtomTooltip/TooltipPreview"
+import TablePreview from "../Atoms/AtomTable/TablePreview"
 
 const previews = {
   Actions: {
@@ -63,6 +64,7 @@ const previews = {
     Accordion: <AccordionPreview />,
     Avatar: <AvatarPreview />,
     Badge: <BadgePreview />,
+    Table: <TablePreview />,
   },
   Overlays: {
     Tooltip: <TooltipPreview />,
@@ -97,9 +99,9 @@ const PreviewItem = ({ title, children }: PreviewItemProps) => {
     <div id={hyphenCaseTitle}>
       <Anchor component={Link} href={`/${router.query.slug}/${hyphenCaseTitle}`}>
         <Title order={3}>
-          <Group gap="xs" mb="md">
+          <Group align="center" gap={4} mb="md">
             {title}
-            <IconLink />
+            <IconLink size={"1.25rem"} />
           </Group>
         </Title>
       </Anchor>

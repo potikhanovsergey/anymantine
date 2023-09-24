@@ -44,6 +44,7 @@ const AtomAccordion = dynamic(() => import("src/design-system/Atoms/AtomAccordio
 const AtomMultiSelect = dynamic(() => import("src/design-system/Atoms/AtomMultiSelect"))
 const AtomSegmentedControl = dynamic(() => import("src/design-system/Atoms/AtomSegmentedControl"))
 const AtomStepper = dynamic(() => import("src/design-system/Atoms/AtomStepper"))
+const AtomTable = dynamic(() => import("src/design-system/Atoms/AtomTable"))
 
 const MoleculeCard = dynamic(() => import("src/design-system/Molecules/MoleculeCard"))
 
@@ -89,6 +90,7 @@ const DesignSystemSubpage: BlitzPage = ({
             "segmented-control": () => <AtomSegmentedControl />,
             accordion: () => <AtomAccordion />,
             stepper: () => <AtomStepper />,
+            table: () => <AtomTable />,
             card: () => <MoleculeCard />,
             default: () => <></>,
           }}

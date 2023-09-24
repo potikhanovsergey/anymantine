@@ -27,6 +27,7 @@ export const atoms = [
   "Multi Select",
   "Segmented Control",
   "Stepper",
+  "Table",
 ]
 
 export const molecules = ["Card"]
