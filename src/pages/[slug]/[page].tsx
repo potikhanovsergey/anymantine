@@ -3,7 +3,6 @@ import { Container } from "@mantine/core"
 import { GetStaticPropsContext } from "next"
 import DesignSystemLayout from "src/core/layouts/DesignSystemLayout"
 import designSystems, {
-  DesignSystem,
   themes,
   DesignSystemSubPage,
   atoms,
@@ -51,21 +50,23 @@ const MoleculeCard = dynamic(() => import("src/design-system/Molecules/MoleculeC
 const DesignSystemSubpage: BlitzPage = ({
   slug,
   page,
-  designSystem,
   subPage,
 }: {
   slug: keyof typeof themes
   page: string
-  designSystem: DesignSystem
   subPage: DesignSystemSubPage
 }) => {
   return (
     <DesignSystemLayout subPage={subPage} slug={slug}>
-      <Container pt="sm" size="xl">
+      <Container
+        mih="calc(100vh - var(--app-shell-header-height) - var(--app-shell-footer-height))"
+        pt="sm"
+        size="xl"
+      >
         <Switch value={page}>
           {{
             usage: () => <UsagePage />,
-            colors: () => <ColorsPage colors={designSystem.colors} />,
+            colors: () => <ColorsPage />,
             typography: () => <Typography />,
             radiuses: () => <RadiusesPage />,
             shadows: () => <ShadowsPage />,

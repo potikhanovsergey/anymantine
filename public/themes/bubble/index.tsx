@@ -23,6 +23,7 @@ import {
   Paper,
   Stack,
   Group,
+  AppShellFooter,
 } from "@mantine/core"
 
 import ButtonClasses from "./Button/Button.module.css"
@@ -160,6 +161,11 @@ const BubbleTheme = createTheme({
       },
     }),
     AppShellHeader: AppShellHeader.extend({
+      defaultProps: {
+        withBorder: false,
+      },
+    }),
+    AppShellFooter: AppShellFooter.extend({
       defaultProps: {
         withBorder: false,
       },
