@@ -1,0 +1,15 @@
+.root {
+  &[data-loading] {
+    color: transparent;
+    svg {
+      stroke: var(--mantine-color-white);
+    }
+  }
+  &[data-variant="secondary"] {
+    &:not(&:disabled) {
+      &:hover {
+        border-color: var(--mantine-primary-color-filled);
+      }
+    }
+  }
+}

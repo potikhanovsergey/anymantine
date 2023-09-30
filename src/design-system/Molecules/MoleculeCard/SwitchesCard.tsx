@@ -14,7 +14,7 @@ const SwitchesCard = ({ title, description, data }: SwitchesCardProps) => {
     <Group key={item.title} justify="space-between" pt="sm" mt="sm" wrap="nowrap" gap="xl">
       <div>
         <Text>{item.title}</Text>
-        <Text size="xs" color="dimmed">
+        <Text size="xs" c="dimmed">
           {item.description}
         </Text>
       </div>

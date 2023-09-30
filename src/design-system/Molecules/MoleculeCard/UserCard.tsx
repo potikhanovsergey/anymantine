@@ -1,11 +1,5 @@
 import { Card, Avatar, Text, Group, Button, rem, useMantineTheme } from "@mantine/core"
 
-// const useStyles = createStyles((theme) => ({
-//   avatar: {
-//     border: `${rem(2)} solid ${theme.colorScheme === "dark" ? theme.colors.dark[7] : theme.white}`,
-//   },
-// }))
-
 interface UserCardImageProps {
   image: string
   avatar: string

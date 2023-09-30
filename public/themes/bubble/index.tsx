@@ -76,6 +76,9 @@ const BubbleTheme = createTheme({
   primaryColor: "blue",
   defaultRadius: "md",
   primaryShade: 5,
+  other: {
+    buttonVariants: ["primary", "secondary"],
+  },
   fontFamily: `${bubbleFont.style.fontFamily}, ${defaultFonts}`,
   headings: {
     fontFamily: `${bubbleFont.style.fontFamily}, ${defaultFonts}`,

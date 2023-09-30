@@ -42,7 +42,7 @@ const actionIconDocsProps: Omit<ComponentDocsProps, "preview"> = {
         <Group justify="center">
           {["primary", "secondary", "transparent"].map((variant) => (
             <Stack key={variant}>
-              <Text mb="sm" color="dimmed">
+              <Text mb="sm" c="dimmed">
                 {variant}
               </Text>
               <ActionIcon variant={variant}>
@@ -76,7 +76,7 @@ const actionIconDocsProps: Omit<ComponentDocsProps, "preview"> = {
         <Group justify="center">
           {["primary", "secondary"].map((variant) => (
             <Stack key={variant}>
-              <Text color="dimmed">{variant}</Text>
+              <Text c="dimmed">{variant}</Text>
               <ActionIcon loading variant={variant}>
                 <ExampleIcon />
               </ActionIcon>
@@ -92,7 +92,7 @@ const actionIconDocsProps: Omit<ComponentDocsProps, "preview"> = {
         <Group justify="center">
           {["primary", "secondary"].map((variant) => (
             <Stack key={variant}>
-              <Text color="dimmed">{variant}</Text>
+              <Text c="dimmed">{variant}</Text>
               <ActionIcon disabled variant={variant}>
                 <ExampleIcon />
               </ActionIcon>

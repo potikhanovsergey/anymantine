@@ -1,11 +1,10 @@
 .card {
-  border: 1px solid var(--mantine-color-black);
-  border-radius: var(--mantine-radius-md);
+  border: 1px solid light-dark(var(--mantine-color-black), var(--mantine-color-gray-8));
+  border-radius: var(--mantine-radius-default);
   display: flex;
   flex-direction: column;
   padding: 0;
   text-decoration: none;
-  color: var(--mantine-color-black);
   position: relative;
 }
 
@@ -38,6 +37,6 @@
 }
 
 .image {
-  border-top-right-radius: var(--mantine-radius-md);
-  border-top-left-radius: var(--mantine-radius-md);
+  border-top-right-radius: var(--mantine-radius-default);
+  border-top-left-radius: var(--mantine-radius-default);
 }

@@ -6,7 +6,6 @@ import {
   ActionIcon,
   Image,
   SimpleGrid,
-  rem,
   useMantineTheme,
 } from "@mantine/core"
 import { IconDots, IconEye, IconFileZip, IconTrash } from "@tabler/icons-react"
@@ -42,8 +41,8 @@ const GalleryCard = () => {
         </Group>
       </Card.Section>
 
-      <Text mt="sm" color="dimmed" size="sm">
-        <Text component="span" inherit color={theme.primaryColor}>
+      <Text mt="sm" c="dimmed" size="sm">
+        <Text component="span" inherit c={theme.primaryColor}>
           200+ images uploaded
         </Text>{" "}
         since last visit, review them to select which one should be added to your gallery

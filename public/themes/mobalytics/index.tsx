@@ -27,7 +27,7 @@ import {
 } from "@mantine/core"
 
 // import AppShellClasses from "./AppShell/AppShell.module.css"
-// import ButtonClasses from "./Button/Button.module.css"
+import ButtonClasses from "./Button/Button.module.css"
 import InputClasses from "./Input/Input.module.css"
 import NavLinkClasses from "./NavLink/NavLink.module.css"
 
@@ -57,15 +57,15 @@ const variantColorResolver: VariantColorsResolver = (input) => {
       background: parsedColor.value,
       hover: lighten(parsedColor.value, 0.1),
       border: `1px solid transparent`,
-      color: input.theme.white,
+      color: input.theme.colors.violet[8],
     }
   }
 
   if (input.variant === "secondary") {
     return {
       background: "transparent",
-      hover: parsedColor.value,
-      border: `${rem(1)} solid ${parsedColor.value}`,
+      hover: "transparent",
+      border: `${rem(1)} solid ${input.theme.colors.violet[4]}`,
       color: input.theme.white,
     }
   }
@@ -75,9 +75,9 @@ const variantColorResolver: VariantColorsResolver = (input) => {
 
 const MobalyticsTheme = createTheme({
   cursorType: "pointer",
-  primaryColor: "orange",
+  primaryColor: "yellow",
   defaultRadius: "md",
-  primaryShade: 5,
+  primaryShade: 4,
   fontFamily: `${mobalyticsFont.style.fontFamily}, ${defaultFonts}`,
   headings: {
     fontFamily: `${mobalyticsFont.style.fontFamily}, ${defaultFonts}`,
@@ -115,7 +115,7 @@ const MobalyticsTheme = createTheme({
       }),
     }),
     Button: Button.extend({
-      // classNames: ButtonClasses,
+      classNames: ButtonClasses,
       defaultProps: {
         variant: "primary",
         loaderProps: {
@@ -164,6 +164,7 @@ const MobalyticsTheme = createTheme({
     Badge: Badge.extend({
       defaultProps: {
         radius: "xl",
+        variant: "primary",
       },
     }),
     Skeleton: Skeleton.extend({

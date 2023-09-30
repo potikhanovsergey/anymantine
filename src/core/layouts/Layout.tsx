@@ -13,9 +13,16 @@ const Layout: BlitzLayout<{ children: React.ReactNode }> = ({ children }) => {
       header={{
         height: 64,
       }}
+      footer={{
+        height: 48,
+      }}
       className={appFont?.nextFont?.variable}
       styles={{
-        main: { paddingLeft: 0, paddingRight: 0 },
+        main: {
+          paddingLeft: 0,
+          paddingRight: 0,
+          minHeight: "100vh",
+        },
       }}
     >
       <Header />

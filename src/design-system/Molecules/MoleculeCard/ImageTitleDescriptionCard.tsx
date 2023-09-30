@@ -16,7 +16,7 @@ const ImageTitleDescriptionCard = () => {
         <Badge>On Sale</Badge>
       </Group>
 
-      <Text size="sm" color="dimmed">
+      <Text size="sm" c="dimmed">
         With Fjord Tours you can explore more of the magical fjord landscapes with tours and
         activities on and around the fjords of Norway
       </Text>

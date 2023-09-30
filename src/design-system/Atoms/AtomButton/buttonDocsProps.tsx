@@ -166,7 +166,7 @@ const Example = () => {
         <Stack align="center">
           {["primary", "secondary"].map((variant) => (
             <Box w="100%" key={variant}>
-              <Text color="dimmed">{variant}</Text>
+              <Text c="dimmed">{variant}</Text>
               <Button fullWidth variant={variant}>
                 Action
               </Button>
@@ -197,7 +197,7 @@ const Example = () => {
         <Group justify="center">
           {["primary", "secondary"].map((variant) => (
             <Stack key={variant}>
-              <Text color="dimmed">{variant}</Text>
+              <Text c="dimmed">{variant}</Text>
               <Button loading variant={variant}>
                 Action
               </Button>
@@ -228,7 +228,7 @@ const Example = () => {
         <Group justify="center">
           {["primary", "secondary"].map((variant) => (
             <Stack key={variant}>
-              <Text color="dimmed">{variant}</Text>
+              <Text c="dimmed">{variant}</Text>
               <Button disabled variant={variant}>
                 Action
               </Button>
