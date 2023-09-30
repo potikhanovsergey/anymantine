@@ -32,7 +32,7 @@ const UsagePage = () => {
         <Text maw={700}>
           Anymantine is a collection of themes for Mantine (a.k.a. the most profound UI components
           library for React). To start using themes, you must first{" "}
-          <Link target="_blank" href="https://mantine.dev/pages/getting-started/">
+          <Link target="_blank" href="https://mantine.dev/getting-started/">
             install the Mantine library.
           </Link>
         </Text>
