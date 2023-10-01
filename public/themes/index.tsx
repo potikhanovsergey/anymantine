@@ -30,7 +30,7 @@ export const atoms = [
   "Table",
 ]
 
-export const molecules = ["Card"]
+export const molecules = ["Card", "Authentication", "Features", "Stats"]
 
 export const usage = ["Usage"]
 

@@ -22,13 +22,14 @@ const CodeHighlight = dynamic(
 )
 
 export interface ExampleProps {
-  title: string
+  title?: string
   description?: ReactNode
   children: ReactNode
   code?: string
+  descriptive?: boolean
 }
 
-const Example = ({ title, description, code, children }: ExampleProps) => {
+const Example = ({ title, description, code, children, descriptive = true }: ExampleProps) => {
   const { colorScheme } = useMantineColorScheme()
   const theme = useMantineTheme()
   const dark = colorScheme === "dark"
@@ -40,30 +41,36 @@ const Example = ({ title, description, code, children }: ExampleProps) => {
       <Show if={!!code && configuratorOpened} else={children}>
         <CodeHighlight code={code!} language="tsx" />
       </Show>
-      <div>
-        <Group wrap="nowrap" gap="xs" mb="lg">
-          <Title order={3}>{title}</Title>
-          {code && (
-            <Tooltip
-              label={
-                <Show if={configuratorOpened} else="Show snippet">
-                  Hide snippet
-                </Show>
-              }
-            >
-              <ActionIcon variant="transparent" onClick={configuratorOpened.toggle}>
-                <Show
-                  if={configuratorOpened}
-                  else={<IconCode stroke={2} color={dark ? theme.white : theme.black} />}
-                >
-                  <IconCodeOff stroke={2} color={dark ? theme.white : theme.black} />
-                </Show>
-              </ActionIcon>
-            </Tooltip>
+      <Show if={descriptive}>
+        <div>
+          <Group wrap="nowrap" gap="xs" mb="lg">
+            <Title order={3}>{title}</Title>
+            {code && (
+              <Tooltip
+                label={
+                  <Show if={configuratorOpened} else="Show snippet">
+                    Hide snippet
+                  </Show>
+                }
+              >
+                <ActionIcon variant="transparent" onClick={configuratorOpened.toggle}>
+                  <Show
+                    if={configuratorOpened}
+                    else={<IconCode stroke={2} color={dark ? theme.white : theme.black} />}
+                  >
+                    <IconCodeOff stroke={2} color={dark ? theme.white : theme.black} />
+                  </Show>
+                </ActionIcon>
+              </Tooltip>
+            )}
+          </Group>
+          {description && typeof description === "string" ? (
+            <Text>{description}</Text>
+          ) : (
+            description
           )}
-        </Group>
-        {description && typeof description === "string" ? <Text>{description}</Text> : description}
-      </div>
+        </div>
+      </Show>
     </Group>
   )
 }

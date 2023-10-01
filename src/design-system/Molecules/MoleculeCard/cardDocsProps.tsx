@@ -1,4 +1,3 @@
-import { Center, Box } from "@mantine/core"
 import { ComponentDocsProps } from "src/design-system/ComponentDocs"
 import GalleryCard from "./GalleryCard"
 import ImageTitleDescriptionCard from "./ImageTitleDescriptionCard"
@@ -6,65 +5,50 @@ import SwitchesCard from "./SwitchesCard"
 import UserCard from "./UserCard"
 import { switchesCardMockData, userCardMockData } from "./mocks"
 import TasksCard from "./TasksCard"
-import { ReactNode } from "react"
-
-const Wrapper = ({ children }: { children: ReactNode }) => {
-  return (
-    <Center>
-      <Box maw={360} w="100%">
-        {children}
-      </Box>
-    </Center>
-  )
-}
+import { CardWrapper } from "src/design-system/Wrappers/CardWrapper"
 
 export const cardComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Card",
   description: `Something about card molecule.`,
   examples: [
     {
-      title: "Card",
-      description: "Card description",
+      descriptive: false,
       children: (
-        <Wrapper>
+        <CardWrapper>
           <ImageTitleDescriptionCard />
-        </Wrapper>
+        </CardWrapper>
       ),
     },
     {
-      title: "Gallery card",
-      description: "Gallery card description",
+      descriptive: false,
       children: (
-        <Wrapper>
+        <CardWrapper>
           <GalleryCard />
-        </Wrapper>
+        </CardWrapper>
       ),
     },
     {
-      title: "Switches card",
-      description: "Switches card description",
+      descriptive: false,
       children: (
-        <Wrapper>
+        <CardWrapper>
           <SwitchesCard {...switchesCardMockData} />
-        </Wrapper>
+        </CardWrapper>
       ),
     },
     {
-      title: "User card",
-      description: "User card description",
+      descriptive: false,
       children: (
-        <Wrapper>
+        <CardWrapper>
           <UserCard {...userCardMockData} />
-        </Wrapper>
+        </CardWrapper>
       ),
     },
     {
-      title: "Tasks card",
-      description: "Tasks card description",
+      descriptive: false,
       children: (
-        <Wrapper>
+        <CardWrapper>
           <TasksCard />
-        </Wrapper>
+        </CardWrapper>
       ),
     },
   ],

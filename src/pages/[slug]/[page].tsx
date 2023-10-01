@@ -46,6 +46,11 @@ const AtomStepper = dynamic(() => import("src/design-system/Atoms/AtomStepper"))
 const AtomTable = dynamic(() => import("src/design-system/Atoms/AtomTable"))
 
 const MoleculeCard = dynamic(() => import("src/design-system/Molecules/MoleculeCard"))
+const MoleculeAuthentication = dynamic(
+  () => import("src/design-system/Molecules/MoleculeAuthentication")
+)
+const MoleculeFeatures = dynamic(() => import("src/design-system/Molecules/MoleculeFeatures"))
+const MoleculeStats = dynamic(() => import("src/design-system/Molecules/MoleculeStats"))
 
 const DesignSystemSubpage: BlitzPage = ({
   slug,
@@ -93,6 +98,9 @@ const DesignSystemSubpage: BlitzPage = ({
             stepper: () => <AtomStepper />,
             table: () => <AtomTable />,
             card: () => <MoleculeCard />,
+            authentication: () => <MoleculeAuthentication />,
+            features: () => <MoleculeFeatures />,
+            stats: () => <MoleculeStats />,
             default: () => <></>,
           }}
         </Switch>
