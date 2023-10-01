@@ -7,6 +7,7 @@ import UserCard from "./UserCard"
 import { switchesCardMockData, userCardMockData } from "./mocks"
 import TasksCard from "./TasksCard"
 import { ReactNode } from "react"
+import ActionsGridCard from "./ActionsGridCard"
 
 const Wrapper = ({ children }: { children: ReactNode }) => {
   return (
@@ -28,6 +29,15 @@ export const cardComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       children: (
         <Wrapper>
           <ImageTitleDescriptionCard />
+        </Wrapper>
+      ),
+    },
+    {
+      title: "Card with actiosn grid",
+      description: "Card with actions grid description",
+      children: (
+        <Wrapper>
+          <ActionsGridCard />
         </Wrapper>
       ),
     },
