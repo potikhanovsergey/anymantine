@@ -4,6 +4,8 @@ import { CardWrapper } from "src/design-system/Wrappers/CardWrapper"
 import { IconProgressCard } from "./IconProgressCard/IconProgressCard"
 import { StatsGridIcons } from "./StatsGridIcons/StatsGridIcons"
 import { FullWidthWrapper } from "src/design-system/Wrappers/FullWidthWrapper"
+import { StatsRing } from "./StatsRing/StatsRing"
+import { StatsGroup } from "./StatsGroup/StatsGroup"
 
 export const statsComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Stats section",
@@ -30,6 +32,22 @@ export const statsComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       children: (
         <FullWidthWrapper>
           <StatsGridIcons />
+        </FullWidthWrapper>
+      ),
+    },
+    {
+      descriptive: false,
+      children: (
+        <FullWidthWrapper>
+          <StatsRing />
+        </FullWidthWrapper>
+      ),
+    },
+    {
+      descriptive: false,
+      children: (
+        <FullWidthWrapper>
+          <StatsGroup />
         </FullWidthWrapper>
       ),
     },
