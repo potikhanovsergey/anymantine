@@ -43,7 +43,6 @@ export const FeaturesTitle = () => {
     <div key={feature.title}>
       <ThemeIcon
         size={44}
-        radius="md"
         variant="gradient"
         gradient={{
           deg: 133,
@@ -82,7 +81,6 @@ export const FeaturesTitle = () => {
               to: theme.colors[theme.primaryColor][3],
             }}
             size="lg"
-            radius="md"
             mt="xl"
           >
             Get started

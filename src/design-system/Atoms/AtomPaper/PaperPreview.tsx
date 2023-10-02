@@ -4,7 +4,7 @@ import { paperDataLongMock } from "./paperDocsProps"
 const PaperPreview = () => {
   return (
     <SimpleGrid cols={2}>
-      <Paper withBorder={false} shadow="md">
+      <Paper withBorder={false} shadow="md" p="sm">
         {paperDataLongMock}
       </Paper>
       <Paper withBorder>{paperDataLongMock}</Paper>

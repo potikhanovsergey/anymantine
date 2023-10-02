@@ -212,7 +212,6 @@ const BubbleTheme = createTheme({
     Paper: Paper.extend({
       defaultProps: {
         withBorder: true,
-        p: "sm",
       },
     }),
   },

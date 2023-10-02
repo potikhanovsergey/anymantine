@@ -1,8 +1,9 @@
 import { ComponentDocsProps } from "src/design-system/ComponentDocs"
 import { ProgressCard } from "./ProgressCard/ProgressCard"
-import { FullWidthWrapper } from "src/design-system/Wrappers/FullWidthWrapper"
 import { CardWrapper } from "src/design-system/Wrappers/CardWrapper"
-import { ProgressCardColor } from "./ProgressCardColor/ProgressCardColor"
+import { IconProgressCard } from "./IconProgressCard/IconProgressCard"
+import { StatsGridIcons } from "./StatsGridIcons/StatsGridIcons"
+import { FullWidthWrapper } from "src/design-system/Wrappers/FullWidthWrapper"
 
 export const statsComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
   title: "Stats section",
@@ -20,8 +21,16 @@ export const statsComponentDocsProps: Omit<ComponentDocsProps, "preview"> = {
       descriptive: false,
       children: (
         <CardWrapper>
-          <ProgressCardColor />
+          <IconProgressCard />
         </CardWrapper>
+      ),
+    },
+    {
+      descriptive: false,
+      children: (
+        <FullWidthWrapper>
+          <StatsGridIcons />
+        </FullWidthWrapper>
       ),
     },
   ],

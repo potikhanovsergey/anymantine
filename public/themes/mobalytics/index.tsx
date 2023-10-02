@@ -193,7 +193,6 @@ const MobalyticsTheme = createTheme({
     }),
     Paper: Paper.extend({
       defaultProps: {
-        p: "sm",
         withBorder: true,
       },
       styles: (theme) => ({

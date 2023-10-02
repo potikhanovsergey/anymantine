@@ -1,0 +1,16 @@
+.card {
+  position: relative;
+  overflow: visible;
+  padding: var(--mantine-spacing-xl);
+  padding-top: calc(var(--mantine-spacing-xl) * 1.5 + rem(20px));
+}
+
+.icon {
+  position: absolute;
+  top: rem(-20px);
+  left: calc(50% - rem(30px));
+}
+
+.title {
+  line-height: 1;
+}

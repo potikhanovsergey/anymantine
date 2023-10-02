@@ -25,7 +25,7 @@ export const AuthenticationTitle = () => {
         </Anchor>
       </Text>
 
-      <Paper withBorder shadow="md" p={30} mt={30} radius="md">
+      <Paper p={30} mt={30}>
         <TextInput label="Email" placeholder="you@mantine.dev" required />
         <PasswordInput label="Password" placeholder="Your password" required mt="md" />
         <Group justify="space-between" mt="lg">

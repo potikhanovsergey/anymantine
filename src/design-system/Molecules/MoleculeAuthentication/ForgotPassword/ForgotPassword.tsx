@@ -24,7 +24,7 @@ export function ForgotPassword() {
         Enter your email to get a reset link
       </Text>
 
-      <Paper withBorder shadow="md" p={30} radius="md" mt="xl">
+      <Paper p={30} mt="xl">
         <TextInput label="Your email" placeholder="me@mantine.dev" required />
         <Group justify="space-between" mt="lg" className={classes.controls}>
           <Anchor c="dimmed" size="sm" className={classes.control}>

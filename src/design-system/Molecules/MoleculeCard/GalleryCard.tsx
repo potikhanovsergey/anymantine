@@ -20,7 +20,7 @@ const GalleryCard = () => {
   const theme = useMantineTheme()
   return (
     <Card>
-      <Card.Section withBorder inheritPadding py="xs">
+      <Card.Section inheritPadding py="xs">
         <Group justify="space-between">
           <Text fw={500}>Review pictures</Text>
           <Menu width={300} withinPortal position="bottom-end">
